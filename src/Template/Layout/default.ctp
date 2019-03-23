@@ -10,7 +10,7 @@
     <!-- Bootstrap core CSS -->
     <link href="<?php echo $this->request->webroot; ?>assets/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-light" data-gr-c-s-loaded="true">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
         <div class="container">
@@ -28,8 +28,13 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">About</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Services</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  News
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <?= $this->Html->link(__('Add'), ['controller' => 'news', 'action' => 'add'],['class'=>'dropdown-item']) ?>
+                </div>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Login</a>

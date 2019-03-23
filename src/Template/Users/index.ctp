@@ -1,4 +1,3 @@
-
 <div class="row">
   <div class="col-lg-12 text-center">
     <h1 class="mt-5">A Bootstrap 4 Starter Template</h1>
