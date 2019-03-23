@@ -51,6 +51,9 @@ class NewsController extends AppController
         $news = $this->News->newEntity();
         if ($this->request->is('post')) {
             $news = $this->News->patchEntity($news, $this->request->getData());
+            $news->is_approved = "no";
+            $news->created_on = date("Y-m-d h:i:s");
+            $news->created_by = 11; // session user_id
             if ($this->News->save($news)) {
                 $this->Flash->success(__('The news has been saved.'));
 

@@ -60,12 +60,6 @@ class NewsTable extends Table
             ->allowEmptyString('description', false);
 
         $validator
-            ->scalar('cover_image')
-            ->maxLength('cover_image', 255)
-            ->requirePresence('cover_image', 'create')
-            ->allowEmptyFile('cover_image', false);
-
-        $validator
             ->scalar('is_approved')
             ->maxLength('is_approved', 10)
             ->requirePresence('is_approved', 'create')
