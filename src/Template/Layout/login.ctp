@@ -14,7 +14,7 @@
     <link href="<?php echo $this->request->webroot; ?>assets/css/signin.css" rel="stylesheet">
 </head>
 <body class="text-center">
-    <?= $this->Flash->render() ?>
+    
     <?= $this->fetch('content') ?>
     
     <!-- Bootstrap core JavaScript -->
