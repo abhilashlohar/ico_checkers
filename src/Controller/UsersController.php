@@ -156,7 +156,7 @@ class UsersController extends AppController
                             $email = new Email('default');
                             $email->emailFormat('html')
                                 ->setFrom('manoj@ifwworld.com', 'ico')
-                                ->replyTo('manojtanwar953@gmail.com', 'ico')
+                                ->replyTo($userInfo->email, 'ico')
                                 ->setTo($userInfo->email, $userInfo->name)
                                 ->setSubject('Reset your Password for icoss')
                                 ->template('forgot_password')
@@ -198,7 +198,7 @@ class UsersController extends AppController
     public function resetPassword($passwordToken = null)
     {
         $this->set('page_title', 'Reset password');
-        $this->viewBuilder()->setLayout('admin_login');
+        $this->viewBuilder()->setLayout('login');
         
         $userInfo = $this->Users->find()
             ->select(['id', 'name', 'email', 'status', 'token_expiry', 'is_deleted'])
