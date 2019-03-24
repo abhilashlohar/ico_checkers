@@ -32,6 +32,8 @@ class News extends Entity
         'cover_image' => true,
         'is_approved' => true,
         'created_by' => true,
-        'created_on' => true
+        'created_on' => true,
+        'category' => true,
+        'tags' => true,
     ];
 }
