@@ -55,6 +55,15 @@
                   <?= $this->Html->link(__('List'), ['controller' => 'icos', 'action' => 'index'],['class'=>'dropdown-item']) ?>
                 </div>
               </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Airdrops
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <?= $this->Html->link(__('Add'), ['controller' => 'airdrops', 'action' => 'add'],['class'=>'dropdown-item']) ?>
+                  <?= $this->Html->link(__('List'), ['controller' => 'airdrops', 'action' => 'index'],['class'=>'dropdown-item']) ?>
+                </div>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Login</a>
               </li>
