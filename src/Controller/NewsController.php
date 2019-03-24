@@ -12,7 +12,13 @@ use App\Controller\AppController;
  */
 class NewsController extends AppController
 {
-
+	public function initialize()
+    {
+        parent::initialize();
+        
+        
+        $this->Auth->allow(['index', 'add']);
+    }
     /**
      * Index method
      *
