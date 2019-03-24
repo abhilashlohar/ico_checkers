@@ -56,7 +56,7 @@ class UsersTable extends Table
             ->notBlank('name', __('Please enter a valid name.'));
         
         $validator
-            ->email('email', __('Please enter a valid email address.'))
+            //->email('email', __('Please enter a valid email address.'))
             ->maxLength('email', 240, __('Email address must be less than {0} characters.', 240))
             ->requirePresence('email', 'create')
             ->notEmpty('email', __('Please enter a email address.'))

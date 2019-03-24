@@ -27,7 +27,7 @@ class UsersController extends AppController
             return $this->redirect(['controller' => 'Dashboards', 'action' => 'index']);
         }
         
-        $this->Auth->allow(['forgotPassword', 'resetPassword', 'logout','image']);
+        $this->Auth->allow(['forgotPassword', 'resetPassword', 'logout','image','registration']);
     }
     /**
      * Index method
@@ -49,14 +49,16 @@ class UsersController extends AppController
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
 	public function registration()
-    {
-		
-        $this->set('page_title', __('Add New User'));
+    { 
+		$this->set('page_title', __('Add New User'));
+		$this->viewBuilder()->setLayout('login');
         $user = $this->Users->newEntity();
         if($this->request->is('post'))
         {   
             $user = $this->Users->patchEntity($user, $this->request->getData());
 			$user->is_deleted = 	0; 
+			$user->status = 	0; 
+			$user->role = 	'User'; 
             if($this->Users->save($user))
             {
                 $this->Flash->success(__('The user has been added successfully.'));
