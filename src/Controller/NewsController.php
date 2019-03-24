@@ -20,7 +20,12 @@ class NewsController extends AppController
      */
     public function index()
     {
-        $news = $this->paginate($this->News);
+        $news = $this->paginate(
+            $this->News->find()
+            ->order([
+                'published_on'=>"DESC"
+            ])
+        );
 
         $this->set(compact('news'));
     }
@@ -95,16 +100,18 @@ class NewsController extends AppController
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-    public function delete($id = null)
+    public function approve($id = null)
     {
-        $this->request->allowMethod(['post', 'delete']);
+        $this->request->allowMethod(['post']);
         $news = $this->News->get($id);
-        if ($this->News->delete($news)) {
-            $this->Flash->success(__('The news has been deleted.'));
+        $news->is_approved = "yes";
+        $news->published_on = date("Y-m-d h:i s");
+        if ($this->News->save($news)) {
+          $this->Flash->success(__('The news has been approved.'));
         } else {
-            $this->Flash->error(__('The news could not be deleted. Please, try again.'));
+          $this->Flash->error(__('The news could not be approved. Please, try again.'));
         }
 
-        return $this->redirect(['action' => 'index']);
+        return $this->redirect($this->referer());
     }
 }

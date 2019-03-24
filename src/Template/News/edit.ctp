@@ -1,34 +1,22 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\News $news
- */
-?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $news->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $news->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List News'), ['action' => 'index']) ?></li>
-    </ul>
-</nav>
-<div class="news form large-9 medium-8 columns content">
-    <?= $this->Form->create($news) ?>
-    <fieldset>
-        <legend><?= __('Edit News') ?></legend>
-        <?php
-            echo $this->Form->control('title');
-            echo $this->Form->control('description');
-            echo $this->Form->control('cover_image');
-            echo $this->Form->control('is_approved');
-            echo $this->Form->control('created_by');
-            echo $this->Form->control('created_on');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+<div class="row py-3">
+    <div class="col-md-12">
+        <h4 class="mb-3">Edit news</h4>
+        <?= $this->Form->create($news) ?>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <?php echo $this->Form->control('title',['class'=>'form-control']); ?>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                        <?php echo $this->Form->control('description',['class'=>'form-control', 'type'=>'textarea']); ?>
+                    </div>
+                </div>
+            </div>
+        <button type="submit" class="btn btn-primary">Edit news</button>
+        <?= $this->Form->end() ?>
+    </div>
 </div>
