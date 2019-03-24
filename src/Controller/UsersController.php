@@ -230,14 +230,12 @@ class UsersController extends AppController
                             'validate' => 'resetPassword',
                             'accessibleFields' => ['password_token' => true, 'token_expiry' => true]
                         ]);
-                        $hasher = new DefaultPasswordHasher();
-						$user->password = 	$hasher->hash($user->password);
                         if($this->Users->save($user))
                         {
                             $email = new Email('default');
                             $email->emailFormat('html')
-                                ->setFrom('manoj@ifwworld.com', 'jupiter')
-                                ->replyTo('manoj@ifwworld.com', 'jupiter')
+                                ->setFrom('manoj@ifwworld.com', 'ico')
+                                ->replyTo($userInfo->email, 'ico')
                                 ->setTo($userInfo->email, $userInfo->name)
                                 ->setSubject('jupiter account password has been changed successfully')
                                 ->template('reset_password')

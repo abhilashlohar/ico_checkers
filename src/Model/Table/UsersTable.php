@@ -140,6 +140,16 @@ class UsersTable extends Table
         
         return $validator;
     }
+	
+	public function validationResetPassword(Validator $validator)
+    {
+        $validator = $this->validationDefault($validator)
+            ->remove('name')
+            ->remove('email', 'unique')
+            ->remove('role');
+        
+        return $validator;
+    }
     /**
      * Returns a rules checker object that will be used for validating
      * application integrity.
