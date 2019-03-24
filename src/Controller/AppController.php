@@ -48,7 +48,22 @@ class AppController extends Controller
             'enableBeforeRedirect' => false,
         ]);
         $this->loadComponent('Flash');
-
+		$this->loadComponent('Auth', [
+		 'authenticate' => [
+                'Form' => [
+				'fields' => [
+                        'usernames' => 'usernames',
+                        'password' => 'password'
+                    ],
+					'scope' => ['is_deleted' => false],
+                    'userModel' => 'Users'
+                ]
+            ],
+			'loginAction' => ['controller' => 'Users', 'action' => 'login'],
+            'loginRedirect' => ['controller' => 'Users', 'action' => 'index'],
+			'unauthorizedRedirect' => $this->referer(),
+        ]);
+		
         // Time::setJsonEncodeFormat('yyyy-MM-dd HH:mm:ss');  // For any mutable DateTime
         // FrozenTime::setJsonEncodeFormat('yyyy-MM-dd HH:mm:ss');  // For any immutable DateTime
         // Date::setJsonEncodeFormat('yyyy-MM-dd HH:mm:ss');  // For any mutable Date
@@ -59,5 +74,23 @@ class AppController extends Controller
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
          */
         //$this->loadComponent('Security');
+    }
+	
+	protected function _getRandomString($length = 10, $validCharacters = null)
+    {
+        if($validCharacters == '')
+        {
+            $validCharacters = '123456789ABCDEFGHIJKLMNPQRSTUVWXYZ';
+        }
+        
+        $validCharactersCount = strlen($validCharacters);
+        
+        $string = '';
+        for($i=0; $i<$length; $i++)
+        {
+            $string .= $validCharacters[mt_rand(0, $validCharactersCount-1)];
+        }
+        
+        return $string;
     }
 }

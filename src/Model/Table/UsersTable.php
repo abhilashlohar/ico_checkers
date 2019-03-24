@@ -49,80 +49,97 @@ class UsersTable extends Table
     public function validationDefault(Validator $validator)
     {
         $validator
-            ->nonNegativeInteger('id')
-            ->allowEmptyString('id', 'create');
-
-        $validator
-            ->scalar('name')
-            ->maxLength('name', 180)
+            ->scalar('name', __('Please enter a valid name.'))
+            ->maxLength('name', 180, __('Name must be less than {0} characters.', 180))
             ->requirePresence('name', 'create')
-            ->allowEmptyString('name', false);
-
+            ->notEmpty('name', __('Please enter a name.'))
+            ->notBlank('name', __('Please enter a valid name.'));
+        
         $validator
-            ->scalar('username')
-            ->maxLength('username', 100)
-            ->requirePresence('username', 'create')
-            ->allowEmptyString('username', false);
-
-        $validator
-            ->email('email')
+            ->email('email', __('Please enter a valid email address.'))
+            ->maxLength('email', 240, __('Email address must be less than {0} characters.', 240))
             ->requirePresence('email', 'create')
-            ->allowEmptyString('email', false);
-
+            ->notEmpty('email', __('Please enter a email address.'))
+            ->add('email', 'unique', [
+                'rule' => ['validateUnique', ['scope' => 'is_deleted']], 
+                'provider' => 'table',
+                'message' => __('Email address has already been taken. Please use a different one.')
+            ]);
+        
         $validator
-            ->scalar('role')
             ->requirePresence('role', 'create')
-            ->allowEmptyString('role', false);
-
+            ->notEmpty('role', __('Please select a user role.'))
+            ->notBlank('role', __('Please select a user role.'))
+            ->inList('role', ['Admin', 'Editor', 'Student'], __('Please select a valid user role.'));
+        
         $validator
-            ->scalar('mobile')
-            ->maxLength('mobile', 21)
-            ->allowEmptyString('mobile');
-
+            ->scalar('mobile', __('Please enter a valid mobile number.'))
+            ->regex('mobile', '/^(\+[0-9]{1,4}[- ]{0,1})?\(?([0-9]{3})\)?[- ]{0,1}([0-9]{3})[- ]{0,1}([0-9]{4})$/i', __('Please enter a valid mobile number.'))
+            ->maxLength('mobile', 21, __('Mobile number must be less than {0} characters.', 21))
+			->notEmpty('mobile', __('Please enter a mobile number.'));
+           // ->allowEmpty('mobile');
+        
         $validator
-            ->scalar('password')
-            ->maxLength('password', 60)
+            ->scalar('password', __('Please enter a valid password.'))
+            ->lengthBetween('password', [6, 32], __('Passwords must be between 6 and 32 characters long.'))
             ->requirePresence('password', 'create')
-            ->allowEmptyString('password', false);
-
+            ->notEmpty('password', __('Please enter a password.'))
+            ->notBlank('password', __('Please enter a valid password.'));
+        
         $validator
-            ->boolean('status')
+            ->scalar('confirm_password', __('Please enter a valid confirm password.'))
+            ->sameAs('confirm_password', 'password', __('Password and confirm password must be same.'))
+            ->notEmpty('confirm_password', __('Please enter the confirm password.'));
+        
+        $validator
+            ->scalar('current_password', __('Please enter the valid current password.'))
+            ->notEmpty('current_password', 'Please enter the current password.')
+            ->add('current_password', 'matchCurrent', [
+                'rule' => function($entity, $options) {
+                    try
+                    {
+                        $user = $this->get($options['data']['id'], [
+                            'fields' => ['password']
+                        ]);
+                        
+                        if($user)
+                        {
+                            if((new DefaultPasswordHasher)->check($entity, $user->password))
+                            {
+                                return true;
+                            }
+                        }
+                        
+                        return false;
+                    }
+                    catch(RecordNotFoundException $e)
+                    {
+                        return false;
+                    }
+                },
+                'message' => 'The password you supplied is not correct.'
+            ]);
+        
+        $validator
+            ->boolean('status', __('Please select a valid status.'))
             ->requirePresence('status', 'create')
-            ->allowEmptyString('status', false);
+            ->notEmpty('status', __('Please select a status'));
 
-        $validator
-            ->boolean('is_system')
-            ->requirePresence('is_system', 'create')
-            ->allowEmptyString('is_system', false);
-
-        $validator
-            ->dateTime('last_login')
-            ->allowEmptyDateTime('last_login');
-
-        $validator
-            ->scalar('password_token')
-            ->maxLength('password_token', 50)
-            ->allowEmptyString('password_token');
-
-        $validator
-            ->dateTime('token_expiry')
-            ->allowEmptyDateTime('token_expiry');
-
-        $validator
-            ->boolean('is_deleted')
-            ->allowEmptyString('is_deleted');
-
-        $validator
-            ->nonNegativeInteger('created_by')
-            ->allowEmptyString('created_by');
-
-        $validator
-            ->nonNegativeInteger('modified_by')
-            ->allowEmptyString('modified_by');
+        
 
         return $validator;
     }
-
+	
+    public function validationForgotPassword(Validator $validator)
+    {
+        $validator
+            ->email('email', __('Please enter a valid email address.'))
+            ->maxLength('email', 240, __('Email address must be less than {0} characters.', 240))
+            ->requirePresence('email')
+            ->notEmpty('email', __('Please enter a email address.'));
+        
+        return $validator;
+    }
     /**
      * Returns a rules checker object that will be used for validating
      * application integrity.
