@@ -64,13 +64,15 @@
                   <?= $this->Html->link(__('List'), ['controller' => 'airdrops', 'action' => 'index'],['class'=>'dropdown-item']) ?>
                 </div>
               </li>
-			  
+			  <?php if(empty($user_id)){ ?>
               <li class="nav-item">
                 <a class="nav-link" href="<?= $this->url->build(['controller'=>'users','action'=>'login']) ?>">Login</a>
               </li>
-			   <li class="nav-item">
+			  <?php }else{?>
+			  <li class="nav-item">
                 <a class="nav-link" href="<?= $this->url->build(['controller'=>'users','action'=>'logout']) ?>">Logout</a>
               </li>
+			  <?php }?>
             </ul>
           </div>
         </div>
