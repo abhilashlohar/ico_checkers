@@ -36,6 +36,11 @@ class NewsController extends AppController
         $this->set(compact('news'));
     }
 
+    public function feed()
+    {
+
+    }
+
 
     /**
      * View method
