@@ -49,7 +49,7 @@ class NewsController extends AppController
         ];
 		$news = $this->paginate($this->News);
 		pr($news);exit;
-        );
+        
 	}
     /**
      * View method
