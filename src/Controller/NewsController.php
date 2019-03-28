@@ -45,7 +45,8 @@ class NewsController extends AppController
 		$this->paginate = [
             'fields' => ['id', 'title', 'cover_image', 'description', 'created_on'],
             'conditions' => $conditions,
-            'order' => ['News.id' => 'DESC']
+            'order' => ['News.id' => 'DESC'],
+			'limit' => 10
         ];
 		$news = $this->paginate($this->News);
 		pr($news);exit;
