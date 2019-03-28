@@ -63,7 +63,7 @@ Router::scope('/', function (RouteBuilder $routes) {
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
     $routes->connect('/', ['controller' => 'News', 'action' => 'index','home']);
-    $routes->connect('/news-updates', ['controller' => 'News', 'action' => 'user_news']);
+    $routes->connect('/news-updates', ['controller' => 'News', 'action' => 'userNews']);
 	$routes->connect('/users/:action/*', ['controller' => 'Users'], ['routeClass' => 'DashedRoute']);
 	$routes->connect('/:controller/:action', [], ['routeClass' => 'DashedRoute']);
     //s$routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
