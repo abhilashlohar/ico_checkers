@@ -49,9 +49,8 @@ class NewsController extends AppController
 			'limit' => 10
         ];
 		$news = $this->paginate($this->News);
-		pr($news);exit;
-        
-	}
+		$this->set(compact('news'));
+    }
     /**
      * View method
      *
