@@ -60,10 +60,11 @@ class AppController extends Controller
                 ]
             ],
 			'loginAction' => ['controller' => 'Users', 'action' => 'login'],
-            'loginRedirect' => ['controller' => 'Users', 'action' => 'index'],
+            'loginRedirect' => ['controller' => 'News', 'action' => 'index'],
 			'unauthorizedRedirect' => $this->referer(),
         ]);
 		
+		 $this->userId = $this->Auth->user('id');
         // Time::setJsonEncodeFormat('yyyy-MM-dd HH:mm:ss');  // For any mutable DateTime
         // FrozenTime::setJsonEncodeFormat('yyyy-MM-dd HH:mm:ss');  // For any immutable DateTime
         // Date::setJsonEncodeFormat('yyyy-MM-dd HH:mm:ss');  // For any mutable Date
@@ -75,7 +76,14 @@ class AppController extends Controller
          */
         //$this->loadComponent('Security');
     }
-	
+	public function beforeRender(Event $event)
+    {
+        parent::beforeRender($event);
+        
+        $user_id = $this->userId;
+		$this->set(compact('user_id'));
+       
+    }
 	protected function _getRandomString($length = 10, $validCharacters = null)
     {
         if($validCharacters == '')

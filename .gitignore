@@ -12,6 +12,7 @@
 /tmp/sessions/*
 !/tmp/sessions/empty
 /tmp/tests/*
+/tmp/debug_kit.sqlite
 !/tmp/tests/empty
 
 /logs/*
