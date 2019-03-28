@@ -36,22 +36,7 @@ class NewsController extends AppController
         $this->set(compact('news'));
     }
 
-	public function userNews()
-    {
-		$conditions = [
-            'News.is_deleted' => false,
-            'News.is_approved' => 'yes'
-        ];
-		$this->paginate = [
-            'fields' => ['id', 'title', 'cover_image', 'description', 'created_on'],
-            'conditions' => $conditions,
-            'order' => ['News.id' => 'DESC'],
-			'limit' => 10
-        ];
-		$news = $this->paginate($this->News);
-		pr($news);exit;
-        
-	}
+
     /**
      * View method
      *
