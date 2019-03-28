@@ -36,8 +36,9 @@ class NewsController extends AppController
         $this->set(compact('news'));
     }
 
-	public function userNews()
+    public function feed()
     {
+<<<<<<< HEAD
 		$conditions = [
             'News.is_deleted' => false,
             'News.is_approved' => 'yes'
@@ -51,6 +52,12 @@ class NewsController extends AppController
 		$news = $this->paginate($this->News);
 		$this->set(compact('news'));
     }
+=======
+
+    }
+
+
+>>>>>>> origin/master
     /**
      * View method
      *
