@@ -17,7 +17,7 @@ class NewsController extends AppController
         parent::initialize();
         
         
-        $this->Auth->allow(['index', 'add','user_news']);
+        $this->Auth->allow(['index', 'add','userNews']);
     }
     /**
      * Index method
@@ -36,7 +36,7 @@ class NewsController extends AppController
         $this->set(compact('news'));
     }
 
-	public function user_news()
+	public function userNews()
     {
 		$conditions = [
             'News.is_deleted' => false,
