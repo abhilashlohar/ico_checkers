@@ -17,7 +17,7 @@ class NewsController extends AppController
         parent::initialize();
         
         
-        $this->Auth->allow(['index', 'add','userNews']);
+        $this->Auth->allow(['index', 'add','userNews','view']);
     }
     /**
      * Index method
@@ -36,11 +36,21 @@ class NewsController extends AppController
         $this->set(compact('news'));
     }
 
-    public function feed()
+    public function userNews()
     {
-
+		$conditions = [
+            'News.is_deleted' => false,
+            'News.is_approved' => 'yes'
+        ];
+		$this->paginate = [
+            'fields' => ['id', 'title', 'cover_image', 'short_description', 'created_on'],
+            'conditions' => $conditions,
+            'order' => ['News.id' => 'DESC'],
+			'limit' => 10
+        ];
+		$news = $this->paginate($this->News);
+		$this->set(compact('news'));
     }
-
 
     /**
      * View method
