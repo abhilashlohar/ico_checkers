@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\Filesystem\File;
 /**
  * News Controller
  *
@@ -12,6 +12,7 @@ use App\Controller\AppController;
  */
 class NewsController extends AppController
 {
+	const FILE_PATH = 'news'.DS;
 	public function initialize()
     {
         parent::initialize();
@@ -78,15 +79,47 @@ class NewsController extends AppController
         $news = $this->News->newEntity();
         if ($this->request->is('post')) {
             $news = $this->News->patchEntity($news, $this->request->getData());
-            $news->is_approved = "no";
-            $news->created_on = date("Y-m-d h:i:s");
-            $news->created_by = 11; // session user_id
-            if ($this->News->save($news)) {
-                $this->Flash->success(__('The news has been saved.'));
+			$errors = [];
+			if($this->request->getData('cover_image.tmp_name'))
+			{
+				$fileName = strtolower(pathinfo($this->request->getData('cover_image.name'), PATHINFO_FILENAME));
+				$fileExtension = strtolower(pathinfo($this->request->getData('cover_image.name'), PATHINFO_EXTENSION));
+				$news->cover_image = static::FILE_PATH.$fileName.'.'.$fileExtension;
+				
+				$file = new File(static::IMAGE_ROOT.$news->cover_image);
+				$directory = $file->folder();
+				$directory->create(static::IMAGE_ROOT.static::FILE_PATH);
+				
+				$i = 1;
+				while($file->exists())
+				{
+					$news->cover_image = static::FILE_PATH.$fileName.' ('.$i++.').'.$fileExtension;
+					$file = new File(static::IMAGE_ROOT.$news->cover_image);
+				}
+				
+				$success = move_uploaded_file($this->request->getData('cover_image.tmp_name'), static::IMAGE_ROOT.$news->cover_image);
+				if(!$success)
+				{
+					$errors[] = __('Unable to upload cover photo. Please try again.');
+				}
+			}  
+			if(empty($errors))
+            {
+				$news->is_approved = "no";
+				$news->created_on = date("Y-m-d h:i:s");
+				$news->created_by = 11; // session user_id
+				if ($this->News->save($news)) {
+					$this->Flash->success(__('The news has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The news could not be saved. Please, try again.'));
+					return $this->redirect(['action' => 'index']);
+				}else{
+					$this->Flash->error(__('The news could not be saved. Please, try again.'));
+				}
+			}
+			else
+			{
+				$this->Flash->error(implode('<br />', $errors), ['escape' => false]);
+			}
         }
         $this->set(compact('news'));
     }
@@ -103,14 +136,47 @@ class NewsController extends AppController
         $news = $this->News->get($id, [
             'contain' => []
         ]);
+		$newsDb = clone $news;
         if ($this->request->is(['patch', 'post', 'put'])) {
             $news = $this->News->patchEntity($news, $this->request->getData());
-            if ($this->News->save($news)) {
-                $this->Flash->success(__('The news has been saved.'));
+			if($this->request->getData('cover_image.tmp_name'))
+			{
+				$fileName = strtolower(pathinfo($this->request->getData('cover_image.name'), PATHINFO_FILENAME));
+				$fileExtension = strtolower(pathinfo($this->request->getData('cover_image.name'), PATHINFO_EXTENSION));
+				$news->cover_image = static::FILE_PATH.$fileName.'.'.$fileExtension;
+				
+				$file = new File(static::IMAGE_ROOT.$news->cover_image);
+				$directory = $file->folder();
+				$directory->create(static::IMAGE_ROOT.static::FILE_PATH);
+				
+				$i = 1;
+				while($file->exists())
+				{
+					$news->cover_image = static::FILE_PATH.$fileName.' ('.$i++.').'.$fileExtension;
+					$file = new File(static::IMAGE_ROOT.$news->cover_image);
+				}
+				
+				$success = move_uploaded_file($this->request->getData('cover_image.tmp_name'), static::IMAGE_ROOT.$news->cover_image);
+				if(!$success)
+				{
+					$errors[] = __('Unable to upload cover photo. Please try again.');
+				}
+			}else{
+				$news->cover_image = $newsDb->cover_image;
+			}				
+			if(empty($errors))
+            {
+				if ($this->News->save($news)) {
+					$this->Flash->success(__('The news has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The news could not be saved. Please, try again.'));
+					return $this->redirect(['action' => 'index']);
+				}
+				$this->Flash->error(__('The news could not be saved. Please, try again.'));
+			}
+			else
+			{
+				$this->Flash->error(implode('<br />', $errors), ['escape' => false]);
+			}
         }
         $this->set(compact('news'));
     }
