@@ -12,6 +12,7 @@
         </label>
     </div>-->
     <?= $this->Form->button(__('Sign in'), ['class' => 'btn btn-lg btn-primary btn-block']); ?>
-	<?= $this->Html->link(__('Forgot Password?'), ['action' => 'forgotPassword']); ?>
+	<?= $this->Html->link(__('Forgot Password?'), ['action' => 'forgotPassword']); ?><br>
+	<?= $this->Html->link(__('User Registration'), ['action' => 'Registration']); ?>
     <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
 <?= $this->Form->end() ?>
