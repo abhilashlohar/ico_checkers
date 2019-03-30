@@ -4,6 +4,7 @@
 /config/app.php
 
 /tmp
+/tmp/*
 
 /logs/*
 !/logs/empty
