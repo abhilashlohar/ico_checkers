@@ -31,6 +31,7 @@ use Cake\I18n\FrozenTime;
 class AppController extends Controller
 {
 
+	 const IMAGE_ROOT = WWW_ROOT.'img'.DS;
     /**
      * Initialization hook method.
      *
@@ -75,6 +76,8 @@ class AppController extends Controller
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
          */
         //$this->loadComponent('Security');
+		$imageRoot = static::IMAGE_ROOT;  
+        $this->set(compact('imageRoot'));
     }
 	public function beforeRender(Event $event)
     {
