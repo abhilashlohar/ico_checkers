@@ -96,7 +96,13 @@ class UsersController extends AppController
                         $this->Users->save($currentUser);
                     }
                     
-                    return $this->redirect($this->Auth->redirectUrl());
+                    if($this->Auth->user('role')!='User')
+					{ 
+				        return $this->redirect(['Controller'=>'Dashboards','action'=>'index']);
+					}
+					else{
+						return $this->redirect(['Controller'=>'Home','action'=>'index']);
+					}
                 }
                 else
                 {

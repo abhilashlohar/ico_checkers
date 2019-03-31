@@ -61,7 +61,7 @@ class AppController extends Controller
                 ]
             ],
 			'loginAction' => ['controller' => 'Users', 'action' => 'login'],
-            'loginRedirect' => ['controller' => 'News', 'action' => 'index'],
+            //'loginRedirect' => ['controller' => 'News', 'action' => 'index'],
 			'unauthorizedRedirect' => $this->referer(),
         ]);
 		

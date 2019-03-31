@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use Cake\Core\Configure;
@@ -9,9 +10,9 @@ use Cake\Utility\Hash;
 use Cake\Filesystem\File;
 use Cake\I18n\Time;
 
-class DashboardsController extends AppController
-{
-	 public function initialize() {
+class HomeController extends AppController {
+
+    public function initialize() {
         parent::initialize();
         $this->Auth->allow(['index']);
     }
@@ -20,4 +21,5 @@ class DashboardsController extends AppController
 	{
         $this->set(compact('imagePath'));
     }
+
 }
