@@ -2,7 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
-
+use Cake\I18n\Time;
 /**
  * Airdrops Controller
  *
@@ -12,7 +12,13 @@ use App\Controller\AppController;
  */
 class AirdropsController extends AppController
 {
-
+	public function initialize()
+    {
+        parent::initialize();
+        
+        
+        $this->Auth->allow(['airdropUserView','view']);
+    }
     /**
      * Index method
      *
@@ -20,9 +26,10 @@ class AirdropsController extends AppController
      */
     public function index()
     {
+		$time = new Time();
         $airdrops = $this->paginate($this->Airdrops);
 
-        $this->set(compact('airdrops'));
+        $this->set(compact('airdrops','time'));
     }
 
     /**
@@ -104,5 +111,20 @@ class AirdropsController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+	
+	public function airdropUserView()
+    {
+		$conditions = [
+            'Airdrops.is_deleted' => false
+        ];
+		$this->paginate = [
+            'fields' => ['id', 'name', 'link', 'country', 'email', 'created_on'],
+            'conditions' => $conditions,
+            'order' => ['Airdrops.id' => 'DESC'],
+			'limit' => 10
+        ];
+		$airdrops = $this->paginate($this->Airdrops);
+		$this->set(compact('airdrops'));
     }
 }

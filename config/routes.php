@@ -64,9 +64,10 @@ Router::scope('/', function (RouteBuilder $routes) {
      */
     $routes->connect('/', ['controller' => 'News', 'action' => 'index']);
     $routes->connect('/news-updates', ['controller' => 'News', 'action' => 'userNews']);
+    $routes->connect('/airdrop', ['controller' => 'Airdrops', 'action' => 'airdropUserView']);
 	$routes->connect('/users/:action/*', ['controller' => 'Users'], ['routeClass' => 'DashedRoute']);
 	$routes->connect('/:controller/:action', [], ['routeClass' => 'DashedRoute']);
-    //s$routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+    //$routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.

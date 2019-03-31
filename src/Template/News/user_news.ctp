@@ -20,7 +20,7 @@ $this->Html->css(['blog'], ['block' => true]);
 				  </h3>
 				  <div class="mb-1 text-muted"><?php echo date('d M, Y',strtotime($news1->created_on))?></div>
 				  <p class="card-text mb-auto"><?= $news1->short_description ?></p>
-				  <a href="<?= $this->url->build(['controller'=>'News','actione'=>'view/'.$news1->id])?>">Continue reading</a>
+				  <a href="<?= $this->Url->build(['controller'=>'News','action'=>'view/'.$news1->id])?>">Continue reading</a>
 				</div>
 				<?php echo $this->html->image($news1->cover_image,['class'=>'card-img-right flex-auto  d-md-blocks']);?>
 			  </div>

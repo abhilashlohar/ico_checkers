@@ -83,7 +83,7 @@
               </li>
               <?php }else{ ?>
 			  <li class="nav-item">
-                <a href="#" class="nav-link">Airdrops</a>
+                <a href="<?= $this->url->build('/airdrop');?>" class="nav-link">Airdrops</a>
               </li>
 			  <?php } if(empty($user_id)){ ?>
                 <li class="nav-item">

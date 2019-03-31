@@ -18,7 +18,7 @@
                     <td><?= h($airdrop->link) ?></td>
                     <td><?= h($airdrop->country) ?></td>
                     <td><?= h($airdrop->email) ?></td>
-                    <td><?= h($airdrop->created_on->format('d-m-Y h:i A')) ?></td>
+                    <td><?= $this->Time->format($airdrop->created_on, 'dd MMM yyyy hh:mm a') ?></td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
