@@ -15,7 +15,7 @@
                 </div>
 				<div class="col-md-3">
                     <div class="form-group">
-                      <?php echo $this->Form->control('cover_image',['class'=>'form-control','type'=>'file']); ?>
+                      <?php echo $this->Form->control('cover_image',['class'=>'form-control-file','type'=>'file']); ?>
                     </div>
                 </div>
             </div>
