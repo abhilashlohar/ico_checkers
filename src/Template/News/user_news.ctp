@@ -22,8 +22,7 @@ $this->Html->css(['blog'], ['block' => true]);
 				  <p class="card-text mb-auto"><?= $news1->short_description ?></p>
 				  <a href="<?= $this->url->build(['controller'=>'News','actione'=>'view/'.$news1->id])?>">Continue reading</a>
 				</div>
-				<img class="card-img-right flex-auto d-none d-md-block" data-src="<?php echo WWW_ROOT.'img/'.$news1->cover_image; ?>" alt="Card image cap">
-				<?php //echo $this->html->image($news1->cover_image,['class'=>'card-img-right flex-auto d-none d-md-blocks']);?>
+				<?php echo $this->html->image($news1->cover_image,['class'=>'card-img-right flex-auto  d-md-blocks']);?>
 			  </div>
 			</div>
 			<?php }} ?>
