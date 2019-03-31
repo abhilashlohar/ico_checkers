@@ -4,6 +4,7 @@
     }
 </style>
 <?= $this->Form->create($user, ['class' => 'form-signin']) ?>
+	 <?= $this->Flash->render() ?>
     <h2 class="h3 mb-3 font-weight-normal">User Registration</h2>
 
 	<?= $this->Form->control('name', ['label' => false, 'class' => 'form-control', 'placeholder'=>'Full Name']); ?>

@@ -66,6 +66,7 @@ class AppController extends Controller
         ]);
 		
 		 $this->userId = $this->Auth->user('id');
+		 $this->role = $this->Auth->user('role'); 
         // Time::setJsonEncodeFormat('yyyy-MM-dd HH:mm:ss');  // For any mutable DateTime
         // FrozenTime::setJsonEncodeFormat('yyyy-MM-dd HH:mm:ss');  // For any immutable DateTime
         // Date::setJsonEncodeFormat('yyyy-MM-dd HH:mm:ss');  // For any mutable Date
@@ -84,7 +85,8 @@ class AppController extends Controller
         parent::beforeRender($event);
         
         $user_id = $this->userId;
-		$this->set(compact('user_id'));
+        $user_role = $this->role; 
+		$this->set(compact('user_id','user_role'));
        
     }
 	protected function _getRandomString($length = 10, $validCharacters = null)

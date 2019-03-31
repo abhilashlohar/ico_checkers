@@ -7,6 +7,6 @@
          
    
 	<?= $this->Form->button(__('Continue'), ['class' => 'btn btn-lg btn-primary btn-block']); ?>
-	<?= $this->Html->link(__('Login'), ['action' => 'login']); ?>
+	<?= $this->Html->link(__('Login'), ['action' => 'login']); ?> | <?= $this->Html->link(__('Registration'), ['action' => 'Registration']); ?> 
     <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
 <?= $this->Form->end() ?>

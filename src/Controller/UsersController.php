@@ -59,6 +59,7 @@ class UsersController extends AppController
 			$user->is_deleted = 	0; 
 			$user->status = 	0; 
 			$user->role = 	'User'; 
+			$user->username = 	$user->name; 
             if($this->Users->save($user))
             {
                 $this->Flash->success(__('The user has been added successfully.'));

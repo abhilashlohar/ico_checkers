@@ -21,14 +21,17 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
+		
               <li class="nav-item active">
                 <a class="nav-link" href="#">Home
                   <span class="sr-only">(current)</span>
                 </a>
               </li>
+		
               <li class="nav-item">
                 <a class="nav-link" href="#">About</a>
               </li>
+			  <?php if($user_role=='Admin' || $user_role=='Staff'){ ?>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   News
@@ -36,8 +39,15 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <?= $this->Html->link(__('Add'), ['controller' => 'news', 'action' => 'add'],['class'=>'dropdown-item']) ?>
                   <?= $this->Html->link(__('List'), ['controller' => 'news', 'action' => 'index'],['class'=>'dropdown-item']) ?>
-                </div>
+				</div>
               </li>
+			  <?php }else{ ?>
+			  <li class="nav-item">
+                <a href="<?= $this->Url->Build('/news-updates')?>" class="nav-link">News</a>
+              </li>
+			  <?php } 
+			  if($user_role=='Admin' || $user_role=='Staff'){ 
+			  ?>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Earn Money
@@ -47,6 +57,11 @@
                   <?= $this->Html->link(__('List'), ['controller' => 'tasks', 'action' => 'index'],['class'=>'dropdown-item']) ?>
                 </div>
               </li>
+			  <?php }else{ ?>
+			  <li class="nav-item">
+                <a href="#" class="nav-link">Earn Money</a>
+              </li>
+			  <?php } if($user_role=='Admin' || $user_role=='Staff'){ ?>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   ICO
@@ -56,6 +71,7 @@
                   <?= $this->Html->link(__('List'), ['controller' => 'icos', 'action' => 'index'],['class'=>'dropdown-item']) ?>
                 </div>
               </li>
+			  <?php }  if($user_role=='Admin' || $user_role=='Staff'){  ?>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Airdrops
@@ -65,7 +81,11 @@
                   <?= $this->Html->link(__('List'), ['controller' => 'airdrops', 'action' => 'index'],['class'=>'dropdown-item']) ?>
                 </div>
               </li>
-              <?php if(empty($user_id)){ ?>
+              <?php }else{ ?>
+			  <li class="nav-item">
+                <a href="#" class="nav-link">Airdrops</a>
+              </li>
+			  <?php } if(empty($user_id)){ ?>
                 <li class="nav-item">
                   <a class="nav-link" href="<?= $this->url->build(['controller'=>'users','action'=>'login']) ?>">Login</a>
                 </li>
