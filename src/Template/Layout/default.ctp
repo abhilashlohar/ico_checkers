@@ -9,6 +9,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo $this->request->webroot; ?>assets/css/bootstrap.min.css" rel="stylesheet">
+	<?= $this->Html->css(['custom'],['type' => 'text/css','media' => 'all']) ?>
 </head>
 <body class="bg-light" data-gr-c-s-loaded="true">
 
@@ -59,7 +60,7 @@
               </li>
 			  <?php }else{ ?>
 			  <li class="nav-item">
-                <a href="#" class="nav-link">Earn Money</a>
+                <a href="<?= $this->Url->Build('/earn-money') ?>" class="nav-link">Earn Money</a>
               </li>
 			  <?php } if($user_role=='Admin' || $user_role=='Staff'){ ?>
               <li class="nav-item dropdown">
@@ -94,7 +95,10 @@
                   <a class="nav-link" href="<?= $this->url->build(['controller'=>'users','action'=>'logout']) ?>">Logout</a>
                 </li>
               <?php }?>
-            </ul>
+			  <li class="float-left">
+					236<?php echo $this->Html->Image('109969157-thin-line-wallet-icon-on-white-background.jpg',['width'=>'25','height'=>'25','class'=>'wallet'])?>
+			  </li>
+        </ul>
       </div>
     </div>
   </nav>

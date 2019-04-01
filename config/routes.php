@@ -64,6 +64,7 @@ Router::scope('/', function (RouteBuilder $routes) {
      */
     $routes->connect('/', ['controller' => 'News', 'action' => 'index']);
     $routes->connect('/news-updates', ['controller' => 'News', 'action' => 'userNews']);
+    $routes->connect('/earn-money', ['controller' => 'Tasks', 'action' => 'earnMoney']);
     $routes->connect('/airdrop', ['controller' => 'Airdrops', 'action' => 'airdropUserView']);
 	$routes->connect('/users/:action/*', ['controller' => 'Users'], ['routeClass' => 'DashedRoute']);
 	$routes->connect('/:controller/:action', [], ['routeClass' => 'DashedRoute']);

@@ -14,7 +14,7 @@
             <p>
                 <span>Created on: </span>
                 <span>
-                    <?= $task->created_on->format('d-m-Y h:i A') ?>
+                   <?= $this->Time->format($task->created_on, 'd-m-Y h:i A') ?> <?php  //$task->created_on->format('d-m-Y h:i A') ?>
                 </span>
             </p>
           </td>

@@ -4,13 +4,18 @@ namespace App\Model\Entity;
 use Cake\ORM\Entity;
 
 /**
- * Task Entity
+ * TaskProof Entity
  *
  * @property int $id
- * @property string $title
- * @property string $description
+ * @property int $user_id
+ * @property string $message
+ * @property string $image
+ * @property int $task_id
+ *
+ * @property \App\Model\Entity\User $user
+ * @property \App\Model\Entity\Task $task
  */
-class Task extends Entity
+class TaskProof extends Entity
 {
 
     /**
@@ -23,9 +28,11 @@ class Task extends Entity
      * @var array
      */
     protected $_accessible = [
-        'title' => true,
-        'short_description' => true,
+        'user_id' => true,
+        'message' => true,
         'image' => true,
-        'message' => true
+        'task_id' => true,
+        'user' => true,
+        'task' => true
     ];
 }

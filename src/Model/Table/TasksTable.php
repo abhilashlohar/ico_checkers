@@ -34,6 +34,10 @@ class TasksTable extends Table
         $this->setTable('tasks');
         $this->setDisplayField('title');
         $this->setPrimaryKey('id');
+		
+		$this->hasMany('TaskProofs', [
+            'foreignKey' => 'task_id',
+        ]);
     }
 
     /**
