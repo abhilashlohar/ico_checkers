@@ -3,10 +3,11 @@
 	<table class="table">
 	  <thead>
 		<tr>
-		  <th>Task</th>
-		  <th>Message</th>
 		  <th>Image</th>
+		  <th>Message</th>
+		  <th>Task</th>
 		  <th>User</th>
+		  <th>Status</th>
 		  <th>Action</th>
 		</tr>
 	  </thead>
@@ -14,16 +15,27 @@
 		<?php foreach ($task_proofs as $task_proof): ?>
 		<tr>
 		  <td>
+			<?= $this->Html->Image(str_replace("\\","/",$task_proof->image),['height'=>90,'width'=>90])?>
+		  </td>
+		  <td>
+		  	<?= $task_proof->message ?>
+		  </td>
+		  <td>
 		  	<?= $task_proof->task->title ?>
 		  </td>
 		  <td>
-			<?php if($news->is_approved=="no"){
+		  	<?= $task_proof->user->name ?>
+		  </td>
+		  <td>
+		  	<?php if($task_proof->is_approved==1){ echo 'Approved'; }else{ echo 'Pending';} ?>
+		  </td>
+		  <td>
+			<?php if($task_proof->is_approved!=1){
 			echo $this->Form->postLink(
 					__('Approve'),
-					['controller' => 'news', 'action' => 'approve', $news->id],
+					['controller' => 'Tasks', 'action' => 'approve', $task_proof->id],
 					['confirm' => __('Are you sure you want to approve?')]
 				);
-			echo $this->Html->link(__(' Edit'), ['controller' => 'news', 'action' => 'edit', $news->id]);
 			} ?>
 		  </td>
 		</tr>
