@@ -133,6 +133,17 @@ class TasksController extends AppController
 					  ->first();
         $this->set(compact('task','task_proofs'));
     }
+	
+	public function proofApproval($id = null)
+    {
+		$task_proofs = $this->Tasks->TaskProofs->find()
+		                ->contain(['Tasks'])
+						->where(['Tasks.is_deleted'=>false])
+						->order(['TaskProofs.id'=>'DESC']);
+						
+		$this->set(compact('task_proofs'));
+	}
+	
     public function edit($id = null)
     {
         $task = $this->Tasks->get($id, [
