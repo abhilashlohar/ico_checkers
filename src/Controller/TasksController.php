@@ -133,6 +133,30 @@ class TasksController extends AppController
 					  ->first();
         $this->set(compact('task','task_proofs'));
     }
+	
+	public function proofApproval($id = null)
+    {
+		$task_proofs = $this->paginate($this->Tasks->TaskProofs->find()
+		                ->contain(['Tasks','Users'])
+						->where(['Tasks.is_deleted'=>false])
+						->order(['TaskProofs.id'=>'DESC']));
+						
+		$this->set(compact('task_proofs'));
+	}
+	
+	public function approve($id = null)
+    {
+        $this->request->allowMethod(['post']);
+        $proof = $this->Tasks->TaskProofs->get($id);
+        $proof->is_approved = 1;
+        if ($this->Tasks->TaskProofs->save($proof)) {
+          $this->Flash->success(__('The proof has been approved.'));
+        } else {
+          $this->Flash->error(__('The proof could not be approved. Please, try again.'));
+        }
+
+        return $this->redirect($this->referer());
+    }
     public function edit($id = null)
     {
         $task = $this->Tasks->get($id, [
