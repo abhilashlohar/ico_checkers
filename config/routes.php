@@ -62,12 +62,15 @@ Router::scope('/', function (RouteBuilder $routes) {
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
-    $routes->connect('/', ['controller' => 'News', 'action' => 'index']);
+    $routes->connect('/news', ['controller' => 'News', 'action' => 'index']);
     $routes->connect('/news-updates', ['controller' => 'News', 'action' => 'userNews']);
     $routes->connect('/earn-money', ['controller' => 'Tasks', 'action' => 'earnMoney']);
     $routes->connect('/airdrop', ['controller' => 'Airdrops', 'action' => 'airdropUserView']);
 	$routes->connect('/users/:action/*', ['controller' => 'Users'], ['routeClass' => 'DashedRoute']);
 	$routes->connect('/:controller/:action', [], ['routeClass' => 'DashedRoute']);
+	$routes->connect('/', ['controller' => 'News', 'action' => 'home']);
+    $routes->connect('/sign-in', ['controller' => 'users', 'action' => 'login']);
+    $routes->connect('/sign-up', ['controller' => 'users', 'action' => 'registration']);
     //$routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
 
     /**

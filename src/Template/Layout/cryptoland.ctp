@@ -93,10 +93,10 @@
 				<option value="en">en</option>
 			</select>
 			<div class="sign-in-wrap">
-				<a href="#" class="btn-sign-in">Sign in</a>
+				<a href="<?= $this->Url->Build('/sign-in')?>" class="btn-sign-in">Sign in</a>
 			</div>
 			<div class="sign-up-wrap">
-				<a href="#" class="btn-sign-up">Sign up</a>
+				<a href="<?= $this->Url->Build('/sign-up')?>" class="btn-sign-up">Sign up</a>
 			</div>
 		</div>
 

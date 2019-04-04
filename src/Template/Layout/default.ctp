@@ -24,13 +24,7 @@
         <ul class="navbar-nav ml-auto">
 		
               <li class="nav-item active">
-                <a class="nav-link" href="#">Home
-                  <span class="sr-only">(current)</span>
-                </a>
-              </li>
-		
-              <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a href="<?= $this->Url->Build('/')?>" class="nav-link">Home</a>
               </li>
 			  <?php if($user_role=='Admin' || $user_role=='Staff'){ ?>
               <li class="nav-item dropdown">
@@ -96,8 +90,8 @@
                   <a class="nav-link" href="<?= $this->url->build(['controller'=>'users','action'=>'logout']) ?>">Logout</a>
                 </li>
               <?php }?>
-			  <li class="float-left">
-					236<?php echo $this->Html->Image('109969157-thin-line-wallet-icon-on-white-background.jpg',['width'=>'25','height'=>'25','class'=>'wallet'])?>
+			  <li  class="nav-item">
+					<a href="#" class="nav-link">Wallet: 236</a>
 			  </li>
         </ul>
       </div>
