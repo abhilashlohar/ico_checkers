@@ -202,4 +202,8 @@ class NewsController extends AppController
 
         return $this->redirect($this->referer());
     }
+
+    public function home(){
+        $this->viewBuilder()->setLayout('cryptoland');
+    }
 }
