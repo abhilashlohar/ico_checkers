@@ -20,14 +20,14 @@ class UsersController extends AppController
 	public function initialize()
     {
         parent::initialize();
-        $passed = ['forgotPassword', 'resetPassword', 'login', 'logout', 'changeProfile', 'changePassword', 'registration'];
+        $passed = ['forgotPassword', 'resetPassword', 'login', 'logout', 'changeProfile', 'changePassword', 'registration','approveemail'];
         if(!in_array($this->request->getParam('action'), $passed) )
         {
             //$this->Flash->error(__('You are not authorized to access that location.'));
             return $this->redirect(['controller' => 'Dashboards', 'action' => 'index']);
         }
         
-        $this->Auth->allow(['forgotPassword', 'resetPassword', 'logout','image','registration']);
+        $this->Auth->allow(['forgotPassword', 'resetPassword', 'logout','image','registration','approveemail']);
     }
     /**
      * Index method
@@ -61,10 +61,12 @@ class UsersController extends AppController
 			$user->status = 	0; 
 			$user->role = 	'User'; 
 			$user->username = 	$user->name; 
+			$str = $this->_getRandomString(6).'-'.$this->_getRandomString(6).'-ico'.$this->_getRandomString(6).'-'.$this->_getRandomString(6);
+			$user->password_token =  $str;
 			
             if($this->Users->save($user))
             {
-				$str = $this->_getRandomString(6).'-'.$this->_getRandomString(6).'-'.$this->_getRandomString(6).'-'.$this->_getRandomString(6);
+				
 				$email = new Email('default');
 				$email->emailFormat('html')
 					->setFrom('manoj@ifwworld.com', 'ico')
@@ -140,8 +142,46 @@ class UsersController extends AppController
         return $this->redirect($this->Auth->logout());
     }
     
-    public function approveEmail()
+    public function approveemail($passwordToken=null)
 	{
+		$this->set('page_title', 'Approve Email');
+      
+        $userInfo = $this->Users->find()
+            ->select(['id', 'name', 'email', 'status', 'token_expiry', 'is_deleted'])
+            ->where([
+                'Users.password_token' => $passwordToken,
+                'Users.is_deleted' => false
+            ])
+            ->first();
+        
+        if($userInfo)
+        {   
+            if($userInfo->status==false)
+            {    
+                 $userInfo->status = 1;
+				 $userInfo->password_token = null;
+				
+				 if($this->Users->save($userInfo))
+				 {
+					$this->Flash->success(__('Your email approval  successfully.Plz login.'));
+						return $this->redirect(['action' => 'login']);
+				 }
+				 else{
+						$this->Flash->error(__('Your email approval  unsuccessfull. Please contact site administrator.'));
+						return $this->redirect(['action' => 'login']);
+				 }
+            }
+            else
+            {
+                $this->Flash->error(__('Your account is suspended. Please contact site administrator.'));
+                return $this->redirect(['action' => 'login']);
+            }
+        }
+        else
+        {
+            $this->Flash->error(__('Token supplied is invalid.'));
+            return $this->redirect(['action' => 'forgotPassword']);
+        }
 		exit;
 	}
     public function forgotPassword()
@@ -169,7 +209,7 @@ class UsersController extends AppController
                     {
                         $time = new Time();
                         $time->modify('+3 Days');
-                        
+                       
                         $user2 = $this->request
                             ->withData('password_token', $this->_getRandomString(6).'-'.$this->_getRandomString(6).'-'.
                                 crypt($userInfo->id, 'ico').'-'.$this->_getRandomString(6).'-'.$this->_getRandomString(6))

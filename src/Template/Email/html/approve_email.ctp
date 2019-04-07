@@ -1,5 +1,5 @@
 <?php
-$URL = $this->Url->build(['controller' => 'Users', 'action' => 'approveEmail', $str], true);
+$URL = $this->Url->build(['controller' => 'Users', 'action' => 'approveemail', $str], true);
 ?>
 <p>
     Hi <?= $name ?>,<br /><br />
