@@ -60,7 +60,6 @@ class UsersController extends AppController
 			$user->is_deleted = 	0; 
 			$user->status = 	0; 
 			$user->role = 	'User'; 
-			$user->username = 	$user->name; 
 			$str = $this->_getRandomString(6).'-'.$this->_getRandomString(6).'-ico'.$this->_getRandomString(6).'-'.$this->_getRandomString(6);
 			$user->password_token =  $str;
 			
