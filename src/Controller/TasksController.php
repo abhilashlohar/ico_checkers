@@ -21,7 +21,8 @@ class TasksController extends AppController
      */
     public function index()
     {
-        $tasks = $this->paginate($this->Tasks);
+		$tasks = $this->paginate($this->Tasks->find()
+		                         ->where(['user_id'=>$this->Auth->user('id')]));
 
         $this->set(compact('tasks','earnMoney'));
     }
@@ -36,7 +37,7 @@ class TasksController extends AppController
     public function view($id = null)
     {
         $task = $this->Tasks->get($id, [
-            'contain' => []
+            'conditions' => ['user_id'=>$this->Auth->user('id')]
         ]);
 
         $this->set('task', $task);
@@ -54,6 +55,7 @@ class TasksController extends AppController
             $task = $this->Tasks->patchEntity($task, $this->request->getData());
 			$time = new Time();
 			$task->created_on = $time->format('Y-m-d H:i:s');
+			$task->user_id    = $this->Auth->user('id');
             if ($this->Tasks->save($task)) {
                 $this->Flash->success(__('The task has been saved.'));
 

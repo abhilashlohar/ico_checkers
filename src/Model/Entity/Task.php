@@ -28,7 +28,8 @@ class Task extends Entity
         'image' => true,
         'message' => true,
         'minimum_point' => true,
-        'description' => true
+        'description' => true,
+        'user_id' => true
 		
     ];
 }
