@@ -26,6 +26,9 @@ class Task extends Entity
         'title' => true,
         'short_description' => true,
         'image' => true,
-        'message' => true
+        'message' => true,
+        'minimum_point' => true,
+        'description' => true
+		
     ];
 }

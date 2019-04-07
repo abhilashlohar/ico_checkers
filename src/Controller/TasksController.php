@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Filesystem\File;
+use Cake\I18n\Time;
 /**
  * Tasks Controller
  *
@@ -51,6 +52,8 @@ class TasksController extends AppController
         $task = $this->Tasks->newEntity();
         if ($this->request->is('post')) {
             $task = $this->Tasks->patchEntity($task, $this->request->getData());
+			$time = new Time();
+			$task->created_on = $time->format('Y-m-d H:i:s');
             if ($this->Tasks->save($task)) {
                 $this->Flash->success(__('The task has been saved.'));
 
@@ -164,6 +167,7 @@ class TasksController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $task = $this->Tasks->patchEntity($task, $this->request->getData());
+			
             if ($this->Tasks->save($task)) {
                 $this->Flash->success(__('The task has been saved.'));
 
