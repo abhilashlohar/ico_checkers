@@ -54,10 +54,13 @@
 	<div class="preloader"></div>
 
 	<header class="header">
-		<a href="#" class="logo">
+		<!-- <a href="#" class="logo">
 			<div class="logo__img"></div>
 			<div class="logo__title">Cryptoland</div>
-		</a>
+		</a> -->
+		<a class="navbar-brand" href="<?= $this->Url->Build('/')?>">
+    	<?php echo $this->Html->Image('/img/logo.png',['style' => 'height: 35px;']); ?>
+    </a>
 
 		<ul class="menu">
 			<li class="menu__item">
@@ -82,7 +85,7 @@
 				<a href="#team" class="menu__link">Team</a>
 			</li>
 			<li class="menu__item">
-				<a href="#faq" class="menu__link">FAQ</a>
+				<a href="<?= $this->Url->Build('/news-updates')?>" class="menu__link">News</a>
 			</li>
 		</ul>
 

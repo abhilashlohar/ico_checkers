@@ -14,9 +14,11 @@
 <body class="bg-light" data-gr-c-s-loaded="true">
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+  <nav class="navbar navbar-expand-lg navbar-dark static-top ic_header_bg" style="background: linear-gradient(to right, #9668a6, #e58ea0);">
     <div class="container">
-      <a class="navbar-brand" href="<?= $this->Url->Build('/')?>">ICO Checkers</a>
+      <a class="navbar-brand" href="<?= $this->Url->Build('/')?>">
+        <?php echo $this->Html->Image('/img/logo.png',['style' => 'height: 35px;']); ?>
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
