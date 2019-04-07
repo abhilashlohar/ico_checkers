@@ -82,8 +82,24 @@ class AppController extends Controller
     }
 	public function beforeRender(Event $event)
     {
-        parent::beforeRender($event);
-        
+        parent::beforeRender($event); 
+		if($this->role=='Admin')
+		{   //echo $this->request->getParam('action');
+		    //echo $this->request->getParam('controller');
+			$admin_controllers=['News','Tasks','Airdrops', 'Home','Icos'];
+			$admin_actions=['add','edit','index','approve','view','proof-approval'];
+			/* if(in_array($this->request->getParam('action'), $admin_actions) && in_array($this->request->getParam('controller'), $admin_controllers))
+			{}else{
+				$this->Flash->error(__('You are not authorized to access that location.'));
+				return $this->redirect(['controller' => 'Dashboards', 'action' => 'index']);
+			} */
+			
+		}
+		else{
+			$user_controllers=['News','Tasks','Airdrops'];
+			$user_actions=['news-updates','earn-money','task-submit','airdropUserView',''];
+		}
+       // pr($this->request->params['action']);exit;
         $user_id = $this->userId;
         $user_role = $this->role; 
 		$this->set(compact('user_id','user_role'));

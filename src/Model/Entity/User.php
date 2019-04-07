@@ -52,7 +52,7 @@ class User extends Entity
         'created_by' => true,
         'modified_by' => true,
         'created' => true,
-        'minimum_point' => true
+        'minimum_point' => true,
         'modified' => true
     ];
 
