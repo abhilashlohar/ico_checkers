@@ -35,3 +35,8 @@
 .ic_separator {
 	color: #FFF;
 }
+
+
+li.active > a {
+    border-bottom: solid 2px #FFF;
+}

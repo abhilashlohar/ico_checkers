@@ -20,7 +20,7 @@ $this->Html->css(['blog'], ['block' => true]);
 				  </h3>
 				  <div class="mb-1 text-muted"><?php echo date('d M, Y',strtotime($task->created_on))?></div>
 				  <p class="card-text mb-auto"><?= $task->short_description ?></p>
-				  <a href="<?= $this->Url->build(['controller'=>'Tasks','action'=>'taskSubmit',$task->id])?>">Continue reading</a>
+				  <a href="<?= $this->Url->build(['controller'=>'Tasks','action'=>'taskSubmit',$task->id])?>" class="btn ic_button">Submit Task ></a>
 				</div>
 				
 			  </div>
