@@ -3,7 +3,7 @@
     <?= $this->element('logo-part'); ?>
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
     <label for="inputEmail" class="sr-only">Email address</label>
-	<?= $this->Form->control('username', ['label' => false, 'class' => 'form-control', 'placeholder' => __(' Username'),'autocomplete'=>'on','required'=>'required']) ?>
+	<?= $this->Form->control('email', ['label' => false, 'class' => 'form-control', 'placeholder' => __(' Username'),'autocomplete'=>'on','required'=>'required']) ?>
     <label for="inputPassword" class="sr-only">Password</label>
     <?= $this->Form->control('password', ['label' => false, 'class' => 'form-control', 'placeholder' => __('Password'), 'type' => 'password','autocomplete'=>'off','required'=>'required']) ?>
     <!--<div class="checkbox mb-3">

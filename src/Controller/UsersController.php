@@ -23,7 +23,7 @@ class UsersController extends AppController
         $passed = ['forgotPassword', 'resetPassword', 'login', 'logout', 'changeProfile', 'changePassword', 'registration'];
         if(!in_array($this->request->getParam('action'), $passed) )
         {
-            $this->Flash->error(__('You are not authorized to access that location.'));
+            //$this->Flash->error(__('You are not authorized to access that location.'));
             return $this->redirect(['controller' => 'Dashboards', 'action' => 'index']);
         }
         
@@ -55,13 +55,29 @@ class UsersController extends AppController
         $user = $this->Users->newEntity();
         if($this->request->is('post'))
         {   
+			
             $user = $this->Users->patchEntity($user, $this->request->getData());
 			$user->is_deleted = 	0; 
 			$user->status = 	0; 
 			$user->role = 	'User'; 
 			$user->username = 	$user->name; 
+			
             if($this->Users->save($user))
             {
+				$str = $this->_getRandomString(6).'-'.$this->_getRandomString(6).'-'.$this->_getRandomString(6).'-'.$this->_getRandomString(6);
+				$email = new Email('default');
+				$email->emailFormat('html')
+					->setFrom('manoj@ifwworld.com', 'ico')
+					->replyTo($user->email, 'ico')
+					->setTo($user->email, $user->name)
+					->setSubject('Approve your Email')
+					->template('approve_email')
+					->viewVars([
+						'str' => $str,
+						'name'=> $user->name,
+						'sitename' => 'ico'
+					])
+					->send();
                 $this->Flash->success(__('The user has been added successfully.'));
                 return $this->redirect(['action' => 'login']);
             }
@@ -124,6 +140,10 @@ class UsersController extends AppController
         return $this->redirect($this->Auth->logout());
     }
     
+    public function approveEmail()
+	{
+		exit;
+	}
     public function forgotPassword()
     {   
         $this->set('page_title', 'Forgot password');
