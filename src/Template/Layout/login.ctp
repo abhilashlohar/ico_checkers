@@ -12,8 +12,9 @@
 
     <!-- Custom CSS -->
     <link href="<?php echo $this->request->webroot; ?>assets/css/signin.css" rel="stylesheet">
+    <link href="<?php echo $this->request->webroot; ?>ic_style.css" rel="stylesheet">
 </head>
-<body class="text-center">
+<body class="text-center ic_body">
     
     <?= $this->fetch('content') ?>
     

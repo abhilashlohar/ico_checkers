@@ -1,0 +1,37 @@
+.ic_body {
+	background: linear-gradient(to right, #9668a6, #e58ea0);
+}
+
+.ic_button {
+	border-color: #8760a9;
+    background-color: #8761a8;
+    color: #fff;
+    -webkit-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s;
+}
+
+.ic_button:hover {
+	border-color: #333;
+    background-color: #333;
+    color: #fff;
+    -webkit-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s;
+}
+
+.ic_link {
+    color: #fff;
+    -webkit-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s;
+    text-decoration: none !important;
+}
+
+.ic_link:hover {
+    color: #bdbaba;
+}
+
+.ic_separator {
+	color: #FFF;
+}

@@ -11,9 +11,10 @@
         <input type="checkbox" value="remember-me"> Remember me
         </label>
     </div>-->
-    <?= $this->Form->button(__('Sign in'), ['class' => 'btn btn-lg btn-primary btn-block']); ?>
-    <?= $this->Html->link(__('Registration'), ['action' => 'Registration']); ?> | 
-	<?= $this->Html->link(__('Forgot Password?'), ['action' => 'forgotPassword']); ?> 
+    <?= $this->Form->button(__('Sign in'), ['class' => 'btn btn-lg btn-primary btn-block ic_button']); ?>
+    <?= $this->Html->link(__('Registration'), ['action' => 'Registration'],['class' =>'ic_link']); ?> 
+    <span class="ic_separator">|</span> 
+	<?= $this->Html->link(__('Forgot Password?'), ['action' => 'forgotPassword'],['class' =>'ic_link']); ?> 
 	
     <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
 <?= $this->Form->end() ?>
