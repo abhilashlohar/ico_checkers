@@ -1,0 +1,1 @@
+<?php echo $this->Html->Image('/img/logo.png',['style' => 'height: 90px;']); ?>
