@@ -79,7 +79,9 @@ class UsersTable extends Table
             ->maxLength('mobile', 21, __('Mobile number must be less than {0} characters.', 21))
 			->notEmpty('mobile', __('Please enter a mobile number.'));
            // ->allowEmpty('mobile');
-        
+		   
+         
+			
         $validator
             ->scalar('password', __('Please enter a valid password.'))
             ->lengthBetween('password', [6, 32], __('Passwords must be between 6 and 32 characters long.'))

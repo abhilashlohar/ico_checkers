@@ -62,7 +62,11 @@ class TasksTable extends Table
             ->scalar('description')
             ->requirePresence('description', 'create')
             ->allowEmptyString('description', false);
-
+			
+		$validator
+            ->numeric('minimum_point', __('Please enter a numeric value.'))
+			->allowEmpty('minimum_point');
+			
         return $validator;
     }
 }
