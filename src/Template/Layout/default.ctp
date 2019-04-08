@@ -56,8 +56,7 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <?= $this->Html->link(__('Add'), ['controller' => 'tasks', 'action' => 'add'],['class'=>'dropdown-item']) ?>
                   <?= $this->Html->link(__('List'), ['controller' => 'tasks', 'action' => 'index'],['class'=>'dropdown-item']) ?>
-				  <?= $this->Html->link(__('Proof Approval'), ['controller' => 'tasks', 'action' => 'proofApproval'],['class'=>'dropdown-item']) ?>
-                </div>
+				</div>
               </li>
 			  <?php }else{ ?>
 			  <li class="nav-item dropdown">
