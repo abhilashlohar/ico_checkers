@@ -4,6 +4,8 @@
       <thead>
         <tr>
           <th>Task title</th>
+          <th>Short Description</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -17,6 +19,13 @@
                    <?= $this->Time->format($task->created_on, 'd-m-Y h:i A') ?> <?php  //$task->created_on->format('d-m-Y h:i A') ?>
                 </span>
             </p>
+          </td>
+          <td width="65%">
+			 <?= $task->short_description ?>
+          </td>
+          <td>
+			<?php echo $this->Html->link(__(' Edit'), ['controller' => 'Tasks', 'action' => 'edit', $task->id]); ?></br>
+			<?php echo $this->Html->link(__(' Proof Approval'), ['controller' => 'Tasks', 'action' => 'proofApproval', $task->id]); ?>
           </td>
         </tr>
         <?php endforeach; ?>

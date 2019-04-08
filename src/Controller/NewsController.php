@@ -204,6 +204,8 @@ class NewsController extends AppController
     }
 
     public function home(){
+		$role = $this->role;
         $this->viewBuilder()->setLayout('cryptoland');
+		$this->set(compact('role'));
     }
 }

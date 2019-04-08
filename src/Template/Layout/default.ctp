@@ -60,8 +60,15 @@
                 </div>
               </li>
 			  <?php }else{ ?>
-			  <li class="nav-item">
-                <a href="<?= $this->Url->Build('/earn-money') ?>" class="nav-link">Earn Money</a>
+			  <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Earn Money
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <?= $this->Html->link(__('Add'), ['controller' => 'tasks', 'action' => 'add'],['class'=>'dropdown-item']) ?>
+				   <?= $this->Html->link(__('List'), ['controller' => 'tasks', 'action' => 'index'],['class'=>'dropdown-item']) ?>
+                  <a href="<?= $this->Url->Build('/earn-money') ?>" class="dropdown-item">Task</a>
+                </div>
               </li>
 			  <?php } if($user_role=='Admin' || $user_role=='Staff'){ ?>
               <li class="nav-item dropdown">

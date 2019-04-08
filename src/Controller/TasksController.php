@@ -21,7 +21,8 @@ class TasksController extends AppController
      */
     public function index()
     {
-        $tasks = $this->paginate($this->Tasks);
+		$tasks = $this->paginate($this->Tasks->find()
+		                         ->where(['user_id'=>$this->Auth->user('id')]));
 
         $this->set(compact('tasks','earnMoney'));
     }
@@ -36,7 +37,7 @@ class TasksController extends AppController
     public function view($id = null)
     {
         $task = $this->Tasks->get($id, [
-            'contain' => []
+            'conditions' => ['user_id'=>$this->Auth->user('id')]
         ]);
 
         $this->set('task', $task);
@@ -54,6 +55,8 @@ class TasksController extends AppController
             $task = $this->Tasks->patchEntity($task, $this->request->getData());
 			$time = new Time();
 			$task->created_on = $time->format('Y-m-d H:i:s');
+			$task->user_id    = $this->Auth->user('id');
+			$task->is_deleted = 0;
             if ($this->Tasks->save($task)) {
                 $this->Flash->success(__('The task has been saved.'));
 
@@ -75,7 +78,7 @@ class TasksController extends AppController
             'order' => ['Tasks.id' => 'DESC'],
 			'limit' => 10
         ];
-		$tasks = $this->paginate($this->Tasks);
+		$tasks = $this->paginate($this->Tasks); 
 		$this->set(compact('tasks'));
     }
     /**
@@ -141,7 +144,7 @@ class TasksController extends AppController
     {
 		$task_proofs = $this->paginate($this->Tasks->TaskProofs->find()
 		                ->contain(['Tasks','Users'])
-						->where(['Tasks.is_deleted'=>false])
+						->where(['Tasks.is_deleted'=>false,'TaskProofs.task_id'=>$id])
 						->order(['TaskProofs.id'=>'DESC']));
 						
 		$this->set(compact('task_proofs'));
