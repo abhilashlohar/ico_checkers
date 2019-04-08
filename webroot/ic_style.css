@@ -20,6 +20,15 @@
     transition: .4s;
 }
 
+.ic_button:active {
+    border-color: #8760a9;
+    background-color: #8761a8;
+    color: #fff;
+    -webkit-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s;
+}
+
 .ic_link {
     color: #fff;
     -webkit-transition: .4s;
