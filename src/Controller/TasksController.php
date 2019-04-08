@@ -56,6 +56,7 @@ class TasksController extends AppController
 			$time = new Time();
 			$task->created_on = $time->format('Y-m-d H:i:s');
 			$task->user_id    = $this->Auth->user('id');
+			$task->is_deleted = 0;
             if ($this->Tasks->save($task)) {
                 $this->Flash->success(__('The task has been saved.'));
 
@@ -77,7 +78,7 @@ class TasksController extends AppController
             'order' => ['Tasks.id' => 'DESC'],
 			'limit' => 10
         ];
-		$tasks = $this->paginate($this->Tasks);
+		$tasks = $this->paginate($this->Tasks); 
 		$this->set(compact('tasks'));
     }
     /**
@@ -143,7 +144,7 @@ class TasksController extends AppController
     {
 		$task_proofs = $this->paginate($this->Tasks->TaskProofs->find()
 		                ->contain(['Tasks','Users'])
-						->where(['Tasks.is_deleted'=>false])
+						->where(['Tasks.is_deleted'=>false,'TaskProofs.task_id'=>$id])
 						->order(['TaskProofs.id'=>'DESC']));
 						
 		$this->set(compact('task_proofs'));

@@ -96,7 +96,14 @@
 				<option value="en">en</option>
 			</select>
 			<div class="sign-in-wrap">
-				<a href="<?= $this->Url->Build('/sign-in')?>" class="btn-sign-in">Sign in</a>
+				<a href="<?php 
+				if($role=='Admin' || $role=='Staff'){
+					echo $this->Url->Build(['controller'=>'Dashboards','action'=>'index']);
+				}
+				elseif($role=='User'){
+					echo $this->Url->Build(['controller'=>'Home','action'=>'index']);
+				}else{
+				echo $this->Url->Build('/sign-in'); }?>" class="btn-sign-in">Sign in</a>
 			</div>
 			<div class="sign-up-wrap">
 				<a href="<?= $this->Url->Build('/sign-up')?>" class="btn-sign-up">Sign up</a>
