@@ -11,15 +11,15 @@
 	
 	<!-- Template Basic Images Start -->
 	<meta property="og:image" content="path/to/image.html">
-	<link rel="icon" href="<?php echo $this->request->webroot; ?>cryptoland/img/favicon/favicon.ico">
-	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo $this->request->webroot; ?>cryptoland/img/favicon/apple-touch-icon-180x180.png">
+	<link rel="icon" href="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/favicon/favicon.ico">
+	<link rel="apple-touch-icon" sizes="180x180" href="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/favicon/apple-touch-icon-180x180.png">
 	<!-- Template Basic Images End -->
 	
 	<!-- Custom Browsers Color Start -->
 	<meta name="theme-color" content="#000">
 	<!-- Custom Browsers Color End -->
 
-	<link rel="stylesheet" href="<?php echo $this->request->webroot; ?>cryptoland/css/main.min.css">
+	<link rel="stylesheet" href="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/css/main.min.css">
 
 	<!-- Load google font
 	================================================== -->
@@ -198,11 +198,11 @@
 							</form>
 						</div>
 
-						<img src="<?php echo $this->request->webroot; ?>cryptoland/img/city.png" data-aos="fade-left"  alt="" class="promo__img">
+						<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/city.png" data-aos="fade-left"  alt="" class="promo__img">
 					</div>
 				</div>
 			</div>
-			<img src="<?php echo $this->request->webroot; ?>cryptoland/img/aboutBg.png" class="promo__bg" alt="">
+			<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/aboutBg.png" class="promo__bg" alt="">
 		</section>
 
 		<section class="partners partners--top-animation section section--small-pt">
@@ -210,19 +210,19 @@
 				<div class="row">
 					<div class="col  partners__logoes">
 						<div class="partners__logo">
-							<img src="<?php echo $this->request->webroot; ?>cryptoland/img/partners-logo-1.png" alt="">
+							<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/partners-logo-1.png" alt="">
 						</div>
 						<div class="partners__logo">
-							<img src="<?php echo $this->request->webroot; ?>cryptoland/img/partners-logo-2.png" alt="">
+							<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/partners-logo-2.png" alt="">
 						</div>
 						<div class="partners__logo">
-							<img src="<?php echo $this->request->webroot; ?>cryptoland/img/partners-logo-3.png" alt="">
+							<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/partners-logo-3.png" alt="">
 						</div>
 						<div class="partners__logo">
-							<img src="<?php echo $this->request->webroot; ?>cryptoland/img/partners-logo-4.png" alt="">
+							<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/partners-logo-4.png" alt="">
 						</div>
 						<div class="partners__logo">
-							<img src="<?php echo $this->request->webroot; ?>cryptoland/img/partners-logo-5.png" alt="">
+							<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/partners-logo-5.png" alt="">
 						</div>
 					</div>
 				</div>
@@ -233,7 +233,7 @@
 			
 			<div class="container">
 				<div class="row about__first-row">
-					<img src="<?php echo $this->request->webroot; ?>cryptoland/img/about-img-1.png" class="about__img-1"  alt="">
+					<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/about-img-1.png" class="about__img-1"  alt="">
 					<div class="col-lg-5" data-aos="fade-right">
 						<div class="block-header">
 							<div class="subtitle subtitle--tire">About ICO</div>
@@ -260,7 +260,7 @@
 					</div>					
 				</div>
 				<div class="row about__second-row">
-					<img src="<?php echo $this->request->webroot; ?>cryptoland/img/about-img-2.png" class="about__img-2" alt="">
+					<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/about-img-2.png" class="about__img-2" alt="">
 					<div class="col-lg-6 offset-lg-6" data-aos="fade-left">
 						<div class="block-header">
 							<div class="subtitle subtitle--tire">decentralised economy</div>
@@ -554,7 +554,7 @@
 
 					</div>
 
-					<img src="<?php echo $this->request->webroot; ?>cryptoland/img/graphic.png" class="stat__graphic" alt="">
+					<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/graphic.png" class="stat__graphic" alt="">
 				</div>
 				<div class="row">
 					<div class="col-lg-3 col-md-6">
@@ -732,14 +732,14 @@
 
 						<div class="app__dowload-links">
 							<a href="#" class="app__link">
-								<img src="<?php echo $this->request->webroot; ?>cryptoland/img/gp.png" alt="">
+								<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/gp.png" alt="">
 							</a>
 							<a href="#" class="app__link">
-								<img src="i<?php echo $this->request->webroot; ?>cryptoland/mg/as.png" alt="">
+								<img src="i<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/mg/as.png" alt="">
 							</a>
 						</div>
 					</div>
-					<img src="<?php echo $this->request->webroot; ?>cryptoland/img/iphone.png" data-aos="fade-left" data-aos-offset="-200" data-aos-delay="400" alt="" class="app__iphone">
+					<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/iphone.png" data-aos="fade-left" data-aos-offset="-200" data-aos-delay="400" alt="" class="app__iphone">
 				</div>
 			</div>
 		</section>
@@ -846,8 +846,8 @@
 					<div class="col-lg-4">
 						<a href="#" class="advisor ln">
 							<div class="advisor__avatar"  data-aos="fade-up" >
-								<img src="<?php echo $this->request->webroot; ?>cryptoland/img/advisorBg-1.svg" alt="" class="advisor__bg">
-								<img src="<?php echo $this->request->webroot; ?>cryptoland/img/advisorImg-1.png" alt="" class="advisor__img">
+								<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/advisorBg-1.svg" alt="" class="advisor__bg">
+								<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/advisorImg-1.png" alt="" class="advisor__img">
 							</div>
 							<div class="advisor__name">David Drake</div>
 							<div class="advisor__post">CEO Capital Limited</div>
@@ -856,8 +856,8 @@
 					<div class="col-lg-4">
 						<a href="#" class="advisor g"  data-aos="fade-up" data-aos-delay="200">
 							<div class="advisor__avatar">
-								<img src="<?php echo $this->request->webroot; ?>cryptoland/img/advisorBg-2.svg" alt="" class="advisor__bg">
-								<img src="<?php echo $this->request->webroot; ?>cryptoland/img/advisorImg-2.png" alt="" class="advisor__img">
+								<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/advisorBg-2.svg" alt="" class="advisor__bg">
+								<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/advisorImg-2.png" alt="" class="advisor__img">
 							</div>
 							<div class="advisor__name">Ann Balock</div>
 							<div class="advisor__post">Cryptonet Speaker</div>
@@ -866,8 +866,8 @@
 					<div class="col-lg-4">
 						<a href="#" class="advisor fb" data-aos="fade-up" data-aos-delay="400">
 							<div class="advisor__avatar">
-								<img src="<?php echo $this->request->webroot; ?>cryptoland/img/advisorBg-3.svg" alt="" class="advisor__bg">
-								<img src="<?php echo $this->request->webroot; ?>cryptoland/img/advisorImg-3.png" alt="" class="advisor__img">
+								<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/advisorBg-3.svg" alt="" class="advisor__bg">
+								<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/advisorImg-3.png" alt="" class="advisor__img">
 							</div>
 							<div class="advisor__name">Vladimir Nikitin</div>
 							<div class="advisor__post">Cryptonet Team Lead</div>
@@ -891,7 +891,7 @@
 					<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6" data-aos="fade-up">
 						<a href="#" class="team-member fb">
 							<div class="team-member__avatar">
-								<img src="<?php echo $this->request->webroot; ?>cryptoland/img/team-member-ava-1.png" alt="" class="team-member__avatar-img">
+								<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/team-member-ava-1.png" alt="" class="team-member__avatar-img">
 							</div>
 							<div class="team-member__name">
 								David Drake
@@ -904,7 +904,7 @@
 					<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6" data-aos="fade-up" data-aos-delay="100">
 						<a href="#" class="team-member g">
 							<div class="team-member__avatar">
-								<img src="<?php echo $this->request->webroot; ?>cryptoland/img/team-member-ava-2.png" alt="" class="team-member__avatar-img">
+								<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/team-member-ava-2.png" alt="" class="team-member__avatar-img">
 							</div>
 							<div class="team-member__name">
 								Allan Bellor
@@ -917,7 +917,7 @@
 					<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6" data-aos="fade-up" data-aos-delay="200">
 						<a href="#" class="team-member ln" >
 							<div class="team-member__avatar">
-								<img src="<?php echo $this->request->webroot; ?>cryptoland/img/team-member-ava-3.png" alt="" class="team-member__avatar-img">
+								<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/team-member-ava-3.png" alt="" class="team-member__avatar-img">
 				
 							</div>
 							<div class="team-member__name">
@@ -931,7 +931,7 @@
 					<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6" data-aos="fade-up" data-aos-delay="300">
 						<a href="#" class="team-member ln" >
 							<div class="team-member__avatar">
-								<img src="<?php echo $this->request->webroot; ?>cryptoland/img/team-member-ava-4.png" alt="" class="team-member__avatar-img">
+								<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/team-member-ava-4.png" alt="" class="team-member__avatar-img">
 							</div>
 							<div class="team-member__name">
 								Sam Tolder
@@ -944,7 +944,7 @@
 					<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6" data-aos="fade-up" data-aos-delay="400">
 						<a href="#" class="team-member ln">
 							<div class="team-member__avatar">
-								<img src="<?php echo $this->request->webroot; ?>cryptoland/img/team-member-ava-5.png" alt="" class="team-member__avatar-img">
+								<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/team-member-ava-5.png" alt="" class="team-member__avatar-img">
 							</div>
 							<div class="team-member__name">
 								Henry Polar
@@ -957,7 +957,7 @@
 					<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6" data-aos="fade-up" data-aos-delay="500">
 						<a href="#" class="team-member ln">
 							<div class="team-member__avatar">
-								<img src="<?php echo $this->request->webroot; ?>cryptoland/img/team-member-ava-6.png" alt="" class="team-member__avatar-img">
+								<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/team-member-ava-6.png" alt="" class="team-member__avatar-img">
 							</div>
 							<div class="team-member__name">
 								Sandra Pen
@@ -970,7 +970,7 @@
 					<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6" data-aos="fade-up" data-aos-delay="600">
 						<a href="#" class="team-member ln">
 							<div class="team-member__avatar">
-								<img src="<?php echo $this->request->webroot; ?>cryptoland/img/team-member-ava-7.png" alt="" class="team-member__avatar-img">
+								<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/team-member-ava-7.png" alt="" class="team-member__avatar-img">
 							</div>
 							<div class="team-member__name">
 								Den Miller
@@ -983,7 +983,7 @@
 					<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6" data-aos="fade-up" data-aos-delay="700">
 						<a href="#" class="team-member ln">
 							<div class="team-member__avatar">
-								<img src="<?php echo $this->request->webroot; ?>cryptoland/img/team-member-ava-8.png" alt="" class="team-member__avatar-img">
+								<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/team-member-ava-8.png" alt="" class="team-member__avatar-img">
 							</div>
 							<div class="team-member__name">
 								Brawn Lee
@@ -996,7 +996,7 @@
 					<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6" data-aos="fade-up" data-aos-delay="800">
 						<a href="#" class="team-member ln">
 							<div class="team-member__avatar">
-								<img src="<?php echo $this->request->webroot; ?>cryptoland/img/team-member-ava-9.png" alt="" class="team-member__avatar-img">
+								<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/team-member-ava-9.png" alt="" class="team-member__avatar-img">
 							</div>
 							<div class="team-member__name">
 								Linda Gampton
@@ -1009,7 +1009,7 @@
 					<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6" data-aos="fade-up" data-aos-delay="900">
 						<a href="#" class="team-member ln">
 							<div class="team-member__avatar">
-								<img src="<?php echo $this->request->webroot; ?>cryptoland/img/team-member-ava-10.png" alt="" class="team-member__avatar-img">
+								<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/team-member-ava-10.png" alt="" class="team-member__avatar-img">
 							</div>
 							<div class="team-member__name">
 								John Smith
@@ -1035,7 +1035,7 @@
 					<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-6" data-aos="fade-up" data-aos-delay="1100">
 						<a href="#" class="team-member ln">
 							<div class="team-member__avatar">
-								<img src="<?php echo $this->request->webroot; ?>cryptoland/img/team-member-ava-12.png" alt="" class="team-member__avatar-img">
+								<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/team-member-ava-12.png" alt="" class="team-member__avatar-img">
 							</div>
 							<div class="team-member__name">
 								Denis Portlen
@@ -1067,7 +1067,7 @@
 									“Support of this standard guarantees the compatibility of the token with third-party services (wallets, exchanges, listings, etc.), and provides easy integration”
 								</p>
 								<a href="#" class="press-carousel__item-logo">
-									<img src="<?php echo $this->request->webroot; ?>cryptoland/img/press-logo-1.png" alt="">
+									<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/press-logo-1.png" alt="">
 								</a>
 								
 							</div>
@@ -1076,7 +1076,7 @@
 									“ River loach crocodile icefish ballan wrasse mooneye gray eel-catfish channel bass squirrelfish canary rockfish. Sea snail forehead brooder coho salmon, Black mackerel ”
 								</p>
 								<a href="#" class="press-carousel__item-logo">
-									<img src="<?php echo $this->request->webroot; ?>cryptoland/img/press-logo-2.png" alt="" class="press-carousel__item-logo">
+									<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/press-logo-2.png" alt="" class="press-carousel__item-logo">
 								</a>
 							</div>
 							<div class="press-carousel__item">
@@ -1084,7 +1084,7 @@
 									“Support of this standard guarantees the compatibility of the token with third-party services (wallets, exchanges, listings, etc.), and provides easy integration”
 								</p>
 								<a href="#" class="press-carousel__item-logo">
-									<img src="<?php echo $this->request->webroot; ?>cryptoland/img/press-logo-1.png" alt="">
+									<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/press-logo-1.png" alt="">
 								</a>
 								
 							</div>
@@ -1093,7 +1093,7 @@
 									“ River loach crocodile icefish ballan wrasse mooneye gray eel-catfish channel bass squirrelfish canary rockfish. Sea snail forehead brooder coho salmon, Black mackerel ”
 								</p>
 								<a href="#" class="press-carousel__item-logo">
-									<img src="<?php echo $this->request->webroot; ?>cryptoland/img/press-logo-2.png" alt="" class="press-carousel__item-logo">
+									<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/press-logo-2.png" alt="" class="press-carousel__item-logo">
 								</a>
 							</div>
 						</div>
@@ -1192,19 +1192,19 @@
 				<div class="row">
 					<div class="col partners__logoes">
 						<div class="partners__logo">
-							<img src="<?php echo $this->request->webroot; ?>cryptoland/img/partners-logo-1.png" alt="">
+							<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/partners-logo-1.png" alt="">
 						</div>
 						<div class="partners__logo">
-							<img src="<?php echo $this->request->webroot; ?>cryptoland/img/partners-logo-2.png" alt="">
+							<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/partners-logo-2.png" alt="">
 						</div>
 						<div class="partners__logo">
-							<img src="<?php echo $this->request->webroot; ?>cryptoland/img/partners-logo-3.png" alt="">
+							<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/partners-logo-3.png" alt="">
 						</div>
 						<div class="partners__logo">
-							<img src="<?php echo $this->request->webroot; ?>cryptoland/img/partners-logo-4.png" alt="">
+							<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/partners-logo-4.png" alt="">
 						</div>
 						<div class="partners__logo">
-							<img src="<?php echo $this->request->webroot; ?>cryptoland/img/partners-logo-5.png" alt="">
+							<img src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/partners-logo-5.png" alt="">
 						</div>
 					</div>
 				</div>
@@ -1270,7 +1270,7 @@
 				<div class="row">
 					<div class="col-lg-5 col-md-12 footer__block">
 						<a href="#" class="logo">
-							<img class="logo__img--big" src="<?php echo $this->request->webroot; ?>cryptoland/img/Logo_gradient.svg" alt="">
+							<img class="logo__img--big" src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/img/Logo_gradient.svg" alt="">
 						</a>
 
 						<div class="footer__text">
@@ -1333,11 +1333,11 @@
 
 	</div>
 
-	<script src="<?php echo $this->request->webroot; ?>assets/js/jquery-3.3.1.min.js"></script>
+	<script src="<?php echo $this->request->getAttribute("webroot"); ?>assets/js/jquery-3.3.1.min.js"></script>
 	<!-- <script src="../../../../ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script> -->
-  	<script>window.jQuery || document.write('<script src="<?php echo $this->request->webroot; ?>cryptoland/js/jquery-2.2.4.min.html"><\/script>')</script>
+  	<script>window.jQuery || document.write('<script src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/js/jquery-2.2.4.min.html"><\/script>')</script>
 	
-	<script src="<?php echo $this->request->webroot; ?>cryptoland/js/scripts.min.js"></script>
+	<script src="<?php echo $this->request->getAttribute("webroot"); ?>cryptoland/js/scripts.min.js"></script>
 
 </body>
 </html>
