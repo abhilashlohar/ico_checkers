@@ -153,9 +153,19 @@ class TasksController extends AppController
 	public function approve($id = null)
     {
         $this->request->allowMethod(['post']);
-        $proof = $this->Tasks->TaskProofs->get($id);
+        $proof = $this->Tasks->TaskProofs->get($id,[
+		'contain'=>['Tasks']
+		]);
         $proof->is_approved = 1;
         if ($this->Tasks->TaskProofs->save($proof)) {
+			$this->loadModel('Wallets');
+			$timeCurrent = new Time();
+			$wallet = $this->Wallets->newEntity();
+			$wallet->user_id          = $proof->user_id;
+			$wallet->point            = $proof->task->minimum_point;
+			$wallet->transaction_date = $timeCurrent->format('Y-m-d H:i:s');
+			$wallet->task_id          = $proof->task_id;
+			$this->Wallets->save($wallet);
           $this->Flash->success(__('The proof has been approved.'));
         } else {
           $this->Flash->error(__('The proof could not be approved. Please, try again.'));
