@@ -97,10 +97,10 @@
 			</select>
 			<div class="sign-in-wrap">
 				<a href="<?php 
-				if($role=='Admin' || $role=='Staff'){
+				if(@$role=='Admin' || @$role=='Staff'){
 					echo $this->Url->Build(['controller'=>'Dashboards','action'=>'index']);
 				}
-				elseif($role=='User'){
+				elseif(@$role=='User'){
 					echo $this->Url->Build(['controller'=>'Home','action'=>'index']);
 				}else{
 				echo $this->Url->Build('/sign-in'); }?>" class="btn-sign-in">Sign in</a>

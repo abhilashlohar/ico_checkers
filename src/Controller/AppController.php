@@ -54,9 +54,9 @@ class AppController extends Controller
                 'Form' => [
 				'fields' => [
                         'username' => 'email',
-                        'password' => 'password'
+                        'password' => 'password',
+                        'is_deleted' => false
                     ],
-					'scope' => ['is_deleted' => false],
                     'userModel' => 'Users'
                 ]
             ],

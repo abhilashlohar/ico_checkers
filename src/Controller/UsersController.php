@@ -67,12 +67,12 @@ class UsersController extends AppController
             {
 				
 				$email = new Email('default');
-				$email->emailFormat('html')
+				$email->setEmailFormat('html')
 					->setFrom('manoj@ifwworld.com', 'ico')
-					->replyTo($user->email, 'ico')
+					->setReplyTo($user->email, 'ico')
 					->setTo($user->email, $user->name)
 					->setSubject('Approve your Email')
-					->template('approve_email')
+                    ->viewBuilder()->getTemplate('approve_email')
 					->viewVars([
 						'str' => $str,
 						'name'=> $user->name,
