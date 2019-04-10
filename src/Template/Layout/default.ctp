@@ -28,83 +28,79 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-		
-              <li class="nav-item active">
-                <a href="<?= $this->Url->Build('/')?>" class="nav-link">Home</a>
-              </li>
-			  <?php if($user_role=='Admin' || $user_role=='Staff'){ ?>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  News
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <?= $this->Html->link(__('Add'), ['controller' => 'news', 'action' => 'add'],['class'=>'dropdown-item']) ?>
-                  <?= $this->Html->link(__('List'), ['controller' => 'news', 'action' => 'index'],['class'=>'dropdown-item']) ?>
-				</div>
-              </li>
-			  <?php }else{ ?>
-			  <li class="nav-item">
-                <a href="<?= $this->Url->Build('/news-updates')?>" class="nav-link">News</a>
-              </li>
-			  <?php } 
-			  if($user_role=='Admin' || $user_role=='Staff'){ 
-			  ?>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Earn Money
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <?= $this->Html->link(__('Add'), ['controller' => 'tasks', 'action' => 'add'],['class'=>'dropdown-item']) ?>
-                  <?= $this->Html->link(__('List'), ['controller' => 'tasks', 'action' => 'index'],['class'=>'dropdown-item']) ?>
-				</div>
-              </li>
-			  <?php }else{ ?>
-			  <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Earn Money
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <?= $this->Html->link(__('Add'), ['controller' => 'tasks', 'action' => 'add'],['class'=>'dropdown-item']) ?>
-				   <?= $this->Html->link(__('List'), ['controller' => 'tasks', 'action' => 'index'],['class'=>'dropdown-item']) ?>
-                  <a href="<?= $this->Url->Build('/earn-money') ?>" class="dropdown-item">Task</a>
-                </div>
-              </li>
-			  <?php } if($user_role=='Admin' || $user_role=='Staff'){ ?>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  ICO
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <?= $this->Html->link(__('Apply'), ['controller' => 'icos', 'action' => 'add'],['class'=>'dropdown-item']) ?>
-                  <?= $this->Html->link(__('List'), ['controller' => 'icos', 'action' => 'index'],['class'=>'dropdown-item']) ?>
-                </div>
-              </li>
-			  <?php }  if($user_role=='Admin' || $user_role=='Staff'){  ?>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Airdrops
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <?= $this->Html->link(__('Add'), ['controller' => 'airdrops', 'action' => 'add'],['class'=>'dropdown-item']) ?>
-                  <?= $this->Html->link(__('List'), ['controller' => 'airdrops', 'action' => 'index'],['class'=>'dropdown-item']) ?>
-                </div>
-              </li>
-              <?php }else{ ?>
-			  <li class="nav-item">
-                <a href="<?= $this->url->build('/airdrop');?>" class="nav-link">Airdrops</a>
-              </li>
-			  <?php } if(empty($user_id)){ ?>
-                <li class="nav-item">
-                  <a class="nav-link" href="<?= $this->url->build(['controller'=>'users','action'=>'login']) ?>">Login</a>
-                </li>
-              <?php }else{?>
-                <li class="nav-item">
-                  <a class="nav-link" href="<?= $this->url->build(['controller'=>'users','action'=>'logout']) ?>">Logout</a>
-                </li>
-              <?php }?>
-			  <li  class="nav-item">
-					<a href="#" class="nav-link">Wallet: 236</a>
-			  </li>
+          <li class="nav-item active">
+            <a href="<?= $this->Url->Build('/')?>" class="nav-link">Home</a>
+          </li>
+			    <?php if($user_role=='Admin' || $user_role=='Staff'){ ?>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                News
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <?= $this->Html->link(__('Add'), ['controller' => 'news', 'action' => 'add'],['class'=>'dropdown-item']) ?>
+                <?= $this->Html->link(__('List'), ['controller' => 'news', 'action' => 'index'],['class'=>'dropdown-item']) ?>
+				      </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Earn Money
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <?= $this->Html->link(__('Add'), ['controller' => 'tasks', 'action' => 'add'],['class'=>'dropdown-item']) ?>
+                <?= $this->Html->link(__('List'), ['controller' => 'tasks', 'action' => 'index'],['class'=>'dropdown-item']) ?>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                ICO
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <?= $this->Html->link(__('Apply'), ['controller' => 'icos', 'action' => 'add'],['class'=>'dropdown-item']) ?>
+                <?= $this->Html->link(__('List'), ['controller' => 'icos', 'action' => 'index'],['class'=>'dropdown-item']) ?>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Airdrops
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <?= $this->Html->link(__('Add'), ['controller' => 'airdrops', 'action' => 'add'],['class'=>'dropdown-item']) ?>
+                <?= $this->Html->link(__('List'), ['controller' => 'airdrops', 'action' => 'index'],['class'=>'dropdown-item']) ?>
+              </div>
+            </li>
+			    <?php }else{ ?> <!-- Else statement -->
+  			    <li class="nav-item">
+              <a href="<?= $this->Url->Build('/news-updates')?>" class="nav-link">News</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Earn Money
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <?= $this->Html->link(__('Add'), ['controller' => 'tasks', 'action' => 'add'],['class'=>'dropdown-item']) ?>
+                <?= $this->Html->link(__('List'), ['controller' => 'tasks', 'action' => 'index'],['class'=>'dropdown-item']) ?>
+                <a href="<?= $this->Url->Build('/earn-money') ?>" class="dropdown-item">Task</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="<?= $this->url->build('/airdrop');?>" class="nav-link">Airdrops</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Wallet: 236</a>
+            </li>
+  			  <?php } ?>
+              
+  			  <?php if(empty($user_id)){ ?>
+            <li class="nav-item">
+              <a class="nav-link" href="<?= $this->url->build(['controller'=>'users','action'=>'login']) ?>">Login</a>
+            </li>
+          <?php }else{ ?> <!-- Else statement -->
+            <li class="nav-item">
+              <a class="nav-link" href="<?= $this->url->build(['controller'=>'users','action'=>'logout']) ?>">Logout</a>
+            </li>
+          <?php } ?>
+
+  			  
         </ul>
       </div>
     </div>
