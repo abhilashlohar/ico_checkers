@@ -32,7 +32,5 @@ class Refer extends Entity
         'ref_to_user_id' => true,
         'created_date' => true,
         'points' => true,
-        'ref_by_user' => true,
-        'ref_to_user' => true
     ];
 }

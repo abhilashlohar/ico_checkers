@@ -62,7 +62,8 @@ class UsersController extends AppController
 			$user->role = 	'User'; 
 			$str = $this->_getRandomString(6).'-'.$this->_getRandomString(6).'-ico'.$this->_getRandomString(6).'-'.$this->_getRandomString(6);
 			$user->password_token =  $str;
-			
+			$user->referral_code = $this->_getReferralCode(6);
+
             if($this->Users->save($user))
             {
 				$email = new Email('default');

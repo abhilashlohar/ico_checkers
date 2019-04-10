@@ -88,6 +88,9 @@
             <li class="nav-item">
               <a href="#" class="nav-link">Wallet: 236</a>
             </li>
+            <li class="nav-item">
+              <a href="<?= $this->url->build('/Refer-and-Earn');?>" class="nav-link">Refer and Earn</a>
+            </li>
   			  <?php } ?>
               
   			  <?php if(empty($user_id)){ ?>

@@ -71,6 +71,7 @@ Router::scope('/', function (RouteBuilder $routes) {
 	$routes->connect('/', ['controller' => 'News', 'action' => 'home']);
     $routes->connect('/sign-in', ['controller' => 'users', 'action' => 'login']);
     $routes->connect('/sign-up', ['controller' => 'users', 'action' => 'registration']);
+    $routes->connect('/Refer-and-Earn', ['controller' => 'refers', 'action' => 'index']);
     //$routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
 
     /**

@@ -20,12 +20,8 @@ class RefersController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['RefByUsers', 'RefToUsers']
-        ];
-        $refers = $this->paginate($this->Refers);
-
-        $this->set(compact('refers'));
+        $referral_code = $this->Auth->User()['referral_code'];
+        $this->set('referral_code', $referral_code);
     }
 
     /**

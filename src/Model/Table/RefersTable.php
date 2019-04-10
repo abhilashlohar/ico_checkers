@@ -38,13 +38,16 @@ class RefersTable extends Table
         $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
+        
         $this->belongsTo('RefByUsers', [
+            'className' => 'Users',
             'foreignKey' => 'ref_by_user_id',
-            'joinType' => 'INNER'
+            'propertyName' => 'ref_by_user',
         ]);
         $this->belongsTo('RefToUsers', [
+            'className' => 'Users',
             'foreignKey' => 'ref_to_user_id',
-            'joinType' => 'INNER'
+            'propertyName' => 'ref_to_user',
         ]);
     }
 
