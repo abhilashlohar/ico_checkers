@@ -94,7 +94,7 @@ class AppController extends Controller
 			}
 
 		}elseif($this->role=='User'){
-			$user_actions=['News.userNews','News.view','Tasks.add','Tasks.index','Tasks.earnMoney','Tasks.taskSubmit','Tasks.view','Tasks.proofApproval','Airdrops.airdropUserView','Refers.index'];
+			$user_actions=['News.userNews','News.view','Tasks.add','Tasks.index','Tasks.earnMoney','Tasks.taskSubmit','Tasks.view','Tasks.proofApproval','Airdrops.airdropUserView','Refers.index','Users.login'];
 			if(!in_array($this->request->getParam('controller').'.'.$this->request->getParam('action'), $user_actions))
 			{
 				$this->Flash->error(__('You are not authorized to access that location.'));
