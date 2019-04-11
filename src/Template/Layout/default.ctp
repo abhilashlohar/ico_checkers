@@ -27,13 +27,19 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
+	  <?php $managerMenuArray = ['Home.index'];
+			$managerNewsMenuArray = ['News.add','News.index','News.view','News.edit','News.userNews'];
+			$managerTaskMenuArray = ['Tasks.add','Tasks.index','Tasks.view','Tasks.edit','Tasks.proofApproval','Tasks.earnMoney','Tasks.taskSubmit']; 
+			$managerIcosMenuArray = ['Icos.add','Icos.index'];
+			$managerAirMenuArray = ['Airdrops.add','Airdrops.index','Airdrops.airdropUserView']; 			
+	  ?>
         <ul class="navbar-nav ml-auto">
 		 <?php if($user_role=='Admin' || $user_role=='Staff'){ ?>
-          <li class="nav-item active">
+          <li class="nav-item <?= (isset($activeMenu) && in_array($activeMenu, $managerMenuArray))?'active':'' ?>">
             <a href="<?= $this->Url->Build('/')?>" class="nav-link">Home</a>
           </li>
 		 <?php } if($user_role=='Admin' || $user_role=='Staff'){ ?>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown <?= (isset($activeMenu) && in_array($activeMenu, $managerNewsMenuArray))?'active':'' ?>">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 News
               </a>
@@ -42,7 +48,7 @@
                 <?= $this->Html->link(__('List'), ['controller' => 'news', 'action' => 'index'],['class'=>'dropdown-item']) ?>
 				      </div>
             </li>
-            <li class="nav-item dropdown">
+			<li class="nav-item dropdown <?= (isset($activeMenu) && in_array($activeMenu, $managerTaskMenuArray))?'active':'' ?>">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Earn Money
               </a>
@@ -51,7 +57,8 @@
                 <?= $this->Html->link(__('List'), ['controller' => 'tasks', 'action' => 'index'],['class'=>'dropdown-item']) ?>
               </div>
             </li>
-            <li class="nav-item dropdown">
+			
+            <li class="nav-item dropdown <?= (isset($activeMenu) && in_array($activeMenu, $managerIcosMenuArray))?'active':'' ?>">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 ICO
               </a>
@@ -60,7 +67,7 @@
                 <?= $this->Html->link(__('List'), ['controller' => 'icos', 'action' => 'index'],['class'=>'dropdown-item']) ?>
               </div>
             </li>
-            <li class="nav-item dropdown">
+			 <li class="nav-item dropdown <?= (isset($activeMenu) && in_array($activeMenu, $managerAirMenuArray))?'active':'' ?>">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Airdrops
               </a>
@@ -70,10 +77,10 @@
               </div>
             </li>
 			    <?php }else{ ?> <!-- Else statement -->
-  			    <li class="nav-item">
+  			    <li class="nav-item <?= (isset($activeMenu) && in_array($activeMenu, $managerNewsMenuArray))?'active':'' ?>">
               <a href="<?= $this->Url->Build('/news-updates')?>" class="nav-link">News</a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown <?= (isset($activeMenu) && in_array($activeMenu, $managerTaskMenuArray))?'active':'' ?>">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Earn Money
               </a>
@@ -83,13 +90,14 @@
                 <a href="<?= $this->Url->Build('/earn-money') ?>" class="dropdown-item">Task</a>
               </div>
             </li>
-            <li class="nav-item">
+            <li class="nav-item <?= (isset($activeMenu) && in_array($activeMenu, $managerAirMenuArray))?'active':'' ?>">
               <a href="<?= $this->url->build('/airdrop');?>" class="nav-link">Airdrops</a>
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">Wallet: 236</a>
             </li>
-            <li class="nav-item">
+			<?php $managerReferIcosMenuArray = ['Refers.index']; ?>
+            <li class="nav-item <?= (isset($activeMenu) && in_array($activeMenu, $managerReferIcosMenuArray))?'active':'' ?>">
               <a href="<?= $this->url->build('/Refer-and-Earn');?>" class="nav-link">Refer and Earn</a>
             </li>
   			  <?php } ?>

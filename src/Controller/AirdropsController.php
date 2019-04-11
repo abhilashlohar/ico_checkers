@@ -30,6 +30,7 @@ class AirdropsController extends AppController
         $airdrops = $this->paginate($this->Airdrops);
 
         $this->set(compact('airdrops','time'));
+		$this->set('activeMenu', 'Airdrops.index');
     }
 
     /**
@@ -46,6 +47,7 @@ class AirdropsController extends AppController
         ]);
 
         $this->set('airdrop', $airdrop);
+		$this->set('activeMenu', 'Airdrops.view');
     }
 
     /**
@@ -67,6 +69,7 @@ class AirdropsController extends AppController
             $this->Flash->error(__('The airdrop could not be saved. Please, try again.'));
         }
         $this->set(compact('airdrop'));
+		$this->set('activeMenu', 'Airdrops.add');
     }
 
     /**
@@ -91,6 +94,7 @@ class AirdropsController extends AppController
             $this->Flash->error(__('The airdrop could not be saved. Please, try again.'));
         }
         $this->set(compact('airdrop'));
+		$this->set('activeMenu', 'Airdrops.edit');
     }
 
     /**
@@ -126,5 +130,6 @@ class AirdropsController extends AppController
         ];
 		$airdrops = $this->paginate($this->Airdrops);
 		$this->set(compact('airdrops'));
+		$this->set('activeMenu', 'Airdrops.airdropUserView');
     }
 }

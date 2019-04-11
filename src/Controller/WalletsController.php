@@ -26,6 +26,7 @@ class WalletsController extends AppController
         $wallets = $this->paginate($this->Wallets);
 
         $this->set(compact('wallets'));
+		$this->set('activeMenu', ' Wallets.index');
     }
 
     /**
@@ -42,6 +43,7 @@ class WalletsController extends AppController
         ]);
 
         $this->set('wallet', $wallet);
+		$this->set('activeMenu', ' Wallets.view');
     }
 
     /**
@@ -65,6 +67,7 @@ class WalletsController extends AppController
         $news = $this->Wallets->News->find('list', ['limit' => 200]);
         $tasks = $this->Wallets->Tasks->find('list', ['limit' => 200]);
         $this->set(compact('wallet', 'users', 'news', 'tasks'));
+		$this->set('activeMenu', ' Wallets.add');
     }
 
     /**
@@ -92,6 +95,7 @@ class WalletsController extends AppController
         $news = $this->Wallets->News->find('list', ['limit' => 200]);
         $tasks = $this->Wallets->Tasks->find('list', ['limit' => 200]);
         $this->set(compact('wallet', 'users', 'news', 'tasks'));
+		$this->set('activeMenu', ' Wallets.edit');
     }
 
     /**

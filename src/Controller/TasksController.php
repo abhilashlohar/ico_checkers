@@ -25,6 +25,7 @@ class TasksController extends AppController
 		                         ->where(['user_id'=>$this->Auth->user('id')]));
 
         $this->set(compact('tasks','earnMoney'));
+		$this->set('activeMenu', 'Tasks.index');
     }
 
     /**
@@ -41,6 +42,7 @@ class TasksController extends AppController
         ]);
 
         $this->set('task', $task);
+		$this->set('activeMenu', 'Tasks.view');
     }
 
     /**
@@ -65,6 +67,7 @@ class TasksController extends AppController
             $this->Flash->error(__('The task could not be saved. Please, try again.'));
         }
         $this->set(compact('task'));
+		$this->set('activeMenu', 'Tasks.add');
     }
 	
 	public function earnMoney()
@@ -80,6 +83,7 @@ class TasksController extends AppController
         ];
 		$tasks = $this->paginate($this->Tasks); 
 		$this->set(compact('tasks'));
+		$this->set('activeMenu', 'Tasks.earnMoney');
     }
     /**
      * Edit method
@@ -138,6 +142,7 @@ class TasksController extends AppController
 		              ->where(['TaskProofs.task_id'=>$id,'TaskProofs.user_id'=>$this->Auth->user('id')])
 					  ->first();
         $this->set(compact('task','task_proofs'));
+		$this->set('activeMenu', 'Tasks.taskSubmit');
     }
 	
 	public function proofApproval($id = null)
@@ -148,6 +153,7 @@ class TasksController extends AppController
 						->order(['TaskProofs.id'=>'DESC']));
 						
 		$this->set(compact('task_proofs'));
+		$this->set('activeMenu', 'Tasks.proofApproval');
 	}
 	
 	public function approve($id = null)
@@ -172,6 +178,7 @@ class TasksController extends AppController
         }
 
         return $this->redirect($this->referer());
+		
     }
     public function edit($id = null)
     {
@@ -189,6 +196,7 @@ class TasksController extends AppController
             $this->Flash->error(__('The task could not be saved. Please, try again.'));
         }
         $this->set(compact('task'));
+		$this->set('activeMenu', 'Tasks.edit');
     }
 
     /**
