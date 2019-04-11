@@ -101,15 +101,9 @@ class AppController extends Controller
 				}
 			}
 		}
-<<<<<<< HEAD
-		elseif($this->role=='User'){
-			$user_actions=['News.userNews','News.view','Tasks.add','Tasks.index','Tasks.earnMoney','Tasks.taskSubmit','Tasks.view','Tasks.index','Airdrops','Home.index','Users'];
-			/* $user_actions=['userNews','earnMoney','taskSubmit','airdropUserView','logout','registration','login','home','index','view','add','edit'];
-=======
 		elseif(@$this->role=='User'){
 			$user_controllers=['News','Tasks','Airdrops','Home','Users', 'Refers'];
 			$user_actions=['userNews','earnMoney','taskSubmit','airdropUserView','logout','registration','login','home','index','view','add','edit', 'index'];
->>>>>>> bcd69202cd06abb009962d57c07a8e9a6aff648c
 			if(!in_array($this->request->getParam('controller'), $user_controllers))
 			{
 				$this->Flash->error(__('You are not authorized to access that location.'));
