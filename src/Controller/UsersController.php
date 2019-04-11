@@ -69,6 +69,18 @@ class UsersController extends AppController
 
             if($this->Users->save($user))
             {
+                // Refer code
+                if($ref_code){
+                    $RefByUser = $this->Users->find()->where(['referral_code'=>$ref_code])->first();
+
+                    $refer = $this->Users->Refers->newEntity();
+                    $refer->ref_by_user_id = $RefByUser->id;
+                    $refer->ref_to_user_id = $user->id;
+                    $refer->points = 10;
+                    $this->Users->Refers->save($refer);
+                }
+                
+
 				$email = new Email('default');
                 $email->viewBuilder()->setTemplate('approve_email');
 				$email->setEmailFormat('html')

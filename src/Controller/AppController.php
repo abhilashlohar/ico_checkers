@@ -115,7 +115,7 @@ class AppController extends Controller
 					$this->Flash->error(__('You are not authorized to access that location.'));
 				    return $this->redirect(['controller' => 'Home', 'action' => 'index']);
 				}
-			} */
+			}
 		}
        // pr($this->request->params['action']);exit;
         $user_id = @$this->userId;
