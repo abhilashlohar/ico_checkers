@@ -94,11 +94,11 @@ class AppController extends Controller
 			}
 
 		}elseif($this->role=='User'){
-			$user_actions=['News.userNews','News.view','Tasks.add','Tasks.index','Tasks.earnMoney','Tasks.taskSubmit','Tasks.view','Tasks.proofApproval','Airdrops.airdropUserView','Home.index'];
+			$user_actions=['News.userNews','News.view','Tasks.add','Tasks.index','Tasks.earnMoney','Tasks.taskSubmit','Tasks.view','Tasks.proofApproval','Airdrops.airdropUserView','Refers.index'];
 			if(!in_array($this->request->getParam('controller').'.'.$this->request->getParam('action'), $user_actions))
 			{
 				$this->Flash->error(__('You are not authorized to access that location.'));
-				return $this->redirect(['controller' => 'Home', 'action' => 'index']);
+				return $this->redirect(['controller' => 'Refers', 'action' => 'index']);
 			}
 		}
        // pr($this->request->params['action']);exit;
