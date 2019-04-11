@@ -62,18 +62,18 @@ class UsersController extends AppController
 			$user->role = 	'User'; 
 			$str = $this->_getRandomString(6).'-'.$this->_getRandomString(6).'-ico'.$this->_getRandomString(6).'-'.$this->_getRandomString(6);
 			$user->password_token =  $str;
-			
+			$user->referral_code = $this->_getReferralCode(6);
+
             if($this->Users->save($user))
             {
-				
 				$email = new Email('default');
+                $email->viewBuilder()->setTemplate('approve_email');
 				$email->setEmailFormat('html')
 					->setFrom('manoj@ifwworld.com', 'ico')
 					->setReplyTo($user->email, 'ico')
 					->setTo($user->email, $user->name)
 					->setSubject('Approve your Email')
-                    ->viewBuilder()->getTemplate('approve_email')
-					->viewVars([
+					->setViewVars([
 						'str' => $str,
 						'name'=> $user->name,
 						'sitename' => 'ico'

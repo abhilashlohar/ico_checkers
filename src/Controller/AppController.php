@@ -84,7 +84,7 @@ class AppController extends Controller
     {
         parent::beforeRender($event); 
 		
-		if($this->role=='Admin' || $this->role=='Staff')
+		if(@$this->role=='Admin' || @$this->role=='Staff')
 		{   
 			$admin_controllers=['News','Tasks','Airdrops', 'Home','Icos','Dashboards','Users'];
 			$admin_actions=['add','edit','index','approve','view','proofApproval','logout','registration','login','home'];
@@ -101,9 +101,15 @@ class AppController extends Controller
 				}
 			}
 		}
+<<<<<<< HEAD
 		elseif($this->role=='User'){
 			$user_actions=['News.userNews','News.view','Tasks.add','Tasks.index','Tasks.earnMoney','Tasks.taskSubmit','Tasks.view','Tasks.index','Airdrops','Home.index','Users'];
 			/* $user_actions=['userNews','earnMoney','taskSubmit','airdropUserView','logout','registration','login','home','index','view','add','edit'];
+=======
+		elseif(@$this->role=='User'){
+			$user_controllers=['News','Tasks','Airdrops','Home','Users', 'Refers'];
+			$user_actions=['userNews','earnMoney','taskSubmit','airdropUserView','logout','registration','login','home','index','view','add','edit', 'index'];
+>>>>>>> bcd69202cd06abb009962d57c07a8e9a6aff648c
 			if(!in_array($this->request->getParam('controller'), $user_controllers))
 			{
 				$this->Flash->error(__('You are not authorized to access that location.'));
@@ -118,8 +124,8 @@ class AppController extends Controller
 			} */
 		}
        // pr($this->request->params['action']);exit;
-        $user_id = $this->userId;
-        $user_role = $this->role; 
+        $user_id = @$this->userId;
+        $user_role = @$this->role; 
 		$this->set(compact('user_id','user_role'));
        
     }
@@ -139,5 +145,30 @@ class AppController extends Controller
         }
         
         return $string;
+    }
+
+    protected function _getReferralCode($length = 10, $validCharacters = null)
+    {
+        if($validCharacters == '')
+        {
+            $validCharacters = '123456789ABCDEFGHIJKLMNPQRSTUVWXYZ';
+        }
+        
+        $validCharactersCount = strlen($validCharacters);
+        
+        $string = '';
+        for($i=0; $i<$length; $i++)
+        {
+            $string .= $validCharacters[mt_rand(0, $validCharactersCount-1)];
+        }
+
+        $this->loadModel('Users');
+        $v = $this->Users->find()->where(['referral_code'=>$string])->count();
+        if($v==0){
+            return $string;
+        }else{
+            $this->_getReferralCode(6);
+        }
+        
     }
 }
