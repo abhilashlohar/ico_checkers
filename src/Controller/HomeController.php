@@ -20,6 +20,7 @@ class HomeController extends AppController {
     public function index() 
 	{
         $this->set(compact('imagePath'));
+		$this->set('activeMenu', 'Home.index');
     }
 
 }

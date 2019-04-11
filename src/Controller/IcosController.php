@@ -23,6 +23,7 @@ class IcosController extends AppController
         $icos = $this->paginate($this->Icos);
 
         $this->set(compact('icos'));
+		$this->set('activeMenu', 'Icos.index');
     }
 
     /**
@@ -39,6 +40,7 @@ class IcosController extends AppController
         ]);
 
         $this->set('ico', $ico);
+		$this->set('activeMenu', 'Icos.view');
     }
 
     /**
@@ -60,6 +62,7 @@ class IcosController extends AppController
             $this->Flash->error(__('The ico could not be saved. Please, try again.'));
         }
         $this->set(compact('ico'));
+		$this->set('activeMenu', 'Icos.add');
     }
 
     /**
@@ -84,6 +87,7 @@ class IcosController extends AppController
             $this->Flash->error(__('The ico could not be saved. Please, try again.'));
         }
         $this->set(compact('ico'));
+		$this->set('activeMenu', 'Icos.edit');
     }
 
     /**

@@ -101,6 +101,7 @@ class UsersController extends AppController
             $this->Flash->error(__('The user could not be added. Please see warning(s) below.'));
         }
         $this->set(compact('user'));
+		$this->set('activeMenu', ' Users.registration');
     }
 	
 	public function login()
@@ -149,6 +150,7 @@ class UsersController extends AppController
         
         $user = $this->Users->newEntity();
         $this->set(compact('user'));
+		$this->set('activeMenu', ' Users.login');
     }
     
     public function logout()

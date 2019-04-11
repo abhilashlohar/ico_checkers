@@ -22,6 +22,7 @@ class RefersController extends AppController
     {
         $referral_code = $this->Auth->User()['referral_code'];
         $this->set('referral_code', $referral_code);
+		$this->set('activeMenu', 'Refers.index');
     }
 
     /**
@@ -38,6 +39,7 @@ class RefersController extends AppController
         ]);
 
         $this->set('refer', $refer);
+		$this->set('activeMenu', ' Refers.view');
     }
 
     /**
@@ -60,6 +62,7 @@ class RefersController extends AppController
         $refByUsers = $this->Refers->RefByUsers->find('list', ['limit' => 200]);
         $refToUsers = $this->Refers->RefToUsers->find('list', ['limit' => 200]);
         $this->set(compact('refer', 'refByUsers', 'refToUsers'));
+		$this->set('activeMenu', ' Refers.add');
     }
 
     /**
@@ -86,6 +89,7 @@ class RefersController extends AppController
         $refByUsers = $this->Refers->RefByUsers->find('list', ['limit' => 200]);
         $refToUsers = $this->Refers->RefToUsers->find('list', ['limit' => 200]);
         $this->set(compact('refer', 'refByUsers', 'refToUsers'));
+		$this->set('activeMenu', ' Refers.edit');
     }
 
     /**

@@ -35,6 +35,7 @@ class NewsController extends AppController
         );
 
         $this->set(compact('news'));
+		$this->set('activeMenu', 'News.index');
     }
 
     public function userNews()
@@ -51,6 +52,7 @@ class NewsController extends AppController
         ];
 		$news = $this->paginate($this->News);
 		$this->set(compact('news'));
+		$this->set('activeMenu', 'News.userNews');
     }
 
     /**
@@ -67,6 +69,7 @@ class NewsController extends AppController
         ]);
 
         $this->set('news', $news);
+		$this->set('activeMenu', 'News.view');
     }
 
     /**
@@ -122,6 +125,7 @@ class NewsController extends AppController
 			}
         }
         $this->set(compact('news'));
+		$this->set('activeMenu', 'News.add');
     }
 
     /**
@@ -179,6 +183,7 @@ class NewsController extends AppController
 			}
         }
         $this->set(compact('news'));
+		$this->set('activeMenu', 'News.edit');
     }
 
     /**
