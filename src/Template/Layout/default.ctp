@@ -28,10 +28,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
+		 <?php if($user_role=='Admin' || $user_role=='Staff'){ ?>
           <li class="nav-item active">
             <a href="<?= $this->Url->Build('/')?>" class="nav-link">Home</a>
           </li>
-			    <?php if($user_role=='Admin' || $user_role=='Staff'){ ?>
+		 <?php } if($user_role=='Admin' || $user_role=='Staff'){ ?>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 News

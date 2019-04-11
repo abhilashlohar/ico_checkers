@@ -133,7 +133,7 @@ class UsersController extends AppController
 				        return $this->redirect(['Controller'=>'Dashboards','action'=>'index']);
 					}
 					else{
-						return $this->redirect(['Controller'=>'Home','action'=>'index']);
+						return $this->redirect(['Controller'=>'Refers','action'=>'index']);
 					}
                 }
                 else

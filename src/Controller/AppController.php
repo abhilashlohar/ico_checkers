@@ -86,29 +86,21 @@ class AppController extends Controller
 		
 		if(@$this->role=='Admin' || @$this->role=='Staff')
 		{   
-			$admin_controllers=['News','Tasks','Airdrops', 'Home','Icos','Dashboards','Users'];
-			$admin_actions=['add','edit','index','approve','view','proofApproval','logout','registration','login','home'];
-			if(!in_array($this->request->getParam('controller'), $admin_controllers))
+			$admin_controllers=['News.add','News.index','News.view','News.view','News.edit','Tasks.add','Tasks.index','Tasks.view','Tasks.edit','Tasks.proofApproval','Airdrops.add','Icos.add','Icos.index','Dashboards.index','Users','Airdrops.index'];
+			if(!in_array($this->request->getParam('controller').'.'.$this->request->getParam('action'), $admin_controllers))
 			{
 				$this->Flash->error(__('You are not authorized to access that location.'));
 				return $this->redirect(['controller' => 'Dashboards', 'action' => 'index']);
 			}
-			else{
-				if(!in_array($this->request->getParam('action'), $admin_actions))
-				{
-					$this->Flash->error(__('You are not authorized to access that location.'));
-				    return $this->redirect(['controller' => 'Dashboards', 'action' => 'index']);
-				}
-			}
-		}
-		elseif(@$this->role=='User'){
-			$user_controllers=['News','Tasks','Airdrops','Home','Users', 'Refers'];
-			$user_actions=['userNews','earnMoney','taskSubmit','airdropUserView','logout','registration','login','home','index','view','add','edit', 'index'];
-			if(!in_array($this->request->getParam('controller'), $user_controllers))
+
+		}elseif($this->role=='User'){
+			$user_actions=['News.userNews','News.view','Tasks.add','Tasks.index','Tasks.earnMoney','Tasks.taskSubmit','Tasks.view','Tasks.proofApproval','Airdrops.airdropUserView','Refers.index'];
+			if(!in_array($this->request->getParam('controller').'.'.$this->request->getParam('action'), $user_actions))
 			{
 				$this->Flash->error(__('You are not authorized to access that location.'));
-				return $this->redirect(['controller' => 'Home', 'action' => 'index']);
+				return $this->redirect(['controller' => 'Refers', 'action' => 'index']);
 			}
+
 			else{
 				if(!in_array($this->request->getParam('action'), $user_actions))
 				{
