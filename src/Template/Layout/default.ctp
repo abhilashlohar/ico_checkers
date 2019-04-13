@@ -27,9 +27,10 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
-	  <?php $managerMenuArray = ['Home.index'];
+	  <?php $managerMenuArray = ['Home.index','Users.dashboard'];
 			$managerNewsMenuArray = ['News.add','News.index','News.view','News.edit','News.userNews'];
-			$managerTaskMenuArray = ['Tasks.add','Tasks.index','Tasks.view','Tasks.edit','Tasks.proofApproval','Tasks.earnMoney','Tasks.taskSubmit']; 
+			$managerTaskMenuArray = ['Tasks.add','Tasks.index','Tasks.view','Tasks.edit','Tasks.proofApproval']; 
+			$managerTaskMenuArray1 = ['Tasks.earnMoney','Tasks.taskSubmit']; 
 			$managerIcosMenuArray = ['Icos.add','Icos.index'];
 			$managerAirMenuArray = ['Airdrops.add','Airdrops.index','Airdrops.airdropUserView']; 			
 	  ?>
@@ -58,7 +59,7 @@
               </div>
             </li>
 			     
-            <li class="nav-item">
+            <li class="nav-item <?= (isset($activeMenu) && in_array($activeMenu, $managerIcosMenuArray))?'active':'' ?>">
               <a href="<?= $this->Url->Build('/ICO-Applications')?>" class="nav-link">ICO-Applications</a>
             </li>
 
@@ -76,10 +77,10 @@
   			    <li class="nav-item <?= (isset($activeMenu) && in_array($activeMenu, $managerNewsMenuArray))?'active':'' ?>">
               <a href="<?= $this->Url->Build('/news-updates')?>" class="nav-link">News</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item <?= (isset($activeMenu) && in_array($activeMenu, $managerTaskMenuArray1))?'active':'' ?>">
               <a href="<?= $this->Url->Build('/earn-money')?>" class="nav-link">Earn Money</a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown <?= (isset($activeMenu) && in_array($activeMenu, $managerTaskMenuArray))?'active':'' ?>">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Manage Tasks
               </a>

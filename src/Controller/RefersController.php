@@ -20,7 +20,7 @@ class RefersController extends AppController
      */
     public function index()
     {
-        $referral_code = $this->Auth->User()['referral_code'];
+        $referral_code = @$this->Auth->User()['referral_code'];
         $this->set('referral_code', $referral_code);
 		$this->set('activeMenu', 'Refers.index');
     }
