@@ -57,16 +57,12 @@
                 <?= $this->Html->link(__('List'), ['controller' => 'tasks', 'action' => 'index'],['class'=>'dropdown-item']) ?>
               </div>
             </li>
-			
-            <li class="nav-item dropdown <?= (isset($activeMenu) && in_array($activeMenu, $managerIcosMenuArray))?'active':'' ?>">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                ICO
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <?= $this->Html->link(__('Apply'), ['controller' => 'icos', 'action' => 'add'],['class'=>'dropdown-item']) ?>
-                <?= $this->Html->link(__('List'), ['controller' => 'icos', 'action' => 'index'],['class'=>'dropdown-item']) ?>
-              </div>
+			     
+            <li class="nav-item">
+              <a href="<?= $this->Url->Build('/ICO-Applications')?>" class="nav-link">ICO-Applications</a>
             </li>
+
+           
 			 <li class="nav-item dropdown <?= (isset($activeMenu) && in_array($activeMenu, $managerAirMenuArray))?'active':'' ?>">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Airdrops
@@ -100,6 +96,9 @@
             <li class="nav-item <?= (isset($activeMenu) && in_array($activeMenu, $managerReferIcosMenuArray))?'active':'' ?>">
               <a href="<?= $this->url->build('/Refer-and-Earn');?>" class="nav-link">Refer and Earn</a>
             </li>
+            <li class="nav-item">
+              <a href="JavaScript:void();" class="nav-link">Wallet: 236</a>
+            </li>
   			  <?php } ?>
               
   			  <?php if(empty($user_id)){ ?>
@@ -112,9 +111,7 @@
             </li>
           <?php } ?>
 
-          <li class="nav-item">
-            <a href="JavaScript:void();" class="nav-link">Wallet: 236</a>
-          </li>
+          
   			  
         </ul>
       </div>
