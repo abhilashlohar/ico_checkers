@@ -16,7 +16,7 @@
 				<div class="col-md-3">
                     <div class="form-group">
                       <?php 
-					  echo $this->html->image(str_replace('\\','/',$news->cover_image),['class'=>'img-thumbnail']);echo '<br>';
+					 if($news->cover_image!=''){ echo $this->html->image(str_replace('\\','/',@$news->cover_image),['class'=>'img-thumbnail']);echo '<br>';};
 					  echo $this->Form->control('cover_image',['class'=>'form-control','type'=>'file']); ?>
                     </div>
                 </div>
