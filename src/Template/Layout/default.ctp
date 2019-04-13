@@ -80,23 +80,23 @@
   			    <li class="nav-item <?= (isset($activeMenu) && in_array($activeMenu, $managerNewsMenuArray))?'active':'' ?>">
               <a href="<?= $this->Url->Build('/news-updates')?>" class="nav-link">News</a>
             </li>
-            <li class="nav-item dropdown <?= (isset($activeMenu) && in_array($activeMenu, $managerTaskMenuArray))?'active':'' ?>">
+            <li class="nav-item">
+              <a href="<?= $this->Url->Build('/earn-money')?>" class="nav-link">Earn Money</a>
+            </li>
+            <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Earn Money
+                Manage Tasks
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <?= $this->Html->link(__('Add'), ['controller' => 'tasks', 'action' => 'add'],['class'=>'dropdown-item']) ?>
                 <?= $this->Html->link(__('List'), ['controller' => 'tasks', 'action' => 'index'],['class'=>'dropdown-item']) ?>
-                <a href="<?= $this->Url->Build('/earn-money') ?>" class="dropdown-item">Task</a>
               </div>
             </li>
             <li class="nav-item <?= (isset($activeMenu) && in_array($activeMenu, $managerAirMenuArray))?'active':'' ?>">
               <a href="<?= $this->url->build('/airdrop');?>" class="nav-link">Airdrops</a>
             </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">Wallet: 236</a>
-            </li>
-			<?php $managerReferIcosMenuArray = ['Refers.index']; ?>
+            
+			    <?php $managerReferIcosMenuArray = ['Refers.index']; ?>
             <li class="nav-item <?= (isset($activeMenu) && in_array($activeMenu, $managerReferIcosMenuArray))?'active':'' ?>">
               <a href="<?= $this->url->build('/Refer-and-Earn');?>" class="nav-link">Refer and Earn</a>
             </li>
@@ -112,6 +112,9 @@
             </li>
           <?php } ?>
 
+          <li class="nav-item wallte">
+            <a href="JavaScript:void();" class="nav-link">Wallet: 236</a>
+          </li>
   			  
         </ul>
       </div>

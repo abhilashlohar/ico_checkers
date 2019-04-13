@@ -101,7 +101,7 @@
 					echo $this->Url->Build(['controller'=>'Dashboards','action'=>'index']);
 				}
 				elseif(@$role=='User'){
-					echo $this->Url->Build(['controller'=>'Home','action'=>'index']);
+					echo $this->Url->Build(['controller'=>'Refers','action'=>'index']);
 				}else{
 				echo $this->Url->Build('/sign-in'); }?>" class="btn-sign-in">Sign in</a>
 			</div>

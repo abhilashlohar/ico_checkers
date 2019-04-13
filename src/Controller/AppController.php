@@ -94,14 +94,13 @@ class AppController extends Controller
 				return $this->redirect(['controller' => 'Dashboards', 'action' => 'index']);
 			}
 		}elseif(@$this->role=='User'){
-			$user_actions=['News.userNews','News.view','Tasks.add','Tasks.index','Tasks.earnMoney','Tasks.taskSubmit','Tasks.view','Tasks.proofApproval','Airdrops.airdropUserView','Refers.index','Users.login'];
+			$user_actions=['News.userNews','News.view','Tasks.add','Tasks.index','Tasks.earnMoney','Tasks.taskSubmit','Tasks.view','Tasks.proofApproval','Airdrops.airdropUserView','Refers.index','Users.login', 'News.home', 'Users.login'];
 			if(!in_array($this->request->getParam('controller').'.'.$this->request->getParam('action'), $user_actions))
 			{
 				$this->Flash->error(__('You are not authorized to access that location.'));
 				return $this->redirect(['controller' => 'Refers', 'action' => 'index']);
 			}
 		}
-        echo "hello"; exit();
         $user_id = @$this->userId;
         $user_role = @$this->role; 
 		$this->set(compact('user_id','user_role'));
