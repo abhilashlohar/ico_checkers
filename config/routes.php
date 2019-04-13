@@ -74,6 +74,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/Refer-and-Earn', ['controller' => 'refers', 'action' => 'index']);
     $routes->connect('/Dashboard', ['controller' => 'users', 'action' => 'dashboard']);
     $routes->connect('/Apply-for-ICO-Review', ['controller' => 'icos', 'action' => 'add']);
+    $routes->connect('/ICO-Applications', ['controller' => 'icos', 'action' => 'index']);
     //$routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
 
     /**
