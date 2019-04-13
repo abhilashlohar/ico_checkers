@@ -407,6 +407,7 @@ class UsersController extends AppController
     
     public function dashboard()
     {
-        
+		$this->set(compact('dashboard'));
+        $this->set('activeMenu', ' Users.dashboard');
     }
 }
