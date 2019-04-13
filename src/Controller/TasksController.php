@@ -19,6 +19,13 @@ class TasksController extends AppController
      *
      * @return \Cake\Http\Response|void
      */
+	public function initialize()
+    {
+        parent::initialize();
+        
+        
+        //$this->Auth->allow(['earnMoney','taskSubmit']);
+    }
     public function index()
     {
 		$tasks = $this->paginate($this->Tasks->find()
