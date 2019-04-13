@@ -82,7 +82,7 @@
 				<a href="#docs" class="menu__link">WhitePappers</a>
 			</li>
 			<li class="menu__item">
-				<a href="#team" class="menu__link">Team</a>
+				<a href="<?= $this->Url->Build('/Apply-for-ICO-Review')?>" class="menu__link">Apply for ICO Review</a>
 			</li>
 			<li class="menu__item">
 				<a href="<?= $this->Url->Build('/news-updates')?>" class="menu__link">News</a>

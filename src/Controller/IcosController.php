@@ -13,6 +13,11 @@ use App\Controller\AppController;
 class IcosController extends AppController
 {
 
+    public function initialize()
+    {
+        parent::initialize();
+        $this->Auth->allow(['add']);
+    }
     /**
      * Index method
      *
@@ -50,6 +55,7 @@ class IcosController extends AppController
      */
     public function add()
     {
+        $this->viewBuilder()->setLayout('ico');
         $ico = $this->Icos->newEntity();
         if ($this->request->is('post')) {
             $ico = $this->Icos->patchEntity($ico, $this->request->getData());
