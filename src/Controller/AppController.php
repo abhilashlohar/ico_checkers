@@ -83,7 +83,8 @@ class AppController extends Controller
 	public function beforeRender(Event $event)
     {
         parent::beforeRender($event); 
-		
+
+
 		if(@$this->role=='Admin' || @$this->role=='Staff')
 		{   
 			$admin_controllers=['News.add','News.index','News.view','News.view','News.edit','Tasks.add','Tasks.index','Tasks.view','Tasks.edit','Tasks.proofApproval','Airdrops.add','Icos.add','Icos.index','Dashboards.index','Users','Airdrops.index'];
@@ -92,24 +93,15 @@ class AppController extends Controller
 				$this->Flash->error(__('You are not authorized to access that location.'));
 				return $this->redirect(['controller' => 'Dashboards', 'action' => 'index']);
 			}
-
-		}elseif($this->role=='User'){
+		}elseif(@$this->role=='User'){
 			$user_actions=['News.userNews','News.view','Tasks.add','Tasks.index','Tasks.earnMoney','Tasks.taskSubmit','Tasks.view','Tasks.proofApproval','Airdrops.airdropUserView','Refers.index','Users.login'];
 			if(!in_array($this->request->getParam('controller').'.'.$this->request->getParam('action'), $user_actions))
 			{
 				$this->Flash->error(__('You are not authorized to access that location.'));
 				return $this->redirect(['controller' => 'Refers', 'action' => 'index']);
 			}
-
-			else{
-				if(!in_array($this->request->getParam('action'), $user_actions))
-				{
-					$this->Flash->error(__('You are not authorized to access that location.'));
-				    return $this->redirect(['controller' => 'Home', 'action' => 'index']);
-				}
-			}
 		}
-       // pr($this->request->params['action']);exit;
+        echo "hello"; exit();
         $user_id = @$this->userId;
         $user_role = @$this->role; 
 		$this->set(compact('user_id','user_role'));
