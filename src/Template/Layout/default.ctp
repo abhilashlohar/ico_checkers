@@ -36,7 +36,7 @@
         <ul class="navbar-nav ml-auto">
 		 <?php if($user_role=='Admin' || $user_role=='Staff'){ ?>
           <li class="nav-item <?= (isset($activeMenu) && in_array($activeMenu, $managerMenuArray))?'active':'' ?>">
-            <a href="<?= $this->Url->Build('/')?>" class="nav-link">Home</a>
+            <a href="<?= $this->Url->Build('/Dashboard')?>" class="nav-link">Home</a>
           </li>
 		 <?php } if($user_role=='Admin' || $user_role=='Staff'){ ?>
             <li class="nav-item dropdown <?= (isset($activeMenu) && in_array($activeMenu, $managerNewsMenuArray))?'active':'' ?>">

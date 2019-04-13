@@ -98,7 +98,7 @@
 			<div class="sign-in-wrap">
 				<a href="<?php 
 				if(@$role=='Admin' || @$role=='Staff'){
-					echo $this->Url->Build(['controller'=>'Dashboards','action'=>'index']);
+					echo $this->Url->Build(['controller'=>'Users','action'=>'dashboard']);
 				}
 				elseif(@$role=='User'){
 					echo $this->Url->Build(['controller'=>'Refers','action'=>'index']);

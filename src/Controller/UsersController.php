@@ -20,11 +20,10 @@ class UsersController extends AppController
 	public function initialize()
     {
         parent::initialize();
-        $passed = ['forgotPassword', 'resetPassword', 'login', 'logout', 'changeProfile', 'changePassword', 'registration','approveemail'];
+        $passed = ['forgotPassword', 'resetPassword', 'login', 'logout', 'changeProfile', 'changePassword', 'registration','approveemail','dashboard'];
         if(!in_array($this->request->getParam('action'), $passed) )
         {
-            //$this->Flash->error(__('You are not authorized to access that location.'));
-            return $this->redirect(['controller' => 'Dashboards', 'action' => 'index']);
+            return $this->redirect(['/Dashboard']);
         }
         
         $this->Auth->allow(['forgotPassword', 'resetPassword', 'logout','image','registration','approveemail']);
@@ -120,6 +119,7 @@ class UsersController extends AppController
             {
                 if($user['status'])
                 {
+
                     $this->Auth->setUser($user);
                     
                     $currentUser = $this->Users->get($user['id']);
@@ -128,13 +128,14 @@ class UsersController extends AppController
                         $this->Users->touch($currentUser, 'Users.login');
                         $this->Users->save($currentUser);
                     }
+
                     
                     if($this->Auth->user('role')!='User')
 					{ 
-				        return $this->redirect(['Controller'=>'Dashboards','action'=>'index']);
+				        return $this->redirect('/Dashboard');
 					}
 					else{
-						return $this->redirect(['Controller'=>'Refers','action'=>'index']);
+						return $this->redirect('/Refer-and-Earn');
 					}
                 }
                 else
@@ -403,23 +404,9 @@ class UsersController extends AppController
         $this->set(compact('user'));
     }
 	
-    /**
-     * Delete method
-     *
-     * @param string|null $id User id.
-     * @return \Cake\Http\Response|null Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function delete($id = null)
+    
+    public function dashboard()
     {
-        $this->request->allowMethod(['post', 'delete']);
-        $user = $this->Users->get($id);
-        if ($this->Users->delete($user)) {
-            $this->Flash->success(__('The user has been deleted.'));
-        } else {
-            $this->Flash->error(__('The user could not be deleted. Please, try again.'));
-        }
-
-        return $this->redirect(['action' => 'index']);
+        
     }
 }
