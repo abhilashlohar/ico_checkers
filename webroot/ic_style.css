@@ -49,8 +49,3 @@
 li.active > a {
     border-bottom: solid 2px #FFF;
 }
-
-.wallte {
-    border: solid 2px #fff;
-    cursor: auto;
-}

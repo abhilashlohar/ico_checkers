@@ -112,7 +112,7 @@
             </li>
           <?php } ?>
 
-          <li class="nav-item wallte">
+          <li class="nav-item">
             <a href="JavaScript:void();" class="nav-link">Wallet: 236</a>
           </li>
   			  
