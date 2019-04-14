@@ -104,8 +104,11 @@ class AppController extends Controller
 		}
         $user_id = @$this->userId;
         $user_role = @$this->role; 
-		$this->set(compact('user_id','user_role'));
-       
+        $this->set(compact('user_id','user_role'));
+
+        
+        $menuActive = $this->request->getParam('controller').'.'.$this->request->getParam('action');
+		$this->set(compact('menuActive'));
     }
 	protected function _getRandomString($length = 10, $validCharacters = null)
     {

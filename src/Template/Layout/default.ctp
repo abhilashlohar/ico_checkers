@@ -20,27 +20,39 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark static-top ic_header_bg" style="background: linear-gradient(to right, #9668a6, #e58ea0);">
     <div class="container">
+      <!-- Logo -->
       <a class="navbar-brand" href="<?= $this->Url->Build('/')?>">
         <?php echo $this->Html->Image('/img/logo.png',['style' => 'height: 35px;']); ?>
       </a>
+
+      <!-- Menu button in mobile -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarResponsive">
-	  <?php $managerMenuArray = ['Home.index','Users.dashboard'];
-			$managerNewsMenuArray = ['News.add','News.index','News.view','News.edit','News.userNews'];
-			$managerTaskMenuArray = ['Tasks.add','Tasks.index','Tasks.view','Tasks.edit','Tasks.proofApproval']; 
-			$managerTaskMenuArray1 = ['Tasks.earnMoney','Tasks.taskSubmit']; 
-			$managerIcosMenuArray = ['Icos.add','Icos.index'];
-			$managerAirMenuArray = ['Airdrops.add','Airdrops.index','Airdrops.airdropUserView']; 			
-	  ?>
         <ul class="navbar-nav ml-auto">
-		 <?php if($user_role=='Admin' || $user_role=='Staff'){ ?>
-          <li class="nav-item <?= (isset($activeMenu) && in_array($activeMenu, $managerMenuArray))?'active':'' ?>">
-            <a href="<?= $this->Url->Build('/Dashboard')?>" class="nav-link">Home</a>
-          </li>
-		 <?php } if($user_role=='Admin' || $user_role=='Staff'){ ?>
-            <li class="nav-item dropdown <?= (isset($activeMenu) && in_array($activeMenu, $managerNewsMenuArray))?'active':'' ?>">
+          <?php
+          /*For User role*/
+          (in_array($menuActive, ["Users.dashboard"])) ? $HomeActive = "active": "";
+          (in_array($menuActive, ["News.add", "News.index", "News.view"])) ? $NewsActive = "active": "";
+          (in_array($menuActive, ["Tasks.add", "Tasks.index", "Tasks.view", "Tasks.edit"])) ? $TasksActive = "active": "";
+          (in_array($menuActive, ["Icos.index"])) ? $IcosActive = "active": "";
+          (in_array($menuActive, ["Airdrops.add", "Airdrops.index"])) ? $AirActive = "active": "";
+
+          /*For Admin role*/
+          (in_array($menuActive, ["News.userNews"])) ? $nActive = "active": "";
+          (in_array($menuActive, ["Tasks.earnMoney"])) ? $tActive = "active": "";
+          (in_array($menuActive, ["Tasks.add", "Tasks.index"])) ? $mtActive = "active": "";
+          (in_array($menuActive, ["Airdrops.airdropUserView"])) ? $arActive = "active": "";
+          (in_array($menuActive, ["Refers.index"])) ? $rfActive = "active": "";
+          ?>
+
+		      <?php if($user_role=='Admin' || $user_role=='Staff'){ ?>
+            <li class="nav-item <?php echo @$HomeActive; ?>">
+              <a href="<?= $this->Url->Build('/Dashboard')?>" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item dropdown <?php echo @$NewsActive; ?>">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 News
               </a>
@@ -49,38 +61,35 @@
                 <?= $this->Html->link(__('List'), ['controller' => 'news', 'action' => 'index'],['class'=>'dropdown-item']) ?>
 				      </div>
             </li>
-			<li class="nav-item dropdown <?= (isset($activeMenu) && in_array($activeMenu, $managerTaskMenuArray))?'active':'' ?>">
+			      <li class="nav-item dropdown <?php echo @$TasksActive; ?>">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Earn Money
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <?= $this->Html->link(__('Add'), ['controller' => 'tasks', 'action' => 'add'],['class'=>'dropdown-item']) ?>
-                <?= $this->Html->link(__('List'), ['controller' => 'tasks', 'action' => 'index'],['class'=>'dropdown-item']) ?>
+                <?= $this->Html->link(__('Add'), ['controller' => 'Tasks', 'action' => 'add'],['class'=>'dropdown-item']) ?>
+                <?= $this->Html->link(__('List'), ['controller' => 'Tasks', 'action' => 'index'],['class'=>'dropdown-item']) ?>
               </div>
             </li>
-			     
-            <li class="nav-item <?= (isset($activeMenu) && in_array($activeMenu, $managerIcosMenuArray))?'active':'' ?>">
+            <li class="nav-item <?php echo @$IcosActive; ?>">
               <a href="<?= $this->Url->Build('/ICO-Applications')?>" class="nav-link">ICO-Applications</a>
             </li>
-
-           
-			 <li class="nav-item dropdown <?= (isset($activeMenu) && in_array($activeMenu, $managerAirMenuArray))?'active':'' ?>">
+			      <li class="nav-item dropdown <?php echo @$AirActive; ?>">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Airdrops
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <?= $this->Html->link(__('Add'), ['controller' => 'airdrops', 'action' => 'add'],['class'=>'dropdown-item']) ?>
-                <?= $this->Html->link(__('List'), ['controller' => 'airdrops', 'action' => 'index'],['class'=>'dropdown-item']) ?>
+                <?= $this->Html->link(__('Add'), ['controller' => 'Airdrops', 'action' => 'add'],['class'=>'dropdown-item']) ?>
+                <?= $this->Html->link(__('List'), ['controller' => 'Airdrops', 'action' => 'index'],['class'=>'dropdown-item']) ?>
               </div>
             </li>
-			    <?php }else{ ?> <!-- Else statement -->
-  			    <li class="nav-item <?= (isset($activeMenu) && in_array($activeMenu, $managerNewsMenuArray))?'active':'' ?>">
-              <a href="<?= $this->Url->Build('/news-updates')?>" class="nav-link">News</a>
+			    <?php } else { ?> <!-- Else statement -->
+  			    <li class="nav-item <?php echo @$nActive; ?>">
+              <a href="<?= $this->Url->Build('/News-Updates')?>" class="nav-link">News</a>
             </li>
-            <li class="nav-item <?= (isset($activeMenu) && in_array($activeMenu, $managerTaskMenuArray1))?'active':'' ?>">
-              <a href="<?= $this->Url->Build('/earn-money')?>" class="nav-link">Earn Money</a>
+            <li class="nav-item <?php echo @$tActive; ?>">
+              <a href="<?= $this->Url->Build('/Earn-Money')?>" class="nav-link">Earn Money</a>
             </li>
-            <li class="nav-item dropdown <?= (isset($activeMenu) && in_array($activeMenu, $managerTaskMenuArray))?'active':'' ?>">
+            <li class="nav-item dropdown <?php echo @$mtActive; ?>">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Manage Tasks
               </a>
@@ -89,12 +98,10 @@
                 <?= $this->Html->link(__('List'), ['controller' => 'tasks', 'action' => 'index'],['class'=>'dropdown-item']) ?>
               </div>
             </li>
-            <li class="nav-item <?= (isset($activeMenu) && in_array($activeMenu, $managerAirMenuArray))?'active':'' ?>">
-              <a href="<?= $this->url->build('/airdrop');?>" class="nav-link">Airdrops</a>
+            <li class="nav-item <?php echo @$arActive; ?>">
+              <a href="<?= $this->url->build('/Airdrops-Feed');?>" class="nav-link">Airdrops</a>
             </li>
-            
-			    <?php $managerReferIcosMenuArray = ['Refers.index']; ?>
-            <li class="nav-item <?= (isset($activeMenu) && in_array($activeMenu, $managerReferIcosMenuArray))?'active':'' ?>">
+            <li class="nav-item <?php echo @$rfActive; ?>">
               <a href="<?= $this->url->build('/Refer-and-Earn');?>" class="nav-link">Refer and Earn</a>
             </li>
             <li class="nav-item">
@@ -111,9 +118,6 @@
               <a class="nav-link" href="<?= $this->url->build(['controller'=>'users','action'=>'logout']) ?>">Logout</a>
             </li>
           <?php } ?>
-
-          
-  			  
         </ul>
       </div>
     </div>
