@@ -52,7 +52,7 @@ class UsersController extends AppController
 		$this->set('page_title', __('Add New User'));
 		$this->viewBuilder()->setLayout('login');
 
-        $ref_code = $this->request->query('ref');
+        $ref_code = $this->request->getQuery('ref');
 
         $user = $this->Users->newEntity();
         if($this->request->is('post'))
@@ -212,7 +212,7 @@ class UsersController extends AppController
             $user = $this->Users->patchEntity($user, $this->request->getData(), [
                 'validate' => 'forgotPassword'
             ]);
-            if(!$user->errors())
+            if(!$user->getErrors())
             {  
                 $userInfo = $this->Users->find()
                     ->select(['id', 'name', 'email', 'status', 'is_deleted'])
@@ -240,13 +240,14 @@ class UsersController extends AppController
                         if($this->Users->save($user))
                         {
                             $email = new Email('default');
-                            $email->emailFormat('html')
+                            $email->setEmailFormat('html')
                                 ->setFrom('manoj@ifwworld.com', 'ico')
-                                ->replyTo($userInfo->email, 'ico')
+                                ->setReplyTo($userInfo->email, 'ico')
                                 ->setTo($userInfo->email, $userInfo->name)
-                                ->setSubject('Reset your Password for icoss')
-                                ->template('forgot_password')
-                                ->viewVars([
+                                ->setSubject('Reset your Password for icoss');
+								$email->viewBuilder()->setTemplate('forgot_password');
+                                //$email->template('forgot_password')
+                                $email->setViewVars([
                                     'userInfo' => $userInfo,
                                     'passwordToken' => $user->password_token,
                                     'tokenExpiry' => $user->token_expiry,
@@ -319,18 +320,20 @@ class UsersController extends AppController
                         if($this->Users->save($user))
                         {
                             $email = new Email('default');
-                            $email->emailFormat('html')
+                            $email->setEmailFormat('html')
                                 ->setFrom('manoj@ifwworld.com', 'ico')
-                                ->replyTo($userInfo->email, 'ico')
+                                ->setReplyTo($userInfo->email, 'ico')
                                 ->setTo($userInfo->email, $userInfo->name)
-                                ->setSubject('jupiter account password has been changed successfully')
-                                ->template('reset_password')
-                                ->viewVars([
+                                ->setSubject('jupiter account password has been changed successfully');
+								$email->viewBuilder()->setTemplate('reset_password');
+                                //->template('reset_password')
+                                 $email->setViewVars([
                                     'userInfo' => $userInfo,
                                     'sitename' => 'Jupiter'
                                 ])
                                 ->send();
                             
+							
                             $this->Flash->success(__('Your password has been reset successfully! Please login using your email address and new password.'));
                             return $this->redirect(['action' => 'login']);
                         }
