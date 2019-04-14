@@ -49,7 +49,16 @@ class AirdropsController extends AppController
         $this->set('airdrop', $airdrop);
 		$this->set('activeMenu', 'Airdrops.view');
     }
+	
+	public function userView($id = null)
+    {
+        $airdrop = $this->Airdrops->get($id, [
+            'contain' => []
+        ]);
 
+        $this->set('airdrop', $airdrop);
+		$this->set('activeMenu', 'Airdrops.userView');
+    }
     /**
      * Add method
      *

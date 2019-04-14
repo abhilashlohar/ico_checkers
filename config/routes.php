@@ -75,6 +75,8 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/Dashboard', ['controller' => 'users', 'action' => 'dashboard']);
     $routes->connect('/Apply-for-ICO-Review', ['controller' => 'icos', 'action' => 'add']);
     $routes->connect('/ICO-Applications', ['controller' => 'icos', 'action' => 'index']);
+    $routes->connect('/user-view/*', ['controller' => 'News', 'action' => 'userView']);
+    $routes->connect('/airdrop-view/*', ['controller' => 'Airdrops', 'action' => 'userView']);
     //$routes->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
 
     /**
