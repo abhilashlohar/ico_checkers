@@ -52,7 +52,7 @@ class UsersController extends AppController
 		$this->set('page_title', __('Add New User'));
 		$this->viewBuilder()->setLayout('login');
 
-        $ref_code = $this->request->query('ref');
+        $ref_code = $this->request->getQuery('ref');
 
         $user = $this->Users->newEntity();
         if($this->request->is('post'))

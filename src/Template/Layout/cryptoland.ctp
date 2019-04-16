@@ -59,8 +59,8 @@
 			<div class="logo__title">Cryptoland</div>
 		</a> -->
 		<a class="navbar-brand" href="<?= $this->Url->Build('/')?>">
-    	<?php echo $this->Html->Image('/img/logo.png',['style' => 'height: 35px;']); ?>
-    </a>
+	    	<?php echo $this->Html->Image('/img/logo.png',['style' => 'height: 35px;']); ?>
+	    </a>
 
 		<ul class="menu">
 			<li class="menu__item">
@@ -85,7 +85,7 @@
 				<a href="<?= $this->Url->Build('/Apply-for-ICO-Review')?>" class="menu__link">Apply for ICO Review</a>
 			</li>
 			<li class="menu__item">
-				<a href="<?= $this->Url->Build('/news-updates')?>" class="menu__link">News</a>
+				<a href="<?= $this->Url->Build('/News-Updates')?>" class="menu__link">News</a>
 			</li>
 		</ul>
 
@@ -119,10 +119,13 @@
 
 	<div class="fixed-menu">
 		<div class="fixed-menu__header">
-			<a href="#" class="logo logo--color">
+			<!-- <a href="#" class="logo logo--color">
 				<div class="logo__img"></div>
 				<div class="logo__title">Cryptoland</div>
-			</a>
+			</a> -->
+			<a class="logo logo--color" href="<?= $this->Url->Build('/')?>">
+		    	<?php echo $this->Html->Image('/img/logo.png',['style' => 'height: 35px;']); ?>
+		    </a>
 
 			<div class="btn-close">
 					<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 47.971 47.971" style="enable-background:new 0 0 47.971 47.971;" xml:space="preserve" width="512px" height="512px">
@@ -152,10 +155,10 @@
 					<a href="#docs" class="mob-menu__link">WhitePappers</a>
 				</li>
 				<li class="mob-menu__item">
-					<a href="#team" class="mob-menu__link">Team</a>
+					<a href="<?= $this->Url->Build('/Apply-for-ICO-Review')?>" class="mob-menu__link">Apply for ICO Review</a>
 				</li>
 				<li class="mob-menu__item">
-					<a href="#faq" class="mob-menu__link">FAQ</a>
+					<a href="<?= $this->Url->Build('/News-Updates')?>" class="mob-menu__link">News</a>
 				</li>
 			</ul>
 
@@ -166,8 +169,16 @@
 			</select>
 
 			<div class="btn-wrap">
-				<a href="#" class="btn-sign-in">Sign in</a>
-				<a href="#" class="btn-sign-up">Sign up</a>
+				<a href="<?php 
+				if(@$role=='Admin' || @$role=='Staff'){
+					echo $this->Url->Build(['controller'=>'Users','action'=>'dashboard']);
+				}
+				elseif(@$role=='User'){
+					echo $this->Url->Build(['controller'=>'Refers','action'=>'index']);
+				}else{
+				echo $this->Url->Build('/sign-in'); }?>" class="btn-sign-in">Sign in</a>
+				
+				<a href="<?= $this->Url->Build('/sign-up')?>" class="btn-sign-up">Sign up</a>
 			</div>
 			
 

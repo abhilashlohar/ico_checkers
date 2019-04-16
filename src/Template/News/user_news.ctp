@@ -22,7 +22,7 @@ $this->Html->css(['blog'], ['block' => true]);
 				  <p class="card-text mb-auto"><?= $news1->short_description ?></p>
 				  <a href="<?= $this->Url->build(['controller'=>'News','action'=>'view/'.$news1->id])?>">Continue reading</a>
 				</div>
-				<?php echo $this->html->image(str_replace("\\","/",$news1->cover_image),['class'=>'card-img-right flex-auto  d-md-blocks','height'=>125,'width'=>125]);?>
+				<?php echo $this->html->image(str_replace("\\","/",$news1->cover_image),['class'=>'card-img-right flex-auto  d-md-blocks','height'=>125]);?>
 			  </div>
 			</div>
 			<?php }} ?>

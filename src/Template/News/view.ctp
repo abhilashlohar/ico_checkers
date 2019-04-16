@@ -6,7 +6,12 @@
         <?php }else{
             echo "<p>(<i>Pending for approval</i>)</p>";
         }
-		 if($news->cover_image!=''){ echo $this->html->image(str_replace('\\','/',@$news->cover_image),['class'=>'img-thumbnail','height'=>400,'width'=>400]);echo '<br>';};
+
+
+		 if($news->cover_image!=''){ 
+        echo $this->Html->image(str_replace('\\','/',@$news->cover_image),['class'=>'img-thumbnail','width'=>'100%']);
+        echo '<br><br>';
+        };
 		 ?>
         <?= $this->Text->autoParagraph(h($news->description)); ?>
     </div>
