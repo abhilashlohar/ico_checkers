@@ -39,12 +39,13 @@
           (in_array($menuActive, ["Tasks.add", "Tasks.index", "Tasks.view", "Tasks.edit"])) ? $TasksActive = "active": "";
           (in_array($menuActive, ["Icos.index"])) ? $IcosActive = "active": "";
           (in_array($menuActive, ["Airdrops.add", "Airdrops.index"])) ? $AirActive = "active": "";
+		  
 
           /*For Admin role*/
-          (in_array($menuActive, ["News.userNews"])) ? $nActive = "active": "";
+          (in_array($menuActive, ["News.userNews","News.userView"])) ? $nActive = "active": "";
           (in_array($menuActive, ["Tasks.earnMoney"])) ? $tActive = "active": "";
           (in_array($menuActive, ["Tasks.add", "Tasks.index"])) ? $mtActive = "active": "";
-          (in_array($menuActive, ["Airdrops.airdropUserView"])) ? $arActive = "active": "";
+          (in_array($menuActive, ["Airdrops.airdropUserView", "Airdrops.userView"])) ? $arActive = "active": "";
           (in_array($menuActive, ["Refers.index"])) ? $rfActive = "active": "";
           ?>
 
@@ -73,7 +74,7 @@
             <li class="nav-item <?php echo @$IcosActive; ?>">
               <a href="<?= $this->Url->Build('/ICO-Applications')?>" class="nav-link">ICO-Applications</a>
             </li>
-			      <li class="nav-item dropdown <?php echo @$AirActive; ?>">
+			<li class="nav-item dropdown <?php echo @$AirActive; ?>">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Airdrops
               </a>

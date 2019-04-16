@@ -16,11 +16,11 @@ $this->Html->css(['blog'], ['block' => true]);
 			  <div class="card flex-md-row mb-4 box-shadow h-md-250">
 				<div class="card-body d-flex flex-column align-items-start">
 				  <h3 class="mb-0">
-					<a class="text-dark" href="<?= $this->Url->build(['controller'=>'Airdrops','action'=>'view/'.$airdrop->id])?>"><?= $airdrop->name ?></a>
+					<a class="text-dark" href="<?= $this->Url->build('/airdrop-view/'.$airdrop->id)?>"><?= $airdrop->name ?></a>
 				  </h3>
 				  <div class="mb-1 text-muted"><?php echo date('d M, Y',strtotime($airdrop->created_on))?></div>
 				  <p class="card-text mb-auto"><?= $airdrop->short_description ?></p>
-				  <a href="<?= $this->Url->build(['controller'=>'Airdrops','action'=>'view/'.$airdrop->id])?>">Continue reading</a>
+				  <a href="<?= $this->Url->build('/airdrop-view/'.$airdrop->id)?>">Continue reading</a>
 				</div>
 			  </div>
 			</div>

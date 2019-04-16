@@ -95,7 +95,7 @@ class AppController extends Controller
 				return $this->redirect('/Dashboard');
 			}
 		}elseif(@$this->role=='User'){
-			$user_actions=['News.userNews','News.view','Tasks.add','Tasks.index','Tasks.earnMoney','Tasks.taskSubmit','Tasks.view','Tasks.edit','Tasks.proofApproval','Airdrops.airdropUserView','Refers.index','Users.login', 'News.home', 'Users.login', 'Airdrops.view'];
+			$user_actions=['News.userNews','News.view','Tasks.add','Tasks.index','Tasks.earnMoney','Tasks.taskSubmit','Tasks.view','Tasks.edit','Tasks.proofApproval','Airdrops.airdropUserView','Refers.index','Users.login', 'News.home', 'Users.login','Icos.add','News.userView','Airdrops.userView',];
 			if(!in_array($this->request->getParam('controller').'.'.$this->request->getParam('action'), $user_actions))
 			{
 				$this->Flash->error(__('You are not authorized to access that location.'));
@@ -107,7 +107,7 @@ class AppController extends Controller
         $this->set(compact('user_id','user_role'));
 
         
-        $menuActive = $this->request->getParam('controller').'.'.$this->request->getParam('action');
+        $menuActive = $this->request->getParam('controller').'.'.$this->request->getParam('action'); 
 		$this->set(compact('menuActive'));
     }
 	protected function _getRandomString($length = 10, $validCharacters = null)

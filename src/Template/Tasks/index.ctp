@@ -4,7 +4,6 @@
       <thead>
         <tr>
           <th>Task title</th>
-          <th>Short Description</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -19,9 +18,6 @@
                    <?= $this->Time->format($task->created_on, 'd-m-Y h:i A') ?> <?php  //$task->created_on->format('d-m-Y h:i A') ?>
                 </span>
             </p>
-          </td>
-          <td width="65%">
-			 <?= $task->short_description ?>
           </td>
           <td>
 			<?php echo $this->Html->link(__(' Edit'), ['controller' => 'Tasks', 'action' => 'edit', $task->id]); ?></br>
