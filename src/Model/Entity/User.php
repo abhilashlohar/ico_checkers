@@ -53,7 +53,9 @@ class User extends Entity
         'modified_by' => true,
         'created' => true,
         'minimum_point' => true,
-        'modified' => true
+        'modified' => true,
+        'photo' => true,
+		'dob' => true
     ];
 
     /**

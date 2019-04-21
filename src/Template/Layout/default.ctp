@@ -10,7 +10,7 @@
   <!-- Bootstrap core CSS -->
   <link href="<?php echo $this->request->getAttribute("webroot"); ?>assets/css/bootstrap.min.css" rel="stylesheet">
   <link href="<?php echo $this->request->getAttribute("webroot"); ?>ic_style.css" rel="stylesheet">
-    
+  <?= $this->fetch('css') ?>
   <!-- <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"> -->
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
 	<?= $this->Html->css(['custom'],['type' => 'text/css','media' => 'all']) ?>
@@ -47,6 +47,7 @@
           (in_array($menuActive, ["Tasks.add", "Tasks.index"])) ? $mtActive = "active": "";
           (in_array($menuActive, ["Airdrops.airdropUserView", "Airdrops.userView"])) ? $arActive = "active": "";
           (in_array($menuActive, ["Refers.index"])) ? $rfActive = "active": "";
+		  (in_array($menuActive, ["Users.userProfile"])) ? $uActive = "active": "";
           ?>
 
 		      <?php if($user_role=='Admin' || $user_role=='Staff'){ ?>
@@ -105,6 +106,9 @@
             <li class="nav-item <?php echo @$rfActive; ?>">
               <a href="<?= $this->url->build('/Refer-and-Earn');?>" class="nav-link">Refer and Earn</a>
             </li>
+			<li class="nav-item <?php echo @$uActive; ?>">
+              <a href="<?= $this->Url->Build('/profile')?>" class="nav-link">My Profile</a>
+            </li>
             <li class="nav-item">
               <a href="JavaScript:void();" class="nav-link">Wallet: 236</a>
             </li>
@@ -133,5 +137,6 @@
     <!-- Bootstrap core JavaScript -->
     <script src="<?php echo $this->request->getAttribute("webroot"); ?>assets/js/jquery-3.3.1.min.js"></script>
     <script src="<?php echo $this->request->getAttribute("webroot"); ?>assets/js/bootstrap.bundle.min.js"></script>
+	<?= $this->fetch('script') ?>
 </body>
 </html>

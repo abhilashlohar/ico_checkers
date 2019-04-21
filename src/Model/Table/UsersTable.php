@@ -124,7 +124,21 @@ class UsersTable extends Table
                 },
                 'message' => 'The password you supplied is not correct.'
             ]);
-        
+			
+        $validator
+            ->requirePresence('photo', 'create')
+            ->notEmpty('photo', __('Please select a banner image.'), function($context) {
+                return $context['newRecord'];
+            })
+            ->add('photo', 'fileSize', [
+                'rule' => ['fileSize', '<=', '2MB'],
+                'message' => __('Banner image must be less than 2MB.')
+            ])
+            ->add('photo', 'extension', [
+                'rule' => ['extension'],
+                'message' => __('Please supply a valid banner [allowed extensions are: Gif, Jpeg, Png, Jpg].')
+            ]);
+			
         $validator
             ->boolean('status', __('Please select a valid status.'))
             ->requirePresence('status', 'create')

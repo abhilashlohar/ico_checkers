@@ -88,14 +88,14 @@ class AppController extends Controller
 		if(@$this->role=='Admin' || @$this->role=='Staff')
 		{   
 
-			$admin_controllers=['News.add','News.index','News.view','News.edit','Tasks.add','Tasks.index','Tasks.view','Tasks.edit','Tasks.proofApproval','Airdrops.add','Icos.add','Icos.index','Users.dashboard','Users','Airdrops.index', 'News.home'];
+			$admin_controllers=['News.add','News.index','News.view','News.edit','Tasks.add','Tasks.index','Tasks.view','Tasks.edit','Tasks.proofApproval','Airdrops.add','Icos.add','Icos.index','Users.dashboard','Users','Airdrops.index', 'News.home', 'Users.index','Users.broadcastEmail'];
 			if(!in_array($this->request->getParam('controller').'.'.$this->request->getParam('action'), $admin_controllers))
 			{
 				$this->Flash->error(__('You are not authorized to access that location.'));
 				return $this->redirect('/Dashboard');
 			}
 		}elseif(@$this->role=='User'){
-			$user_actions=['News.userNews','News.view','Tasks.add','Tasks.index','Tasks.earnMoney','Tasks.taskSubmit','Tasks.view','Tasks.edit','Tasks.proofApproval','Airdrops.airdropUserView','Refers.index','Users.login', 'News.home', 'Users.login','Icos.add','News.userView','Airdrops.userView',];
+			$user_actions=['News.userNews','News.view','Tasks.add','Tasks.index','Tasks.earnMoney','Tasks.taskSubmit','Tasks.view','Tasks.edit','Tasks.proofApproval','Airdrops.airdropUserView','Refers.index','Users.login', 'News.home', 'Users.login','Icos.add','News.userView','Airdrops.userView','Users.userProfile'];
 			if(!in_array($this->request->getParam('controller').'.'.$this->request->getParam('action'), $user_actions))
 			{
 				$this->Flash->error(__('You are not authorized to access that location.'));
@@ -151,5 +151,14 @@ class AppController extends Controller
             $this->_getReferralCode(6);
         }
         
+    }
+	protected function _redirectUrl()
+    {
+        if($this->request->query('page') > 1)
+        {
+            return ['action' => 'index', 'page' => $this->request->query('page')];
+        }
+        
+        return ['action' => 'index'];
     }
 }

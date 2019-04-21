@@ -20,7 +20,7 @@ class UsersController extends AppController
 	public function initialize()
     {
         parent::initialize();
-        $passed = ['forgotPassword', 'resetPassword', 'login', 'logout', 'changeProfile', 'changePassword', 'registration','approveemail','dashboard'];
+        $passed = ['forgotPassword', 'resetPassword', 'login', 'logout', 'changeProfile', 'changePassword', 'registration','approveemail','dashboard','index','broadcastEmail','userProfile'];
         if(!in_array($this->request->getParam('action'), $passed) )
         {
             return $this->redirect(['/Dashboard']);
@@ -413,4 +413,30 @@ class UsersController extends AppController
 		$this->set(compact('dashboard'));
         $this->set('activeMenu', ' Users.dashboard');
     }
+	
+	public function broadcastEmail()
+    {
+        $user = $this->Users->newEntity();
+        $this->set(compact('user'));
+    }
+	
+	public function userProfile()
+    {
+		$id= $this->Auth->user('id'); 
+		try
+        {
+			$user = $this->Users->get($id,[
+			'fields'=>['id','name','email','mobile','photo','dob'],
+			'conditions'=>['Users.id'=>$id,'Users.is_deleted'=>false,'Users.status'=>true,'role'=>'User']
+			]);
+			
+		 }
+        catch(RecordNotFoundException $e)
+        {
+            $this->Flash->error(__('Invalid selection.'));
+            return $this->redirect(['controller' => 'Refers', 'action' => 'index']);
+        }  
+		
+		$this->set(compact('user'));
+	}
 }
