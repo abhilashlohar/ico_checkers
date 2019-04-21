@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Datasource\Exception\RecordNotFoundException;
+use Cake\Filesystem\File;
 use Cake\I18n\Time;
 use Cake\Mailer\Email;
 use Cake\Network\Exception\MethodNotAllowedException;
@@ -16,7 +17,7 @@ use Cake\Network\Exception\NotFoundException;
  */
 class UsersController extends AppController
 {
-	
+	const FILE_PATH = 'user'.DS;
 	public function initialize()
     {
         parent::initialize();
@@ -429,14 +430,64 @@ class UsersController extends AppController
 			'fields'=>['id','name','email','mobile','photo','dob'],
 			'conditions'=>['Users.id'=>$id,'Users.is_deleted'=>false,'Users.status'=>true,'role'=>'User']
 			]);
-			
+			$formattableFields = ['dob'];
+            foreach($formattableFields as $formattableField)
+            {
+                if($user->{$formattableField})
+                {
+                    $fieldDate = new Time($user->{$formattableField});
+                    $user->{$formattableField} = $fieldDate->format('d/m/Y');
+                }
+            }
 		 }
         catch(RecordNotFoundException $e)
         {
             $this->Flash->error(__('Invalid selection.'));
             return $this->redirect(['controller' => 'Refers', 'action' => 'index']);
         }  
-		
+		if ($this->request->is(['patch', 'post', 'put'])) {
+            $user = $this->Users->patchEntity($user, $this->request->getData());
+			
+			 $errors = [];
+                if($this->request->getData('photo.tmp_name'))
+                {
+                    $fileName = strtolower(pathinfo($this->request->getData('photo.name'), PATHINFO_FILENAME));
+                    $fileExtension = strtolower(pathinfo($this->request->getData('photo.name'), PATHINFO_EXTENSION));
+                    $user->photo = static::FILE_PATH.$fileName.'.'.$fileExtension;
+                    
+                    $file = new File(static::IMAGE_ROOT.$user->photo);
+                    $directory = $file->folder();
+                    $directory->create(static::IMAGE_ROOT.static::FILE_PATH);
+                    
+                    $i = 1;
+                    while($file->exists())
+                    {
+                        $user->photo = static::FILE_PATH.$fileName.' ('.$i++.').'.$fileExtension;
+                        $file = new File(static::IMAGE_ROOT.$user->photo);
+                    }
+                    
+                    $success = move_uploaded_file($this->request->getData('photo.tmp_name'), static::IMAGE_ROOT.$user->photo);
+                    if(!$success)
+                    {
+                        $errors[] = __('Unable to upload category image. Please try again.');
+                    }
+                }
+			if(empty($errors))
+            {  
+				if ($this->Users->save($user)) {
+					$this->Flash->success(__('The user has been saved.'));
+
+					return $this->redirect(['action' => 'userProfile']);
+				}
+				else{
+					$this->Flash->error(__('The user could not be saved. Please, try again.'));
+				}
+			}
+			else
+			{
+				$this->Flash->error(implode('<br />', $errors), ['escape' => false]);
+			}
+        }
 		$this->set(compact('user'));
 	}
 }

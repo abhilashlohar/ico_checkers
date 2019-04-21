@@ -9,10 +9,10 @@ $this->Html->css(['gijgo.min'], ['block' => true]); ?>
       <!-- left column -->
       <div class="col-md-3">
         <div class="text-center">
-          <?= $this->Html->Image(($user->photo!='')?$user->photo:'//placehold.it/100',['class'=>'avatar img-circle','alt'=>$user->name]);?>
+          <?= $this->Html->Image(($user->photo!='')?str_replace('\\','/',$user->photo):'//placehold.it/100',['class'=>'avatar img-circle','alt'=>$user->name,'width'=>'125','height'=>'125']);?>
           <h6>Upload a different photo...</h6>
           
-          <input type="file" class="form-control">
+         <?= $this->form->input('photo',['class'=>'form-control','type'=>'file','label'=>false])?>
         </div>
       </div>
       
@@ -53,19 +53,19 @@ $this->Html->css(['gijgo.min'], ['block' => true]); ?>
           <div class="form-group">
             <label class="col-md-3 control-label">Password:</label>
             <div class="col-md-8">
-             <?= $this->form->input('password',['class'=>'form-control','value'=>'','label'=>false])?>
+             <?= $this->form->input('password',['class'=>'form-control','value'=>'','label'=>false,'required'=>true])?>
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-3 control-label">Confirm password:</label>
             <div class="col-md-8">
-              <?= $this->form->input('confirm_password',['class'=>'form-control','value'=>'','label'=>false])?>
+              <?= $this->form->input('confirm_password',['class'=>'form-control','value'=>'','label'=>false,'required'=>true])?>
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
-              <input type="button" class="btn btn-primary" value="Save Changes">
+              <?= $this->Form->button(' Save Changes', ['escape' => false, 'class' => 'btn btn-primary']); ?>
               <span></span>
               
             </div>

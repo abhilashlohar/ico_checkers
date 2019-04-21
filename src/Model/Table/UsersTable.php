@@ -3,10 +3,11 @@ namespace App\Model\Table;
 
 use Cake\Auth\DefaultPasswordHasher;
 use Cake\ORM\Query;
+use Cake\I18n\Time;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
-
+use ArrayObject;
 /**
  * Users Model
  *
@@ -181,5 +182,17 @@ class UsersTable extends Table
         $rules->add($rules->isUnique(['email']));
 
         return $rules;
+    }
+	 public function beforeMarshal(Event $event, ArrayObject $data, ArrayObject $options)
+    {
+        $formattableFields = ['dob'];
+        foreach($formattableFields as $formattableField)
+        {
+            if(!empty($data[$formattableField]))
+            {
+                $fieldDate = new Time($data[$formattableField]);
+                $data[$formattableField] = $fieldDate->format('Y-m-d');
+            }
+        }
     }
 }
