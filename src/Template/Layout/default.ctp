@@ -39,6 +39,7 @@
           (in_array($menuActive, ["Tasks.add", "Tasks.index", "Tasks.view", "Tasks.edit"])) ? $TasksActive = "active": "";
           (in_array($menuActive, ["Icos.index"])) ? $IcosActive = "active": "";
           (in_array($menuActive, ["Airdrops.add", "Airdrops.index"])) ? $AirActive = "active": "";
+          (in_array($menuActive, ["Users.index"])) ? $usActive = "active": "";
 		  
 
           /*For Admin role*/
@@ -63,7 +64,7 @@
                 <?= $this->Html->link(__('List'), ['controller' => 'news', 'action' => 'index'],['class'=>'dropdown-item']) ?>
 				      </div>
             </li>
-			      <li class="nav-item dropdown <?php echo @$TasksActive; ?>">
+			<li class="nav-item dropdown <?php echo @$TasksActive; ?>">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Earn Money
               </a>
@@ -74,6 +75,9 @@
             </li>
             <li class="nav-item <?php echo @$IcosActive; ?>">
               <a href="<?= $this->Url->Build('/ICO-Applications')?>" class="nav-link">ICO-Applications</a>
+            </li>
+			<li class="nav-item <?php echo @$usActive; ?>">
+              <a href="<?= $this->Url->Build(['controller' => 'Users', 'action' => 'index'])?>" class="nav-link">User</a>
             </li>
 			<li class="nav-item dropdown <?php echo @$AirActive; ?>">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

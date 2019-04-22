@@ -8,6 +8,7 @@
 		  <th>Email</th>
 		  <th>Mobile</th>
 		  <th>Role</th>
+		  <th>Status</th>
 		  <th>Action</th>
 		</tr>
 	  </thead>
@@ -27,8 +28,28 @@
 		  <td>
 		  	<?= $user->role ?>
 		  </td>
-		  <td>
+		   <td>
+		  	<?php if($user->status==true){
+				echo 'Active';
+			}else{ echo 'Deactive'; }
 			
+		?>
+		  </td>
+		  <td>
+			<?php if($user->status==true){
+			echo $this->Form->postLink(
+					__('Deactive'),
+					['controller' => 'Users', 'action' => 'changeStatus', $user->id,'deactive'],
+					['confirm' => __('Are you sure you want to deactive?')]
+				);
+			
+			}else{
+				echo $this->Form->postLink(
+					__('Active'),
+					['controller' => 'Users', 'action' => 'changeStatus', $user->id,'active'],
+					['confirm' => __('Are you sure you want to active?')]
+				);
+			} ?>
 		  </td>
 		</tr>
 		<?php endforeach; ?>

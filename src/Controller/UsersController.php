@@ -21,7 +21,7 @@ class UsersController extends AppController
 	public function initialize()
     {
         parent::initialize();
-        $passed = ['forgotPassword', 'resetPassword', 'login', 'logout', 'changeProfile', 'changePassword', 'registration','approveemail','dashboard','index','broadcastEmail','userProfile'];
+        $passed = ['forgotPassword', 'resetPassword', 'login', 'logout', 'changeProfile', 'changePassword', 'registration','approveemail','dashboard','index','broadcastEmail','userProfile','changeStatus'];
         if(!in_array($this->request->getParam('action'), $passed) )
         {
             return $this->redirect(['/Dashboard']);
@@ -490,4 +490,22 @@ class UsersController extends AppController
         }
 		$this->set(compact('user'));
 	}
+	public function changeStatus($id = null,$status=null)
+    {
+        
+        $user = $this->Users->get($id);
+		if($status=='active')
+		{
+			$user->status = 1;
+        }else{
+			$user->status = 0;
+		}
+        if ($this->Users->save($user)) {
+          $this->Flash->success(__('The user status '.$status ));
+        } else {
+          $this->Flash->error(__('The user status could not be change. Please, try again.'));
+        }
+
+        return $this->redirect($this->referer());
+    }
 }
