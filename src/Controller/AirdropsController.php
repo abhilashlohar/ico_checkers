@@ -17,7 +17,7 @@ class AirdropsController extends AppController
         parent::initialize();
         
         
-        $this->Auth->allow(['airdropUserView','view']);
+        $this->Auth->allow(['airdropUserView','view','edit']);
     }
     /**
      * Index method

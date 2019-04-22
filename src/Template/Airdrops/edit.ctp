@@ -1,33 +1,34 @@
-<?php
-/**
- * @var \App\View\AppView $this
- * @var \App\Model\Entity\Airdrop $airdrop
- */
-?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $airdrop->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $airdrop->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Airdrops'), ['action' => 'index']) ?></li>
-    </ul>
-</nav>
-<div class="airdrops form large-9 medium-8 columns content">
-    <?= $this->Form->create($airdrop) ?>
-    <fieldset>
-        <legend><?= __('Edit Airdrop') ?></legend>
-        <?php
-            echo $this->Form->control('name');
-            echo $this->Form->control('link');
-            echo $this->Form->control('country');
-            echo $this->Form->control('email');
-            echo $this->Form->control('applied_on');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+<div class="row py-3">
+    <div class="col-md-12">
+        <h4 class="mb-3">Edit Airdrop</h4>
+        <?= $this->Form->create($airdrop) ?>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <?php echo $this->Form->control('name',['class'=>'form-control', 'label'=>'ICO Name']); ?>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <div class="form-group">
+                        <?php echo $this->Form->control('country',['class'=>'form-control']); ?>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <?php echo $this->Form->control('link',['class'=>'form-control']); ?>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <?php echo $this->Form->control('email',['class'=>'form-control', 'label'=>'CEO/Founder Email']); ?>
+                    </div>
+                </div>
+            </div>
+        <button type="submit" class="btn btn-primary">Add</button>
+        <?= $this->Form->end() ?>
+    </div>
 </div>
