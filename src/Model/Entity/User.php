@@ -55,7 +55,8 @@ class User extends Entity
         'minimum_point' => true,
         'modified' => true,
         'photo' => true,
-		'dob' => true
+		'dob' => true,
+		'country_code' => true
     ];
 
     /**

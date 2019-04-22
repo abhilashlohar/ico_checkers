@@ -7,9 +7,12 @@
 	<?= $this->Flash->render() ?>
     <?= $this->element('logo-part'); ?>
     <h2 class="h3 mb-3 font-weight-normal">User Registration</h2>
-
+	<?php $option=['in'=>'In','usa'=>'usa','uk'=>'uk','uae'=>'uae'];?>
 	<?= $this->Form->control('name', ['label' => false, 'class' => 'form-control', 'placeholder'=>'Full Name']); ?>
     <?= $this->Form->control('email', ['label' => false, 'class' => 'form-control', 'placeholder'=>'Email']); ?>
+	<?php
+    echo $this->Form->input('country_code', ['type' => 'select','options' => $option,'empty' => true,'class'=>'form-control','label'=>false,'empty'=>'-Select Country Code-']);
+    ?>
     <?= $this->Form->control('mobile', ['label' => false, 'class' => 'form-control', 'placeholder'=>'Mobile']); ?>
     <?= $this->Form->control('password', ['label' => false, 'class' => 'form-control', 'placeholder'=>'Set Password']); ?>
     <?= $this->Form->control('confirm_password', ['label' => false, 'class' => 'form-control', 'placeholder'=>'Confirm Password','type'=>'password']); ?>

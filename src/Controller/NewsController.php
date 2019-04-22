@@ -18,7 +18,7 @@ class NewsController extends AppController
         parent::initialize();
         
         
-        $this->Auth->allow(['index', 'add','userNews','view', 'home']);
+        $this->Auth->allow(['index', 'add','userNews','view', 'home','userView']);
     }
     /**
      * Index method
