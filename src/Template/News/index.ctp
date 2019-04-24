@@ -29,13 +29,19 @@
 		  	</p>
 		  </td>
 		  <td>
-			<?php if($news->is_approved=="no"){
-			echo $this->Form->postLink(
-					__('Approve'),
-					['controller' => 'news', 'action' => 'approve', $news->id],
-					['confirm' => __('Are you sure you want to approve?')]
-				);
+			<?php if($news->is_approved=="no"){ 
+				if($user_role=="Admin"){
+					echo $this->Form->postLink(
+						__('Approve'),
+						['controller' => 'news', 'action' => 'approve', $news->id],
+						['confirm' => __('Are you sure you want to approve?')]
+					);
+				}else if($user_role=="Staff"){
+					echo '<span>Pending for approval</span>';				
+				}
 			echo $this->Html->link(__(' Edit'), ['controller' => 'news', 'action' => 'edit', $news->id]);
+			}else{
+				echo '<span>Approved</span>';	
 			} ?>
 		  </td>
 		</tr>
