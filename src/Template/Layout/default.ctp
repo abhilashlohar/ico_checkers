@@ -49,7 +49,8 @@
           (in_array($menuActive, ["Tasks.add", "Tasks.index"])) ? $mtActive = "active": "";
           (in_array($menuActive, ["Airdrops.airdropUserView", "Airdrops.userView"])) ? $arActive = "active": "";
           (in_array($menuActive, ["Refers.index"])) ? $rfActive = "active": "";
-		  (in_array($menuActive, ["Users.userProfile"])) ? $uActive = "active": "";
+		      (in_array($menuActive, ["Users.userProfile"])) ? $uActive = "active": "";
+          (in_array($menuActive, ["Refers.WithdrawRequests"])) ? $WithdrawActive = "active": "";
           ?>
 
 		      <?php if($user_role=='Admin' || $user_role=='Staff'){ ?>
@@ -65,7 +66,7 @@
                 <?= $this->Html->link(__('List'), ['controller' => 'news', 'action' => 'index'],['class'=>'dropdown-item']) ?>
 				      </div>
             </li>
-			<li class="nav-item dropdown <?php echo @$TasksActive; ?>">
+			      <li class="nav-item dropdown <?php echo @$TasksActive; ?>">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Earn Money
               </a>
@@ -77,10 +78,13 @@
             <li class="nav-item <?php echo @$IcosActive; ?>">
               <a href="<?= $this->Url->Build('/ICO-Applications')?>" class="nav-link">ICO-Applications</a>
             </li>
-			<li class="nav-item <?php echo @$usActive; ?>">
+            <li class="nav-item <?php echo @$WithdrawActive; ?>">
+              <a href="<?= $this->Url->Build('/Withdraw-Requests')?>" class="nav-link">Withdraw Requests</a>
+            </li>
+			      <li class="nav-item <?php echo @$usActive; ?>">
               <a href="<?= $this->Url->Build(['controller' => 'Users', 'action' => 'index'])?>" class="nav-link">User</a>
             </li>
-			<li class="nav-item dropdown <?php echo @$AirActive; ?>">
+			      <li class="nav-item dropdown <?php echo @$AirActive; ?>">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Airdrops
               </a>
@@ -114,19 +118,24 @@
             <li class="nav-item <?php echo @$rfActive; ?>">
               <a href="<?= $this->url->build('/Refer-and-Earn');?>" class="nav-link">Refer and Earn</a>
             </li>
-			<li class="nav-item <?php echo @$uActive; ?>">
-              <a href="<?= $this->Url->Build('/profile')?>" class="nav-link">My Profile</a>
-            </li>
-            <li class="nav-item">
-              <a href="JavaScript:void();" class="nav-link">Wallet: 236</a>
-            </li>
+            <li class="dropdown">
+              <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false"> 
+                <?=  $session_user_name ?><b class="caret"></b>
+              </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="">My Profile</a>
+                  <a class="dropdown-item" href="<?= $this->Url->Build('/My-Wallet')?>">Wallet</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="<?= $this->url->build(['controller'=>'users','action'=>'logout']) ?>">Logout</a>
+              </div>
+          </li>
   			  <?php } ?>
               
   			  <?php if(empty($user_id)){ ?>
             <li class="nav-item">
               <a class="nav-link" href="<?= $this->url->build(['controller'=>'users','action'=>'login']) ?>">Login</a>
             </li>
-          <?php }else{ ?> <!-- Else statement -->
+          <?php }else if($user_role=='Admin' || $user_role=='Staff'){ ?> 
             <li class="nav-item">
               <a class="nav-link" href="<?= $this->url->build(['controller'=>'users','action'=>'logout']) ?>">Logout</a>
             </li>
