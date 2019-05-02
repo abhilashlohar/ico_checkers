@@ -173,7 +173,7 @@ class RefersController extends AppController
 	public function delete($user_id = null)
 	{
 		$this->request->allowMethod(['post', 'delete']);
-		$request = $this->Refers->Withdraws->find()->where(['user_id'=>$user_id])->first();
+		$request = $this->Refers->Withdraws->find()->where(['user_id'=>$user_id, 'is_money_transfered'=>'no'])->first();
 		if ($this->Refers->Withdraws->delete($request)) {
 			$this->Flash->success(__('The withdraw request has been deleted.'));
 		} else {

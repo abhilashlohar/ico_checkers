@@ -6,6 +6,7 @@
 		  <th>User</th>
 		  <th>Points</th>
 		  <th>Date</th>
+		  <th>Message</th>
 		  <th>Action</th>
 		</tr>
 	  </thead>
@@ -15,6 +16,7 @@
 			<td><?= $request->user->name ?></td>
 			<td><?= $request->points ?></td>
 			<td><?= $request->created_on->format("d-M-Y h:i A") ?></td>
+			<td><?= $this->Text->autoParagraph($request->comment); ?></td>
 			<td>
 			<?php  echo $this->Html->link(__('Money sent'), ['controller' => 'Refers', 'action' => 'moneySent', $request->id]); ?>
 			<?php  echo $this->Html->link(__('Reject request'), ['controller' => 'Refers', 'action' => 'CancelRequest', $request->id]); ?>

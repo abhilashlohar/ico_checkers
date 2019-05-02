@@ -31,6 +31,7 @@ class Withdraw extends Entity
         'points' => true,
         'created_on' => true,
         'is_money_transfered' => true,
-        'user' => true
+        'user' => true,
+        'comment' => true
     ];
 }
