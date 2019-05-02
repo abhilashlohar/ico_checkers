@@ -8,6 +8,7 @@ use Cake\I18n\Time;
 use Cake\Mailer\Email;
 use Cake\Network\Exception\MethodNotAllowedException;
 use Cake\Network\Exception\NotFoundException;
+use Cake\Network\Exception\BadRequestException;
 /**
  * Users Controller
  *
@@ -21,26 +22,46 @@ class UsersController extends AppController
 	public function initialize()
     {
         parent::initialize();
-        $passed = ['forgotPassword', 'resetPassword', 'login', 'logout', 'changeProfile', 'changePassword', 'registration','approveemail','dashboard','index','broadcastEmail','userProfile','changeStatus'];
+        $passed = ['forgotPassword', 'resetPassword', 'login', 'logout', 'changeProfile', 'changePassword', 'registration','approveemail','dashboard','index','broadcastEmail','userProfile','changeStatus','brodcast','saveemailuser'];
         if(!in_array($this->request->getParam('action'), $passed) )
         {
             return $this->redirect(['/Dashboard']);
         }
         
-        $this->Auth->allow(['forgotPassword', 'resetPassword', 'logout','image','registration','approveemail']);
+        $this->Auth->allow(['forgotPassword', 'resetPassword', 'logout','image','registration','approveemail','saveemailuser']);
     }
     /**
      * Index method
      *
-     * @return \Cake\Http\Response|void
+     * @return \Cake\Http\Response|void 
      */
-    public function index()
+    public function index($id=null)
     {
         $users = $this->paginate($this->Users);
 
-        $this->set(compact('users'));
+        $this->set(compact('users','id'));
     }
 
+	public function brodcast()
+    {
+        $users = $this->Users->sentEmails->newEntity();
+		if($this->request->is('post'))
+        {
+			$sent_email = $this->Users->SentEmails->patchEntity($users, $this->request->getData());
+			$sent_email->create_date = date('Y-m-d');
+			$sent_email->status = 'Draft';
+			
+			if($sent_email = $this->Users->sentEmails->save($sent_email))
+            {
+				$this->Flash->success(__('Message successfully Save.'));
+                return $this->redirect(['action' => 'index',$sent_email->id]);
+			}
+			else{ 
+				$this->Flash->error(__('The message could not be save.'));
+			}
+		}
+        $this->set(compact('users'));
+    }
     /**
      * View method
      *
@@ -507,5 +528,35 @@ class UsersController extends AppController
         }
 
         return $this->redirect($this->referer());
+    }
+	
+	public function saveemailuser()
+    {
+		$this->autoRender = false;
+        try
+        {
+            if(!$this->request->is('ajax'))
+            {
+                throw new BadRequestException();
+            }
+        }
+        catch(BadRequestException $e)
+        {
+            $this->Flash->error(__('Only ajax request can be processed.'));
+            return $this->redirect($this->_redirectUrl());
+        }
+		echo '1';exit;
+        $email_user = $this->Users->SentEmails->EmailUsers->newEntity();
+		$email_user->sent_email_id = $this->request->getData('id');
+		$email_user->user_id       = $this->request->getData('user_id');
+		$email_user->status        = 'Pending';
+		
+        if ($this->Users->SentEmails->EmailUsers->save($email_user)) {
+          echo 'Add user successfully';
+        } else {
+          echo 'Try Again';
+        }
+
+        exit;
     }
 }

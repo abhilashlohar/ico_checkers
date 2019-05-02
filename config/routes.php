@@ -78,6 +78,7 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/user-view/*', ['controller' => 'News', 'action' => 'userView']);
     $routes->connect('/airdrop-view/*', ['controller' => 'Airdrops', 'action' => 'userView']);
     $routes->connect('/profile', ['controller' => 'Users', 'action' => 'userProfile']);
+    $routes->connect('/Users/saveemailuser', ['controller' => 'Users', 'action' => 'saveemailuser']);
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.

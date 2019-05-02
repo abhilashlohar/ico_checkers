@@ -222,4 +222,5 @@ class NewsController extends AppController
         $this->viewBuilder()->setLayout('cryptoland');
 		$this->set(compact('role'));
     }
+	
 }

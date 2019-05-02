@@ -40,6 +40,7 @@
           (in_array($menuActive, ["Icos.index"])) ? $IcosActive = "active": "";
           (in_array($menuActive, ["Airdrops.add", "Airdrops.index"])) ? $AirActive = "active": "";
           (in_array($menuActive, ["Users.index"])) ? $usActive = "active": "";
+          (in_array($menuActive, ["Users.brodcast"])) ? $us2Active = "active": "";
 		  
 
           /*For Admin role*/
@@ -87,6 +88,9 @@
                 <?= $this->Html->link(__('Add'), ['controller' => 'Airdrops', 'action' => 'add'],['class'=>'dropdown-item']) ?>
                 <?= $this->Html->link(__('List'), ['controller' => 'Airdrops', 'action' => 'index'],['class'=>'dropdown-item']) ?>
               </div>
+            </li>
+			<li class="nav-item <?php echo @$us2Active; ?>">
+              <a href="<?= $this->Url->Build(['controller' => 'Users', 'action' => 'brodcast'])?>" class="nav-link">Email Brodcast</a>
             </li>
 			    <?php } else { ?> <!-- Else statement -->
   			    <li class="nav-item <?php echo @$nActive; ?>">

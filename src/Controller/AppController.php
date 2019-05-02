@@ -49,6 +49,7 @@ class AppController extends Controller
             'enableBeforeRedirect' => false,
         ]);
         $this->loadComponent('Flash');
+		$this->loadComponent('Security');
 		$this->loadComponent('Auth', [
 		 'authenticate' => [
                 'Form' => [
@@ -76,19 +77,20 @@ class AppController extends Controller
          * Enable the following component for recommended CakePHP security settings.
          * see https://book.cakephp.org/3.0/en/controllers/components/security.html
          */
-        //$this->loadComponent('Security');
+        //$this->loadComponent('Scurity');
 		$imageRoot = static::IMAGE_ROOT;  
         $this->set(compact('imageRoot'));
     }
+	
 	public function beforeRender(Event $event)
-    {
+    {   
         parent::beforeRender($event); 
-
-
+		$this->Security->setConfig('unlockedActions', ['saveemailuser']);
+        
 		if(@$this->role=='Admin' || @$this->role=='Staff')
 		{   
 
-			$admin_controllers=['News.add','News.index','News.view','News.edit','Tasks.add','Tasks.index','Tasks.view','Tasks.edit','Tasks.proofApproval','Airdrops.add','Icos.add','Icos.index','Users.dashboard','Users','Airdrops.index', 'News.home', 'Users.index','Users.broadcastEmail','Airdrops.edit','Airdrops.view'];
+			$admin_controllers=['News.add','News.index','News.view','News.edit','Tasks.add','Tasks.index','Tasks.view','Tasks.edit','Tasks.proofApproval','Airdrops.add','Icos.add','Icos.index','Users.dashboard','Users','Airdrops.index', 'News.home', 'Users.index','Users.broadcastEmail','Airdrops.edit','Airdrops.view','Users.brodcast'];
 			if(!in_array($this->request->getParam('controller').'.'.$this->request->getParam('action'), $admin_controllers))
 			{
 				$this->Flash->error(__('You are not authorized to access that location.'));

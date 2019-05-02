@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2019 at 08:40 PM
+-- Generation Time: Apr 28, 2019 at 07:28 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -23,32 +23,24 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `task_proofs`
+-- Table structure for table `email_users`
 --
 
-CREATE TABLE `task_proofs` (
+CREATE TABLE `email_users` (
   `id` int(10) NOT NULL,
+  `sent_email_id` int(10) NOT NULL,
   `user_id` int(10) NOT NULL,
-  `message` text NOT NULL,
-  `image` varchar(255) NOT NULL,
-  `task_id` int(10) NOT NULL
+  `status` enum('Sent','Pending') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `task_proofs`
---
-
-INSERT INTO `task_proofs` (`id`, `user_id`, `message`, `image`, `task_id`) VALUES
-(4, 6, 'hiii', 'task_proof\\chrysanthemum (1).jpg', 2);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `task_proofs`
+-- Indexes for table `email_users`
 --
-ALTER TABLE `task_proofs`
+ALTER TABLE `email_users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -56,10 +48,10 @@ ALTER TABLE `task_proofs`
 --
 
 --
--- AUTO_INCREMENT for table `task_proofs`
+-- AUTO_INCREMENT for table `email_users`
 --
-ALTER TABLE `task_proofs`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `email_users`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

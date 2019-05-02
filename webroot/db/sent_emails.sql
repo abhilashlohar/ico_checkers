@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2019 at 05:57 PM
+-- Generation Time: Apr 28, 2019 at 07:24 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -23,27 +23,34 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `wallets`
+-- Table structure for table `sent_emails`
 --
 
-CREATE TABLE `wallets` (
+CREATE TABLE `sent_emails` (
   `id` int(10) NOT NULL,
-  `user_id` int(10) NOT NULL,
-  `point` decimal(8,2) NOT NULL,
-  `reason` varchar(255) NOT NULL,
-  `transaction_date` datetime NOT NULL,
-  `news_id` int(10) NOT NULL,
-  `task_id` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `message` text NOT NULL,
+  `create_date` date NOT NULL,
+  `status` enum('Draft','Sent') NOT NULL,
+  `sent_on` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `sent_emails`
+--
+
+INSERT INTO `sent_emails` (`id`, `message`, `create_date`, `status`, `sent_on`) VALUES
+(1, 'hi', '2019-04-26', 'Draft', NULL),
+(2, 'hello', '2019-04-27', 'Draft', NULL),
+(3, '23', '2019-04-28', 'Draft', NULL);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `wallets`
+-- Indexes for table `sent_emails`
 --
-ALTER TABLE `wallets`
+ALTER TABLE `sent_emails`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -51,10 +58,10 @@ ALTER TABLE `wallets`
 --
 
 --
--- AUTO_INCREMENT for table `wallets`
+-- AUTO_INCREMENT for table `sent_emails`
 --
-ALTER TABLE `wallets`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `sent_emails`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

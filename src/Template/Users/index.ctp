@@ -1,20 +1,34 @@
 <div class="row py-3">
   <div class="col-md-12">
+  <div id="requestform_error"></div>
 	<table class="table">
 	  <thead>
 		<tr>
+		  <?php
+		  if(!empty($id)){
+		  ?>
+		  <th></th>
+		  <?php } ?>
 		  <th></th>
 		  <th>Name</th>
 		  <th>Email</th>
 		  <th>Mobile</th>
 		  <th>Role</th>
+		  <?php if(empty($id)){ ?>
 		  <th>Status</th>
 		  <th>Action</th>
+		  <?php } ?>
 		</tr>
 	  </thead>
 	  <tbody>
 		<?php $i=0;foreach($users as $user): ?>
 		<tr>
+		   <?php if(!empty($id)){
+		  ?>
+		  <th>
+		  <?php echo  $this->Form->input('',['type'=>'checkbox','value'=>@$user->id,'class'=>'user_id']); ?>
+		  </th>
+		  <?php } ?>
 		  <td><?= ++$i ?></td>
 		  <td>
 		  	<?= $user->name ?>
@@ -28,6 +42,7 @@
 		  <td>
 		  	<?= $user->role ?>
 		  </td>
+		  <?php if(empty($id)){ ?>
 		   <td>
 		  	<?php if($user->status==true){
 				echo 'Active';
@@ -51,6 +66,7 @@
 				);
 			} ?>
 		  </td>
+		  <?php } ?>
 		</tr>
 		<?php endforeach; ?>
 	  </tbody>
@@ -67,4 +83,36 @@
 	</div>
   </div>
 </div>
-
+<?php echo $this->fetch('postLink'); ?>
+<?=
+$this->Html->scriptBlock(" 
+var id = ".@$id.";
+$(document).on('click', '.user_id', function(){
+   if($(this).is(':checked'))
+   {
+		
+	$.ajax({
+        method: 'POST',
+        url: '".$this->Url->build(['controller' => 'Users','action' => 'saveemailuser'])."',
+        dataType: 'html',
+        data:{
+				user_id:$(this).val(),
+				id:id,
+            },
+        cache: false,
+        beforeSend: function() { 
+            //$('#ajax-indicator').fadeIn();
+			
+        }
+    }).done(function(data) { 
+       
+        $('.requestform_error').html(data);
+        //$('.requestform_error').fadeIn('fast').delay(5000).fadeOut('fast'); 
+    }).always(function() {
+        //$('#ajax-indicator').fadeOut();
+    });
+    
+    //return false;
+   }
+});
+", ['block' => true]); ?>
