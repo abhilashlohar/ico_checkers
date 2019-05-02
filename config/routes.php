@@ -78,12 +78,10 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/user-view/*', ['controller' => 'News', 'action' => 'userView']);
     $routes->connect('/airdrop-view/*', ['controller' => 'Airdrops', 'action' => 'userView']);
     $routes->connect('/profile', ['controller' => 'Users', 'action' => 'userProfile']);
-<<<<<<< HEAD
     $routes->connect('/Users/saveemailuser', ['controller' => 'Users', 'action' => 'saveemailuser']);
-=======
-    $routes->connect('/My-Wallet', ['controller' => 'Refers', 'action' => 'wallet']);
+	$routes->connect('/My-Wallet', ['controller' => 'Refers', 'action' => 'wallet']);
     $routes->connect('/Withdraw-Requests', ['controller' => 'Refers', 'action' => 'withdrawRequests']);
->>>>>>> 5274a554a0661d5fbc273a8a2d3e8a9d2f31039f
+
 
     /**
      * ...and connect the rest of 'Pages' controller's URLs.

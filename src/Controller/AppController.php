@@ -94,12 +94,9 @@ class AppController extends Controller
         
 		if(@$this->role=='Admin' || @$this->role=='Staff')
 		{   
-<<<<<<< HEAD
 
-			$admin_controllers=['News.add','News.index','News.view','News.edit','Tasks.add','Tasks.index','Tasks.view','Tasks.edit','Tasks.proofApproval','Airdrops.add','Icos.add','Icos.index','Users.dashboard','Users','Airdrops.index', 'News.home', 'Users.index','Users.broadcastEmail','Airdrops.edit','Airdrops.view','Users.brodcast'];
-=======
-			$admin_controllers=['News.add','News.index','News.view','News.edit','Tasks.add','Tasks.index','Tasks.view','Tasks.edit','Tasks.proofApproval','Airdrops.add','Icos.add','Icos.index','Users.dashboard','Users','Airdrops.index', 'News.home', 'Users.index','Users.broadcastEmail','Airdrops.edit','Airdrops.view', 'Refers.withdrawRequests'];
->>>>>>> 5274a554a0661d5fbc273a8a2d3e8a9d2f31039f
+			$admin_controllers=['News.add','News.index','News.view','News.edit','Tasks.add','Tasks.index','Tasks.view','Tasks.edit','Tasks.proofApproval','Airdrops.add','Icos.add','Icos.index','Users.dashboard','Users','Airdrops.index', 'News.home', 'Users.index','Users.broadcastEmail','Airdrops.edit','Airdrops.view', 'Refers.withdrawRequests','Users.brodcast'];
+
 			if(!in_array($this->request->getParam('controller').'.'.$this->request->getParam('action'), $admin_controllers))
 			{
 				$this->Flash->error(__('You are not authorized to access that location.'));
