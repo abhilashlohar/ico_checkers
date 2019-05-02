@@ -49,6 +49,9 @@ class RefersTable extends Table
             'foreignKey' => 'ref_to_user_id',
             'propertyName' => 'ref_to_user',
         ]);
+
+        $this->belongsTo('Withdraws');
+        $this->belongsTo('Wallets');
     }
 
     /**

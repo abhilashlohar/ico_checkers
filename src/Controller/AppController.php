@@ -67,6 +67,11 @@ class AppController extends Controller
 		
 		 $this->userId = $this->Auth->user('id');
 		 $this->role = $this->Auth->user('role'); 
+         
+        if($this->Auth->user('name')){
+        	$session_user_name = explode(" ", $this->Auth->user('name'))[0];
+        	$this->set(compact('session_user_name'));
+        }
         // Time::setJsonEncodeFormat('yyyy-MM-dd HH:mm:ss');  // For any mutable DateTime
         // FrozenTime::setJsonEncodeFormat('yyyy-MM-dd HH:mm:ss');  // For any immutable DateTime
         // Date::setJsonEncodeFormat('yyyy-MM-dd HH:mm:ss');  // For any mutable Date
@@ -87,15 +92,14 @@ class AppController extends Controller
 
 		if(@$this->role=='Admin' || @$this->role=='Staff')
 		{   
-
-			$admin_controllers=['News.add','News.index','News.view','News.edit','Tasks.add','Tasks.index','Tasks.view','Tasks.edit','Tasks.proofApproval','Airdrops.add','Icos.add','Icos.index','Users.dashboard','Users','Airdrops.index', 'News.home', 'Users.index','Users.broadcastEmail','Airdrops.edit','Airdrops.view'];
+			$admin_controllers=['News.add','News.index','News.view','News.edit','Tasks.add','Tasks.index','Tasks.view','Tasks.edit','Tasks.proofApproval','Airdrops.add','Icos.add','Icos.index','Users.dashboard','Users','Airdrops.index', 'News.home', 'Users.index','Users.broadcastEmail','Airdrops.edit','Airdrops.view', 'Refers.withdrawRequests'];
 			if(!in_array($this->request->getParam('controller').'.'.$this->request->getParam('action'), $admin_controllers))
 			{
 				$this->Flash->error(__('You are not authorized to access that location.'));
 				return $this->redirect('/Dashboard');
 			}
 		}elseif(@$this->role=='User'){
-			$user_actions=['News.userNews','News.view','Tasks.add','Tasks.index','Tasks.earnMoney','Tasks.taskSubmit','Tasks.view','Tasks.edit','Tasks.proofApproval','Airdrops.airdropUserView','Refers.index','Users.login', 'News.home', 'Users.login','Icos.add','News.userView','Airdrops.userView','Users.userProfile'];
+			$user_actions=['News.userNews','News.view','Tasks.add','Tasks.index','Tasks.earnMoney','Tasks.taskSubmit','Tasks.view','Tasks.edit','Tasks.proofApproval','Airdrops.airdropUserView','Refers.index','Users.login', 'News.home', 'Users.login','Icos.add','News.userView','Airdrops.userView','Users.userProfile', 'Refers.wallet'];
 			if(!in_array($this->request->getParam('controller').'.'.$this->request->getParam('action'), $user_actions))
 			{
 				$this->Flash->error(__('You are not authorized to access that location.'));
