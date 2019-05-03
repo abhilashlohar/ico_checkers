@@ -13,6 +13,11 @@
                         <?php echo $this->Form->control('minimum_point',['class'=>'form-control']); ?>
                     </div>
                 </div>
+				<div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <?php echo $this->Form->control('end_days',['options'=>$day_option, 'class'=>'form-control','empty'=>'Select']); ?>
+                    </div>
+                </div>
             </div>
 			
             <div class="row">

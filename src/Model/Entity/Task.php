@@ -29,7 +29,8 @@ class Task extends Entity
         'message' => true,
         'minimum_point' => true,
         'description' => true,
-        'user_id' => true
-		
-    ];
+        'user_id' => true,
+        'end_days' => true,
+		'*' => false
+	];
 }

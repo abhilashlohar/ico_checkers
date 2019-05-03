@@ -65,7 +65,7 @@ class TasksController extends AppController
 			$time = new Time();
 			$task->created_on = $time->format('Y-m-d H:i:s');
 			$task->user_id    = $this->Auth->user('id');
-			$task->is_deleted = 0;
+			$task->is_deleted = 0; 
             if ($this->Tasks->save($task)) {
                 $this->Flash->success(__('The task has been saved.'));
 
@@ -73,7 +73,14 @@ class TasksController extends AppController
             }
             $this->Flash->error(__('The task could not be saved. Please, try again.'));
         }
-        $this->set(compact('task'));
+		$day_option=[];
+		for($i=1;$i<=31;$i++)
+		{
+			$day= $i.' day';
+			$day_option[] = ['value'=>$i,'text'=>$day];
+		}
+		
+        $this->set(compact('task','day_option'));
 		$this->set('activeMenu', 'Tasks.add');
     }
 	
@@ -83,7 +90,7 @@ class TasksController extends AppController
             'Tasks.is_deleted' => false,
         ];
 		$this->paginate = [
-            'fields' => ['id', 'title', 'description', 'created_on','short_description'],
+            'fields' => ['id', 'title', 'description', 'created_on','short_description','end_days'],
             'conditions' => $conditions,
             'order' => ['Tasks.id' => 'DESC'],
 			'limit' => 10
@@ -202,7 +209,13 @@ class TasksController extends AppController
             }
             $this->Flash->error(__('The task could not be saved. Please, try again.'));
         }
-        $this->set(compact('task'));
+		$day_option=[];
+		for($i=1;$i<=31;$i++)
+		{
+			$day= $i.' day';
+			$day_option[] = ['value'=>$i,'text'=>$day];
+		}
+        $this->set(compact('task','day_option'));
 		$this->set('activeMenu', 'Tasks.edit');
     }
 
