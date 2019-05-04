@@ -21,7 +21,8 @@ $this->Html->css(['blog'], ['block' => true]);
 				$hours   = floor(($Datediff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24) / (60*60));
                 $minutes = floor(($Datediff - $years * 365*60*60*24 - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60)/ 60);
                 $seconds = floor(($Datediff - $years * 365*60*60*24  - $months*30*60*60*24 - $days*60*60*24 - $hours*60*60 - $minutes*60)); 
-                $remaining = $days.' day '.$hours.' hours '.$minutes.' min ';			
+                $remaining = $days.' day '.$hours.' hours '.$minutes.' min ';	
+			if(date('d-m-Y H:i:s',$date) > date('d-m-Y H:i:s')){
 			?>
 			<div class="col-md-12">
 			  <div class="card flex-md-row mb-4 box-shadow h-md-250">
@@ -30,13 +31,13 @@ $this->Html->css(['blog'], ['block' => true]);
 					<a class="text-dark" href="<?= $this->Url->build(['controller'=>'Tasks','action'=>'taskSubmit',$task->id])?>"><?= $task->title ?></a>
 				  </h3>
 				  <div class="mb-1 text-muted"><?php echo date('d M, Y',strtotime($task->created_on))?></div>
-				  <div class="mb-1 text-muted"><?php echo $remaining; ?></div>
+				  <div class="mb-1 text-muted">Remaining day/time : <?php echo $remaining; ?></div>
 				  <p class="card-text mb-auto"><?= $this->Text->autoParagraph(h($task->description)) ?></p>
 				  <a href="<?= $this->Url->build(['controller'=>'Tasks','action'=>'taskSubmit',$task->id])?>" class="btn ic_button">Submit Task ></a>
 				</div>
 				
 			  </div>
 			</div>
-			<?php }} ?>
+			<?php } }} ?>
 		</div>
     </div>

@@ -15,7 +15,7 @@
                 </div>
 				<div class="col-md-6 mb-3">
                     <div class="form-group">
-                        <?php echo $this->Form->control('end_days',['options'=>$day_option, 'class'=>'form-control','empty'=>'Select']); ?>
+                        <?php echo $this->Form->control('end_days',['options'=>$day_option, 'class'=>'form-control','empty'=>'Select','value'=>$task->end_days]); ?>
                     </div>
                 </div>
             </div>
