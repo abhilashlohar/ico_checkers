@@ -90,7 +90,7 @@ class AppController extends Controller
 	public function beforeRender(Event $event)
     {   
         parent::beforeRender($event); 
-		$this->Security->setConfig('unlockedActions', ['saveemailuser']);
+		// $this->Security->setConfig('unlockedActions', ['saveemailuser']);
         
 		if(@$this->role=='Admin' || @$this->role=='Staff')
 		{   

@@ -31,7 +31,7 @@ $this->Html->css(['blog'], ['block' => true]);
 							<div class="row">
 								<div class="col-md-3">
 									<div class="form-group">
-										<?php echo $this->html->image(str_replace('\\','/',$task_proofs->image),['class'=>'img-thumbnail']); ?>
+										<?php echo $this->Html->image(str_replace('\\','/',$task_proofs->image),['class'=>'img-thumbnail']); ?>
 									</div>
 								</div>
 							</div>
