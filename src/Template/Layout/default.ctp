@@ -93,9 +93,9 @@
                 <?= $this->Html->link(__('List'), ['controller' => 'Airdrops', 'action' => 'index'],['class'=>'dropdown-item']) ?>
               </div>
             </li>
-			<li class="nav-item <?php echo @$us2Active; ?>">
+			      <!-- <li class="nav-item <?php echo @$us2Active; ?>">
               <a href="<?= $this->Url->Build(['controller' => 'Users', 'action' => 'brodcast'])?>" class="nav-link">Email Brodcast</a>
-            </li>
+            </li> -->
 			    <?php } else { ?> <!-- Else statement -->
   			    <li class="nav-item <?php echo @$nActive; ?>">
               <a href="<?= $this->Url->Build('/News-Updates')?>" class="nav-link">News</a>
