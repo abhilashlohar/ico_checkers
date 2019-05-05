@@ -120,7 +120,7 @@
             </li>
             <li class="dropdown">
               <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false"> 
-                <?=  $session_user_name ?><b class="caret"></b>
+                <?=  @$session_user_name ?><b class="caret"></b>
               </a>
               <div class="dropdown-menu dropdown-menu-right">
                   <a class="dropdown-item" href="">My Profile</a>
