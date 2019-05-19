@@ -90,14 +90,19 @@ var id = ".@$id.";
 $(document).on('click', '.user_id', function(){
    if($(this).is(':checked'))
    {
-		
+	    var chk = 1;
+   }
+   else{
+		var chk = 0;
+   }	
 	$.ajax({
-        method: 'POST',
+        method: 'GET',
         url: '".$this->Url->build(['controller' => 'Users','action' => 'saveemailuser'])."',
         dataType: 'html',
         data:{
 				user_id:$(this).val(),
 				id:id,
+				chk:chk
             },
         cache: false,
         beforeSend: function() { 
@@ -113,6 +118,6 @@ $(document).on('click', '.user_id', function(){
     });
     
     //return false;
-   }
+   
 });
 ", ['block' => true]); ?>

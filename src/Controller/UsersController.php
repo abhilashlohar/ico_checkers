@@ -545,18 +545,23 @@ class UsersController extends AppController
             $this->Flash->error(__('Only ajax request can be processed.'));
             return $this->redirect($this->_redirectUrl());
         }
-		echo '1';exit;
-        $email_user = $this->Users->SentEmails->EmailUsers->newEntity();
-		$email_user->sent_email_id = $this->request->getData('id');
-		$email_user->user_id       = $this->request->getData('user_id');
-		$email_user->status        = 'Pending';
-		
-        if ($this->Users->SentEmails->EmailUsers->save($email_user)) {
-          echo 'Add user successfully';
-        } else {
-          echo 'Try Again';
-        }
-
+		$chk        = $this->request->query('chk');
+		if($chk==1)
+		{
+			$email_user = $this->Users->SentEmails->EmailUsers->newEntity();
+			$email_user->sent_email_id = $this->request->query('id');
+			$email_user->user_id       = $this->request->query('user_id');
+			$email_user->status        = 'Pending';
+			
+			if ($this->Users->SentEmails->EmailUsers->save($email_user)) {
+			  echo 'Add user successfully';
+			} else {
+			  echo 'Try Again';
+			}
+		}
+		else{
+			$this->Users->SentEmails->EmailUsers->deleteAll(['EmailUsers.user_id'=>$this->request->query('user_id'),'EmailUsers.sent_email_id'=>$this->request->query('id')]);
+		}
         exit;
     }
 

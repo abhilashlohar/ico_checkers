@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 28, 2019 at 07:28 PM
+-- Generation Time: May 19, 2019 at 05:46 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -34,6 +34,19 @@ CREATE TABLE `email_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `email_users`
+--
+
+INSERT INTO `email_users` (`id`, `sent_email_id`, `user_id`, `status`) VALUES
+(10, 6, 1, 'Pending'),
+(11, 6, 2, 'Pending'),
+(12, 6, 3, 'Pending'),
+(13, 6, 4, 'Pending'),
+(14, 6, 5, 'Pending'),
+(15, 6, 6, 'Pending'),
+(18, 7, 3, 'Pending');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -51,7 +64,7 @@ ALTER TABLE `email_users`
 -- AUTO_INCREMENT for table `email_users`
 --
 ALTER TABLE `email_users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
