@@ -51,7 +51,10 @@
 		?>
 		  </td>
 		  <td>
-			<?php if($user->status==true){
+			<?php 
+			echo $this->Html->link(__(' View'), ['controller' => 'Users', 'action' => 'view', $user->id]);
+			echo '&nbsp;';
+			if($user->status==true){
 			echo $this->Form->postLink(
 					__('Deactive'),
 					['controller' => 'Users', 'action' => 'changeStatus', $user->id,'deactive'],
