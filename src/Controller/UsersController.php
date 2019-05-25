@@ -22,7 +22,7 @@ class UsersController extends AppController
 	public function initialize()
     {
         parent::initialize();
-        $passed = ['forgotPassword', 'resetPassword', 'login', 'logout', 'changeProfile', 'changePassword', 'registration','approveemail','dashboard','index','broadcastEmail','userProfile','changeStatus','brodcast','saveemailuser','healthcheck'];
+        $passed = ['forgotPassword', 'resetPassword', 'login', 'logout', 'changeProfile', 'changePassword', 'registration','approveemail','dashboard','index','broadcastEmail','userProfile','changeStatus','brodcast','saveemailuser','healthcheck','view'];
         if(!in_array($this->request->getParam('action'), $passed) )
         {
             return $this->redirect(['/Dashboard']);
@@ -429,7 +429,31 @@ class UsersController extends AppController
         $this->set(compact('user'));
     }
 	
-    
+    public function view($id = null)
+    {
+        $user = $this->Users->get($id, [
+            'contain' => ['Wallets']
+        ]); 
+		$point=0;
+		if(!empty($user->wallets))
+		{
+			foreach($user->wallets as $wallet)
+			{
+				$point +=$wallet->point;
+			}
+		}
+        if ($this->request->is(['patch', 'post', 'put'])) {
+            $user = $this->Users->patchEntity($user, $this->request->getData());
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__('The user has been saved.'));
+
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+        }
+        $this->set(compact('user','point'));
+    }
+	
     public function dashboard()
     {
 		$this->set(compact('dashboard'));
@@ -545,18 +569,23 @@ class UsersController extends AppController
             $this->Flash->error(__('Only ajax request can be processed.'));
             return $this->redirect($this->_redirectUrl());
         }
-		echo '1';exit;
-        $email_user = $this->Users->SentEmails->EmailUsers->newEntity();
-		$email_user->sent_email_id = $this->request->getData('id');
-		$email_user->user_id       = $this->request->getData('user_id');
-		$email_user->status        = 'Pending';
-		
-        if ($this->Users->SentEmails->EmailUsers->save($email_user)) {
-          echo 'Add user successfully';
-        } else {
-          echo 'Try Again';
-        }
-
+		$chk        = $this->request->query('chk');
+		if($chk==1)
+		{
+			$email_user = $this->Users->SentEmails->EmailUsers->newEntity();
+			$email_user->sent_email_id = $this->request->query('id');
+			$email_user->user_id       = $this->request->query('user_id');
+			$email_user->status        = 'Pending';
+			
+			if ($this->Users->SentEmails->EmailUsers->save($email_user)) {
+			  echo 'Add user successfully';
+			} else {
+			  echo 'Try Again';
+			}
+		}
+		else{
+			$this->Users->SentEmails->EmailUsers->deleteAll(['EmailUsers.user_id'=>$this->request->query('user_id'),'EmailUsers.sent_email_id'=>$this->request->query('id')]);
+		}
         exit;
     }
 
