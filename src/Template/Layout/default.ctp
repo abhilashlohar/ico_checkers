@@ -33,7 +33,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <?php
-          /*For User role*/
+          /*For Admin role*/
           (in_array($menuActive, ["Users.dashboard"])) ? $HomeActive = "active": "";
           (in_array($menuActive, ["News.add", "News.index", "News.view"])) ? $NewsActive = "active": "";
           (in_array($menuActive, ["Tasks.add", "Tasks.index", "Tasks.view", "Tasks.edit"])) ? $TasksActive = "active": "";
@@ -43,7 +43,7 @@
           (in_array($menuActive, ["Users.brodcast"])) ? $us2Active = "active": "";
 		  
 
-          /*For Admin role*/
+          /*For User role*/
           (in_array($menuActive, ["News.userNews","News.userView"])) ? $nActive = "active": "";
           (in_array($menuActive, ["Tasks.earnMoney"])) ? $tActive = "active": "";
           (in_array($menuActive, ["Tasks.add", "Tasks.index"])) ? $mtActive = "active": "";
@@ -93,9 +93,9 @@
                 <?= $this->Html->link(__('List'), ['controller' => 'Airdrops', 'action' => 'index'],['class'=>'dropdown-item']) ?>
               </div>
             </li>
-			      <!-- <li class="nav-item <?php echo @$us2Active; ?>">
+			<li class="nav-item <?php echo @$us2Active; ?>">
               <a href="<?= $this->Url->Build(['controller' => 'Users', 'action' => 'brodcast'])?>" class="nav-link">Email Brodcast</a>
-            </li> -->
+            </li> 
 			    <?php } else { ?> <!-- Else statement -->
   			    <li class="nav-item <?php echo @$nActive; ?>">
               <a href="<?= $this->Url->Build('/News-Updates')?>" class="nav-link">News</a>

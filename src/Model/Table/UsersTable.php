@@ -42,6 +42,10 @@ class UsersTable extends Table
         $this->addBehavior('Timestamp');
         $this->belongsTo('SentEmails');
         $this->belongsTo('Refers');
+		$this->hasMany('Wallets', [
+            'foreignKey' => 'user_id',
+            'joinType' => 'INNER'
+        ]);
     }
 
     /**
