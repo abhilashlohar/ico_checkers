@@ -471,16 +471,22 @@ class UsersController extends AppController
         $user = $this->Users->newEntity();
         $this->set(compact('user'));
     }
-	
+	public function xyz()
+    {
+		$id= $this->Auth->user('id');
+		$user = $this->Users->get($id);
+		 if ($this->request->is(['patch', 'post', 'put'])) {
+            $user = $this->Users->patchEntity($user, $this->request->getData());
+		 }  pr($user);exit;
+	}
 	public function userProfile()
     {
-		$id= $this->Auth->user('id'); 
+		$id= $this->Auth->user('id');  
 		try
         {
 			$user = $this->Users->get($id,[
-			'fields'=>['id','name','email','mobile','photo','dob'],
-			'conditions'=>['Users.id'=>$id,'Users.is_deleted'=>false,'Users.status'=>true,'role'=>'User']
-			]);
+			'conditions'=>['Users.is_deleted'=>false,'Users.status'=>true,'Users.role'=>'User']
+			]);  
 			$formattableFields = ['dob'];
             foreach($formattableFields as $formattableField)
             {
@@ -490,14 +496,15 @@ class UsersController extends AppController
                     $user->{$formattableField} = $fieldDate->format('d/m/Y');
                 }
             }
+			$userCopy = clone $user;
 		 }
         catch(RecordNotFoundException $e)
         {
             $this->Flash->error(__('Invalid selection.'));
             return $this->redirect(['controller' => 'Refers', 'action' => 'index']);
         }  
-		if ($this->request->is(['patch', 'post', 'put'])) {
-			
+		if ($this->request->is(['patch', 'post', 'put'])) { 
+		  
             $user = $this->Users->patchEntity($user, $this->request->getData());
 			
 			 $errors = [];
@@ -524,8 +531,12 @@ class UsersController extends AppController
                         $errors[] = __('Unable to upload category image. Please try again.');
                     }
                 }
+				else{
+					$user->photo = $userCopy->photo;
+				}
 			if(empty($errors))
-            {  
+            { 	
+		        $user->dob = date('Y-m-d',strtotime($user->dob));
 				if ($this->Users->save($user)) {
 					$this->Flash->success(__('The user has been saved.'));
 
@@ -540,6 +551,7 @@ class UsersController extends AppController
 				$this->Flash->error(implode('<br />', $errors), ['escape' => false]);
 			}
         }
+		
 		$this->set(compact('user'));
 	}
 	public function changeStatus($id = null,$status=null)
@@ -618,7 +630,7 @@ class UsersController extends AppController
             $this->Flash->error(__('Only ajax request can be processed.'));
             return $this->redirect($this->_redirectUrl());
         }
-		$id= $this->request->query('id');
+		$id= $this->request->getQuery('id');
 		if(!empty($id))
 		{
 			$email_exist = $this->Users->SentEmails->EmailUsers->find()
@@ -631,12 +643,13 @@ class UsersController extends AppController
 				{
 					echo 1;
 				}else
-				{
+				{ 
 					echo 0;
 				}
 			}
 		} exit;
 	}
+	
 	
 	public function emailSent()
     {
