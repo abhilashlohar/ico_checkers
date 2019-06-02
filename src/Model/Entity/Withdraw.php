@@ -32,6 +32,10 @@ class Withdraw extends Entity
         'created_on' => true,
         'is_money_transfered' => true,
         'user' => true,
-        'comment' => true
+        'comment' => true,
+		'payment_mode' => true,
+        'google_mobile_no' => true,
+        'paypal_email' => true,
+        'ethereum_address' => true
     ];
 }

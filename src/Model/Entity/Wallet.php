@@ -39,6 +39,7 @@ class Wallet extends Entity
         'task_id' => true,
         'user' => true,
         'news' => true,
-        'task' => true
+        'task' => true,
+        
     ];
 }
