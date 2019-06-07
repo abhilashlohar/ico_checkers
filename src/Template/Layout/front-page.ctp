@@ -87,13 +87,13 @@
 					</ul>
 
 					<div class="header__right">
-						<select class="select">
+						<!-- <select class="select">
 							<option value="ru">ru</option>
 							<option value="ua">ua</option>
 							<option value="en">en</option>
-						</select>
+						</select> -->
 						<div class="sign-in-wrap">
-							<a href="#" class="btn-sign-in">Join Cryptoland ICO</a>	
+							<a href="#" class="btn-sign-in">Join ICO Checkers</a>	
 						</div>
 					</div>
 
@@ -146,14 +146,14 @@
 							</li>
 						</ul>
 			
-						<select class="select">
+						<!-- <select class="select">
 							<option value="ru">ru</option>
 							<option value="ua">ua</option>
 							<option value="en">en</option>
-						</select>
+						</select> -->
 			
 						<div class="btn-wrap">
-							<a href="#" class="btn-sign-in">Join Cryptoland ICO</a>
+							<a href="#" class="btn-sign-in">Join ICO CHECKERS</a>
 						</div>
 						
 			
@@ -164,31 +164,48 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-12 promo__content" data-aos="fade-right">
-								<h1>Cryptoland Just Entered <span>the Real World</span></h1>
+								<h1>ICO CHECKERS <span>Entered the Real World</span></h1>
 								<p>
-									Spend real fights effective anything extra by leading. Mouthwatering leading how real formula also locked-in have can mountain thought. Jumbo plus shine sale.
+									A platform for Ico investors, the crypto community, online service & social users and much more. Earn with no limit.
 								</p>
 
 								<div class="timer-wrap">
-									<div id="timer" class="timer"></div>
+									<!-- <div id="timer" class="timer"></div> -->
 									<div class="timer__titles">
-										<div>Days</div>
+										<!-- <div>Days</div>
 										<div>Hours</div>
 										<div>Minutes</div>
-										<div>Seconds</div>
+										<div>Seconds</div> -->
 									</div>
 								</div>
 
+								<div style="color: #FFF;padding-bottom: 7px;">
+									<h3 style="color: #FFF;">Sign up bonus for all users</h3>
+									<div>
+										<span style="padding-right: 7px;"><?php echo $this->Html->Image('/img/right-symbol.png',['style' => 'height: 20px;']); ?></span>
+										<span> Instant 1000 Points in your wallet</span>
+									</div>
+									<div>
+										<span style="padding-right: 7px;"><?php echo $this->Html->Image('/img/right-symbol.png',['style' => 'height: 20px;']); ?></span>
+										<span> Five free Di platform slots for all Blockchains</span>
+									</div>
+									<div>
+										<span style="padding-right: 7px;"><?php echo $this->Html->Image('/img/right-symbol.png',['style' => 'height: 20px;']); ?></span>
+										<span> One-year free  airdrop notification slots</span>
+									</div>
+								</div>
+								
 								<div class="promo__btns-wrap">
-									<a href="#" class="btn btn--medium btn--orange"><span>Buy Tokens 47% Off</span></a>
-									<a href="#" class="btn btn--big btn--blue">WhitePappers</a>
+									<a href="#" class="btn btn--medium btn--orange"><span>Sign up & get 1000 points</span></a>
+									<a href="#" class="btn btn--big btn--blue">Sign in to the real world </a>
 								</div>
 
 								<div class="payments">
+									<span>Payment in &nbsp;&nbsp;</span>
 									<img src="<?php echo $library; ?>img/visa.png" alt="">
 									<img src="<?php echo $library; ?>img/mc.png" alt="">
-									<img src="<?php echo $library; ?>img/bitcoin.png" alt="">
 									<img src="<?php echo $library; ?>img/paypal.png" alt="">
+									<img src="<?php echo $library; ?>img/etherium.png" alt="" style="height: 45px;">
 								</div>
 							</div>
 						</div>
@@ -428,7 +445,7 @@
 					</div>
 				</section>
 
-				<section class="partners-logo" id="partners-logo">
+				<!-- <section class="partners-logo" id="partners-logo">
 					<div class="container">
 						<div class="row">
 							<div data-aos="fade-up" class="col">
@@ -461,7 +478,7 @@
 						</div>
 					</div>
 					<img src="<?php echo $library; ?>img/partenrs-bg.png" data-jarallax-element="20" alt="" class="partners-logo__bg">
-				</section>
+				</section> -->
 
 				<section class="section cases">
 					<div class="container">
@@ -858,7 +875,7 @@
 					</div>
 				</section>
 
-				<section class="advisors">
+				<!-- <section class="advisors">
 					<div class="container">
 						<div class="row">
 							<div class="col">
@@ -959,7 +976,7 @@
 
 						</div>
 					</div>
-				</section>
+				</section> -->
 
 				<section class="section section--no-pad-top team" id="team">
 					<div class="container">
@@ -1226,7 +1243,7 @@
 					</div>
 				</section>
 
-				<section class="press section">
+				<!-- <section class="press section">
 					<div class="container">
 						<div class="row">
 							<div class="col">
@@ -1259,9 +1276,9 @@
 							</div>
 						</div>
 					</div>
-				</section>
+				</section> -->
 
-				<section class="partners">
+				<!-- <section class="partners">
 					<div class="container">
 						<div class="row">
 							<div class="col">
@@ -1290,7 +1307,7 @@
 							</div>
 						</div>
 					</div>
-				</section>
+				</section> -->
 
 				<section class="section contact">
 					<div class="container">
