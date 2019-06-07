@@ -99,9 +99,9 @@ class RefersController extends AppController
 		$wallet_balance = $refer_sum + $wallet_sum - $withdraw_sum - $request_points;
 
 		$Withdraw = $this->Refers->Withdraws->newEntity();
-		if ($this->request->is('post')) {
+		if ($this->request->is('post')) { 
 			$Withdraw = $this->Refers->Withdraws->patchEntity($Withdraw, $this->request->getData());
-			$Withdraw->user_id = $session_user_id;
+			$Withdraw->user_id = $session_user_id; 
 			if ($this->Refers->Withdraws->save($Withdraw)) {
 				$this->Flash->success(__('The withdraw request has been sent.'));
 

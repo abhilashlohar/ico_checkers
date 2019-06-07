@@ -87,13 +87,13 @@
 					</ul>
 
 					<div class="header__right">
-						<select class="select">
+						<!-- <select class="select">
 							<option value="ru">ru</option>
 							<option value="ua">ua</option>
 							<option value="en">en</option>
-						</select>
+						</select> -->
 						<div class="sign-in-wrap">
-							<a href="#" class="btn-sign-in">Join Cryptoland ICO</a>	
+							<a href="#" class="btn-sign-in">Join ICO Checkers</a>	
 						</div>
 					</div>
 
@@ -146,14 +146,14 @@
 							</li>
 						</ul>
 			
-						<select class="select">
+						<!-- <select class="select">
 							<option value="ru">ru</option>
 							<option value="ua">ua</option>
 							<option value="en">en</option>
-						</select>
+						</select> -->
 			
 						<div class="btn-wrap">
-							<a href="#" class="btn-sign-in">Join Cryptoland ICO</a>
+							<a href="#" class="btn-sign-in">Join ICO CHECKERS</a>
 						</div>
 						
 			
@@ -164,31 +164,48 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-12 promo__content" data-aos="fade-right">
-								<h1>Cryptoland Just Entered <span>the Real World</span></h1>
+								<h1>ICO CHECKERS <span>Entered the Real World</span></h1>
 								<p>
-									Spend real fights effective anything extra by leading. Mouthwatering leading how real formula also locked-in have can mountain thought. Jumbo plus shine sale.
+									A platform for Ico investors, the crypto community, online service & social users and much more. Earn with no limit.
 								</p>
 
 								<div class="timer-wrap">
-									<div id="timer" class="timer"></div>
+									<!-- <div id="timer" class="timer"></div> -->
 									<div class="timer__titles">
-										<div>Days</div>
+										<!-- <div>Days</div>
 										<div>Hours</div>
 										<div>Minutes</div>
-										<div>Seconds</div>
+										<div>Seconds</div> -->
 									</div>
 								</div>
 
+								<div style="color: #FFF;padding-bottom: 7px;">
+									<h3 style="color: #FFF;">Sign up bonus for all users</h3>
+									<div>
+										<span style="padding-right: 7px;"><?php echo $this->Html->Image('/img/right-symbol.png',['style' => 'height: 20px;']); ?></span>
+										<span> Instant 1000 Points in your wallet</span>
+									</div>
+									<div>
+										<span style="padding-right: 7px;"><?php echo $this->Html->Image('/img/right-symbol.png',['style' => 'height: 20px;']); ?></span>
+										<span> Five free Di platform slots for all Blockchains</span>
+									</div>
+									<div>
+										<span style="padding-right: 7px;"><?php echo $this->Html->Image('/img/right-symbol.png',['style' => 'height: 20px;']); ?></span>
+										<span> One-year free  airdrop notification slots</span>
+									</div>
+								</div>
+								
 								<div class="promo__btns-wrap">
-									<a href="#" class="btn btn--medium btn--orange"><span>Buy Tokens 47% Off</span></a>
-									<a href="#" class="btn btn--big btn--blue">WhitePappers</a>
+									<a href="#" class="btn btn--medium btn--orange"><span>Sign up & get 1000 points</span></a>
+									<a href="#" class="btn btn--big btn--blue">Sign in to the real world </a>
 								</div>
 
 								<div class="payments">
+									<span>Payment in &nbsp;&nbsp;</span>
 									<img src="<?php echo $library; ?>img/visa.png" alt="">
 									<img src="<?php echo $library; ?>img/mc.png" alt="">
-									<img src="<?php echo $library; ?>img/bitcoin.png" alt="">
 									<img src="<?php echo $library; ?>img/paypal.png" alt="">
+									<img src="<?php echo $library; ?>img/etherium.png" alt="" style="height: 45px;">
 								</div>
 							</div>
 						</div>
@@ -428,7 +445,7 @@
 					</div>
 				</section>
 
-				<section class="partners-logo" id="partners-logo">
+				<!-- <section class="partners-logo" id="partners-logo">
 					<div class="container">
 						<div class="row">
 							<div data-aos="fade-up" class="col">
@@ -461,7 +478,7 @@
 						</div>
 					</div>
 					<img src="<?php echo $library; ?>img/partenrs-bg.png" data-jarallax-element="20" alt="" class="partners-logo__bg">
-				</section>
+				</section> -->
 
 				<section class="section cases">
 					<div class="container">
@@ -816,39 +833,81 @@
 
 									<ul class="accordion">
 										<li>
-											<a>Can American citizens take part in the crowdsale?</a>
+											<a>WHAT IS DIGITAL IDANTIFICATION?</a>
 											<p>
-												JavaScript is also used in environments that aren’t web-based, such as PDF documents, site-specific browsers, and desktop widgets. Newer and faster JavaScript virtual machines (VMs) and platforms built upon them have also increased the popularity of JavaScript for server-side web applications. On the client side, JavaScript has been traditionally implemented as an interpreted language, but more recent browsers perform just-in-time compilation.
+												Digital identification is provide real  user identy with secure your wallet and find the real user interface  , digital idianty is very nessesry for all crypto investor and all exchanges which is related to any blockchai n (btc, eth ,neo.wave or any blockchain digital identity secure users and exchanges from scams & hacks.
 											</p>
 										</li>
 										<li>
-											<a>Does the crowdsale comply with legal regulations?</a>
+											<a>WHAT IS ICO CHECKING AND REVIEW PLATFORM & ITS WORK?</a>
 											<p>
-												JavaScript is also used in environments that aren’t web-based, such as PDF documents, site-specific browsers, and desktop widgets. Newer and faster JavaScript virtual machines (VMs) and platforms built upon them have also increased the popularity of JavaScript for server-side web applications. On the client side, JavaScript has been traditionally implemented as an interpreted language, but more recent browsers perform just-in-time compilation.
+												Many ico daily launch there token but wrong decision loss your investment, many people on social network provide you wrong information about ico, how you check real information, there are no services available in real market ico checking platform provide you service  with secure your right decision and  also, secure your investment, where we lunch ico choking service find out the real contract address and attached ico checkers address before sale and then give fund to ico according to work on project in next 5 year.
 											</p>
 										</li>
 										<li>
-											<a>Can I trade SCR at an exchange?</a>
+											<a>WHAT IS PROOF OF DOCUMENT & ITS WORK?</a>
 											<p>
-												JavaScript is also used in environments that aren’t web-based, such as PDF documents, site-specific browsers, and desktop widgets. Newer and faster JavaScript virtual machines (VMs) and platforms built upon them have also increased the popularity of JavaScript for server-side web applications. On the client side, JavaScript has been traditionally implemented as an interpreted language, but more recent browsers perform just-in-time compilation.
+												Proof of document platform provide user to verify their identity on online service for kyc on all online transaction you need to put only reference number from our platform to all other platform, who accept our proof of document.
 											</p>
 										</li>
 										<li>
-											<a>What is the difference between Coin tokens and Power tokens?</a>
+											<a>WHAT IS FREE INSURANCE PLATFORM?</a>
 											<p>
-												JavaScript is also used in environments that aren’t web-based, such as PDF documents, site-specific browsers, and desktop widgets. Newer and faster JavaScript virtual machines (VMs) and platforms built upon them have also increased the popularity of JavaScript for server-side web applications. On the client side, JavaScript has been traditionally implemented as an interpreted language, but more recent browsers perform just-in-time compilation.
+												Ico checkers provide free insurance facility to our qualify users who visit our platform on Daily  basis , every year 2 reffral minimum ,Read minimum 5 news  and complete monthly minimum visits, MINIMUM VISITS ARE 15 DAYS Out of 30 days AND 10-20 MINUTES SPEND IN EVERY VISIT ON OUR WEBSITE ALL CLAIMS.
 											</p>
 										</li>
 										<li>
-											<a>Why is Cryptonet economic model sustainable?</a>
+											<a>WHAT IS EARN MONEY PLATFROM?</a>
 											<p>
-												JavaScript is also used in environments that aren’t web-based, such as PDF documents, site-specific browsers, and desktop widgets. Newer and faster JavaScript virtual machines (VMs) and platforms built upon them have also increased the popularity of JavaScript for server-side web applications. On the client side, JavaScript has been traditionally implemented as an interpreted language, but more recent browsers perform just-in-time compilation.
+												 Earn money platform provide user to make money on our platform in beta testing and main net in this platform you need complete some simple task for earn money by tasks and withdrawal with your preference account in paypal, google pay, ethereum (crypto currency) wallet and spend money in shopping according local business support our platform you need to tell them about our platform and increase your marketplace after our platform 100% live worldwide.
 											</p>
 										</li>
 										<li>
-											<a>Can I mine SCR?</a>
+											<a>WHAT IS ONE TOUCH ARCITECTURE SOLUTION?</a>
 											<p>
-												JavaScript is also used in environments that aren’t web-based, such as PDF documents, site-specific browsers, and desktop widgets. Newer and faster JavaScript virtual machines (VMs) and platforms built upon them have also increased the popularity of JavaScript for server-side web applications. On the client side, JavaScript has been traditionally implemented as an interpreted language, but more recent browsers perform just-in-time compilation.
+												We are also launch one touch Architecture solution in some time where you need to put size, facing and type like bungalow, apartment and hotel, and download your map image and describe video in one touch.
+											</p>
+										</li>
+										<li>
+											<a>WHAT IS  MTS,STU  PLATFORME WORLDWIDE?</a>
+											<p>
+												We are working on trading platform & shopping platform more then 500000+ products & 2 BILLION Buyers &seller market for local to local market users, our website will launch soon. Support local business to local buyer.
+											</p>
+										</li>
+										<li>
+											<a>HOW OUR SOCIAL PLATFORM DIFFERENT FROM OTHER?</a>
+											<p>
+												In the current market more than 4 billion users are use social network but 95 % profile is not Verified by social websites our platform provides verify users and really working users.
+											</p>
+										</li>
+										<li>
+											<a>WHAT IS SERVICE PLATFORME?</a>
+											<p>
+												Users use 100+ online service in daily basis with different websites Where face many Problems, but we provide you 100 + services in future with worlds most secure platform Which is unhack by anyone, in service we launch website review & testing platform, Freelancer service platform like up work etc. , and real Google visitors platform etc.
+											</p>
+										</li>
+										<li>
+											<a>WHAT IS SERVICE PLATFORME?</a>
+											<p>
+												Users use 100+ online service in daily basis with different websites Where face many Problems, but we provide you 100 + services in future with worlds most secure platform Which is unhack by anyone, in service we launch website review & testing platform, Freelancer service platform like up work etc. , and real Google visitors platform etc.
+											</p>
+										</li>
+										<li>
+											<a>WHAT IS NEWS  SECTION AND HOW IT IS BETTER THAN OTHER WEBSITE?</a>
+											<p>
+												In news section every user who posts news on our web. Will review by our team and give Him real money if news accepted and every user who read our news insured by our platform.
+											</p>
+										</li>
+										<li>
+											<a>WHAT IS USE OF 1000 POINTS,  FIVE DI SLOTS & ONE YEAR FREE AIRDROP NOTIFICATION SLOTS?</a>
+											<p>
+												1000 points free use in get free referral from our website for your targeted platform task Use Points in create task for other users to join you on your platform like- youtube ,blogger etc.
+											</p>
+										</li>
+										<li>
+											<a>WHAT IS ICO CHECKERS.COM?</a>
+											<p>
+												Ico Checkers is Ico checking solution & review platform ,DI NETWORK, advertisement, News, Free insurance, crypto hunter & referral and Online service platform based on smart contract our platform is best Upcoming secure ico, for you tubers, bloggers, crypto hunters, Ico reviewers, Crypto investors, crypto community, online service users and online social users.
 											</p>
 										</li>
 									</ul>
@@ -858,7 +917,7 @@
 					</div>
 				</section>
 
-				<section class="advisors">
+				<!-- <section class="advisors">
 					<div class="container">
 						<div class="row">
 							<div class="col">
@@ -959,7 +1018,7 @@
 
 						</div>
 					</div>
-				</section>
+				</section> -->
 
 				<section class="section section--no-pad-top team" id="team">
 					<div class="container">
@@ -1226,7 +1285,7 @@
 					</div>
 				</section>
 
-				<section class="press section">
+				<!-- <section class="press section">
 					<div class="container">
 						<div class="row">
 							<div class="col">
@@ -1259,9 +1318,9 @@
 							</div>
 						</div>
 					</div>
-				</section>
+				</section> -->
 
-				<section class="partners">
+				<!-- <section class="partners">
 					<div class="container">
 						<div class="row">
 							<div class="col">
@@ -1290,7 +1349,7 @@
 							</div>
 						</div>
 					</div>
-				</section>
+				</section> -->
 
 				<section class="section contact">
 					<div class="container">

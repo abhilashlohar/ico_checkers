@@ -2,8 +2,12 @@
   <div class="col-md-12">
   <div id="requestform_error"></div>
   
+<<<<<<< HEAD
   
 <input type="hidden" name="id" id="msg_id"  value="<?= @$id ?>">
+=======
+  <?= $this->form->input('id',['type'=>'hidden','value'=>@$id,'id'=>'msg_id']) ?> 
+>>>>>>> f5a9c8a534d2855ca2beb668a0a78795d0d07b37
 	<table class="table">
 	  <thead>
 		<tr>
@@ -21,8 +25,12 @@
 		<tr>
 		   
 		  <th>
+<<<<<<< HEAD
 		  <?php //echo  $this->html->input('',['type'=>'checkbox','value'=>@$user->id,'class'=>'user_id']); ?>
 		 <input type="checkbox" name="chk" class="user_id"  value="<?= @$user->id ?>">
+=======
+		  <?php echo  $this->Form->input('',['type'=>'checkbox','value'=>@$user->id,'class'=>'user_id']); ?>
+>>>>>>> f5a9c8a534d2855ca2beb668a0a78795d0d07b37
 		  </th>
 		  
 		  <td><?= ++$i ?></td>
@@ -96,7 +104,11 @@ $(document).on('click', '.user_id', function(){
    
 });
 
+<<<<<<< HEAD
 $(document).on('click', '.sent', function(){  
+=======
+$(document).on('click', '.sent', function(){ 
+>>>>>>> f5a9c8a534d2855ca2beb668a0a78795d0d07b37
 	$.ajax({
         method: 'GET',
         url: '".$this->Url->build(['controller' => 'Users','action' => 'saveMsgStatus'])."',
@@ -114,7 +126,11 @@ $(document).on('click', '.sent', function(){
         $('.requestform_error1').html('Email Sent successfully.');
 		$('.requestform_error1').show();
         $('.requestform_error1').fadeIn('fast').delay(5000).fadeOut('fast'); 
+<<<<<<< HEAD
 		window.location.href ='/users'
+=======
+		window.location.href ='/ico_checkers/users'
+>>>>>>> f5a9c8a534d2855ca2beb668a0a78795d0d07b37
 	   }
 	   else{
 		$('.requestform_error1').html('Try Again.');
