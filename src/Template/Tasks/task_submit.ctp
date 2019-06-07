@@ -49,7 +49,7 @@ $this->Html->css(['blog'], ['block' => true]);
 								<div class="col-md-12">
 									<div class="form-group">
 									  <?php echo $this->Form->control('image',['class'=>'form-control-file','type'=>'file']); ?>
-									  <input type="hidden" name="task_id" value="<?= $task->id ?>">
+									 <?php echo $this->Form->control('task_id',['type'=>'hidden','value'=>$task->id]); ?>
 									</div>
 								</div>
 							</div>

@@ -70,6 +70,7 @@ class AirdropsController extends AppController
         if ($this->request->is('post')) {
             $airdrop = $this->Airdrops->patchEntity($airdrop, $this->request->getData());
             $airdrop->applied_on = date('Y-m-d h:i:s');
+            $airdrop->is_deleted = 0;
             if ($this->Airdrops->save($airdrop)) {
                 $this->Flash->success(__('The airdrop has been saved.'));
 

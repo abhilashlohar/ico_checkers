@@ -124,7 +124,7 @@
                   <?=  @$session_user_name ?><b class="caret"></b>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a class="dropdown-item" href="">My Profile</a>
+                    <a class="dropdown-item" href="<?= $this->Url->Build('/profile')?>">My Profile</a>
                     <a class="dropdown-item" href="<?= $this->Url->Build('/My-Wallet')?>">Wallet</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="<?= $this->url->build(['controller'=>'users','action'=>'logout']) ?>">Logout</a>

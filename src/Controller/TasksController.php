@@ -111,8 +111,10 @@ class TasksController extends AppController
         $task = $this->Tasks->get($id);
         if ($this->request->is(['patch', 'post', 'put'])) 
 		{
+			
 			$taskProof = $this->Tasks->TaskProofs->newEntity();
 			$taskProof = $this->Tasks->TaskProofs->patchEntity($taskProof, $this->request->getData());
+			
 			$errors = [];
 			if($this->request->getData('image.tmp_name'))
 			{
@@ -137,6 +139,7 @@ class TasksController extends AppController
 					$errors[] = __('Unable to upload image. Please try again.');
 				}
 			}  
+			
 			if(empty($errors))
             {
 				$taskProof->user_id = $this->Auth->user('id');

@@ -5,9 +5,7 @@
     <thead>
       <tr>
         <th>Photo</th>
-        <td>
-		 <?= $this->Html->Image(($user->photo!='')?str_replace('\\','/',$user->photo):'//placehold.it/100',['class'=>'avatar img-circle','alt'=>$user->name,'width'=>'125','height'=>'125']);?>
-		</td>
+        <td><?= $this->Image->image($user->photo, '', 200, 150, true, false, true, true, true, ['alt' => $user->name]) ?></td>
       </tr>
     </thead>
     <tbody>
