@@ -108,8 +108,9 @@
 				<div class="fixed-menu">
 					<div class="fixed-menu__header">
 						<a href="#" class="logo">
-							<div class="logo__img"></div>
-							<div class="logo__title">ICO CHECKERS</div>
+							<!-- <div class="logo__img"></div>
+							<div class="logo__title">ICO CHECKERS</div> -->
+							<div><?php echo $this->Html->Image('/img/new-logo.png',['style' => 'height: 50px;']); ?></div>
 						</a>
 			
 						<div class="btn-close">
