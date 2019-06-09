@@ -6,7 +6,7 @@
 <?= $this->Form->create($user, ['class' => 'form-signin']) ?>
 	<?= $this->Flash->render() ?>
     <?= $this->element('logo-part'); ?>
-    <h2 class="h3 mb-3 font-weight-normal">User Registration</h2>
+    <h2 class="h3 mb-3 font-weight-normal" style="color: #FFF;">User Registration</h2>
 	<?php $option=['in'=>'In','usa'=>'usa','uk'=>'uk','uae'=>'uae'];?>
 	<?= $this->Form->control('name', ['label' => false, 'class' => 'form-control', 'placeholder'=>'Full Name']); ?>
     <?= $this->Form->control('email', ['label' => false, 'class' => 'form-control', 'placeholder'=>'Email']); ?>

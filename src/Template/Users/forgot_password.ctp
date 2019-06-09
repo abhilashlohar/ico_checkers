@@ -1,7 +1,7 @@
 <?= $this->Form->create($user, ['class' => 'form-signin']) ?>
 	<?= $this->Flash->render() ?>
 	<?= $this->element('logo-part'); ?>
-    <h1 class="h3 mb-3 font-weight-normal">Forgot Password</h1>
+    <h1 class="h3 mb-3 font-weight-normal" style="color: #FFF;">Forgot Password</h1>
    
     <label for="inputEmail" class="sr-only">Email address</label>
 	<?= $this->Form->control('email', ['label' => false, 'class' => 'form-control', 'placeholder' => __('Enter Email Address')]) ?>

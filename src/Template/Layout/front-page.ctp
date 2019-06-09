@@ -3,7 +3,7 @@
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 		<head>
 			<meta charset="utf-8">
-			<title>Cryptoland</title>
+			<title>ICO CHECKERS</title>
 			<meta name="description" content="">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">
 			<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -11,7 +11,7 @@
 			<?php $library = $this->request->getAttribute("webroot")."ico/"; ?>
 			<!-- Template Basic Images Start -->
 			<meta property="og:image" content="<?php echo $library; ?>path/to/image.html">
-			<link rel="icon" href="img/favicon/favicon.ico">
+			<link rel="icon" href="<?php echo $library; ?>img/favicon/favicon.ico">
 			<link rel="apple-touch-icon" sizes="180x180" href="<?php echo $library; ?>img/favicon/apple-touch-icon-180x180.png">
 			<!-- Template Basic Images End -->
 	
@@ -55,8 +55,9 @@
 
 				<header class="header">
 					<a href="#" class="logo">
-						<div class="logo__img"></div>
-						<div class="logo__title">Cryptoland</div>
+						<!-- <div class="logo__img"></div>
+						<div class="logo__title">Cryptoland</div> -->
+						<div><?php echo $this->Html->Image('/img/new-logo.png',['style' => 'height: 50px;']); ?></div>
 					</a>
 
 					<ul class="menu">
@@ -108,7 +109,7 @@
 					<div class="fixed-menu__header">
 						<a href="#" class="logo">
 							<div class="logo__img"></div>
-							<div class="logo__title">Cryptoland</div>
+							<div class="logo__title">ICO CHECKERS</div>
 						</a>
 			
 						<div class="btn-close">
@@ -218,7 +219,7 @@
 								</div>
 							</div>
 						</div>
-						<img src="<?php echo $library; ?>img/promo-bg.png" data-aos="fade-up"  alt="" class="promo__img">
+						<img src="<?php echo $library; ?>img/promo-bg-ico.png" data-aos="fade-up"  alt="" class="promo__img">
 						
 					</div>
 					<div class="scroll-down">
@@ -271,7 +272,7 @@
 							<div data-aos="fade-right" class="col-lg-5">
 								<div class="section-header section-header--animated section-header--tire section-header--small-margin">
 									<h4>About ICO CHECKERS </h4>
-									<h2>Cryptoland Theme <span>is the best for your ICO</span>
+									<h2>ICO CHECKERS <span>is the best for your ICO</span>
 										  </h2>
 								</div>
 								<div class="about__animated-content">
@@ -288,7 +289,7 @@
 								</div>
 							</div>
 							<div class="col-lg-6 offset-lg-1 align-items-center">
-								<img src="<?php echo $library; ?>img/about-img.png" class="about__img img-responsive" alt="">
+								<img src="<?php echo $library; ?>img/about-img-ico.png" class="about__img img-responsive" alt="">
 							</div>
 						</div>
 					</div>
@@ -1342,10 +1343,11 @@
 						<div class="row">
 							<div class="col-lg-4">
 								<a href="#" class="logo">
-									<img class="logo__img logo__img--big" src="<?php echo $library; ?>img/Logo_white.svg" alt="">
-									<div class="logo__title">Cryptoland</div>
+									<!-- <img class="logo__img logo__img--big" src="<?php echo $library; ?>img/Logo_white.svg" alt="">
+									<div class="logo__title">ICO CHECKERS</div> -->
+									<?php echo $this->Html->Image('/img/new-logo.png',['style' => 'height: 50px;']); ?>
 								</a>
-								<div class="copyright">© 2018, Cryptoland </div>
+								<div class="copyright">© 2018, ICO CHECKERS </div>
 							</div>
 							<div class="col-lg-4">
 								<div class="social-block">

@@ -1,23 +1,26 @@
 .ic_body {
-	background: linear-gradient(to right, #9668a6, #e58ea0);
+	/*background: linear-gradient(to right, #9668a6, #e58ea0);*/
+    background-color: #1f2641;
 }
 
 .ic_button {
-	border-color: #8760a9;
-    background-color: #8761a8;
+	cursor: pointer;
+    width: 100%;
+    text-align: center;
+    background-image: linear-gradient(to right, #ed8a4c 0, #ea485c 100%);
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow .4s, -webkit-box-shadow .4s;
+    border-radius: 5px;
     color: #fff;
-    -webkit-transition: .4s;
-    -o-transition: .4s;
-    transition: .4s;
+    display: inline-block;
+    border: none;
+    font-weight: 600;
+    letter-spacing: .8px;
 }
 
 .ic_button:hover {
-	border-color: #333;
-    background-color: #333;
-    color: #fff;
-    -webkit-transition: .4s;
-    -o-transition: .4s;
-    transition: .4s;
+	background-image: linear-gradient(to right, #ed8a4c 0, #ea485c 100%);
 }
 
 .ic_button:active {
