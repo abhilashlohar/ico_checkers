@@ -95,7 +95,7 @@ class AppController extends Controller
 		if(@$this->role=='Admin' || @$this->role=='Staff')
 		{   
 
-			$admin_controllers=['News.add','News.index','News.view','News.edit','Tasks.add','Tasks.index','Tasks.view','Tasks.edit','Tasks.proofApproval','Airdrops.add','Icos.add','Icos.index','Users.dashboard','Users','Airdrops.index', 'News.home', 'Users.index','Users.broadcastEmail','Airdrops.edit','Airdrops.view', 'Refers.withdrawRequests','Users.brodcast','Users.view','Users.userLists'];
+			$admin_controllers=['News.add','News.index','News.view','News.edit','Tasks.add','Tasks.index','Tasks.view','Tasks.edit','Tasks.proofApproval','Airdrops.add','Icos.add','Icos.index','Users.dashboard','Users','Airdrops.index', 'News.home', 'Users.index','Users.broadcastEmail','Airdrops.edit','Airdrops.view', 'Refers.withdrawRequests','Users.brodcast','Users.view'];
 
 			if(!in_array($this->request->getParam('controller').'.'.$this->request->getParam('action'), $admin_controllers))
 			{

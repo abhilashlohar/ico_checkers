@@ -109,16 +109,16 @@ class UsersTable extends Table
 			
         $validator
             ->requirePresence('photo', 'create')
-            ->notEmpty('photo', __('Please select a banner image.'), function($context) {
+            ->notEmpty('photo', __('Please select a user image.'), function($context) {
                 return $context['newRecord'];
             })
             ->add('photo', 'fileSize', [
                 'rule' => ['fileSize', '<=', '2MB'],
-                'message' => __('Banner image must be less than 2MB.')
+                'message' => __('user image must be less than 2MB.')
             ])
             ->add('photo', 'extension', [
                 'rule' => ['extension'],
-                'message' => __('Please supply a valid banner [allowed extensions are: Gif, Jpeg, Png, Jpg].')
+                'message' => __('Please supply a valid user [allowed extensions are: Gif, Jpeg, Png, Jpg].')
             ]);
 			
         $validator
@@ -164,7 +164,7 @@ class UsersTable extends Table
 
         return $rules;
     }
-	 public function beforeMarshal(Event $event, ArrayObject $data, ArrayObject $options)
+	 /* public function beforeMarshal(Event $event, ArrayObject $data, ArrayObject $options)
     {
         $formattableFields = ['dob'];
         foreach($formattableFields as $formattableField)
@@ -175,5 +175,5 @@ class UsersTable extends Table
                 $data[$formattableField] = $fieldDate->format('Y-m-d');
             }
         }
-    }
+    } */
 }

@@ -22,7 +22,7 @@ class UsersController extends AppController
 	public function initialize()
     {
         parent::initialize();
-        $passed = ['forgotPassword', 'resetPassword', 'login', 'logout', 'changeProfile', 'changePassword', 'registration','approveemail','dashboard','index','broadcastEmail','userProfile','changeStatus','brodcast','saveemailuser','healthcheck','view','emailSent','userLists','saveMsgStatus'];
+        $passed = ['forgotPassword', 'resetPassword', 'login', 'logout', 'changeProfile', 'changePassword', 'registration','approveemail','dashboard','index','broadcastEmail','userProfile','changeStatus','brodcast','saveemailuser','healthcheck','view'];
         if(!in_array($this->request->getParam('action'), $passed) )
         {
             return $this->redirect(['/Dashboard']);
@@ -41,13 +41,7 @@ class UsersController extends AppController
 
         $this->set(compact('users','id'));
     }
-	public function userLists($id=null)
-    {
-		
-        $users = $this->paginate($this->Users);
-		
-		$this->set(compact('users','id','user'));
-    }
+
 	public function brodcast()
     {
         $users = $this->Users->sentEmails->newEntity();
@@ -60,7 +54,7 @@ class UsersController extends AppController
 			if($sent_email = $this->Users->sentEmails->save($sent_email))
             {
 				$this->Flash->success(__('Message successfully Save.'));
-                return $this->redirect(['action' => 'userLists',$sent_email->id]);
+                return $this->redirect(['action' => 'index',$sent_email->id]);
 			}
 			else{ 
 				$this->Flash->error(__('The message could not be save.'));
@@ -471,22 +465,16 @@ class UsersController extends AppController
         $user = $this->Users->newEntity();
         $this->set(compact('user'));
     }
-	public function xyz()
-    {
-		$id= $this->Auth->user('id');
-		$user = $this->Users->get($id);
-		 if ($this->request->is(['patch', 'post', 'put'])) {
-            $user = $this->Users->patchEntity($user, $this->request->getData());
-		 }  pr($user);exit;
-	}
+	
 	public function userProfile()
     {
-		$id= $this->Auth->user('id');  
+		$id= $this->Auth->user('id'); 
 		try
         {
 			$user = $this->Users->get($id,[
-			'conditions'=>['Users.is_deleted'=>false,'Users.status'=>true,'Users.role'=>'User']
-			]);  
+			'fields'=>['id','name','email','mobile','photo','dob'],
+			'conditions'=>['Users.id'=>$id,'Users.is_deleted'=>false,'Users.status'=>true,'role'=>'User']
+			]);
 			$formattableFields = ['dob'];
             foreach($formattableFields as $formattableField)
             {
@@ -496,15 +484,13 @@ class UsersController extends AppController
                     $user->{$formattableField} = $fieldDate->format('d/m/Y');
                 }
             }
-			$userCopy = clone $user;
 		 }
         catch(RecordNotFoundException $e)
         {
             $this->Flash->error(__('Invalid selection.'));
             return $this->redirect(['controller' => 'Refers', 'action' => 'index']);
         }  
-		if ($this->request->is(['patch', 'post', 'put'])) { 
-		  
+		if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
 			
 			 $errors = [];
@@ -531,12 +517,8 @@ class UsersController extends AppController
                         $errors[] = __('Unable to upload category image. Please try again.');
                     }
                 }
-				else{
-					$user->photo = $userCopy->photo;
-				}
 			if(empty($errors))
-            { 	
-		        $user->dob = date('Y-m-d',strtotime($user->dob));
+            {  
 				if ($this->Users->save($user)) {
 					$this->Flash->success(__('The user has been saved.'));
 
@@ -551,7 +533,6 @@ class UsersController extends AppController
 				$this->Flash->error(implode('<br />', $errors), ['escape' => false]);
 			}
         }
-		
 		$this->set(compact('user'));
 	}
 	public function changeStatus($id = null,$status=null)
@@ -595,14 +576,11 @@ class UsersController extends AppController
 			$email_user->sent_email_id = $this->request->query('id');
 			$email_user->user_id       = $this->request->query('user_id');
 			$email_user->status        = 'Pending';
-			$exist=$this->Users->SentEmails->EmailUsers->find()
-			                   ->where(['EmailUsers.sent_email_id'=>$this->request->query('id'),'EmailUsers.user_id'=>$this->request->query('user_id'),'EmailUsers.status'=>'Pending'])->count();
-			if($exist==0){
-				if ($this->Users->SentEmails->EmailUsers->save($email_user)) {
-				  echo 'Add user successfully';
-				} else {
-				  echo 'Try Again';
-				}
+			
+			if ($this->Users->SentEmails->EmailUsers->save($email_user)) {
+			  echo 'Add user successfully';
+			} else {
+			  echo 'Try Again';
 			}
 		}
 		else{
@@ -615,49 +593,4 @@ class UsersController extends AppController
     	$this->viewBuilder()->setLayout('');
     	echo "hello"; exit();
     }
-	public function saveMsgStatus()
-    {
-		$this->autoRender = false;
-        try
-        {
-            if(!$this->request->is('ajax'))
-            {
-                throw new BadRequestException();
-            }
-        }
-        catch(BadRequestException $e)
-        {
-            $this->Flash->error(__('Only ajax request can be processed.'));
-            return $this->redirect($this->_redirectUrl());
-        }
-		$id= $this->request->getQuery('id');
-		if(!empty($id))
-		{
-			$email_exist = $this->Users->SentEmails->EmailUsers->find()
-			                           ->where(['EmailUsers.sent_email_id'=>$id,'EmailUsers.status'=>'Pending'])->count();
-			if($email_exist!=0)
-			{
-				$sent_mail = $this->Users->SentEmails->get($id);
-				$sent_mail->status ='sent';
-				if($this->Users->SentEmails->save($sent_mail))
-				{
-					echo 1;
-				}else
-				{ 
-					echo 0;
-				}
-			}
-		} exit;
-	}
-	
-	
-	public function emailSent()
-    {
-		$email_users = $this->Users->SentEmails->EmailUsers->find()
-									->where(['EmailUsers.status'=>'Pending'])
-									->matching('SentEmails', function($q){
-										return $q->where(['SentEmails.status'=>'Sent']);
-									})->limit(10);
-		pr($email_users->toArray());exit;
-	}
 }
