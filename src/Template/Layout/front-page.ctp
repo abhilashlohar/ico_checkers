@@ -3,7 +3,7 @@
 	<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 		<head>
 			<meta charset="utf-8">
-			<title>Cryptoland</title>
+			<title>ICO CHECKERS</title>
 			<meta name="description" content="">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">
 			<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -11,7 +11,7 @@
 			<?php $library = $this->request->getAttribute("webroot")."ico/"; ?>
 			<!-- Template Basic Images Start -->
 			<meta property="og:image" content="<?php echo $library; ?>path/to/image.html">
-			<link rel="icon" href="img/favicon/favicon.ico">
+			<link rel="icon" href="<?php echo $library; ?>img/favicon/favicon.ico">
 			<link rel="apple-touch-icon" sizes="180x180" href="<?php echo $library; ?>img/favicon/apple-touch-icon-180x180.png">
 			<!-- Template Basic Images End -->
 	
@@ -55,8 +55,9 @@
 
 				<header class="header">
 					<a href="#" class="logo">
-						<div class="logo__img"></div>
-						<div class="logo__title">Cryptoland</div>
+						<!-- <div class="logo__img"></div>
+						<div class="logo__title">Cryptoland</div> -->
+						<div><?php echo $this->Html->Image('/img/new-logo.png',['style' => 'height: 50px;']); ?></div>
 					</a>
 
 					<ul class="menu">
@@ -72,9 +73,9 @@
 						<li class="menu__item">
 							<a href="#stat" class="menu__link">Statistic</a>
 						</li>
-						<li class="menu__item">
+						<!-- <li class="menu__item">
 							<a href="#token" class="menu__link">Token</a>
-						</li>
+						</li> -->
 						<li class="menu__item">
 							<a href="#docs" class="menu__link">WhitePappers</a>
 						</li>
@@ -93,7 +94,7 @@
 							<option value="en">en</option>
 						</select> -->
 						<div class="sign-in-wrap">
-							<a href="#" class="btn-sign-in">Join ICO Checkers</a>	
+							<a href="<?= $this->Url->Build('/sign-up')?>" class="btn-sign-in">Join ICO Checkers</a>	
 						</div>
 					</div>
 
@@ -107,8 +108,9 @@
 				<div class="fixed-menu">
 					<div class="fixed-menu__header">
 						<a href="#" class="logo">
-							<div class="logo__img"></div>
-							<div class="logo__title">Cryptoland</div>
+							<!-- <div class="logo__img"></div>
+							<div class="logo__title">ICO CHECKERS</div> -->
+							<div><?php echo $this->Html->Image('/img/new-logo.png',['style' => 'height: 50px;']); ?></div>
 						</a>
 			
 						<div class="btn-close">
@@ -132,9 +134,9 @@
 							<li class="mob-menu__item">
 								<a href="#stat" class="mob-menu__link">Statistic</a>
 							</li>
-							<li class="mob-menu__item">
+							<!-- <li class="mob-menu__item">
 								<a href="#token" class="mob-menu__link">Token</a>
-							</li>
+							</li> -->
 							<li class="mob-menu__item">
 								<a href="#docs" class="mob-menu__link">WhitePappers</a>
 							</li>
@@ -153,7 +155,7 @@
 						</select> -->
 			
 						<div class="btn-wrap">
-							<a href="#" class="btn-sign-in">Join ICO CHECKERS</a>
+							<a href="<?= $this->Url->Build('/sign-up')?>" class="btn-sign-in">Join ICO CHECKERS</a>
 						</div>
 						
 			
@@ -196,8 +198,17 @@
 								</div>
 								
 								<div class="promo__btns-wrap">
-									<a href="#" class="btn btn--medium btn--orange"><span>Sign up & get 1000 points</span></a>
-									<a href="#" class="btn btn--big btn--blue">Sign in to the real world </a>
+									<a href="<?= $this->Url->Build('/sign-up')?>" class="btn btn--medium btn--orange"><span>Sign up & get 1000 points</span></a>
+									<a href="
+										<?php 
+										if(@$role=='Admin' || @$role=='Staff'){
+											echo $this->Url->Build(['controller'=>'Users','action'=>'dashboard']);
+										}
+										elseif(@$role=='User'){
+											echo $this->Url->Build(['controller'=>'Refers','action'=>'index']);
+										}else{
+										echo $this->Url->Build('/sign-in'); }?>
+										" class="btn btn--big btn--blue">Sign in to the real world </a>
 								</div>
 
 								<div class="payments">
@@ -209,7 +220,7 @@
 								</div>
 							</div>
 						</div>
-						<img src="<?php echo $library; ?>img/promo-bg.png" data-aos="fade-up"  alt="" class="promo__img">
+						<img src="<?php echo $library; ?>img/promo-bg-ico.png" data-aos="fade-up"  alt="" class="promo__img">
 						
 					</div>
 					<div class="scroll-down">
@@ -217,7 +228,7 @@
 					</div>
 				</section>
 
-				<section class="economy">
+				<!-- <section class="economy">
 					<div class="container">
 						<div class="row">
 							<div class="col-lg-8 offset-lg-4">
@@ -254,15 +265,15 @@
 						</div>
 					</div>
 					<img src="<?php echo $library; ?>img/video-bg.png"  alt="" class="economy__bg">
-				</section>
+				</section> -->
 
 				<section class="section about" id="about">
 					<div class="container">
 						<div class="row">
 							<div data-aos="fade-right" class="col-lg-5">
 								<div class="section-header section-header--animated section-header--tire section-header--small-margin">
-									<h4>About ICO</h4>
-									<h2>Cryptoland Theme <span>is the best for your ICO</span>
+									<h4>About ICO CHECKERS </h4>
+									<h2>ICO CHECKERS <span>is the best for your ICO</span>
 										  </h2>
 								</div>
 								<div class="about__animated-content">
@@ -279,7 +290,7 @@
 								</div>
 							</div>
 							<div class="col-lg-6 offset-lg-1 align-items-center">
-								<img src="<?php echo $library; ?>img/about-img.png" class="about__img img-responsive" alt="">
+								<img src="<?php echo $library; ?>img/about-img-ico.png" class="about__img img-responsive" alt="">
 							</div>
 						</div>
 					</div>
@@ -301,14 +312,14 @@
 											<div class="service__bg" style="background-color: #e85f70; box-shadow: 0 0 51px rgba(232, 95, 112, 0.74); box-shadow: 0 0 51px rgba(232, 95, 112, 0.74);"></div>
 											<img src="<?php echo $library; ?>img/service-icon-1.svg" alt="">
 											<div class="service__title">
-												Mining Service
+												ICO Checkers & Review
 											</div>
 										</div>
 										<div data-aos="fade-up" data-aos-delay="200" class="service">
 											<div class="service__bg" style="background-color: #fa8936; background-image: linear-gradient(-234deg, #ea9d64 0%, #fa8936 100%); box-shadow: 0 0 51px rgba(250, 137, 54, 0.74);"></div>
 											<img src="<?php echo $library; ?>img/service-icon-2.svg" alt="">
 											<div class="service__title">
-												Cryptoland App
+												Advertising Platform 
 											</div>
 										</div>
 									</div>
@@ -317,14 +328,14 @@
 											<div class="service__bg" style="background-image: linear-gradient(-234deg, #6ae472 0%, #4bc253 100%); box-shadow: 0 0 51px rgba(75, 194, 83, 0.74);"></div>
 											<img src="<?php echo $library; ?>img/service-icon-3.svg" alt="">
 											<div class="service__title">
-												Blockchain
+												DI Network
 											</div>
 										</div>
 										<div data-aos="fade-up" data-aos-delay="600" class="service">
 											<div class="service__bg" style="background-color: #0090d5; background-image: linear-gradient(-234deg, #29aceb 0%, #0090d5 100%); box-shadow: 0 0 51px rgba(0, 144, 213, 0.74);"></div>
 											<img src="<?php echo $library; ?>img/service-icon-4.svg" alt="">
 											<div class="service__title">
-												Exchange
+												Earn Money Platform
 											</div>
 										</div>
 									</div>
@@ -334,6 +345,115 @@
 					</div>
 					<img src="<?php echo $library; ?>img/services-bg1.png" alt="" class="services__bg">
 					<img src="<?php echo $library; ?>img/services-bg-1.png" class="services__cosmos" alt="">
+				</section>
+
+				<section class="section cases">
+					<div class="container">
+						<div class="row">
+							<div class="col">
+								<!-- <div class="section-header section-header--animated section-header--center section-header--medium-margin">
+									<h2>Use Cases</h2>
+								</div> -->
+							</div>
+						</div>
+						<div class="row">
+							<div class="col cases__list">
+								<div data-aos="fade-right" class="cases__item">
+									<img src="<?php echo $library; ?>img/cases-icon-1.png" alt="" class="cases__item-icon">
+									<div class="cases__item-content">
+										<div class="cases__item-title">
+											Business & Product Listing Platform
+										</div>
+										<p class="cases__item-text">
+											Asiatic glassfish pilchard sandburrower, orangestriped triggerfish hamlet Molly Miller trunkfish spiny dogfish! Jewel tetra frigate mackerel
+										</p>
+									</div>
+								</div>
+								<div data-aos="fade-left" data-aos-delay="200" class="cases__item">
+									<img src="<?php echo $library; ?>img/cases-icon-2.png" alt="" class="cases__item-icon">
+									<div class="cases__item-content">
+										<div class="cases__item-title">
+											Worldwide Trending News
+										</div>
+										<p class="cases__item-text">
+											Spend real fights effective anything extra by leading. Mouthwatering leading how real formula also locked-in have can mountain thought. Jumbo
+										</p>
+									</div>
+								</div>
+								<div data-aos="fade-right" class="cases__item">
+									<img src="<?php echo $library; ?>img/cases-icon-3.png" alt="" class="cases__item-icon">
+									<div class="cases__item-content">
+										<div class="cases__item-title">
+											Free Insurance 
+										</div>
+										<p class="cases__item-text">
+											Clownfish catfish antenna codlet alfonsino squirrelfish deepwater flathead sea lamprey. Bombay duck sand goby snake mudhead
+										</p>
+									</div>
+								</div>
+								<div data-aos="fade-left" data-aos-delay="200" class="cases__item">
+									<img src="<?php echo $library; ?>img/cases-icon-4.png" alt="" class="cases__item-icon">
+									<div class="cases__item-content">
+										<div class="cases__item-title">
+											Social Platform
+										</div>
+										<p class="cases__item-text">
+											Barbelless catfish pelican gulper candlefish thornfishGulf menhaden ribbonbearer riffle dace black dragonfish denticle herring
+										</p>
+									</div>
+								</div>
+								<div data-aos="fade-right" class="cases__item">
+									<img src="<?php echo $library; ?>img/cases-icon-5.png" alt="" class="cases__item-icon">
+									<div class="cases__item-content">
+										<div class="cases__item-title">
+											Blockchain
+										</div>
+										<p class="cases__item-text">
+											Clownfish catfish antenna codlet alfonsino squirrelfish deepwater flathead sea lamprey. Bombay duck sand goby snake mudhead
+										</p>
+									</div>
+								</div>
+								<div data-aos="fade-left" data-aos-delay="200" class="cases__item">
+									<img src="<?php echo $library; ?>img/cases-icon-6.png" alt="" class="cases__item-icon">
+									<div class="cases__item-content">
+										<div class="cases__item-title">
+											One touch architecture solution
+										</div>
+										<p class="cases__item-text">
+											Asiatic glassfish pilchard sandburrower, orangestriped triggerfish hamlet Molly Miller trunkfish spiny dogfish!
+										</p>
+									</div>
+								</div>
+								<div data-aos="fade-right" class="cases__item">
+									<img src="<?php echo $library; ?>img/cases-icon-5.png" alt="" class="cases__item-icon">
+									<div class="cases__item-content">
+										<div class="cases__item-title">
+											Online Service Platform
+										</div>
+										<p class="cases__item-text">
+											Clownfish catfish antenna codlet alfonsino squirrelfish deepwater flathead sea lamprey. Bombay duck sand goby snake mudhead
+										</p>
+									</div>
+								</div>
+								<div data-aos="fade-left" data-aos-delay="200" class="cases__item">
+									<img src="<?php echo $library; ?>img/cases-icon-6.png" alt="" class="cases__item-icon">
+									<div class="cases__item-content">
+										<div class="cases__item-title">
+											Proof of Document Platform 
+										</div>
+										<p class="cases__item-text">
+											Asiatic glassfish pilchard sandburrower, orangestriped triggerfish hamlet Molly Miller trunkfish spiny dogfish!
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<a href="<?= $this->Url->Build('/sign-up')?>" class="btn btn--orange btn--uppercase"><span>Join ICO CHECKERS </span></a>
+						</div>
+					</div>
+					<img src="<?php echo $library; ?>img/cases-bg.png"  class="cases__bg" alt="">
+					<img src="<?php echo $library; ?>img/cases-imgs.png"  class="cases__elements" alt="">
 				</section>
 
 				<section class="section map" id="map">
@@ -480,93 +600,7 @@
 					<img src="<?php echo $library; ?>img/partenrs-bg.png" data-jarallax-element="20" alt="" class="partners-logo__bg">
 				</section> -->
 
-				<section class="section cases">
-					<div class="container">
-						<div class="row">
-							<div class="col">
-								<div class="section-header section-header--animated section-header--center section-header--medium-margin">
-									<h4>Some facts</h4>
-									<h2>Use Cases</h2>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col cases__list">
-								<div data-aos="fade-right" class="cases__item">
-									<img src="<?php echo $library; ?>img/cases-icon-1.png" alt="" class="cases__item-icon">
-									<div class="cases__item-content">
-										<div class="cases__item-title">
-											Cryptoland App
-										</div>
-										<p class="cases__item-text">
-											Asiatic glassfish pilchard sandburrower, orangestriped triggerfish hamlet Molly Miller trunkfish spiny dogfish! Jewel tetra frigate mackerel
-										</p>
-									</div>
-								</div>
-								<div data-aos="fade-left" data-aos-delay="200" class="cases__item">
-									<img src="<?php echo $library; ?>img/cases-icon-2.png" alt="" class="cases__item-icon">
-									<div class="cases__item-content">
-										<div class="cases__item-title">
-											Mining Service
-										</div>
-										<p class="cases__item-text">
-											Spend real fights effective anything extra by leading. Mouthwatering leading how real formula also locked-in have can mountain thought. Jumbo
-										</p>
-									</div>
-								</div>
-								<div data-aos="fade-right" class="cases__item">
-									<img src="<?php echo $library; ?>img/cases-icon-3.png" alt="" class="cases__item-icon">
-									<div class="cases__item-content">
-										<div class="cases__item-title">
-											Blockchain
-										</div>
-										<p class="cases__item-text">
-											Clownfish catfish antenna codlet alfonsino squirrelfish deepwater flathead sea lamprey. Bombay duck sand goby snake mudhead
-										</p>
-									</div>
-								</div>
-								<div data-aos="fade-left" data-aos-delay="200" class="cases__item">
-									<img src="<?php echo $library; ?>img/cases-icon-4.png" alt="" class="cases__item-icon">
-									<div class="cases__item-content">
-										<div class="cases__item-title">
-											Exchange
-										</div>
-										<p class="cases__item-text">
-											Barbelless catfish pelican gulper candlefish thornfishGulf menhaden ribbonbearer riffle dace black dragonfish denticle herring
-										</p>
-									</div>
-								</div>
-								<div data-aos="fade-right" class="cases__item">
-									<img src="<?php echo $library; ?>img/cases-icon-5.png" alt="" class="cases__item-icon">
-									<div class="cases__item-content">
-										<div class="cases__item-title">
-											Cryptoland
-										</div>
-										<p class="cases__item-text">
-											Clownfish catfish antenna codlet alfonsino squirrelfish deepwater flathead sea lamprey. Bombay duck sand goby snake mudhead
-										</p>
-									</div>
-								</div>
-								<div data-aos="fade-left" data-aos-delay="200" class="cases__item">
-									<img src="<?php echo $library; ?>img/cases-icon-6.png" alt="" class="cases__item-icon">
-									<div class="cases__item-content">
-										<div class="cases__item-title">
-											Cryptoland App
-										</div>
-										<p class="cases__item-text">
-											Asiatic glassfish pilchard sandburrower, orangestriped triggerfish hamlet Molly Miller trunkfish spiny dogfish!
-										</p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<a href="#" class="btn btn--orange btn--uppercase"><span>Join ICO</span></a>
-						</div>
-					</div>
-					<img src="<?php echo $library; ?>img/cases-bg.png"  class="cases__bg" alt="">
-					<img src="<?php echo $library; ?>img/cases-imgs.png"  class="cases__elements" alt="">
-				</section>
+				
 
 				<section class="data" id="stat">
 					<div class="container data__container">
@@ -595,7 +629,7 @@
 					<img src="<?php echo $library; ?>img/data-bg-space.png" class="data__bg" alt="">
 				</section>
 
-				<section class="section section--no-pad-bot facts">
+				<!-- <section class="section section--no-pad-bot facts">
 					<div class="container">
 						<div class="row">
 							<div class="col">
@@ -646,11 +680,10 @@
 							</div>
 						</div>
 						<img src="<?php echo $library; ?>img/facts-bg.png" class="facts__bg" alt="">
-					</div>
-					
-				</section>
+					</div>	
+				</section> -->
 
-				<section class="section token" id="token">
+				<!-- <section class="section token" id="token">
 					<div class="container">
 						<div class="row">
 							<img src="<?php echo $library; ?>img/token-img.png" class="token__img" alt="">
@@ -704,7 +737,7 @@
 							</div>
 						</div>
 					</div>
-				</section>
+				</section> -->
 
 				<section class="docs" id="docs">
 					<div class="container">
@@ -768,9 +801,9 @@
 							<div class="col">
 								<div class="section-header section-header--animated section-header--medium-margin section-header--center">
 									<h4>Our data</h4>
-									<h2>Token Distribution</h2>
+									<h2>Profit Allocation</h2>
 									<div class="bg-title">
-										Token Distribution
+										Profit Allocation
 									</div>
 								</div>
 							</div>
@@ -785,12 +818,12 @@
 								</div>
 							</div>
 							<div data-aos="fade-left" class="col-lg-6 token-data__animated-content">
-								<div class="chart__title">
+								<!-- <div class="chart__title">
 									Allocation of funds
-								</div>
-								<p class="chart__text">
+								</div> -->
+								<!-- <p class="chart__text">
 									Total token supply  - 152,358
-								</p>
+								</p> -->
 								<ul class="chart__legend">
 									<li>
 										<span style="width: 101px;"></span>
@@ -818,104 +851,7 @@
 					</div>
 				</section>
 
-				<section class="section faq" id="faq">
-					<div class="container">
-						<div class="row">
-							<div class="col">
-								<div class="section-header section-header--center section-header--medium-margin">
-									<h4>FAQ</h4>
-									<h2>Frequency Asked Questions</h2>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-lg-8 offset-lg-2">
-
-									<ul class="accordion">
-										<li>
-											<a>WHAT IS DIGITAL IDANTIFICATION?</a>
-											<p>
-												Digital identification is provide real  user identy with secure your wallet and find the real user interface  , digital idianty is very nessesry for all crypto investor and all exchanges which is related to any blockchai n (btc, eth ,neo.wave or any blockchain digital identity secure users and exchanges from scams & hacks.
-											</p>
-										</li>
-										<li>
-											<a>WHAT IS ICO CHECKING AND REVIEW PLATFORM & ITS WORK?</a>
-											<p>
-												Many ico daily launch there token but wrong decision loss your investment, many people on social network provide you wrong information about ico, how you check real information, there are no services available in real market ico checking platform provide you service  with secure your right decision and  also, secure your investment, where we lunch ico choking service find out the real contract address and attached ico checkers address before sale and then give fund to ico according to work on project in next 5 year.
-											</p>
-										</li>
-										<li>
-											<a>WHAT IS PROOF OF DOCUMENT & ITS WORK?</a>
-											<p>
-												Proof of document platform provide user to verify their identity on online service for kyc on all online transaction you need to put only reference number from our platform to all other platform, who accept our proof of document.
-											</p>
-										</li>
-										<li>
-											<a>WHAT IS FREE INSURANCE PLATFORM?</a>
-											<p>
-												Ico checkers provide free insurance facility to our qualify users who visit our platform on Daily  basis , every year 2 reffral minimum ,Read minimum 5 news  and complete monthly minimum visits, MINIMUM VISITS ARE 15 DAYS Out of 30 days AND 10-20 MINUTES SPEND IN EVERY VISIT ON OUR WEBSITE ALL CLAIMS.
-											</p>
-										</li>
-										<li>
-											<a>WHAT IS EARN MONEY PLATFROM?</a>
-											<p>
-												 Earn money platform provide user to make money on our platform in beta testing and main net in this platform you need complete some simple task for earn money by tasks and withdrawal with your preference account in paypal, google pay, ethereum (crypto currency) wallet and spend money in shopping according local business support our platform you need to tell them about our platform and increase your marketplace after our platform 100% live worldwide.
-											</p>
-										</li>
-										<li>
-											<a>WHAT IS ONE TOUCH ARCITECTURE SOLUTION?</a>
-											<p>
-												We are also launch one touch Architecture solution in some time where you need to put size, facing and type like bungalow, apartment and hotel, and download your map image and describe video in one touch.
-											</p>
-										</li>
-										<li>
-											<a>WHAT IS  MTS,STU  PLATFORME WORLDWIDE?</a>
-											<p>
-												We are working on trading platform & shopping platform more then 500000+ products & 2 BILLION Buyers &seller market for local to local market users, our website will launch soon. Support local business to local buyer.
-											</p>
-										</li>
-										<li>
-											<a>HOW OUR SOCIAL PLATFORM DIFFERENT FROM OTHER?</a>
-											<p>
-												In the current market more than 4 billion users are use social network but 95 % profile is not Verified by social websites our platform provides verify users and really working users.
-											</p>
-										</li>
-										<li>
-											<a>WHAT IS SERVICE PLATFORME?</a>
-											<p>
-												Users use 100+ online service in daily basis with different websites Where face many Problems, but we provide you 100 + services in future with worlds most secure platform Which is unhack by anyone, in service we launch website review & testing platform, Freelancer service platform like up work etc. , and real Google visitors platform etc.
-											</p>
-										</li>
-										<li>
-											<a>WHAT IS SERVICE PLATFORME?</a>
-											<p>
-												Users use 100+ online service in daily basis with different websites Where face many Problems, but we provide you 100 + services in future with worlds most secure platform Which is unhack by anyone, in service we launch website review & testing platform, Freelancer service platform like up work etc. , and real Google visitors platform etc.
-											</p>
-										</li>
-										<li>
-											<a>WHAT IS NEWS  SECTION AND HOW IT IS BETTER THAN OTHER WEBSITE?</a>
-											<p>
-												In news section every user who posts news on our web. Will review by our team and give Him real money if news accepted and every user who read our news insured by our platform.
-											</p>
-										</li>
-										<li>
-											<a>WHAT IS USE OF 1000 POINTS,  FIVE DI SLOTS & ONE YEAR FREE AIRDROP NOTIFICATION SLOTS?</a>
-											<p>
-												1000 points free use in get free referral from our website for your targeted platform task Use Points in create task for other users to join you on your platform like- youtube ,blogger etc.
-											</p>
-										</li>
-										<li>
-											<a>WHAT IS ICO CHECKERS.COM?</a>
-											<p>
-												Ico Checkers is Ico checking solution & review platform ,DI NETWORK, advertisement, News, Free insurance, crypto hunter & referral and Online service platform based on smart contract our platform is best Upcoming secure ico, for you tubers, bloggers, crypto hunters, Ico reviewers, Crypto investors, crypto community, online service users and online social users.
-											</p>
-										</li>
-									</ul>
-
-							</div>
-						</div>
-					</div>
-				</section>
+				
 
 				<!-- <section class="advisors">
 					<div class="container">
@@ -1204,6 +1140,105 @@
 					<img src="<?php echo $library; ?>img/team-bg.png" data-jarallax-element="40" alt="" class="team__bg">
 				</section>
 
+				<section class="section faq" id="faq">
+					<div class="container">
+						<div class="row">
+							<div class="col">
+								<div class="section-header section-header--center section-header--medium-margin">
+									<h4>FAQ</h4>
+									<h2>Frequency Asked Questions</h2>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-8 offset-lg-2">
+
+									<ul class="accordion">
+										<li>
+											<a>WHAT IS DIGITAL IDANTIFICATION?</a>
+											<p>
+												Digital identification is provide real  user identy with secure your wallet and find the real user interface  , digital idianty is very nessesry for all crypto investor and all exchanges which is related to any blockchai n (btc, eth ,neo.wave or any blockchain digital identity secure users and exchanges from scams & hacks.
+											</p>
+										</li>
+										<li>
+											<a>WHAT IS ICO CHECKING AND REVIEW PLATFORM & ITS WORK?</a>
+											<p>
+												Many ico daily launch there token but wrong decision loss your investment, many people on social network provide you wrong information about ico, how you check real information, there are no services available in real market ico checking platform provide you service  with secure your right decision and  also, secure your investment, where we lunch ico choking service find out the real contract address and attached ico checkers address before sale and then give fund to ico according to work on project in next 5 year.
+											</p>
+										</li>
+										<li>
+											<a>WHAT IS PROOF OF DOCUMENT & ITS WORK?</a>
+											<p>
+												Proof of document platform provide user to verify their identity on online service for kyc on all online transaction you need to put only reference number from our platform to all other platform, who accept our proof of document.
+											</p>
+										</li>
+										<li>
+											<a>WHAT IS FREE INSURANCE PLATFORM?</a>
+											<p>
+												Ico checkers provide free insurance facility to our qualify users who visit our platform on Daily  basis , every year 2 reffral minimum ,Read minimum 5 news  and complete monthly minimum visits, MINIMUM VISITS ARE 15 DAYS Out of 30 days AND 10-20 MINUTES SPEND IN EVERY VISIT ON OUR WEBSITE ALL CLAIMS.
+											</p>
+										</li>
+										<li>
+											<a>WHAT IS EARN MONEY PLATFROM?</a>
+											<p>
+												 Earn money platform provide user to make money on our platform in beta testing and main net in this platform you need complete some simple task for earn money by tasks and withdrawal with your preference account in paypal, google pay, ethereum (crypto currency) wallet and spend money in shopping according local business support our platform you need to tell them about our platform and increase your marketplace after our platform 100% live worldwide.
+											</p>
+										</li>
+										<li>
+											<a>WHAT IS ONE TOUCH ARCITECTURE SOLUTION?</a>
+											<p>
+												We are also launch one touch Architecture solution in some time where you need to put size, facing and type like bungalow, apartment and hotel, and download your map image and describe video in one touch.
+											</p>
+										</li>
+										<li>
+											<a>WHAT IS  MTS,STU  PLATFORME WORLDWIDE?</a>
+											<p>
+												We are working on trading platform & shopping platform more then 500000+ products & 2 BILLION Buyers &seller market for local to local market users, our website will launch soon. Support local business to local buyer.
+											</p>
+										</li>
+										<li>
+											<a>HOW OUR SOCIAL PLATFORM DIFFERENT FROM OTHER?</a>
+											<p>
+												In the current market more than 4 billion users are use social network but 95 % profile is not Verified by social websites our platform provides verify users and really working users.
+											</p>
+										</li>
+										<li>
+											<a>WHAT IS SERVICE PLATFORME?</a>
+											<p>
+												Users use 100+ online service in daily basis with different websites Where face many Problems, but we provide you 100 + services in future with worlds most secure platform Which is unhack by anyone, in service we launch website review & testing platform, Freelancer service platform like up work etc. , and real Google visitors platform etc.
+											</p>
+										</li>
+										<li>
+											<a>WHAT IS SERVICE PLATFORME?</a>
+											<p>
+												Users use 100+ online service in daily basis with different websites Where face many Problems, but we provide you 100 + services in future with worlds most secure platform Which is unhack by anyone, in service we launch website review & testing platform, Freelancer service platform like up work etc. , and real Google visitors platform etc.
+											</p>
+										</li>
+										<li>
+											<a>WHAT IS NEWS  SECTION AND HOW IT IS BETTER THAN OTHER WEBSITE?</a>
+											<p>
+												In news section every user who posts news on our web. Will review by our team and give Him real money if news accepted and every user who read our news insured by our platform.
+											</p>
+										</li>
+										<li>
+											<a>WHAT IS USE OF 1000 POINTS,  FIVE DI SLOTS & ONE YEAR FREE AIRDROP NOTIFICATION SLOTS?</a>
+											<p>
+												1000 points free use in get free referral from our website for your targeted platform task Use Points in create task for other users to join you on your platform like- youtube ,blogger etc.
+											</p>
+										</li>
+										<li>
+											<a>WHAT IS ICO CHECKERS.COM?</a>
+											<p>
+												Ico Checkers is Ico checking solution & review platform ,DI NETWORK, advertisement, News, Free insurance, crypto hunter & referral and Online service platform based on smart contract our platform is best Upcoming secure ico, for you tubers, bloggers, crypto hunters, Ico reviewers, Crypto investors, crypto community, online service users and online social users.
+											</p>
+										</li>
+									</ul>
+
+							</div>
+						</div>
+					</div>
+				</section>
+
 				<section class="news">
 					<div class="container">
 						<div class="row">
@@ -1214,74 +1249,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col">
-
-								<div class="news-carousel owl-carousel">
-									<a data-aos="fade-up" href="#" class="news-carousel__item">
-										<div class="news-carousel__item-body">
-											<div class="news-carousel__item-subtitle">Cryptocurrency</div>
-											<h3 class="news-carousel__item-title">
-												New trends in UI/UX Design World Integration
-											</h3>
-											<p>
-												Specially for our VIP customers the LH Crypto team representatives Alexander Smirnov and Antonis Lapos will conduct a number of personal meet-
-											</p>
-											<div class="news-carousel__item-data">
-												September, 15 2017
-											</div>
-										</div>
-									</a>
-
-									<a data-aos="fade-up" data-aos-delay="200" href="#" class="news-carousel__item">
-										<div class="news-carousel__item-body">
-											<div class="news-carousel__item-subtitle">Cryptocurrency</div>
-											<h3 class="news-carousel__item-title">
-												New trends in UI/UX Design World Integration
-											</h3>
-											<p>
-												Specially for our VIP customers the LH Crypto team representatives Alexander Smirnov and Antonis Lapos will conduct a number of personal meet-
-											</p>
-											<div class="news-carousel__item-data">
-												September, 15 2017
-											</div>
-										</div>
-									</a>
-
-									<a data-aos="fade-up" data-aos-delay="200" href="#" class="news-carousel__item">
-										<div class="news-carousel__item-body">
-											<div class="news-carousel__item-subtitle">Cryptocurrency</div>
-											<h3 class="news-carousel__item-title">
-												New trends in UI/UX Design World Integration
-											</h3>
-											<p>
-												Specially for our VIP customers the LH Crypto team representatives Alexander Smirnov and Antonis Lapos will conduct a number of personal meet-
-											</p>
-											<div class="news-carousel__item-data">
-												September, 15 2017
-											</div>
-										</div>
-									</a>
-
-									<a href="#" class="news-carousel__item">
-										<div class="news-carousel__item-body">
-											<div class="news-carousel__item-subtitle">Cryptocurrency</div>
-											<h3 class="news-carousel__item-title">
-												New trends in UI/UX Design World Integration
-											</h3>
-											<p>
-												Specially for our VIP customers the LH Crypto team representatives Alexander Smirnov and Antonis Lapos will conduct a number of personal meet-
-											</p>
-											<div class="news-carousel__item-data">
-												September, 15 2017
-											</div>
-										</div>
-									</a>
-									
-								</div>
-								
-							</div>
-						</div>
+						<?= $this->cell('News') ?>
 					</div>
 				</section>
 
@@ -1376,10 +1344,11 @@
 						<div class="row">
 							<div class="col-lg-4">
 								<a href="#" class="logo">
-									<img class="logo__img logo__img--big" src="<?php echo $library; ?>img/Logo_white.svg" alt="">
-									<div class="logo__title">Cryptoland</div>
+									<!-- <img class="logo__img logo__img--big" src="<?php echo $library; ?>img/Logo_white.svg" alt="">
+									<div class="logo__title">ICO CHECKERS</div> -->
+									<?php echo $this->Html->Image('/img/new-logo.png',['style' => 'height: 50px;']); ?>
 								</a>
-								<div class="copyright">© 2018, Cryptoland </div>
+								<div class="copyright">© 2018, ICO CHECKERS </div>
 							</div>
 							<div class="col-lg-4">
 								<div class="social-block">

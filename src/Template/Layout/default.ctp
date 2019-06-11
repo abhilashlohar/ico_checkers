@@ -18,7 +18,7 @@
 <body class="bg-light" data-gr-c-s-loaded="true" style="font-family: 'Nunito', sans-serif;">
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark static-top ic_header_bg" style="background: linear-gradient(to right, #9668a6, #e58ea0);">
+  <nav class="navbar navbar-expand-lg navbar-dark static-top ic_header_bg" style="background-color: #1f2641;">
     <div class="container">
       <!-- Logo -->
       <a class="navbar-brand" href="<?= $this->Url->Build('/')?>">

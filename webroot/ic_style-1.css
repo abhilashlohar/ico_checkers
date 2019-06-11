@@ -1,0 +1,54 @@
+.ic_body {
+	/*background: linear-gradient(to right, #9668a6, #e58ea0);*/
+    background-color: #1f2641;
+}
+
+.ic_button {
+	cursor: pointer;
+    width: 100%;
+    text-align: center;
+    background-image: linear-gradient(to right, #ed8a4c 0, #ea485c 100%);
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow .4s, -webkit-box-shadow .4s;
+    border-radius: 5px;
+    color: #fff;
+    display: inline-block;
+    border: none;
+    font-weight: 600;
+    letter-spacing: .8px;
+}
+
+.ic_button:hover {
+	background-image: linear-gradient(to right, #ed8a4c 0, #ea485c 100%);
+}
+
+.ic_button:active {
+    border-color: #8760a9;
+    background-color: #8761a8;
+    color: #fff;
+    -webkit-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s;
+}
+
+.ic_link {
+    color: #fff;
+    -webkit-transition: .4s;
+    -o-transition: .4s;
+    transition: .4s;
+    text-decoration: none !important;
+}
+
+.ic_link:hover {
+    color: #bdbaba;
+}
+
+.ic_separator {
+	color: #FFF;
+}
+
+
+li.active > a {
+    border-bottom: solid 2px #FFF;
+}
