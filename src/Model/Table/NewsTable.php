@@ -34,6 +34,8 @@ class NewsTable extends Table
         $this->setTable('news');
         $this->setDisplayField('title');
         $this->setPrimaryKey('id');
+		
+		$this->belongsTo('Enquiries');
     }
 
     /**

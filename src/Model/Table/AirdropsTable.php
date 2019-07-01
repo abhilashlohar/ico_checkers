@@ -72,9 +72,9 @@ class AirdropsTable extends Table
             ->allowEmptyString('email', false);
 
         $validator
-            ->dateTime('applied_on')
-            ->requirePresence('applied_on', 'create')
-            ->allowEmptyDateTime('applied_on', false);
+            ->dateTime('created_on')
+            ->requirePresence('created_on', 'create')
+            ->allowEmptyDateTime('created_on', false);
 
         return $validator;
     }

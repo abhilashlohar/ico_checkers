@@ -18,9 +18,9 @@
 			<!-- Custom Browsers Color Start -->
 			<meta name="theme-color" content="#000">
 			<!-- Custom Browsers Color End -->
-
+			<?= $this->Html->css(['custom'],['type' => 'text/css','media' => 'all']) ?>
 			<link rel="stylesheet" href="<?php echo $library; ?>css/main.min.css">
-
+			
 			<!-- Load google font
 			================================================== -->
 			<script type="text/javascript">
@@ -602,7 +602,7 @@
 
 				
 
-				<section class="data" id="stat">
+				<!--<section class="data" id="stat">
 					<div class="container data__container">
 						<div class="row">
 							<div class="col">
@@ -627,7 +627,7 @@
 						</div>
 					</div>
 					<img src="<?php echo $library; ?>img/data-bg-space.png" class="data__bg" alt="">
-				</section>
+				</section>-->
 
 				<!-- <section class="section section--no-pad-bot facts">
 					<div class="container">
@@ -826,24 +826,28 @@
 								</p> -->
 								<ul class="chart__legend">
 									<li>
-										<span style="width: 101px;"></span>
-										9% Founders and Team
+										<span style="width: 201px;"></span>
+										30% Ico checkers development (10% ico checking solution+20% other)
 									</li>
 									<li>
 										<span style="width: 153px;"></span>
-										13% Reserved Funding
+										20% Ico checkers Airdrop, marketing and early supporters
 									</li>
 									<li>
-										<span style="width: 34px;"></span>
-										2% Advisors
+										<span style="width: 100px;"></span>
+										15% Founder
 									</li>
 									<li>
-										<span style="width: 289px;"></span>
-										25% Distribute to Community
+										<span style="width: 25px;"></span>
+										5% Team
 									</li>
 									<li>
-										<span style="width: 22px;"></span>
-										1% Bounty campaign
+										<span style="width: 55px;"></span>
+										10% Psartners
+									</li>
+									<li>
+										<span style="width: 153px;"></span>
+										20% Investor
 									</li>
 								</ul>
 							</div>
@@ -1327,11 +1331,22 @@
 									<h4>Contact us</h4>
 									<h2>Get in Touch</h2>
 								</div>
-								<form action="#" class="form contact-form" id="contact-form">
-									<input type="text" name="Name" class="form__input" placeholder="Name">
-									<input type="email" name="Email" class="form__input" placeholder="Email">
-									<textarea name="Message" class="form__textarea" placeholder="Message"></textarea>
-									<button class="form__btn btn btn--uppercase btn--orange"><span>Send message</span></button>
+								<form action="#" method="post" class="form contact-form inquiry" id="inquiry" name="inquiry">
+									<?= $this->Form->control('name',['label'=>false,'class'=>'form__input','placeholder'=>'Name'])?>
+									<span class="valid_error" data-valmsg-for="name"></span>
+									<?= $this->Form->control('email',['label'=>false,'class'=>'form__input','placeholder'=>'Email','type'=>'email'])?>
+									<span class="valid_error" data-valmsg-for="email"></span>
+									<select name="reason" class="form__input" id="reason">
+										<option > Select Reason </option>
+										<option value="reason1"> Reason 1 </option>
+										<option value="reason2"> Reason 2 </option>
+										<option value="reason3"> Reason 3 </option>
+									</select>
+									<span class="valid_error" data-valmsg-for="reason"></span>
+									<?= $this->Form->control('message',['label'=>false,'class'=>'form__textarea','placeholder'=>'Message'])?>
+									<!--<button class="form__btn btn btn--uppercase btn--orange"><span>Send message</span></button>-->
+									<div class="lds-spinner imgloader"  style="display:none;"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+									<?= $this->Form->button($this->Html->tag('span', 'Send message'), ['escape' => false, 'class' => 'form__btn btn btn--uppercase btn--orange']); ?>
 								</form>
 							</div>
 						</div>
@@ -1401,6 +1416,7 @@
 			</div>
 
 			<script src="<?php echo $library; ?>jquery/2.2.4/jquery.min.js"></script>
+			<script src="<?php echo $library; ?>validation.js"></script>
 			<script>window.jQuery || document.write('<script src="<?php echo $library; ?>js/jquery-2.2.4.min.js"><\/script>')</script>
 
 			<script src="<?php echo $library; ?>js/scripts.min.js"></script>

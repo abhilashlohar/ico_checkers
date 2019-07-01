@@ -14,7 +14,7 @@
 
     <h3>Your referral link</h3>
     <input type="text" class="form-control form-control-lg col-12" value="http://localhost/ico_checkers/sign-up?ref=<?= $referral_code ?>" id="myInput">
-    <button onclick="myFunction()" class="btn ic_button">Copy referral link</button>
+    <button onclick="myFunction()" class="btn ic_button custom-btn">Copy referral link</button>
   </div>
 </div>
 

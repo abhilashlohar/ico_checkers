@@ -220,7 +220,9 @@ class NewsController extends AppController
     public function home(){
 		$role = $this->role;
         $this->viewBuilder()->setLayout('front-page');
-		$this->set(compact('role'));
+		$inquiry = $this->News->Enquiries->newEntity();
+		$this->set(compact('role','inquiry'));
     }
+
 	
 }

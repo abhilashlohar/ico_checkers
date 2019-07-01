@@ -30,6 +30,14 @@ class Airdrop extends Entity
         'link' => true,
         'country' => true,
         'email' => true,
-        'applied_on' => true
+        'applied_on' => true,
+        'description' => true,
+        'comment' => true,
+        'project_quality' => true,
+        'strangeness' => true,
+        'different_ico' => true,
+        'actual_use' => true,
+        'team' => true,
+		'*' => false
     ];
 }

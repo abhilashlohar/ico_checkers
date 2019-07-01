@@ -20,6 +20,7 @@ $this->Html->css(['blog'], ['block' => true]);
 				  </h3>
 				  <div class="mb-1 text-muted"><?php echo date('d M, Y',strtotime($airdrop->created_on))?></div>
 				  <p class="card-text mb-auto"><?= $airdrop->short_description ?></p>
+				  
 				  <a href="<?= $this->Url->build('/airdrop-view/'.$airdrop->id)?>">Continue reading</a>
 				</div>
 			  </div>

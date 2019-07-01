@@ -86,7 +86,7 @@
             </li>
 			      <li class="nav-item dropdown <?php echo @$AirActive; ?>">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Airdrops
+                ICO Review
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <?= $this->Html->link(__('Add'), ['controller' => 'Airdrops', 'action' => 'add'],['class'=>'dropdown-item']) ?>
@@ -113,7 +113,7 @@
               </div>
             </li>
             <li class="nav-item <?php echo @$arActive; ?>">
-              <a href="<?= $this->url->build('/Airdrops-Feed');?>" class="nav-link">Airdrops</a>
+              <a href="<?= $this->url->build('/Airdrops-Feed');?>" class="nav-link">ICO Review</a>
             </li>
             <li class="nav-item <?php echo @$rfActive; ?>">
               <a href="<?= $this->url->build('/Refer-and-Earn');?>" class="nav-link">Refer and Earn</a>

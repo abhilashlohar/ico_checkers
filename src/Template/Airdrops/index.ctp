@@ -1,6 +1,6 @@
 <div class="row py-3">
     <div class="col-md-12">
-        <h3><?= __('Airdrops') ?></h3>
+        <h3><?= __('ICO Review') ?></h3>
         <table class="table">
             <thead>
                 <tr>
