@@ -1331,13 +1331,13 @@
 									<h4>Contact us</h4>
 									<h2>Get in Touch</h2>
 								</div>
-								<form action="#" method="post" class="form contact-form inquiry" id="inquiry" name="inquiry">
+								<form action="Javascript:(void);" method="post" class="form contact-form inquiry" id="inquiry" name="inquiry">
 									<?= $this->Form->control('name',['label'=>false,'class'=>'form__input','placeholder'=>'Name'])?>
 									<span class="valid_error" data-valmsg-for="name"></span>
 									<?= $this->Form->control('email',['label'=>false,'class'=>'form__input','placeholder'=>'Email','type'=>'email'])?>
 									<span class="valid_error" data-valmsg-for="email"></span>
-									<select name="reason" class="form__input" id="reason">
-										<option > Select Reason </option>
+									<select name="reason" class="form__input" id="reason" placeholder='Reason'>
+										<option> Reason </option>
 										<option value="reason1"> Reason 1 </option>
 										<option value="reason2"> Reason 2 </option>
 										<option value="reason3"> Reason 3 </option>
@@ -1345,6 +1345,7 @@
 									<span class="valid_error" data-valmsg-for="reason"></span>
 									<?= $this->Form->control('message',['label'=>false,'class'=>'form__textarea','placeholder'=>'Message'])?>
 									<!--<button class="form__btn btn btn--uppercase btn--orange"><span>Send message</span></button>-->
+									<div id='msg' onclick="this.classList.add('hidden')"></div>
 									<div class="lds-spinner imgloader"  style="display:none;"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 									<?= $this->Form->button($this->Html->tag('span', 'Send message'), ['escape' => false, 'class' => 'form__btn btn btn--uppercase btn--orange']); ?>
 								</form>
@@ -1402,12 +1403,17 @@
 								</div>
 							</div>
 							<div class="col-lg-4">
-								<form action="#" class="form subscribe" id="subscribe-form">
+								<form action="Javascript:(void);" class="form subscribe" id="subscribe" name="subscribe">
 									<div class="form__title">Subscribe</div>
 									<div class="form__row">
-										<input type="email" name="subscribe_email" class="form__input" placeholder="Email">
-										<button class="form__btn btn btn--uppercase btn--orange btn--small"><span>Send</span></button>
+										<input type="email" name="subscribe_email" id="subscribe_email" class="form__input" placeholder="Email">
+										
+										<button class="form__btn btn btn--uppercase btn--orange btn--small"><span>Send</span>
+										</button>
 									</div>
+									<div class="lds-spinner imgloader" id="loader" style="display:none;"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+									<span class="valid_error" data-valmsg-for="subscribe_email"></span>
+									<div id='msg1' onclick="this.classList.add('hidden')"></div>
 								</form>
 							</div>
 						</div>

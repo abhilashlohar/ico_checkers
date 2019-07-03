@@ -19,10 +19,10 @@
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark static-top ic_header_bg" style="background-color: #1f2641;">
-    <div class="container">
+    <div class="container" style="padding-left: 0px !important;margin-left:0;">
       <!-- Logo -->
       <a class="navbar-brand" href="<?= $this->Url->Build('/')?>">
-        <?php echo $this->Html->Image('/img/logo.png',['style' => 'height: 35px;']); ?>
+        <?php echo $this->Html->Image('new-logo.png',['style' => 'height: 25px;']); ?>
       </a>
 
       <!-- Menu button in mobile -->
@@ -41,6 +41,7 @@
           (in_array($menuActive, ["Airdrops.add", "Airdrops.index"])) ? $AirActive = "active": "";
           (in_array($menuActive, ["Users.index"])) ? $usActive = "active": "";
           (in_array($menuActive, ["Users.brodcast"])) ? $us2Active = "active": "";
+          (in_array($menuActive, ["Enquiries.index"])) ? $inqActive = "active": "";
 		  
 
           /*For User role*/
@@ -84,7 +85,7 @@
 			      <li class="nav-item <?php echo @$usActive; ?>">
               <a href="<?= $this->Url->Build(['controller' => 'Users', 'action' => 'index'])?>" class="nav-link">User</a>
             </li>
-			      <li class="nav-item dropdown <?php echo @$AirActive; ?>">
+			<li class="nav-item dropdown <?php echo @$AirActive; ?>">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 ICO Review
               </a>
@@ -96,6 +97,9 @@
 			<li class="nav-item <?php echo @$us2Active; ?>">
               <a href="<?= $this->Url->Build(['controller' => 'Users', 'action' => 'brodcast'])?>" class="nav-link">Email Brodcast</a>
             </li> 
+			<li class="nav-item <?php echo @$inqActive; ?>">
+              <a href="<?= $this->url->build(['controller' => 'Enquiries', 'action' => 'index']);?>" class="nav-link">Inquiries</a>
+            </li>
 			    <?php } else { ?> <!-- Else statement -->
   			    <li class="nav-item <?php echo @$nActive; ?>">
               <a href="<?= $this->Url->Build('/News-Updates')?>" class="nav-link">News</a>
@@ -118,6 +122,7 @@
             <li class="nav-item <?php echo @$rfActive; ?>">
               <a href="<?= $this->url->build('/Refer-and-Earn');?>" class="nav-link">Refer and Earn</a>
             </li>
+			 
             <?php if(@$session_user_name){ ?>
               <li class="dropdown">
                 <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false"> 

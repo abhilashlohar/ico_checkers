@@ -12,51 +12,65 @@ class EnquiriesController extends AppController
 {
     public function initialize(){
         parent::initialize();
-        $this->Auth->allow(['callback','subscribe']);
+        $this->Auth->allow(['index','callback','subscribe','delete']);
     }
     
    
-    
+    public function index(){
+
+		$name   = $this->request->query('name');
+        $type   = $this->request->query('type');
+        $email  = $this->request->query('email');
+        $reason = $this->request->query('reason');
+        if(!empty($name))
+		{
+			$where['Enquiries.name LIKE'] = '%'.$name.'%';
+		}
+        if(!empty($type))
+		{
+			$where['Enquiries.type'] = $type;
+		}
+		if(!empty($email))
+		{
+			$where['Enquiries.email LIKE'] = '%'.$email.'%';
+		}
+		if(!empty($reason))
+		{
+			$where['Enquiries.reason'] = $reason;
+		}
+		$where['Enquiries.is_deleted'] = 0;
+		$inquiries = $this->paginate($this->Enquiries->find()
+		                  ->where($where)
+						  ->order(['Enquiries.id'=>'DESC']));
+		
+		$this->set(compact('inquiries','name','type','email','reason'));
+	}
     public function callback(){
         $this->autoRender = false;
         $enquiry = $this->Enquiries->newEntity();
-        if($this->request->is('post'))
-        {
-			pr($this->request->data());exit;
-            $enquiry2 = $this->request->withData('is_deleted', 0)
-                            ->withData('type', 'contact');
-            $enquiry = $this->Enquiries->patchEntity($enquiry, $enquiry2->getData());
-            
-            if(!$enquiry->errors())
-            {
-                if($this->Enquiries->save($enquiry))
-                {
-                    $email = new Email();
-                    $email->transport('gmail');
-                    $email->emailFormat('html')
-                      ->setTo($this->coreVariable['emailSenderEmail'], $this->coreVariable['siteName'])
-                      ->setSubject('Request Callback enquiry for '.$this->coreVariable['siteName'])
-                      ->template('enquiry')
-                      ->viewVars([
-                          'enquiry' => $enquiry,
-                        ])
-                      ->send();
-					  $this->Flash->success(__('Enquiry form has been submitted successfully.'));
-                    
-                }
-                else
-                {
-					$this->Flash->error(__('Enquiry form could not be submitted.'));
-                    
-                }
-            }
-            else
-            {
-				$this->Flash->error(__('Enquiry form could not be submitted.'));
-               
-            }
-        }
-       return $this->redirect('/');
+		$name = $this->request->query('name');
+		$email = $this->request->query('email');
+		$reason = $this->request->query('reason');
+		$message = $this->request->query('message');
+		if(!empty($name) && !empty($email))
+		{
+			$enquiry->name = $name;
+			$enquiry->email = $email;
+			$enquiry->reason = $reason;
+			$enquiry->message = $message;
+			$enquiry->is_deleted = 0;
+			$enquiry->type = 'contact';
+			if($this->Enquiries->save($enquiry))
+			{
+				$msg='Enquiry form has been submitted successfully.';
+			}
+			else{
+				$msg='Enquiry form has been submitted successfully.';
+			}
+		}else{
+			$msg='Enquiry form could not be submitted.';
+		}
+        echo $msg;
         $this->set(compact('msg'));
         $this->viewBuilder()->setLayout('ajax');
         
@@ -65,58 +79,48 @@ class EnquiriesController extends AppController
     public function subscribe(){
         $this->autoRender = false;
         $enquiry = $this->Enquiries->newEntity();
-        if($this->request->is('post'))
-        {
-            
-            $check_enq = $this->Enquiries->find()
-                        ->where(['Enquiries.email' => $this->request->getData('email'),'Enquiries.is_deleted' => false])
-                        ->first();
+		$email = $this->request->query('email'); 
+		if(!empty($email))
+		{  
+			$check_enq = $this->Enquiries->find()
+                        ->where(['email' => $email,'is_deleted'=>0])->first();
             
             if(empty($check_enq)){
-            
-            $enquiry2 = $this->request->withData('is_deleted', 0)
-                                       ->withData('type', 'subscribe');
-            $enquiry = $this->Enquiries->patchEntity($enquiry, $enquiry2->getData(),[
-                'validate' => 'subscribe'
-            ]);
-            if(!$enquiry->errors())
-            {
-                if($this->Enquiries->save($enquiry))
-                {
-                    $email = new Email();
-                    $email->transport('gmail');
-                    $email->emailFormat('html')
-                          ->setTo($this->coreVariable['emailSenderEmail'], $this->coreVariable['emailSenderName'])
-                          ->setSubject('Subscription for '.$this->coreVariable['siteName'])
-                          ->template('subscribe')
-                          ->viewVars([
-                              'enquiry' => $enquiry,
-                            ])
-                          ->send();
-                    
-                    $msg =  '<div class="note note-success show" role="alert" id="success_message"  onclick="this.classList.add("hidden")" style="color:green;">Thanks! You have successfully subscribed.</div>';
-					
-                }
-                else
-                {
-                    $msg =  '<div class="note note-danger show" role="alert" id="error_message"  onclick="this.classList.add("hidden");" style="color:#d82424;">Failed</div>';
-                }
-            }
-            else
-            {
-                 $msg =  '<div class="note note-danger show" role="alert" id="error_message"  onclick="this.classList.add("hidden");" style="color:#d82424;">Failed</div>';
-            }
-            }
-            else
-            {
-                 $msg =  '<div class="note note-danger show" role="alert" id="error_message"  onclick="this.classList.add("hidden");" style="color:#d82424;">Email Address is already subscribed!</div>';
-            }
+				$enquiry->email = $email;
+				$enquiry->is_deleted = 0;
+				$enquiry->type = 'subscribe';
+				if($this->Enquiries->save($enquiry))
+				{
+					$msg='Thanks! You have successfully subscribed.';
+				}
+				else{
+					$msg='Failed.';
+				}
+			}
+			else{
+				$msg='Email Address is already subscribed!';
+			}
+		}else{
+			$msg='Failed.';
+		}
+        
         echo $msg;
         $this->set(compact('msg'));
         $this->viewBuilder()->setLayout('ajax');
-        }
+        
       
     }
     
-   
+    public function delete($id = null)
+    {
+        $this->request->allowMethod(['get', 'delete']);
+        $inquiry = $this->Enquiries->get($id);
+        if ($this->Enquiries->delete($inquiry)) {
+            $this->Flash->success(__('The Inquiry has been deleted.'));
+        } else {
+            $this->Flash->error(__('The Inquiry could not be deleted. Please, try again.'));
+        }
+
+        return $this->redirect(['action' => 'index']);
+    }
 }

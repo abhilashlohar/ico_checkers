@@ -11,8 +11,9 @@
 	<?= $this->Form->control('name', ['label' => false, 'class' => 'form-control', 'placeholder'=>'Full Name']); ?>
     <?= $this->Form->control('email', ['label' => false, 'class' => 'form-control', 'placeholder'=>'Email']); ?>
 	<?php
-    echo $this->Form->control('country_code', ['type' => 'select','options' => $option,'empty' => true,'class'=>'form-control','label'=>false,'empty'=>'-Select Country Code-']);
+    echo $this->Form->control('country_code', ['type' => 'select','options' => $country,'empty' => true,'class'=>'form-control','label'=>false,'empty'=>'-Select Country Code-']);
     ?>
+	
     <?= $this->Form->control('mobile', ['label' => false, 'class' => 'form-control', 'placeholder'=>'Mobile']); ?>
     <?= $this->Form->control('password', ['label' => false, 'class' => 'form-control', 'placeholder'=>'Set Password']); ?>
     <?= $this->Form->control('confirm_password', ['label' => false, 'class' => 'form-control', 'placeholder'=>'Confirm Password','type'=>'password']); ?>
