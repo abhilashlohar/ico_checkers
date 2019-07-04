@@ -843,7 +843,7 @@
 									</li>
 									<li>
 										<span style="width: 55px;"></span>
-										10% Psartners
+										10% Partners
 									</li>
 									<li>
 										<span style="width: 153px;"></span>
