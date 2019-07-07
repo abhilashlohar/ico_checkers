@@ -272,20 +272,19 @@
 						<div class="row">
 							<div data-aos="fade-right" class="col-lg-5">
 								<div class="section-header section-header--animated section-header--tire section-header--small-margin">
-									<h4>About ICO CHECKERS </h4>
-									<h2>ICO CHECKERS <span>is the best for your ICO</span>
+									<h4>About ICO TESTING </h4>
+									<h2>ICO TESTING <span>is the best for your ICO</span>
 										  </h2>
 								</div>
 								<div class="about__animated-content">
 									<p>
-										Spend real fights effective anything extra by leading. Mouthwatering leading how real formula also locked-in have can mountain thought. Jumbo plus shine sale.
+										We present to you the Ico checking advertising platform with block chain technology. Currently we are testing our advertisement platform , testing is available in airdrop period , we need maximum 200 million users after testing , after that sign up will close automatically.
 									</p>
 									<ul>
 										<li>
-											Mouthwatering leading how real formula also 
+											The earnings are real in testing phase convert after platform live in preference payment method available on platform. 
 										</li>
-										<li>Locked-in have can mountain thought</li>
-										<li>Locked-in have can mountain thought</li>
+										<li>Also create task for other user and redeem points</li>
 									</ul>
 								</div>
 							</div>
@@ -311,32 +310,40 @@
 										<div data-aos="fade-up" class="service">
 											<div class="service__bg" style="background-color: #e85f70; box-shadow: 0 0 51px rgba(232, 95, 112, 0.74); box-shadow: 0 0 51px rgba(232, 95, 112, 0.74);"></div>
 											<img src="<?php echo $library; ?>img/service-icon-1.svg" alt="">
-											<div class="service__title">
-												ICO Checkers & Review
-											</div>
+											<a href="ICO CHECKING SOLUTION.pdf" target="_blank">
+												<div class="service__title">
+													ICO Checkers & Review
+												</div>
+											</a>
 										</div>
 										<div data-aos="fade-up" data-aos-delay="200" class="service">
 											<div class="service__bg" style="background-color: #fa8936; background-image: linear-gradient(-234deg, #ea9d64 0%, #fa8936 100%); box-shadow: 0 0 51px rgba(250, 137, 54, 0.74);"></div>
 											<img src="<?php echo $library; ?>img/service-icon-2.svg" alt="">
-											<div class="service__title">
-												Advertising Platform 
-											</div>
+											<a href="THE FUTURE OF FREE AND PAID ADVERTISING.pdf" target="_blank">
+												<div class="service__title">
+													Advertising Platform 
+												</div>
+											<a href="ICO CHECKING SOLUTION.pdf" target="_blank">
 										</div>
 									</div>
 									<div class="services__right">
 										<div data-aos="fade-up" data-aos-delay="400" class="service" >
 											<div class="service__bg" style="background-image: linear-gradient(-234deg, #6ae472 0%, #4bc253 100%); box-shadow: 0 0 51px rgba(75, 194, 83, 0.74);"></div>
 											<img src="<?php echo $library; ?>img/service-icon-3.svg" alt="">
-											<div class="service__title">
-												DI Network
-											</div>
+											<a href="PROOF OF DI PLATFORM.pdf" target="_blank">
+												<div class="service__title">
+													DI Network
+												</div>
+											</a>
 										</div>
 										<div data-aos="fade-up" data-aos-delay="600" class="service">
 											<div class="service__bg" style="background-color: #0090d5; background-image: linear-gradient(-234deg, #29aceb 0%, #0090d5 100%); box-shadow: 0 0 51px rgba(0, 144, 213, 0.74);"></div>
 											<img src="<?php echo $library; ?>img/service-icon-4.svg" alt="">
-											<div class="service__title">
-												Earn Money Platform
-											</div>
+											<a href="FREE INSURENCE.pdf" target="_blank">
+												<div class="service__title">
+													Earn Money Platform
+												</div>
+											</a>
 										</div>
 									</div>
 								</div>
@@ -365,7 +372,8 @@
 											Business & Product Listing Platform
 										</div>
 										<p class="cases__item-text">
-											Asiatic glassfish pilchard sandburrower, orangestriped triggerfish hamlet Molly Miller trunkfish spiny dogfish! Jewel tetra frigate mackerel
+											We are working on trading platform & shopping platform more then 500000+ products and 500+ million user Buyers &seller market for local-to-local market users, our aim to Support Local business and local user worldwide our platform will launch soon.
+
 										</p>
 									</div>
 								</div>
@@ -376,7 +384,7 @@
 											Worldwide Trending News
 										</div>
 										<p class="cases__item-text">
-											Spend real fights effective anything extra by leading. Mouthwatering leading how real formula also locked-in have can mountain thought. Jumbo
+											In news section every user who posts news on our web. Will review by our team and give Him real money if news accepted and every user who read our news insured by our platform
 										</p>
 									</div>
 								</div>
@@ -387,7 +395,8 @@
 											Free Insurance 
 										</div>
 										<p class="cases__item-text">
-											Clownfish catfish antenna codlet alfonsino squirrelfish deepwater flathead sea lamprey. Bombay duck sand goby snake mudhead
+											 Ico checkers provide free insurance facility to our qualify users who visit our platform on Daily basis and complete monthly minimum visits minimum visits are 15 days and 10-20 minutes spend in every visit on our website all claim accept after beta testing.
+
 										</p>
 									</div>
 								</div>
@@ -398,7 +407,8 @@
 											Social Platform
 										</div>
 										<p class="cases__item-text">
-											Barbelless catfish pelican gulper candlefish thornfishGulf menhaden ribbonbearer riffle dace black dragonfish denticle herring
+											Currently more than 2 billion users use social platform but only 5% users are really use Social websites and apps for his own professional work or actual identity so we build Professional user interface with real user identity on our social platform.
+
 										</p>
 									</div>
 								</div>
@@ -409,7 +419,8 @@
 											Blockchain
 										</div>
 										<p class="cases__item-text">
-											Clownfish catfish antenna codlet alfonsino squirrelfish deepwater flathead sea lamprey. Bombay duck sand goby snake mudhead
+											IN future we launch own blockchain like my ether wallet (including DI platform), Which is world’s most secure block chain with world’s four most unhacks securities, which is not hack by anyone on our platform also on our partners exchanges.
+
 										</p>
 									</div>
 								</div>
@@ -420,7 +431,8 @@
 											One touch architecture solution
 										</div>
 										<p class="cases__item-text">
-											Asiatic glassfish pilchard sandburrower, orangestriped triggerfish hamlet Molly Miller trunkfish spiny dogfish!
+											 We are also launch one touch Architecture solution in some time where you need to put size, facing and type like bungalow, apartment and hotel ,residential, residential  +commercial, commercial and download map image and describe video in one touch .
+
 										</p>
 									</div>
 								</div>
@@ -431,7 +443,11 @@
 											Online Service Platform
 										</div>
 										<p class="cases__item-text">
-											Clownfish catfish antenna codlet alfonsino squirrelfish deepwater flathead sea lamprey. Bombay duck sand goby snake mudhead
+											         Currently we are take 100+ online service in our daily use with different websites Where we face many problems, but ico-checking platform provide you 100 + services In future with worlds most secure platform, in service we launch like Advertisement 
+													Platform with real visitors, website review platform, Freelancer service Platform like up
+													Work, fiver, people per hour etc, online visitor Platform, website testing Platform 'YouTube
+													Views  &  subscriber platform, website real Google Visitor’s platform etc.
+
 										</p>
 									</div>
 								</div>
@@ -442,7 +458,8 @@
 											Proof of Document Platform 
 										</div>
 										<p class="cases__item-text">
-											Asiatic glassfish pilchard sandburrower, orangestriped triggerfish hamlet Molly Miller trunkfish spiny dogfish!
+											Proof of document platform provide user to verify there identity on online service For kyc on all online transaction you need put only reference number from our Platform to all other platform is accepting our proof of document.
+
 										</p>
 									</div>
 								</div>
@@ -474,11 +491,10 @@
 										<div class="road__item-metka"></div>
 										<div class="road__item-content">
 											<div class="road__item-title">
-												June 2017
+												Dec. 2017 
 											</div>
 											<p>
-												Dolly Varden trout flathead tui chub bigmouth buffalo golden loach ghost flathead sauger amur pike, jewel tetra roosterfish mora herring 
-													Pacific lamprey
+												Born 1st time Idea worlds 1st multi chain digital identification ( DI) platform with securities in blockchain  ,   planning
 											</p>
 										</div>
 										
@@ -488,10 +504,14 @@
 										<div class="road__item-metka"></div>
 										<div class="road__item-content">
 											<div class="road__item-title">
-												July 2017
+												May 2018
 											</div>
 											<p>
-												Pirate perch smooth dogfish, flagblenny delta smelt, gopher rockfish bramble shark Sevan trout queen triggerfish basslet. Redtooth triggerfish prickly shark tarwhine tube-eye Reef triggerfish rohu longfin dragonfish
+												some development 
+												   Expert introduction about idea<br>
+												   Find out 20+ problems in Blockchain technology <br>
+												   Working on problems to accept blockchain worldwide  
+
 											</p>
 										</div>
 										
@@ -501,10 +521,19 @@
 										<div class="road__item-metka"></div>
 										<div class="road__item-content">
 											<div class="road__item-title">
-												December 2017
+												July 2019
 											</div>
 											<p>
-												Pacific argentine. Lined sole masu salmon wolffish cutthroat trout mustard eel huchen, sea toad grenadier madtom yellow moray Shingle Fish wrymouth giant 
+												sign up bonus 1st round<br>
+												Trending news live<br>
+												Working task to task testing<br>
+												Community building up to 200 million worldwide  target in next  8 month<br>
+												Team building <br>
+												Ico choking &review platform testing <br>
+												Exchanges, wallets & blockchains partnership <br>
+												Connect to Media, YouTube & blogger partner<br>
+												Focus on solving all blockchain problems worldwide
+ 
 											</p>
 										</div>
 									</div>
@@ -513,10 +542,13 @@
 										<div class="road__item-metka"></div>
 										<div class="road__item-content">
 											<div class="road__item-title">
-												December 2017
+												Aug  2019
 											</div>
 											<p>
-												Pacific argentine. Lined sole masu salmon wolffish cutthroat trout mustard eel huchen, sea toad grenadier madtom yellow moray Shingle Fish wrymouth giant 
+												Ico checking & review platform live<br>
+												Free insurance development<br>
+												Crowd funding start
+ 
 											</p>
 										</div>
 									</div>
@@ -525,10 +557,13 @@
 										<div class="road__item-metka"></div>
 										<div class="road__item-content">
 											<div class="road__item-title">
-												January 2018
+												Oct.2019
 											</div>
 											<p>
-												Walleye silverside American sole rockweed gunnel, handfishyellowtail clownfish, rocket danio; blue gourami, ayu gulper eel false trevally longjaw mudsucker bonytail chub. Yellow moray french angelfish sand stargazer northern squawfish shiner dab mola yellow moray sea lamprey torrent catfish sauger blue gourami handfish Sacramento blackfish
+												Digital identification (DI) platform testing for all centralized <br>
+												Exchanges, blockchains, wallets   <br>
+												Blockchain development <br>
+												Free insurance testing
 											</p>
 										</div>
 									</div>
@@ -537,10 +572,13 @@
 										<div class="road__item-metka"></div>
 										<div class="road__item-content">
 											<div class="road__item-title">
-												April 2018
+												Dec.2019
 											</div>
 											<p>
-												Blue gourami, ayu gulper eel false trevally longjaw mudsucker bonytail chub. Yellow moray french angelfish sand stargazer 
+												Digital identification platform & securities main net live for all centralized <br>
+												Exchanges, blockchains, wallets    <br>
+												Earn money platform live (convert all work n real money )
+ 
 											</p>
 										</div>
 									</div>
@@ -549,14 +587,135 @@
 										<div class="road__item-metka"></div>
 										<div class="road__item-content">
 											<div class="road__item-title">
-												May 2018
+												Feb 2020
 											</div>
 											<p>
-												Livebearer greeneye barred danio mosquitofish king of herring. Sturgeon tenpounder-píntano tiger shark harelip sucker
+												Free insurance live <br>
+												Adverting automatic platform development <br>
+												1st round sign up close after 200 million Communities build 
+
 											</p>
 										</div>
 									</div>
+									
+									<div class="road__item road__item-next">
+										<div class="road__item-metka"></div>
+										<div class="road__item-content">
+											<div class="road__item-title">
+												Apr. 2020
+											</div>
+											<p> 
+											Adverting automatic platform testing <br>
+											One touch architecture solution development <br>
+											L&L Product listing platform development <br>
 
+											</p>
+										</div>
+									</div>
+									<div class="road__item road__item-next">
+										<div class="road__item-metka"></div>
+										<div class="road__item-content">
+											<div class="road__item-title">
+												June 2020
+											</div>
+											<p> 
+											sign up bonus 2nd round up to 1 billion user  target  worldwide <br>
+											Advertising platform live
+											</p>
+										</div>
+									</div>
+									<div class="road__item road__item-next">
+										<div class="road__item-metka"></div>
+										<div class="road__item-content">
+											<div class="road__item-title">
+												July 2020
+											</div>
+											<p> 
+											Proof of document platform development <br>
+											One touch architecture platform testing for architects & users
+
+											</p>
+										</div>
+									</div>
+									<div class="road__item road__item-next">
+										<div class="road__item-metka"></div>
+										<div class="road__item-content">
+											<div class="road__item-title">
+												 Sep 2020
+											</div>
+											<p> 
+											L&L Product listing platform testing <br>
+											One touch architecture solution Live for architects & users 
+
+
+											</p>
+										</div>
+									</div>
+									<div class="road__item road__item-next">
+										<div class="road__item-metka"></div>
+										<div class="road__item-content">
+											<div class="road__item-title">
+												Dec. 2020
+											</div>
+											<p> 
+											Blockchain development <br>
+											L&L product listing platform sales is live worldwide <br>
+											Proof of document platform live<br>
+											Sign up bonus closed & sign up without any bonus  
+
+
+											</p>
+										</div>
+									</div>
+									<div class="road__item road__item-next">
+										<div class="road__item-metka"></div>
+										<div class="road__item-content">
+											<div class="road__item-title">
+												Feb 2021
+											</div>
+											<p> 
+											Social platform development <br>
+											Proof of DI & proof doc merge <br>
+											Proof of doc & L&L platform merge 
+											</p>
+										</div>
+									</div>
+									<div class="road__item road__item-next">
+										<div class="road__item-metka"></div>
+										<div class="road__item-content">
+											<div class="road__item-title">
+												May 2021
+											</div>
+											<p> 
+											Social platform live for all user with real identify<br>
+											Blockchain testing
+											</p>
+										</div>
+									</div>
+									<div class="road__item road__item-next">
+										<div class="road__item-metka"></div>
+										<div class="road__item-content">
+											<div class="road__item-title">
+												July 2021
+											</div>
+											<p> 
+												Whitepaper released <br>
+												100% all platform live
+											</p>
+										</div>
+									</div>
+									<div class="road__item road__item-next">
+										<div class="road__item-metka"></div>
+										<div class="road__item-content">
+											<div class="road__item-title">
+												Oct. 2021 
+											</div>
+											<p> 
+												Working on innovative online idea
+											</p>
+										</div>
+									</div>
+									
 								</div>
 
 							</div>
@@ -966,11 +1125,11 @@
 							<div class="col">
 								<div class="section-header section-header--tire section-header--medium-margin">
 									<h4>Our brain</h4>
-									<h2>Awesome Team</h2>
+									<h2 align="center">Team will be revealed after complete product launch.</h2>
 								</div>
 							</div>
 						</div>
-						<div class="row">
+						<!--<div class="row">
 							<div data-aos="fade-right" class="col-lg-4 col-xl-3 col-6">
 								<div class="team-member">
 									<img class="team-member__avatar" src="<?php echo $library; ?>img/ava1.png" alt="">
@@ -1139,7 +1298,7 @@
 									</div>
 								</div>
 							</div>
-						</div>
+						</div>-->
 					</div>
 					<img src="<?php echo $library; ?>img/team-bg.png" data-jarallax-element="40" alt="" class="team__bg">
 				</section>
