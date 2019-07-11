@@ -910,7 +910,7 @@
 						</div>
 						<div class="row">
 							<div data-aos="fade-up" class="col-lg-3 col-md-6 col-sm-6 col-12">
-								<a href="#" class="doc">
+								<a href="t&c-converted.pdf" class="doc" target="_blank">
 									<div class="doc__content">
 										<img src="<?php echo $library; ?>img/pdf.svg" alt="">
 										<div class="doc__title">
@@ -920,7 +920,7 @@
 								</a>
 							</div>
 							<div data-aos="fade-up" data-aos-delay="200" class="col-lg-3 col-md-6 col-sm-6 col-12">
-								<a href="#" class="doc">
+								<a href="JavaScript:void(0);" class="doc">
 									<div class="doc__content">
 										<img src="<?php echo $library; ?>img/pdf.svg" alt="">
 										<div class="doc__title">
@@ -930,7 +930,7 @@
 								</a>
 							</div>
 							<div data-aos="fade-up" data-aos-delay="400" class="col-lg-3 col-md-6 col-sm-6 col-12">
-								<a href="#" class="doc">
+								<a href="Privacy_Policy_converted.pdf" class="doc" target="_blank">
 									<div class="doc__content">
 										<img src="<?php echo $library; ?>img/pdf.svg" alt="">
 										<div class="doc__title">
@@ -940,7 +940,7 @@
 								</a>
 							</div>
 							<div data-aos="fade-up" data-aos-delay="600" class="col-lg-3 col-md-6 col-sm-6 col-12">
-								<a href="#" class="doc">
+								<a href="JavaScript:void(0);" class="doc">
 									<div class="doc__content">
 										<img src="<?php echo $library; ?>img/pdf.svg" alt="">
 										<div class="doc__title">
