@@ -48,10 +48,10 @@ class EnquiriesController extends AppController
     public function callback(){
         $this->autoRender = false;
         $enquiry = $this->Enquiries->newEntity();
-		$name = $this->request->query('name');
-		$email = $this->request->query('email');
-		$reason = $this->request->query('reason');
-		$message = $this->request->query('message');
+		$name = $this->request->getQuery('name');
+		$email = $this->request->getQuery('email');
+		$reason = $this->request->getQuery('reason');
+		$message = $this->request->getQuery('message');
 		if(!empty($name) && !empty($email))
 		{
 			$enquiry->name = $name;
@@ -79,7 +79,7 @@ class EnquiriesController extends AppController
     public function subscribe(){
         $this->autoRender = false;
         $enquiry = $this->Enquiries->newEntity();
-		$email = $this->request->query('email'); 
+		$email = $this->request->getQuery('email'); 
 		if(!empty($email))
 		{  
 			$check_enq = $this->Enquiries->find()

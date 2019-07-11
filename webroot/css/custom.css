@@ -104,3 +104,8 @@
 .hidden{
 	display:none;
 }
+
+.my-btn{
+	margin-right: 47% !important;
+    margin-left: 47% !important;
+}

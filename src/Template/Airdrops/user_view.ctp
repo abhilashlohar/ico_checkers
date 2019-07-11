@@ -3,47 +3,16 @@
         <h2><?= h($airdrop->name) ?></h2>
         <?php  ?>
             <p><?= $this->Time->format($airdrop->created_on, 'd MMM, Y') ?></p>
-		<?php if($airdrop->project_quality!=''){ ?>
-       <p><b>Project Quality</b> &nbsp;&nbsp;<?php 
-	   for($i=1;$i<=$airdrop->project_quality; $i++){
+			<?php 
+			$total_rating = $airdrop->project_quality+$airdrop->strangeness+$airdrop->different_ico+$airdrop->actual_use+$airdrop->team;
+			$average = round($total_rating/5);
+			?>
+		
+       <p><b>Rating</b> &nbsp;&nbsp;<?php 
+	   for($i=1;$i<=$average; $i++){
 		echo $this->Html->Image('star.png'); 
 	   }
-	   ?></p><?php } 
-		if($airdrop->strangeness!=''){
-	   ?>
-		<p><b>Strangeness</b> &nbsp;&nbsp;<?php 
-	   for($i=1;$i<=$airdrop->strangeness; $i++){
-		echo $this->Html->Image('star.png'); 
-	   }
-	   
 	   ?></p>
-	   <?php } 
-		if($airdrop->different_ico!=''){
-	   ?>
-	   <p><b>Different ICo</b> &nbsp;&nbsp;<?php 
-	   for($i=1;$i<=$airdrop->different_ico; $i++){
-		echo $this->Html->Image('star.png'); 
-	   }
-	   
-	   ?></p>
-		<?php } 
-		if($airdrop->different_ico!=''){
-	   ?>
-	   <p><b>Actual Use</b> &nbsp;&nbsp;<?php 
-	   for($i=1;$i<=$airdrop->actual_use; $i++){
-		echo $this->Html->Image('star.png'); 
-	   }
-	   
-	   ?></p>
-		<?php } 
-		if($airdrop->different_ico!=''){
-	   ?>
-	   <p><b>Team</b> &nbsp;&nbsp;<?php 
-	   for($i=1;$i<=$airdrop->team; $i++){
-		echo $this->Html->Image('star.png'); 
-	   }
-	   
-	   ?></p><?php } ?>
 		<p><?= $airdrop->country ?></p>
 		<p><?= $airdrop->Email ?></p>
 		 

@@ -8,7 +8,7 @@ $("#inquiry").submit(function (event) {
 		var message = document.inquiry.message.value;
 		$.ajax({
 			method: 'GET',
-			url:window.location.origin+'/ico_checkers/enquiries/callback',
+			url:window.location.origin+'/enquiries/callback',
 			datatype: 'html',
 			data:{
 				name:name,
@@ -84,7 +84,7 @@ $("#subscribe").submit(function (event) {
 		
 		$.ajax({
 			method: 'GET',
-			url:window.location.origin+'/ico_checkers/enquiries/subscribe',
+			url:window.location.origin+'/enquiries/subscribe',
 			datatype: 'html',
 			data:{
 				email:email
