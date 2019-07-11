@@ -310,7 +310,7 @@
 										<div data-aos="fade-up" class="service">
 											<div class="service__bg" style="background-color: #e85f70; box-shadow: 0 0 51px rgba(232, 95, 112, 0.74); box-shadow: 0 0 51px rgba(232, 95, 112, 0.74);"></div>
 											<img src="<?php echo $library; ?>img/service-icon-1.svg" alt="">
-											<a href="ICO CHECKING SOLUTION.pdf" target="_blank">
+											<a href="ICO_CHECKING_SOLUTION.pdf" target="_blank">
 												<div class="service__title">
 													ICO Checkers & Review
 												</div>
@@ -319,18 +319,18 @@
 										<div data-aos="fade-up" data-aos-delay="200" class="service">
 											<div class="service__bg" style="background-color: #fa8936; background-image: linear-gradient(-234deg, #ea9d64 0%, #fa8936 100%); box-shadow: 0 0 51px rgba(250, 137, 54, 0.74);"></div>
 											<img src="<?php echo $library; ?>img/service-icon-2.svg" alt="">
-											<a href="THE FUTURE OF FREE AND PAID ADVERTISING.pdf" target="_blank">
+											<a href="THE_FUTURE_OF_FREE_AND_PAID_ADVERTISING.pdf" target="_blank">
 												<div class="service__title">
 													Advertising Platform 
 												</div>
-											<a href="ICO CHECKING SOLUTION.pdf" target="_blank">
+											<a href="ICO_CHECKING_SOLUTION.pdf" target="_blank">
 										</div>
 									</div>
 									<div class="services__right">
 										<div data-aos="fade-up" data-aos-delay="400" class="service" >
 											<div class="service__bg" style="background-image: linear-gradient(-234deg, #6ae472 0%, #4bc253 100%); box-shadow: 0 0 51px rgba(75, 194, 83, 0.74);"></div>
 											<img src="<?php echo $library; ?>img/service-icon-3.svg" alt="">
-											<a href="PROOF OF DI PLATFORM.pdf" target="_blank">
+											<a href="PROOF_OF_DI_PLATFORM.pdf" target="_blank">
 												<div class="service__title">
 													DI Network
 												</div>
@@ -339,7 +339,7 @@
 										<div data-aos="fade-up" data-aos-delay="600" class="service">
 											<div class="service__bg" style="background-color: #0090d5; background-image: linear-gradient(-234deg, #29aceb 0%, #0090d5 100%); box-shadow: 0 0 51px rgba(0, 144, 213, 0.74);"></div>
 											<img src="<?php echo $library; ?>img/service-icon-4.svg" alt="">
-											<a href="FREE INSURENCE.pdf" target="_blank">
+											<a href="FREE_INSURENCE.pdf" target="_blank">
 												<div class="service__title">
 													Earn Money Platform
 												</div>
