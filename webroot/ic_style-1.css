@@ -54,3 +54,34 @@
 li.active > a {
     border-bottom: solid 2px #FFF;
 }
+
+
+.news_title {
+    font-size: 22px !important;
+}
+
+.news_title > a {
+    text-decoration: none;
+}
+
+.task_title {
+    font-size: 22px !important;
+}
+
+.task_title > a {
+    text-decoration: none;
+}
+
+.task-body {
+    background-color: #FFF;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05);
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.news-body {
+    background-color: #FFF;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05);
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}

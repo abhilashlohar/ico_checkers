@@ -45,7 +45,7 @@ class NewsController extends AppController
             'News.is_approved' => 'yes'
         ];
 		$this->paginate = [
-            'fields' => ['id', 'title', 'cover_image', 'short_description', 'created_on'],
+            'fields' => ['id', 'title', 'cover_image', 'description', 'created_on'],
             'conditions' => $conditions,
             'order' => ['News.id' => 'DESC'],
 			'limit' => 10

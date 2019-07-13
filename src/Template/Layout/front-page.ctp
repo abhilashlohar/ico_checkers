@@ -70,18 +70,18 @@
 						<li class="menu__item">
 							<a href="#map" class="menu__link">Road Map</a>
 						</li>
-						<li class="menu__item">
+						<!-- <li class="menu__item">
 							<a href="#stat" class="menu__link">Statistic</a>
-						</li>
+						</li> -->
 						<!-- <li class="menu__item">
 							<a href="#token" class="menu__link">Token</a>
 						</li> -->
 						<li class="menu__item">
 							<a href="#docs" class="menu__link">WhitePappers</a>
 						</li>
-						<li class="menu__item">
+						<!-- <li class="menu__item">
 							<a href="#team" class="menu__link">Team</a>
-						</li>
+						</li> -->
 						<li class="menu__item">
 							<a href="#faq" class="menu__link">FAQ</a>
 						</li>
@@ -924,7 +924,8 @@
 									<div class="doc__content">
 										<img src="<?php echo $library; ?>img/pdf.svg" alt="">
 										<div class="doc__title">
-											White Pappers
+											White Pappers 
+											<div style="text-align: center;"><span style="color: #CCC; font-size: 12px;">Coming soon</span></div>
 										</div>
 									</div>
 								</a>
@@ -945,6 +946,7 @@
 										<img src="<?php echo $library; ?>img/pdf.svg" alt="">
 										<div class="doc__title">
 											Business Profile
+											<div style="text-align: center;"><span style="color: #CCC; font-size: 12px;">Coming soon</span></div>
 										</div>
 									</div>
 								</a>

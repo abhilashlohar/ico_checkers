@@ -9,7 +9,7 @@
 
   <!-- Bootstrap core CSS -->
   <link href="<?php echo $this->request->getAttribute("webroot"); ?>assets/css/bootstrap.min.css" rel="stylesheet">
-  <link href="<?php echo $this->request->getAttribute("webroot"); ?>ic_style.css" rel="stylesheet">
+  <link href="<?php echo $this->request->getAttribute("webroot"); ?>ic_style-1.css" rel="stylesheet">
   <?= $this->fetch('css') ?>
   <!-- <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"> -->
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
@@ -76,28 +76,26 @@
                 <?= $this->Html->link(__('List'), ['controller' => 'Tasks', 'action' => 'index'],['class'=>'dropdown-item']) ?>
               </div>
             </li>
-            <li class="nav-item <?php echo @$IcosActive; ?>">
-              <a href="<?= $this->Url->Build('/ICO-Applications')?>" class="nav-link">ICO-Applications</a>
-            </li>
             <li class="nav-item <?php echo @$WithdrawActive; ?>">
               <a href="<?= $this->Url->Build('/Withdraw-Requests')?>" class="nav-link">Withdraw Requests</a>
             </li>
 			      <li class="nav-item <?php echo @$usActive; ?>">
               <a href="<?= $this->Url->Build(['controller' => 'Users', 'action' => 'index'])?>" class="nav-link">User</a>
             </li>
-			<li class="nav-item dropdown <?php echo @$AirActive; ?>">
+			      <li class="nav-item dropdown <?php echo @$AirActive; ?>">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 ICO Review
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <?= $this->Html->link(__('Add'), ['controller' => 'Airdrops', 'action' => 'add'],['class'=>'dropdown-item']) ?>
                 <?= $this->Html->link(__('List'), ['controller' => 'Airdrops', 'action' => 'index'],['class'=>'dropdown-item']) ?>
+                <a href="<?= $this->Url->Build('/ICO-Applications')?>" class="dropdown-item">ICO-Applications</a>
               </div>
             </li>
-			<li class="nav-item <?php echo @$us2Active; ?>">
+			      <li class="nav-item <?php echo @$us2Active; ?>">
               <a href="<?= $this->Url->Build(['controller' => 'Users', 'action' => 'brodcast'])?>" class="nav-link">Email Brodcast</a>
             </li> 
-			<li class="nav-item <?php echo @$inqActive; ?>">
+			     <li class="nav-item <?php echo @$inqActive; ?>">
               <a href="<?= $this->url->build(['controller' => 'Enquiries', 'action' => 'index']);?>" class="nav-link">Inquiries</a>
             </li>
 			    <?php } else { ?> <!-- Else statement -->

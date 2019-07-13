@@ -1,4 +1,4 @@
-<div class="row py-3">
+<div class="row my-3 news-body py-3">
     <div class="col-md-12">
         <h2><?= h($news->title) ?></h2>
         <?php if($news->published_on){ ?>
@@ -6,7 +6,9 @@
         <?php }else{
             echo "<p>(<i>Pending for approval</i>)</p>";
         }
-		 if($news->cover_image!=''){ echo $this->Html->image(str_replace('\\','/',@$news->cover_image),['class'=>'img-thumbnail','height'=>400,'width'=>400]);echo '<br>';};
+		if($news->cover_image!=''){ 
+            echo '<div align="center">'.$this->Html->image(str_replace('\\','/',@$news->cover_image),['class'=>'img-thumbnail','height'=>400,'width'=>400]);echo '</div><br/>';
+        };
 		 ?>
         <?= $this->Text->autoParagraph(h($news->description)); ?>
     </div>

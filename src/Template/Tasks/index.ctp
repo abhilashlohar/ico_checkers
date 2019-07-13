@@ -4,6 +4,7 @@
       <thead>
         <tr>
           <th>Task title</th>
+          <th>Created on</th>
           <th>Action</th>
         </tr>
       </thead>
@@ -11,17 +12,12 @@
         <?php foreach ($tasks as $task): ?>
         <tr>
           <td>
-            <?= $this->Html->link(__($task->title), ['controller' => 'tasks', 'action' => 'view', $task->id]) ?>
-            <p>
-                <span>Created on: </span>
-                <span>
-                   <?= $this->Time->format($task->created_on, 'd-m-Y h:i A') ?> <?php  //$task->created_on->format('d-m-Y h:i A') ?>
-                </span>
-            </p>
+            <?= $task->title ?>
           </td>
+          <td><?= $task->created_on->format("d-m-Y h:i A") ?> </td>
           <td>
-			<?php echo $this->Html->link(__(' Edit'), ['controller' => 'Tasks', 'action' => 'edit', $task->id]); ?></br>
-			<?php echo $this->Html->link(__(' Proof Approval'), ['controller' => 'Tasks', 'action' => 'proofApproval', $task->id]); ?>
+    			<?php echo $this->Html->link(__(' Edit'), ['controller' => 'Tasks', 'action' => 'edit', $task->id,]); ?> | 
+    			<?php echo $this->Html->link(__('Approve Proofs'), ['controller' => 'Tasks', 'action' => 'proofApproval', $task->id]); ?>
           </td>
         </tr>
         <?php endforeach; ?>

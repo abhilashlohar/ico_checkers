@@ -1,7 +1,7 @@
 <?php
 $this->Html->css(['blog'], ['block' => true]);
 ?>
-<div class="container">
+<div class="container" style="font-family: 'Nunito', sans-serif;">
       <header class="blog-header py-3">
         <div class="row flex-nowrap justify-content-between align-items-center">
          
@@ -27,17 +27,43 @@ $this->Html->css(['blog'], ['block' => true]);
 			<div class="col-md-12">
 			  <div class="card flex-md-row mb-4 box-shadow h-md-250">
 				<div class="card-body d-flex flex-column align-items-start">
-				  <h3 class="mb-0">
-					<a class="text-dark" href="<?= $this->Url->build(['controller'=>'Tasks','action'=>'taskSubmit',$task->id])?>"><?= $task->title ?></a>
-				  </h3>
+				  <h1 class="mb-0 task_title">
+						<a class="text-dark task_title" href="<?= $this->Url->build(['controller'=>'Tasks','action'=>'taskSubmit',$task->id])?>">
+							<?= $task->title ?>
+						</a>
+				  </h1>
 				  <div class="mb-1 text-muted"><?php echo date('d M, Y',strtotime($task->created_on))?></div>
 				  <div class="mb-1 text-muted">Remaining day/time : <?php echo $remaining; ?></div>
-				  <p class="card-text mb-auto"><?= $this->Text->autoParagraph(h($task->description)) ?></p>
-				  <a href="<?= $this->Url->build(['controller'=>'Tasks','action'=>'taskSubmit',$task->id])?>" class="btn ic_button">Submit Task ></a>
+				  <div>
+				  	<?php
+					  echo $this->Text->truncate(
+					    $this->Text->autoParagraph($task->description),
+					    120,
+					    [
+					        'ellipsis' => '...',
+					        'exact' => false
+					    ]
+					  );
+					  ?>
+				  </div>
+				  <a href="<?= $this->Url->build(['controller'=>'Tasks','action'=>'taskSubmit',$task->id])?>" class="btn btn-primary">Complete Task </a>
 				</div>
 				
 			  </div>
 			</div>
 			<?php } }} ?>
+
+			<div class="col-md-12 d-flex justify-content-center">
+				<div class="paginator">
+					<ul class="pagination">
+						<?= $this->Paginator->first('<< ' . __('first')) ?>
+						<?= $this->Paginator->prev('< ' . __('previous')) ?>
+						<?= $this->Paginator->numbers() ?>
+						<?= $this->Paginator->next(__('next') . ' >') ?>
+						<?= $this->Paginator->last(__('last') . ' >>') ?>
+					</ul>
+					<p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
+				</div>
+			</div>
 		</div>
     </div>

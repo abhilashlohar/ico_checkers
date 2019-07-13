@@ -3,19 +3,19 @@
         <h4 class="mb-3">Add task</h4>
         <?= $this->Form->create($task) ?>
             <div class="row">
-                <div class="col-md-6 mb-3">
+                <div class="col-md-8">
                     <div class="form-group">
                         <?php echo $this->Form->control('title',['class'=>'form-control']); ?>
                     </div>
                 </div>
-				<div class="col-md-6 mb-3">
+				<div class="col-md-2">
                     <div class="form-group">
-                        <?php echo $this->Form->control('minimum_point',['class'=>'form-control']); ?>
+                        <?php echo $this->Form->control('minimum_point',['class'=>'form-control', 'label' => 'Reward Point', 'min'=>0]); ?>
                     </div>
                 </div>
-				<div class="col-md-6 mb-3">
+				<div class="col-md-2">
                     <div class="form-group">
-                        <?php echo $this->Form->control('end_days',['options'=>$day_option, 'class'=>'form-control','empty'=>'Select']); ?>
+                        <?php echo $this->Form->control('end_days',['options'=>$day_option, 'class'=>'form-control','empty'=>'Select', 'label'=>'Close After']); ?>
                     </div>
                 </div>
             </div> 

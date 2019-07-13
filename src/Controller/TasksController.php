@@ -74,9 +74,10 @@ class TasksController extends AppController
             $this->Flash->error(__('The task could not be saved. Please, try again.'));
         }
 		$day_option=[];
-		for($i=1;$i<=31;$i++)
+		for($i=1;$i<=30;$i++)
 		{
-			$day= $i.' day';
+			if($i==1 ) $day = $i.' day';
+            else $day = $i.' days';
 			$day_option[] = ['value'=>$i,'text'=>$day];
 		}
 		
