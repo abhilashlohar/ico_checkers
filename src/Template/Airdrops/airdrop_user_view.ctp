@@ -24,10 +24,11 @@ $this->Html->css(['blog'], ['block' => true]);
 					<a class="text-dark" href="<?= $this->Url->build('/airdrop-view/'.$airdrop->id)?>"><?= $airdrop->name ?></a>
 				  </h3>
 				  <p><?= $airdrop->country ?><br>
+				  <?php if($average!=0){ ?>
 				  Rating &nbsp;&nbsp;<?php 
 				   for($i=1;$i<=$average; $i++){ ?>
 					<i class="fa fa-star" aria-hidden="true"></i> 
-				  <?php }
+				  <?php } }
 				   ?>
 				   </p>
 				  <div class="mb-1 text-muted"><?php echo date('d M, Y',strtotime($airdrop->created_on))?></div>
