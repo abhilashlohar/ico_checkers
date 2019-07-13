@@ -23,8 +23,9 @@ $this->Html->css(['blog'], ['block' => true]);
 				  <h3 class="mb-0">
 					<a class="text-dark" href="<?= $this->Url->build('/airdrop-view/'.$airdrop->id)?>"><?= $airdrop->name ?></a>
 				  </h3>
-				  <p><?= $airdrop->country ?><br>
+				  <p><?= $airdrop->country ?>
 				  <?php if($average!=0){ ?>
+				  <br>
 				  Rating &nbsp;&nbsp;<?php 
 				   for($i=1;$i<=$average; $i++){ ?>
 					<i class="fa fa-star" aria-hidden="true"></i> 
