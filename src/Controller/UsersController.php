@@ -124,7 +124,7 @@ class UsersController extends AppController
                 $this->Flash->success(__('The user has been added successfully.'));
                 return $this->redirect(['action' => 'login']);
             }
-            pr($user);exit;
+            
             $this->Flash->error(__('The user could not be added. Please see warning(s) below.'));
         }
 		// country code
