@@ -8,7 +8,7 @@
 		$total_rating = $airdrop->project_quality+$airdrop->strangeness+$airdrop->different_ico+$airdrop->actual_use+$airdrop->team;
 		$average = round($total_rating/5);
 		?>
-		<p>All Over Rating :  <?php for($i=1;$i<=$average; $i++){ ?>
+		<p>Over All  Rating :  <?php for($i=1;$i<=$average; $i++){ ?>
 				 	<i class="fa fa-star" aria-hidden="true"></i> 
 				  <?php } ?> 
 		</p>
