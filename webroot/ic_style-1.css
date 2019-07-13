@@ -21,6 +21,8 @@
 
 .ic_button:hover {
 	background-image: linear-gradient(to right, #ed8a4c 0, #ea485c 100%);
+    color: #FFF;
+    background-image: linear-gradient(to right, #ed8a4c 0, #ea485c 100%);
 }
 
 .ic_button:active {

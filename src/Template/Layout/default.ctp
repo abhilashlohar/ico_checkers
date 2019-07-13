@@ -22,7 +22,7 @@
     <div class="container" style="padding-left: 0px !important;margin-left:0;">
       <!-- Logo -->
       <a class="navbar-brand" href="<?= $this->Url->Build('/')?>">
-        <?php echo $this->Html->Image('new-logo.png',['style' => 'height: 23px;']); ?>
+        <?php echo $this->Html->Image('new-logo.png',['style' => 'height: 40px;']); ?>
       </a>
 
       <!-- Menu button in mobile -->
