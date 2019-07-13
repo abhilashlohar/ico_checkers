@@ -93,7 +93,7 @@ class UsersController extends AppController
 			$str = $this->_getRandomString(6).'-'.$this->_getRandomString(6).'-ico'.$this->_getRandomString(6).'-'.$this->_getRandomString(6);
 			$user->password_token =  $str;
 			$user->referral_code = $this->_getReferralCode(6);
-
+			
             if($this->Users->save($user))
             {
                 // Refer code
@@ -124,7 +124,7 @@ class UsersController extends AppController
                 $this->Flash->success(__('The user has been added successfully.'));
                 return $this->redirect(['action' => 'login']);
             }
-            
+            pr($user);exit;
             $this->Flash->error(__('The user could not be added. Please see warning(s) below.'));
         }
 		// country code

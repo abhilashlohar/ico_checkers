@@ -108,10 +108,7 @@ class UsersTable extends Table
             ]);
 			
         $validator
-            ->requirePresence('photo', 'create')
-            ->notEmpty('photo', __('Please select a user image.'), function($context) {
-                return $context['newRecord'];
-            })
+		    ->allowEmpty('photo')
             ->add('photo', 'fileSize', [
                 'rule' => ['fileSize', '<=', '2MB'],
                 'message' => __('user image must be less than 2MB.')
