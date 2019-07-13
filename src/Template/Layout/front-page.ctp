@@ -83,6 +83,9 @@
 							<a href="#team" class="menu__link">Team</a>
 						</li> -->
 						<li class="menu__item">
+							<a href="http://icocheckers.com/Apply-for-ICO-Review" class="menu__link">Apply for ICO Review</a>
+						</li>
+						<li class="menu__item">
 							<a href="#faq" class="menu__link">FAQ</a>
 						</li>
 					</ul>

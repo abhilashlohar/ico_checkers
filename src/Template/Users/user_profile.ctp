@@ -46,7 +46,7 @@ $this->Html->css(['gijgo.min'], ['block' => true]); ?>
             <label class="col-lg-3 control-label">Email:</label>
             <div class="col-lg-8">
 
-              <?= $this->Form->control('email',['class'=>'form-control','value'=>$user->email,'label'=>false])?>
+              <?= $this->Form->control('email',['class'=>'form-control','value'=>$user->email,'label'=>false,'disabled'=>true])?>
 
             </div>
           </div>
