@@ -9,6 +9,7 @@
 		if($news->cover_image!=''){ 
             echo '<div align="center">'.$this->Html->image(str_replace('\\','/',@$news->cover_image),['class'=>'img-thumbnail','height'=>400,'width'=>400]);echo '</div><br/>';
         };
+		
 		 ?>
         <?= $this->Text->autoParagraph(h($news->description)); ?>
     </div>
