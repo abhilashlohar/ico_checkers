@@ -1,6 +1,7 @@
 <?php
 $this->Html->script(['gijgo.min'], ['block' => true]); 
 $this->Html->css(['gijgo.min'], ['block' => true]); ?>
+
 <div class="container">
     <h1>Edit Profile</h1>
   	<hr>

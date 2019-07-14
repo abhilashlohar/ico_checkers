@@ -18,10 +18,10 @@ class EnquiriesController extends AppController
    
     public function index(){
 
-		$name   = $this->request->query('name');
-        $type   = $this->request->query('type');
-        $email  = $this->request->query('email');
-        $reason = $this->request->query('reason');
+		$name   = $this->request->getQuery('name');
+        $type   = $this->request->getQuery('type');
+        $email  = $this->request->getQuery('email');
+        $reason = $this->request->getQuery('reason');
         if(!empty($name))
 		{
 			$where['Enquiries.name LIKE'] = '%'.$name.'%';
