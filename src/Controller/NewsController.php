@@ -74,9 +74,7 @@ class NewsController extends AppController
 	
 	public function userView($id = null)
     {
-        $news = $this->News->get($id, [
-            'contain' => []
-        ]);
+        $news = $this->News->get($id);
 
         $this->set('news', $news);
 		$this->set('activeMenu', 'News.view');
