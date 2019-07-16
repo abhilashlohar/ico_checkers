@@ -14,7 +14,7 @@
           <td>
             <?= $task->title ?>
           </td>
-          <td><?= $task->created_on->format("d-m-Y h:i A") ?> </td>
+          <td><?= $this->Time->format($task->created_on, 'dd MMM yyyy hh:mm a') ?></td>
           <td>
     			<?php echo $this->Html->link(__(' Edit'), ['controller' => 'Tasks', 'action' => 'edit', $task->id,]); ?> | 
     			<?php echo $this->Html->link(__('Approve Proofs'), ['controller' => 'Tasks', 'action' => 'proofApproval', $task->id]); ?>

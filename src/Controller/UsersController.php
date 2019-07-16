@@ -111,7 +111,7 @@ class UsersController extends AppController
 				$email = new Email('default');
                 $email->viewBuilder()->setTemplate('approve_email');
 				$email->setEmailFormat('html')
-					->setFrom('manoj@ifwworld.com', 'ico')
+					->setFrom('Info@icocheckers.com', 'ico')
 					->setReplyTo($user->email, 'ico')
 					->setTo($user->email, $user->name)
 					->setSubject('Approve your Email')
@@ -485,7 +485,7 @@ class UsersController extends AppController
                         {
                             $email = new Email('default');
                             $email->setEmailFormat('html')
-                                ->setFrom('manoj@ifwworld.com', 'ico')
+                                ->setFrom('Info@icocheckers.com', 'ico')
                                 ->setReplyTo($userInfo->email, 'ico')
                                 ->setTo($userInfo->email, $userInfo->name)
                                 ->setSubject('Reset your Password for icoss');
@@ -565,7 +565,7 @@ class UsersController extends AppController
                         {
                             $email = new Email('default');
                             $email->setEmailFormat('html')
-                                ->setFrom('manoj@ifwworld.com', 'ico')
+                                ->setFrom('Info@icocheckers.com', 'ico')
                                 ->setReplyTo($userInfo->email, 'ico')
                                 ->setTo($userInfo->email, $userInfo->name)
                                 ->setSubject('jupiter account password has been changed successfully');
@@ -886,7 +886,7 @@ class UsersController extends AppController
 				{
 					$email = new Email('default');
 					$email->setEmailFormat('html')
-						->setFrom('manoj@ifwworld.com', 'ico')
+						->setFrom('Info@icocheckers.com', 'ico')
 						->setReplyTo($email_user->user->email, 'ico')
 						->setTo($email_user->user->email, $email_user->user->name)
 						->setSubject('Meassage');
