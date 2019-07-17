@@ -18,10 +18,10 @@ class EnquiriesController extends AppController
    
     public function index(){
 
-		$name   = $this->request->query('name');
-        $type   = $this->request->query('type');
-        $email  = $this->request->query('email');
-        $reason = $this->request->query('reason');
+		$name   = $this->request->getQuery('name');
+        $type   = $this->request->getQuery('type');
+        $email  = $this->request->getQuery('email');
+        $reason = $this->request->getQuery('reason');
         if(!empty($name))
 		{
 			$where['Enquiries.name LIKE'] = '%'.$name.'%';
@@ -39,6 +39,7 @@ class EnquiriesController extends AppController
 			$where['Enquiries.reason'] = $reason;
 		}
 		$where['Enquiries.is_deleted'] = 0;
+		//Inquiries
 		$inquiries = $this->paginate($this->Enquiries->find()
 		                  ->where($where)
 						  ->order(['Enquiries.id'=>'DESC']));
@@ -46,6 +47,7 @@ class EnquiriesController extends AppController
 		$this->set(compact('inquiries','name','type','email','reason'));
 	}
     public function callback(){
+		//Contact Inquiry
         $this->autoRender = false;
         $enquiry = $this->Enquiries->newEntity();
 		$name = $this->request->getQuery('name');
@@ -77,6 +79,7 @@ class EnquiriesController extends AppController
     }
     
     public function subscribe(){
+		//Subscribe Inquiry
         $this->autoRender = false;
         $enquiry = $this->Enquiries->newEntity();
 		$email = $this->request->getQuery('email'); 

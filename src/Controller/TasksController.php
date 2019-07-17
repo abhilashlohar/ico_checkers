@@ -89,12 +89,14 @@ class TasksController extends AppController
     {
         $conditions = [
             'Tasks.is_deleted' => false,
+			'user_id !=' => $this->Auth->user('id')
         ];
 		$this->paginate = [
             'fields' => ['id', 'title', 'description', 'created_on','short_description','end_days'],
             'conditions' => $conditions,
             'order' => ['Tasks.id' => 'DESC'],
-			'limit' => 10
+			'limit' => 10,
+			
         ];
 		$tasks = $this->paginate($this->Tasks); 
 		$this->set(compact('tasks'));

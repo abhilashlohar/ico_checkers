@@ -85,7 +85,7 @@ class UsersController extends AppController
         $user = $this->Users->newEntity();
         if($this->request->is('post'))
         {   
-			
+			$time = new Time();
             $user = $this->Users->patchEntity($user, $this->request->getData());
 			$user->is_deleted = 	0; 
 			$user->status = 	0; 
@@ -93,7 +93,7 @@ class UsersController extends AppController
 			$str = $this->_getRandomString(6).'-'.$this->_getRandomString(6).'-ico'.$this->_getRandomString(6).'-'.$this->_getRandomString(6);
 			$user->password_token =  $str;
 			$user->referral_code = $this->_getReferralCode(6);
-
+			
             if($this->Users->save($user))
             {
                 // Refer code
@@ -106,12 +106,17 @@ class UsersController extends AppController
                     $refer->points = 10;
                     $this->Users->Refers->save($refer);
                 }
-                
-
+                $wallet = $this->Users->Wallets->newEntity();
+				$wallet->user_id = $user->id;
+				$wallet->point = 500;
+				$wallet->transaction_date = $time->format('Y-m-d H:i:s');
+				$this->Users->Wallets->save($wallet);
+				
+				
 				$email = new Email('default');
                 $email->viewBuilder()->setTemplate('approve_email');
 				$email->setEmailFormat('html')
-					->setFrom('manoj@ifwworld.com', 'ico')
+					->setFrom('Info@icocheckers.com', 'ico')
 					->setReplyTo($user->email, 'ico')
 					->setTo($user->email, $user->name)
 					->setSubject('Approve your Email')
@@ -486,7 +491,7 @@ class UsersController extends AppController
                         {
                             $email = new Email('default');
                             $email->setEmailFormat('html')
-                                ->setFrom('manoj@ifwworld.com', 'ico')
+                                ->setFrom('Info@icocheckers.com', 'ico')
                                 ->setReplyTo($userInfo->email, 'ico')
                                 ->setTo($userInfo->email, $userInfo->name)
                                 ->setSubject('Reset your Password for icoss');
@@ -566,7 +571,7 @@ class UsersController extends AppController
                         {
                             $email = new Email('default');
                             $email->setEmailFormat('html')
-                                ->setFrom('manoj@ifwworld.com', 'ico')
+                                ->setFrom('Info@icocheckers.com', 'ico')
                                 ->setReplyTo($userInfo->email, 'ico')
                                 ->setTo($userInfo->email, $userInfo->name)
                                 ->setSubject('jupiter account password has been changed successfully');
@@ -887,7 +892,7 @@ class UsersController extends AppController
 				{
 					$email = new Email('default');
 					$email->setEmailFormat('html')
-						->setFrom('manoj@ifwworld.com', 'ico')
+						->setFrom('Info@icocheckers.com', 'ico')
 						->setReplyTo($email_user->user->email, 'ico')
 						->setTo($email_user->user->email, $email_user->user->name)
 						->setSubject('Meassage');

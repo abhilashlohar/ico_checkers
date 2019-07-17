@@ -1,14 +1,12 @@
 <?php
-/**
- * @author: Sonia Solanki
- * @date: March 01, 2018
- * @version: 1.0.0
- */
+// author: ManojTanwar
 ?>
 
 
 <?= $this->Form->create($user, ['class' => 'form-signin']) ?>
-    <h2>Reset passwordss</h2>
+    <?= $this->Flash->render() ?>
+    <?= $this->element('logo-part'); ?>
+    <h2 class="h3 mb-3 font-weight-normal" style="color: #FFF;">Reset passwordss</h2>
    
     <label for="inputEmail" class="sr-only">Email address</label>
 	<?= $this->Form->control('password', ['label' => ['text' => __('New Password')], 'class' => 'form-control', 'placeholder' => __('New Password'),'label'=>false]) ?>

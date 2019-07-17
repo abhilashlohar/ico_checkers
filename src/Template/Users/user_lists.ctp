@@ -3,7 +3,7 @@
   <div id="requestform_error"></div>
   
 
-  <?= $this->form->input('id',['type'=>'hidden','value'=>@$id,'id'=>'msg_id']) ?> 
+  <?= $this->Form->control('id',['type'=>'hidden','value'=>@$id,'id'=>'msg_id']) ?> 
 
 	<table class="table">
 	  <thead>
@@ -23,7 +23,7 @@
 		   
 		  <th>
 
-		  <?php echo  $this->Form->input('',['type'=>'checkbox','value'=>@$user->id,'class'=>'user_id']); ?>
+		  <?php echo  $this->Form->control('',['type'=>'checkbox','value'=>@$user->id,'class'=>'user_id']); ?>
 
 		  </th>
 		  
