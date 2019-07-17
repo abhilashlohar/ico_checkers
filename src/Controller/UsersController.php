@@ -85,7 +85,7 @@ class UsersController extends AppController
         $user = $this->Users->newEntity();
         if($this->request->is('post'))
         {   
-			
+			$time = new Time();
             $user = $this->Users->patchEntity($user, $this->request->getData());
 			$user->is_deleted = 	0; 
 			$user->status = 	0; 
@@ -106,8 +106,13 @@ class UsersController extends AppController
                     $refer->points = 10;
                     $this->Users->Refers->save($refer);
                 }
-                
-
+                $wallet = $this->Users->Wallets->newEntity();
+				$wallet->user_id = $user->id;
+				$wallet->point = 500;
+				$wallet->transaction_date = $time->format('Y-m-d H:i:s');
+				$this->Users->Wallets->save($wallet);
+				
+				
 				$email = new Email('default');
                 $email->viewBuilder()->setTemplate('approve_email');
 				$email->setEmailFormat('html')
