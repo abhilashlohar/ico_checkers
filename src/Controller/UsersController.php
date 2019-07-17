@@ -809,15 +809,15 @@ class UsersController extends AppController
             $this->Flash->error(__('Only ajax request can be processed.'));
             return $this->redirect($this->_redirectUrl());
         }
-		$chk        = $this->request->query('chk');
+		$chk        = $this->request->getQuery('chk');
 		if($chk==1)
 		{
 			$email_user = $this->Users->SentEmails->EmailUsers->newEntity();
-			$email_user->sent_email_id = $this->request->query('id');
-			$email_user->user_id       = $this->request->query('user_id');
+			$email_user->sent_email_id = $this->request->getQuery('id');
+			$email_user->user_id       = $this->request->getQuery('user_id');
 			$email_user->status        = 'Pending';
 			$exist=$this->Users->SentEmails->EmailUsers->find()
-			                   ->where(['EmailUsers.sent_email_id'=>$this->request->query('id'),'EmailUsers.user_id'=>$this->request->query('user_id'),'EmailUsers.status'=>'Pending'])->count();
+			                   ->where(['EmailUsers.sent_email_id'=>$this->request->getQuery('id'),'EmailUsers.user_id'=>$this->request->getQuery('user_id'),'EmailUsers.status'=>'Pending'])->count();
 			if($exist==0){
 				if ($this->Users->SentEmails->EmailUsers->save($email_user)) {
 				  echo 'Add user successfully';
@@ -827,7 +827,7 @@ class UsersController extends AppController
 			}
 		}
 		else{
-			$this->Users->SentEmails->EmailUsers->deleteAll(['EmailUsers.user_id'=>$this->request->query('user_id'),'EmailUsers.sent_email_id'=>$this->request->query('id')]);
+			$this->Users->SentEmails->EmailUsers->deleteAll(['EmailUsers.user_id'=>$this->request->getQuery('user_id'),'EmailUsers.sent_email_id'=>$this->request->getQuery('id')]);
 		}
         exit;
     }
