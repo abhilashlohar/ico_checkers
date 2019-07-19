@@ -3,7 +3,7 @@ $this->Html->css(['blog'], ['block' => true]);
 ?>
 <div class="my-3 task-body p-3" >
 	<h1 class="task_title mb-0"><?= $task->title ?></h1>
-	<div class="text-muted mb-2" style="font-size: 14px;"><?php echo date('d M, Y',strtotime($task->created_on))?></div>
+	<div class="text-muted mb-2" style="font-size: 14px;"><?php echo date('d M, Y',strtotime($task->created_on))?> | created by : <?php echo !empty($task->user)?$task->user->name:'' ?></div>
 	<div>
 		<?= $this->Text->autoParagraph($task->description) ?>
 	</div>

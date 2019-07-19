@@ -93,6 +93,7 @@ class UsersController extends AppController
 			$str = $this->_getRandomString(6).'-'.$this->_getRandomString(6).'-ico'.$this->_getRandomString(6).'-'.$this->_getRandomString(6);
 			$user->password_token =  $str;
 			$user->referral_code = $this->_getReferralCode(6);
+			$ref= $this->request->getQuery('ref');
 			
             if($this->Users->save($user))
             {
@@ -111,7 +112,18 @@ class UsersController extends AppController
 				$wallet->point = 500;
 				$wallet->transaction_date = $time->format('Y-m-d H:i:s');
 				$this->Users->Wallets->save($wallet);
-				
+				if(!empty($ref))
+				{
+					$user_detail   = $this->Users->find()
+					                      ->select('id')
+										  ->where(['Users.referral_code'=>$ref,'Users.is_deleted'=>false,'Users.status'=>true])
+										  ->first();
+					$wallet = $this->Users->Wallets->newEntity();
+					$wallet->user_id = $user_detail->id;
+					$wallet->point = 200;
+					$wallet->transaction_date = $time->format('Y-m-d H:i:s');
+					$this->Users->Wallets->save($wallet);
+				}
 				
 				$email = new Email('default');
                 $email->viewBuilder()->setTemplate('approve_email');
