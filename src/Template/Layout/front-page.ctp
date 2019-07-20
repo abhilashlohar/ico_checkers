@@ -1507,9 +1507,12 @@
 									<span class="valid_error" data-valmsg-for="email"></span>
 									<select name="reason" class="custom_select" id="reason" placeholder='Reason'>
 										<option > Reason </option>
-										<option value="reason1"> Reason 1 </option>
-										<option value="reason2"> Reason 2 </option>
-										<option value="reason3"> Reason 3 </option>
+										<option value="Users"> Users </option>
+										<option value="Partnership"> Partnership </option>
+										<option value="Investment"> Investment </option>
+										<option value="Purchase Points"> Purchase Points </option>
+										<option value="Proof of DI"> Proof of DI </option>
+										<option value="Others"> Others </option>
 									</select>
 									<style type="text/css">
 										.custom_select {
