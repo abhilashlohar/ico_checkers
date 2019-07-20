@@ -23,7 +23,10 @@
 		   
 		  <th>
 
-		  <?php echo  $this->Form->control('',['type'=>'checkbox','value'=>@$user->id,'class'=>'user_id']); ?>
+		  <?php
+			
+			$chk =false;
+		  echo  $this->Form->control('',['type'=>'checkbox','value'=>@$user->id,'class'=>'user_id','checked'=>$chk]); ?>
 
 		  </th>
 		  

@@ -114,6 +114,7 @@ class TasksController extends AppController
      */
 	public function taskSubmit($id = null)
     {
+		$time = new Time();
         $task = $this->Tasks->get($id,[
 		'contain'=>['Users'=>[
 		'fields'=>['name']
@@ -152,6 +153,7 @@ class TasksController extends AppController
 			if(empty($errors))
             {
 				$taskProof->user_id = $this->Auth->user('id');
+				$taskProof->created_date = $time->format('Y-m-d H:i:s');
 				if ($this->Tasks->TaskProofs->save($taskProof)) {
 					$this->Flash->success(__('Your Task Proof  has been saved.'));
 					return $this->redirect(['action' => 'earnMoney']);
@@ -249,5 +251,37 @@ class TasksController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+	
+	public function checkTaskProve()
+    {
+        $time = new Time();
+		$current_date =  $time->format('Y-m-d H:i:s');
+		$tasks = $this->Tasks->find()
+		                   ->contain(['TaskProofs','Users'])
+						   ->matching('Users', function ($q){
+							   return $q->where(['Users.role'=>'User']);
+						   })
+						   ->matching('TaskProofs', function ($qq){
+							   return $qq->where(['TaskProofs.is_approved'=>false]);
+						   });
+		foreach($tasks as $task)
+		{
+			if(!empty($task->task_proofs))
+			{
+				foreach($task->task_proofs as $task_proof)
+				{
+					$diff = abs(strtotime($current_date)-strtotime($task_proof->created_date));
+					
+					if(date('H',$diff)==24)
+					{
+						$task_p = $this->Tasks->TaskProofs->get($task_proof->id);
+						$task_p->is_approved = 1;
+						$this->Tasks->TaskProofs->save($task_p);
+					}
+				}
+			}
+		}
+		exit;
     }
 }

@@ -46,6 +46,7 @@ class EmailUsersTable extends Table
             'foreignKey' => 'user_id',
             'joinType' => 'INNER'
         ]);
+		
     }
 
     /**

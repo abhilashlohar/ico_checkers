@@ -44,7 +44,7 @@ class UsersController extends AppController
 	public function userLists($id=null)
     {
 		
-        $users = $this->paginate($this->Users);
+        $users = $this->paginate($this->Users->find());
 		
 		$this->set(compact('users','id','user'));
     }
