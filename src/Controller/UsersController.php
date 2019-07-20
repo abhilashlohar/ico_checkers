@@ -93,6 +93,7 @@ class UsersController extends AppController
 			$str = $this->_getRandomString(6).'-'.$this->_getRandomString(6).'-ico'.$this->_getRandomString(6).'-'.$this->_getRandomString(6);
 			$user->password_token =  $str;
 			$user->referral_code = $this->_getReferralCode(6);
+			$ref= $this->request->getQuery('ref');
 			
             if($this->Users->save($user))
             {
@@ -111,7 +112,18 @@ class UsersController extends AppController
 				$wallet->point = 500;
 				$wallet->transaction_date = $time->format('Y-m-d H:i:s');
 				$this->Users->Wallets->save($wallet);
-				
+				if(!empty($ref))
+				{
+					$user_detail   = $this->Users->find()
+					                      ->select('id')
+										  ->where(['Users.referral_code'=>$ref,'Users.is_deleted'=>false,'Users.status'=>true])
+										  ->first();
+					$wallet = $this->Users->Wallets->newEntity();
+					$wallet->user_id = $user_detail->id;
+					$wallet->point = 200;
+					$wallet->transaction_date = $time->format('Y-m-d H:i:s');
+					$this->Users->Wallets->save($wallet);
+				}
 				
 				$email = new Email('default');
                 $email->viewBuilder()->setTemplate('approve_email');
@@ -810,15 +822,15 @@ class UsersController extends AppController
             $this->Flash->error(__('Only ajax request can be processed.'));
             return $this->redirect($this->_redirectUrl());
         }
-		$chk        = $this->request->query('chk');
+		$chk        = $this->request->getQuery('chk');
 		if($chk==1)
 		{
 			$email_user = $this->Users->SentEmails->EmailUsers->newEntity();
-			$email_user->sent_email_id = $this->request->query('id');
-			$email_user->user_id       = $this->request->query('user_id');
+			$email_user->sent_email_id = $this->request->getQuery('id');
+			$email_user->user_id       = $this->request->getQuery('user_id');
 			$email_user->status        = 'Pending';
 			$exist=$this->Users->SentEmails->EmailUsers->find()
-			                   ->where(['EmailUsers.sent_email_id'=>$this->request->query('id'),'EmailUsers.user_id'=>$this->request->query('user_id'),'EmailUsers.status'=>'Pending'])->count();
+			                   ->where(['EmailUsers.sent_email_id'=>$this->request->getQuery('id'),'EmailUsers.user_id'=>$this->request->getQuery('user_id'),'EmailUsers.status'=>'Pending'])->count();
 			if($exist==0){
 				if ($this->Users->SentEmails->EmailUsers->save($email_user)) {
 				  echo 'Add user successfully';
@@ -828,7 +840,7 @@ class UsersController extends AppController
 			}
 		}
 		else{
-			$this->Users->SentEmails->EmailUsers->deleteAll(['EmailUsers.user_id'=>$this->request->query('user_id'),'EmailUsers.sent_email_id'=>$this->request->query('id')]);
+			$this->Users->SentEmails->EmailUsers->deleteAll(['EmailUsers.user_id'=>$this->request->getQuery('user_id'),'EmailUsers.sent_email_id'=>$this->request->getQuery('id')]);
 		}
         exit;
     }

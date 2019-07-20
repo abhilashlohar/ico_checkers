@@ -118,7 +118,7 @@ $(document).on('click', '.sent', function(){
 		$('.requestform_error1').show();
         $('.requestform_error1').fadeIn('fast').delay(5000).fadeOut('fast'); 
 
-		window.location.href ='/ico_checkers/users'
+		window.location.href ='/users'
 
 	   }
 	   else{

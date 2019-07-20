@@ -28,6 +28,10 @@ class UsersTable extends Table
             'foreignKey' => 'user_id',
             'joinType' => 'INNER'
         ]);
+		$this->hasMany('Tasks', [
+            'foreignKey' => 'user_id',
+            'joinType' => 'INNER'
+        ]);
     }
 
     

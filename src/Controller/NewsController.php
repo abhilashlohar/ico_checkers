@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\Filesystem\File;
+use Cake\I18n\Time;
 /**
  * News Controller
  *
@@ -18,7 +19,7 @@ class NewsController extends AppController
         parent::initialize();
         
         
-        $this->Auth->allow(['index', 'add','userNews','view', 'home','userView']);
+        $this->Auth->allow(['index', 'add','userNews','view', 'home','userView','savePoint']);
     }
     /**
      * Index method
@@ -72,16 +73,16 @@ class NewsController extends AppController
 		$this->set('activeMenu', 'News.view');
     }
 	
-		public function userView($id = null)
+	public function userView($id = null)
     {
-
+		$user_id = $this->Auth->user('id');
         $news = $this->News->get($id, [
             'contain' => []
         ]);
 		
 
         $this->set('news', $news);
-				$this->set('activeMenu', 'News.view');
+				$this->set('activeMenu', 'News.view','user_id');
     }
     /**
      * Add method
@@ -204,6 +205,7 @@ class NewsController extends AppController
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
+    
     public function approve($id = null)
     {
         $this->request->allowMethod(['post']);
@@ -226,5 +228,27 @@ class NewsController extends AppController
 		$this->set(compact('role','inquiry'));
     }
 
-	
+	public function savePoint()
+	{
+		$id = $this->request->getQuery('user_id');
+		$news_id = $this->request->getQuery('news_id');
+		if(!empty($id) && !empty($news_id))
+		{
+			$checkPoints = $this->News->Wallets->find()
+			                                   ->where(['Wallets.user_id'=>$id,'Wallets.news_id'=>$news_id])->first();
+											   
+			if(empty($checkPoints))
+			{
+				
+				$timeCurrent = new Time();
+				$wallet = $this->News->Wallets->newEntity();
+				$wallet->user_id            = $id;
+				$wallet->news_id            = $news_id;
+				$wallet->point              = 1;
+				$wallet->transaction_date   = $timeCurrent->format('Y-m-d H:i:s');
+				$this->News->Wallets->save($wallet);
+			}
+			
+		}
+	}
 }

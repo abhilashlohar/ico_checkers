@@ -92,8 +92,11 @@ class TasksController extends AppController
 			'user_id !=' => $this->Auth->user('id')
         ];
 		$this->paginate = [
-            'fields' => ['id', 'title', 'description', 'created_on','short_description','end_days'],
+            //'fields' => ['id', 'title', 'description', 'created_on','short_description','end_days','user_id'],
             'conditions' => $conditions,
+            'contain' => ['Users'=>[
+			'fields' =>['name']]
+			],
             'order' => ['Tasks.id' => 'DESC'],
 			'limit' => 10,
 			
@@ -111,7 +114,10 @@ class TasksController extends AppController
      */
 	public function taskSubmit($id = null)
     {
-        $task = $this->Tasks->get($id);
+        $task = $this->Tasks->get($id,[
+		'contain'=>['Users'=>[
+		'fields'=>['name']
+		]]]); 
         if ($this->request->is(['patch', 'post', 'put'])) 
 		{
 			

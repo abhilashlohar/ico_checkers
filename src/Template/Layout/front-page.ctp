@@ -1530,6 +1530,7 @@
 									</style>
 									<span class="valid_error" data-valmsg-for="reason"></span>
 									<?= $this->Form->control('message',['label'=>false,'class'=>'form__textarea','placeholder'=>'Message', 'type'=>'textarea'])?>
+
 									<!--<button class="form__btn btn btn--uppercase btn--orange"><span>Send message</span></button>-->
 									<div id='msg' onclick="this.classList.add('hidden')"></div>
 									<div class="lds-spinner imgloader"  style="display:none;"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>

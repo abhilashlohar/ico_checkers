@@ -35,6 +35,10 @@ class NewsTable extends Table
         $this->setDisplayField('title');
         $this->setPrimaryKey('id');
 		
+		$this->hasMany('Wallets', [
+            'foreignKey' => 'news_id'
+        ]);
+		
 		$this->belongsTo('Enquiries');
     }
 

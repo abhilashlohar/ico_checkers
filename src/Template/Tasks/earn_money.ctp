@@ -32,20 +32,20 @@ $this->Html->css(['blog'], ['block' => true]);
 							<?= $task->title ?>
 						</a>
 				  </h1>
-				  <div class="mb-1 text-muted"><?php echo date('d M, Y',strtotime($task->created_on))?></div>
+				  <div class="mb-1 text-muted"><?php echo date('d M, Y',strtotime($task->created_on))?> | created by : <?php echo !empty($task->user)?$task->user->name:'' ?></div>
 				  <div class="mb-1 text-muted">Remaining day/time : <?php echo $remaining; ?></div>
 				  <div>
 				  	<?php
 					  echo $this->Text->truncate(
 					    $this->Text->autoParagraph($task->description),
-					    120,
+					    90,
 					    [
 					        'ellipsis' => '...',
 					        'exact' => false
 					    ]
 					  );
 					  ?>
-				  </div>
+				  </div><br>
 				  <a href="<?= $this->Url->build(['controller'=>'Tasks','action'=>'taskSubmit',$task->id])?>" class="btn btn-primary">Complete Task </a>
 				</div>
 				
