@@ -4,34 +4,26 @@
             <div class="row">
                 <div class="col-md-3 mb-3">
                     <div class="form-group">
-					<label>Name</label>
-                       <input type="text" name="name" class="form-control input-sm" value="<?= @$name ?>">
+                       <input type="text" name="name" class="form-control input-sm" value="<?= @$name ?>" placeholder="Name">
                     </div>
                 </div>
                 <div class="col-md-3 mb-3">
                     <div class="form-group">
-					<label>Email</label>
-                        <input type="email" name="email" class="form-control input-sm" value="<?= @$email ?>">
+                        <input type="email" name="email" class="form-control input-sm" value="<?= @$email ?>" placeholder="Email">
                     </div>
                 </div>
 				<div class="col-md-3 mb-3">
                     <div class="form-group">
-					<label>Reason</label>
-                        <?php $options = ['reason1' => 'Reason 1', 'reason2' => 'Reason 2' ,'reason3' => 'Reason 3']; ?>
-					<?= $this->Form->control('reason', ['label' => false, 'class' => 'form-control input-sm', 'options' => $options, 'empty' => __('All reason'),'value'=>@$reason]); ?>
-                    </div>
-                </div>
-				<div class="col-md-3 mb-3">
-                    <div class="form-group">
-					<label>Type</label>
-                        <?php $options1 = ['contact' => 'contact', 'subscribe' => 'subscribe']; ?>
+                        <?php $options1 = ['contact' => 'Contact Messages', 'subscribe' => 'Subscribe']; ?>
 					<?= $this->Form->control('type', ['label' => false, 'class' => 'form-control input-sm', 'options' => $options1, 'empty' => __('All Type'),'value'=>@$type]); ?>
                     </div>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <button type="submit" class="btn btn-primary">Find</button>
                 </div>
             </div>
             
             
-        <button type="submit" class="btn btn-primary">Find</button>
     </form>   
     </div>
 </div>
@@ -48,7 +40,6 @@
                     <th>Type</th>
                     <th>Message</th>
                     <th>Created on</th>
-                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -60,9 +51,6 @@
                     <td><?= h($inquiry->type) ?></td>
                     <td><?= h($inquiry->message) ?></td>
                     <td><?= $this->Time->format($inquiry->created, 'dd MMM yyyy hh:mm a') ?></td>
-                    <td>
-					    <?php echo $this->Html->link(__(' Delete'), ['controller' => 'Enquiries', 'action' => 'delete', $inquiry->id]); ?>
-					</td>
                 </tr>
                 <?php endforeach; ?>
             </tbody>
