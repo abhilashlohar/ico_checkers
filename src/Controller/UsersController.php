@@ -291,6 +291,7 @@ class UsersController extends AppController
 		$country[]= ['value'=>'Northern Marianas (+670)','text' =>'Northern Marianas (+670)'];
 		$country[]= ['value'=>'Norway (+47)','text' =>'Norway (+47)'];
 		$country[]= ['value'=>'Oman (+968)','text' =>'Oman (+968)'];
+		$country[]= ['value'=>'Pakistan (+92)','text' =>'Pakistan (+92)'];
 		$country[]= ['value'=>'Palau (+680)','text' =>'Palau (+680)'];
 		$country[]= ['value'=>'Panama (+507)','text' =>'Panama (+507)'];
 		$country[]= ['value'=>'Papua New Guinea (+675)','text' =>'Papua New Guinea (+675)'];

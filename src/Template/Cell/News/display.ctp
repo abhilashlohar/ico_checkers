@@ -3,7 +3,7 @@
 
 		<div class="news-carousel owl-carousel">
 			<?php foreach ($news as $row) { ?>
-				<a data-aos="fade-up" href="#" class="news-carousel__item">
+				<a data-aos="fade-up" href="<?= $this->Url->Build('/user-view/'.$row->id)?>" class="news-carousel__item" target="_blank">
 					<div class="news-carousel__item-body">
 						<!-- <div class="news-carousel__item-subtitle">Cryptocurrency</div> -->
 						<h3 class="news-carousel__item-title">
@@ -15,7 +15,7 @@
 							    $row->description,
 							    150,
 							    [
-							        'ellipsis' => '...',
+							        'ellipsis' => '.....',
 							        'exact' => false
 							    ]
 							);

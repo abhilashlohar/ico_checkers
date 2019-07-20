@@ -288,9 +288,10 @@
 									</p>
 									<ul>
 										<li>
-											The earnings are real in testing phase convert after platform live in preference payment method available on platform. 
+											The earnings are real in the testing phase and will convert after platform live in preference payment method available on the platform, you can also get traffic on your own website/apps/any other tasks from here by creating task.
 										</li>
-										<li>Also create task for other user and redeem points</li>
+										<li>Before invest, on our platform you need to earn points on our platform by daily task & creat task for other users and also make news on trending topic and submit ico checkers mail use subject news and also share on your platform if you have, minimum 500-1000 word according to news 100-500 points for your news submission .</li>
+										<li>Every task given by our platform or other users approve in maximum 24 hours and points reflect in user account in 24-hour automatically after user complete task</li>
 									</ul>
 								</div>
 							</div>
@@ -499,9 +500,12 @@
 											<div class="road__item-title">
 												Dec. 2017 
 											</div>
-											<p>
-												Born 1st time Idea worlds 1st multi chain digital identification ( DI) platform with securities in blockchain  ,   planning
-											</p>
+											<ul class="roadmap">
+												<li>
+													Born 1st time Idea worlds 1st multi blockchain digital identification ( DI) platform with securities in blockchain
+												</li>
+												<li> Planning</li>
+											</ul>
 										</div>
 										
 									</div>
@@ -512,13 +516,11 @@
 											<div class="road__item-title">
 												May 2018
 											</div>
-											<p>
-												some development 
-												   Expert introduction about idea<br>
-												   Find out 20+ problems in Blockchain technology <br>
-												   Working on problems to accept blockchain worldwide  
-
-											</p>
+											<ul class="roadmap">
+												<li> Some development expert introduction about idea</li>
+												<li> Find out 20+ problems in Blockchain technology</li>
+												<li> Working on problems to accept blockchain worldwide</li>
+											</ul>
 										</div>
 										
 									</div>
@@ -529,18 +531,18 @@
 											<div class="road__item-title">
 												July 2019
 											</div>
-											<p>
-												sign up bonus 1st round<br>
-												Trending news live<br>
-												Working task to task testing<br>
-												Community building up to 200 million worldwide  target in next  8 month<br>
-												Team building <br>
-												Ico choking &review platform testing <br>
-												Exchanges, wallets & blockchains partnership <br>
-												Connect to Media, YouTube & blogger partner<br>
-												Focus on solving all blockchain problems worldwide
+											<ul class="roadmap">
+												<li> Sign up bonus 1st round</li>
+												<li> Trending news live</li>
+												<li> Working task to task testing</li>
+												<li> Community building up to 200 million worldwide  target in next  8 month</li>
+												<li> Team building</li>
+												<li> Ico choking &review platform testing </li>
+												<li> Exchanges, wallets & blockchains partnership </li>
+												<li> Connect to Media, YouTube & blogger partner</li>
+												<li> Focus on solving all blockchain problems worldwide</li>
  
-											</p>
+											</ul>
 										</div>
 									</div>
 
@@ -550,12 +552,11 @@
 											<div class="road__item-title">
 												Aug  2019
 											</div>
-											<p>
-												Ico checking & review platform live<br>
-												Free insurance development<br>
-												Crowd funding start
- 
-											</p>
+											<ul class="roadmap">
+												<li> Ico checking & review platform live</li>
+												<li> Free insurance development</li>
+												<li> Crowd funding start</li>
+											</ul>
 										</div>
 									</div>
 
@@ -565,12 +566,11 @@
 											<div class="road__item-title">
 												Oct.2019
 											</div>
-											<p>
-												Digital identification (DI) platform testing for all centralized <br>
-												Exchanges, blockchains, wallets   <br>
-												Blockchain development <br>
-												Free insurance testing
-											</p>
+											<ul class="roadmap">
+												<li> Digital identification (DI) platform testing for all centralized Exchanges, blockchains, wallets and users</li>
+												<li> Blockchain development </li>
+												<li> Free insurance testing</li>
+											</ul>
 										</div>
 									</div>
 
@@ -580,12 +580,10 @@
 											<div class="road__item-title">
 												Dec.2019
 											</div>
-											<p>
-												Digital identification platform & securities main net live for all centralized <br>
-												Exchanges, blockchains, wallets    <br>
-												Earn money platform live (convert all work n real money )
- 
-											</p>
+											<ul class="roadmap">
+												<li> Digital identification platform & securities main net live for all centralized Exchanges, blockchains, wallets and users</li>
+												<li> Earn money platform live (convert all work n real money)</li>
+											</ul>
 										</div>
 									</div>
 
@@ -595,12 +593,11 @@
 											<div class="road__item-title">
 												Feb 2020
 											</div>
-											<p>
-												Free insurance live <br>
-												Adverting automatic platform development <br>
-												1st round sign up close after 200 million Communities build 
-
-											</p>
+											<ul class="roadmap">
+												<li> Free insurance live </li>
+												<li> Adverting automatic platform development </li>
+												<li> 1st round sign up close after 200 million Communities build </li>
+											</ul>
 										</div>
 									</div>
 									
@@ -610,12 +607,11 @@
 											<div class="road__item-title">
 												Apr. 2020
 											</div>
-											<p> 
-											Adverting automatic platform testing <br>
-											One touch architecture solution development <br>
-											L&L Product listing platform development <br>
-
-											</p>
+											<ul class="roadmap">
+												<li> Adverting automatic platform testing </li>
+												<li> One touch architecture solution development </li>
+												<li> L&L Product listing platform development </li>
+											</ul>
 										</div>
 									</div>
 									<div class="road__item road__item-next">
@@ -624,10 +620,10 @@
 											<div class="road__item-title">
 												June 2020
 											</div>
-											<p> 
-											sign up bonus 2nd round up to 1 billion user  target  worldwide <br>
-											Advertising platform live
-											</p>
+											<ul class="roadmap">
+												<li> sign up bonus 2nd round up to 1 billion user  target  worldwide</li>
+												<li> Advertising platform live</li>
+											</ul>
 										</div>
 									</div>
 									<div class="road__item road__item-next">
@@ -636,11 +632,10 @@
 											<div class="road__item-title">
 												July 2020
 											</div>
-											<p> 
-											Proof of document platform development <br>
-											One touch architecture platform testing for architects & users
-
-											</p>
+											<ul class="roadmap">
+												<li> Proof of document platform development </li>
+												<li> One touch architecture platform testing for architects & users</li>
+											</ul>
 										</div>
 									</div>
 									<div class="road__item road__item-next">
@@ -649,12 +644,10 @@
 											<div class="road__item-title">
 												 Sep 2020
 											</div>
-											<p> 
-											L&L Product listing platform testing <br>
-											One touch architecture solution Live for architects & users 
-
-
-											</p>
+											<ul class="roadmap"> 
+												<li> L&L Product listing platform testing </li>
+												<li> One touch architecture solution Live for architects & users </li>
+											</ul>
 										</div>
 									</div>
 									<div class="road__item road__item-next">
@@ -663,14 +656,12 @@
 											<div class="road__item-title">
 												Dec. 2020
 											</div>
-											<p> 
-											Blockchain development <br>
-											L&L product listing platform sales is live worldwide <br>
-											Proof of document platform live<br>
-											Sign up bonus closed & sign up without any bonus  
-
-
-											</p>
+											<ul class="roadmap"> 
+												<li> Blockchain development </li>
+												<li> L&L product listing platform sales is live worldwide </li>
+												<li> Proof of document platform live</li>
+												<li> Sign up bonus closed & sign up without any bonus </li> 
+											</ul>
 										</div>
 									</div>
 									<div class="road__item road__item-next">
@@ -679,11 +670,11 @@
 											<div class="road__item-title">
 												Feb 2021
 											</div>
-											<p> 
-											Social platform development <br>
-											Proof of DI & proof doc merge <br>
-											Proof of doc & L&L platform merge 
-											</p>
+											<ul class="roadmap"> 
+												<li> Social platform development </li>
+												<li> Proof of DI & proof doc merge </li>
+												<li> Proof of doc & L&L platform merge </li>
+											</ul>
 										</div>
 									</div>
 									<div class="road__item road__item-next">
@@ -692,10 +683,10 @@
 											<div class="road__item-title">
 												May 2021
 											</div>
-											<p> 
-											Social platform live for all user with real identify<br>
-											Blockchain testing
-											</p>
+											<ul class="roadmap"> 
+												<li> Social platform live for all user with real identify</li>
+												<li> Blockchain testing</li>
+											</ul>
 										</div>
 									</div>
 									<div class="road__item road__item-next">
@@ -704,10 +695,10 @@
 											<div class="road__item-title">
 												July 2021
 											</div>
-											<p> 
-												Whitepaper released <br>
-												100% all platform live
-											</p>
+											<ul class="roadmap"> 
+												<li>	Whitepaper released </li>
+												<li>	100% all platform live</li>
+											</ul>
 										</div>
 									</div>
 									<div class="road__item road__item-next">
@@ -716,9 +707,9 @@
 											<div class="road__item-title">
 												Oct. 2021 
 											</div>
-											<p> 
-												Working on innovative online idea
-											</p>
+											<ul class="roadmap">
+												<li> Working on innovative online idea</li>
+											</ul>
 										</div>
 									</div>
 									
@@ -729,6 +720,17 @@
 						<img src="<?php echo $library; ?>img/road_map.png" data-jarallax-element="-40" alt="" class="map__title-bg">
 					</div>
 				</section>
+
+				<style type="text/css">
+					ul.roadmap {
+					  list-style: none;
+					}
+
+					ul.roadmap li:before {
+					  content: '✓';
+					  color: #FFF;
+					}
+				</style>
 
 				<!-- <section class="partners-logo" id="partners-logo">
 					<div class="container">
@@ -1503,14 +1505,35 @@
 									<span class="valid_error" data-valmsg-for="name"></span>
 									<?= $this->Form->control('email',['label'=>false,'class'=>'form__input','placeholder'=>'Email','type'=>'email'])?>
 									<span class="valid_error" data-valmsg-for="email"></span>
-									<select name="reason" class="form__input" id="reason" placeholder='Reason'>
-										<option> Reason </option>
-										<option value="reason1"> Reason 1 </option>
-										<option value="reason2"> Reason 2 </option>
-										<option value="reason3"> Reason 3 </option>
+									<select name="reason" class="custom_select" id="reason" placeholder='Reason'>
+										<option > Reason </option>
+										<option value="Users"> Users </option>
+										<option value="Partnership"> Partnership </option>
+										<option value="Investment"> Investment </option>
+										<option value="Purchase Points"> Purchase Points </option>
+										<option value="Proof of DI"> Proof of DI </option>
+										<option value="Others"> Others </option>
 									</select>
+									<style type="text/css">
+										.custom_select {
+											width: 100%;
+											background-color: #272f4c;
+									    border: none;
+									    color: #b5b5b5;
+									    font-family: inherit;
+									    margin-bottom: 10px;
+									    border-radius: 8px;
+									    height: 50px;
+									    padding: 10px 20px;
+									    font-size: 15px;
+										}
+										.custom_select:hover {
+											background-color: #FFF;
+										}
+									</style>
 									<span class="valid_error" data-valmsg-for="reason"></span>
-									<?= $this->Form->control('message',['label'=>false,'class'=>'form__textarea','placeholder'=>'Message','rows'=>4])?>
+									<?= $this->Form->control('message',['label'=>false,'class'=>'form__textarea','placeholder'=>'Message', 'type'=>'textarea'])?>
+
 									<!--<button class="form__btn btn btn--uppercase btn--orange"><span>Send message</span></button>-->
 									<div id='msg' onclick="this.classList.add('hidden')"></div>
 									<div class="lds-spinner imgloader"  style="display:none;"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
