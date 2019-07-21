@@ -24,8 +24,13 @@
 		  <th>
 
 		  <?php
-			
-			$chk =false;
+			if(empty($email_user_arr[$user->id]))
+			{
+				$chk =false;
+			}
+			else{
+				$chk =true;
+			}
 		  echo  $this->Form->control('',['type'=>'checkbox','value'=>@$user->id,'class'=>'user_id','checked'=>$chk]); ?>
 
 		  </th>
