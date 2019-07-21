@@ -33,6 +33,7 @@ class TaskProof extends Entity
         'image' => true,
         'task_id' => true,
         'user' => true,
-        'task' => true
+        'task' => true,
+        'created_date' => true
     ];
 }

@@ -32,6 +32,11 @@ class UsersTable extends Table
             'foreignKey' => 'user_id',
             'joinType' => 'INNER'
         ]);
+		$this->hasOne('EmailUsers', [
+            'foreignKey' => 'user_id',
+            'joinType' => 'INNER'
+        ]);
+		
     }
 
     

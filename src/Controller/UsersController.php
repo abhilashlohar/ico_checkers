@@ -44,9 +44,20 @@ class UsersController extends AppController
 	public function userLists($id=null)
     {
 		
-        $users = $this->paginate($this->Users);
+        $users = $this->paginate($this->Users->find());
+		$email_users = $this->Users->EmailUsers->find()
+		                                     ->select(['user_id'])
+											 ->where(['EmailUsers.sent_email_id'=>$id]);
+		$email_user_arr=[];
+		if(!empty($email_users->toArray()))
+		{
+			foreach($email_users as $email_user)
+			{
+				$email_user_arr[$email_user->user_id] = $email_user->user_id;
+			}
+		}
 		
-		$this->set(compact('users','id','user'));
+		$this->set(compact('users','id','user','email_user_arr'));
     }
 	public function brodcast()
     {

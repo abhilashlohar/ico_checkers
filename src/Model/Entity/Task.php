@@ -31,6 +31,7 @@ class Task extends Entity
         'description' => true,
         'user_id' => true,
         'end_days' => true,
+        'end_days' => true,
 		'*' => false
 	];
 }
