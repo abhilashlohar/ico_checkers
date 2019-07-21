@@ -22,13 +22,13 @@ class UsersController extends AppController
 	public function initialize()
     {
         parent::initialize();
-        $passed = ['forgotPassword', 'resetPassword', 'login', 'logout', 'changeProfile', 'changePassword', 'registration','approveemail','dashboard','index','broadcastEmail','userProfile','changeStatus','brodcast','saveemailuser','healthcheck','view','emailSent','userLists','saveMsgStatus'];
+        $passed = ['forgotPassword', 'resetPassword', 'login', 'logout', 'changeProfile', 'changePassword', 'registration','approveemail','dashboard','index','broadcastEmail','userProfile','changeStatus','brodcast','saveemailuser','healthcheck','view','emailSent','userLists','saveMsgStatus','testEmail'];
         if(!in_array($this->request->getParam('action'), $passed) )
         {
             return $this->redirect(['/Dashboard']);
         }
         
-        $this->Auth->allow(['forgotPassword', 'resetPassword', 'logout','image','registration','approveemail','saveemailuser','healthcheck']);
+        $this->Auth->allow(['forgotPassword', 'resetPassword', 'logout','image','registration','approveemail','saveemailuser','healthcheck','testEmail']);
     }
     /**
      * Index method
@@ -885,7 +885,7 @@ class UsersController extends AppController
 				$sent_mail = $this->Users->SentEmails->get($id);
 				$sent_mail->status ='sent';
 				if($this->Users->SentEmails->save($sent_mail))
-				{
+				{ 
 					echo 1;
 				}else
 				{ 
@@ -894,6 +894,7 @@ class UsersController extends AppController
 			}
 		} exit;
 	}
+	
 	
 	
 	public function emailSent()
@@ -933,5 +934,22 @@ class UsersController extends AppController
 			
 		}
 
+	}
+	
+	public function testEmail()
+	{
+		$email = new Email('default');
+					$email->setEmailFormat('html')
+						->setFrom('Info@icocheckers.com', 'ico')
+						->setReplyTo('abhilashlohar01@gmail.com', 'ico')
+						->setTo('abhilashlohar01@gmail.com', 'Abhilash')
+						->setSubject('Meassage');
+						$email->viewBuilder()->setTemplate('meaasage');
+						$email->setViewVars([
+							'name' => 'Jai Shree Ram',
+							'msg'  => 'Jai Shree Ram'
+						])
+						->send();
+		exit;
 	}
 }

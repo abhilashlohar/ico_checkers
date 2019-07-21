@@ -6,7 +6,7 @@ $("#inquiry").submit(function (event) {
 		var email = document.inquiry.email.value;
 		var reason = document.inquiry.reason.value;
 		var message = document.inquiry.message.value;
-		$.ajax({
+		/* $.ajax({
 			method: 'GET',
 			url:window.location.origin+'/enquiries/callback',
 			datatype: 'html',
@@ -24,8 +24,8 @@ $("#inquiry").submit(function (event) {
 		    $('.valid_error').html('');
 			$(".imgloader").css("display", "none");
 			$('input ,textarea, select').val('');
-		});
-		return false;
+		}); */
+		//return false;
 	}
     else {
 		$(".imgloader").css("display", "none");
