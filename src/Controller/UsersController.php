@@ -885,7 +885,7 @@ class UsersController extends AppController
 				$sent_mail = $this->Users->SentEmails->get($id);
 				$sent_mail->status ='sent';
 				if($this->Users->SentEmails->save($sent_mail))
-				{
+				{ 
 					echo 1;
 				}else
 				{ 

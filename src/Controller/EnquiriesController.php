@@ -50,10 +50,10 @@ class EnquiriesController extends AppController
 		//Contact Inquiry
         $this->autoRender = false;
         $enquiry = $this->Enquiries->newEntity();
-		$name = $this->request->getQuery('name');
-		$email = $this->request->getQuery('email');
-		$reason = $this->request->getQuery('reason');
-		$message = $this->request->getQuery('message');
+		$name = $this->request->getData('name');
+		$email = $this->request->getData('email');
+		$reason = $this->request->getData('reason');
+		$message = $this->request->getData('message');
 		if(!empty($name) && !empty($email))
 		{
 			$enquiry->name = $name;
@@ -65,14 +65,18 @@ class EnquiriesController extends AppController
 			if($this->Enquiries->save($enquiry))
 			{
 				$msg='Enquiry form has been submitted successfully.';
+				$this->Flash->success(__('Enquiry form has been submitted successfully.'));
 			}
 			else{
 				$msg='Enquiry form has been submitted successfully.';
+				$this->Flash->error(__('Enquiry form has been submitted successfully.'));
 			}
 		}else{
 			$msg='Enquiry form could not be submitted.';
+			$this->Flash->error(__('Enquiry form could not be submitted.'));
 		}
         echo $msg;
+		return $this->redirect('/');
         $this->set(compact('msg'));
         $this->viewBuilder()->setLayout('ajax');
         
