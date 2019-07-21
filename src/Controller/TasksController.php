@@ -95,12 +95,11 @@ class TasksController extends AppController
             //'fields' => ['id', 'title', 'description', 'created_on','short_description','end_days','user_id'],
             'conditions' => $conditions,
             'contain' => ['Users'=>[
-			'fields' =>['name']]
-			],
+							'fields' =>['name']]
+							],
             'order' => ['Tasks.id' => 'DESC'],
-			'limit' => 10,
-			
-        ];
+						'limit' => 10,
+			    ];
 		$tasks = $this->paginate($this->Tasks); 
 		$this->set(compact('tasks'));
 		$this->set('activeMenu', 'Tasks.earnMoney');

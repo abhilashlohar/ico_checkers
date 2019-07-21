@@ -121,7 +121,7 @@ class NewsController extends AppController
 			if(empty($errors))
             {
 				$news->is_approved = "no";
-				$news->created_on = date("Y-m-d h:i:s");
+				$news->created_on = date("Y-m-d H:i:s");
 				$news->created_by = 11; // session user_id
 				if ($this->News->save($news)) {
 					$this->Flash->success(__('The news has been saved.'));
