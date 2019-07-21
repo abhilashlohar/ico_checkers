@@ -610,7 +610,7 @@
 											<ul class="roadmap">
 												<li> Adverting automatic platform testing </li>
 												<li> One touch architecture solution development </li>
-												<li> L&L Product listing platform development </li>
+												<li> Business & Product listing platform development </li>
 											</ul>
 										</div>
 									</div>
@@ -645,7 +645,7 @@
 												 Sep 2020
 											</div>
 											<ul class="roadmap"> 
-												<li> L&L Product listing platform testing </li>
+												<li> Business & Product listing platform testing </li>
 												<li> One touch architecture solution Live for architects & users </li>
 											</ul>
 										</div>
@@ -658,7 +658,7 @@
 											</div>
 											<ul class="roadmap"> 
 												<li> Blockchain development </li>
-												<li> L&L product listing platform sales is live worldwide </li>
+												<li> Business & Product listing platform sales is live worldwide </li>
 												<li> Proof of document platform live</li>
 												<li> Sign up bonus closed & sign up without any bonus </li> 
 											</ul>
