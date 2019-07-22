@@ -191,11 +191,7 @@
 									<h3 style="color: #FFF;">Sign up bonus for all users</h3>
 									<div>
 										<span style="padding-right: 7px;"><?php echo $this->Html->Image('/img/right-symbol.png',['style' => 'height: 20px;']); ?></span>
-<<<<<<< HEAD
 										<span> Instant 1000 MDI Coins in your wallet</span>
-=======
-										<span> Instant 500 Points in your wallet</span>
->>>>>>> e5eecca2778846d331a10eee0f408224ebea3b57
 									</div>
 									<div>
 										<span style="padding-right: 7px;"><?php echo $this->Html->Image('/img/right-symbol.png',['style' => 'height: 20px;']); ?></span>
