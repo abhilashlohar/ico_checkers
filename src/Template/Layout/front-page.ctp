@@ -191,7 +191,11 @@
 									<h3 style="color: #FFF;">Sign up bonus for all users</h3>
 									<div>
 										<span style="padding-right: 7px;"><?php echo $this->Html->Image('/img/right-symbol.png',['style' => 'height: 20px;']); ?></span>
+<<<<<<< HEAD
 										<span> Instant 1000 MDI Coins in your wallet</span>
+=======
+										<span> Instant 500 Points in your wallet</span>
+>>>>>>> e5eecca2778846d331a10eee0f408224ebea3b57
 									</div>
 									<div>
 										<span style="padding-right: 7px;"><?php echo $this->Html->Image('/img/right-symbol.png',['style' => 'height: 20px;']); ?></span>
@@ -204,7 +208,11 @@
 								</div>
 								
 								<div class="promo__btns-wrap">
+<<<<<<< HEAD
 									<a href="<?= $this->Url->Build('/sign-up')?>" class="btn btn--medium btn--orange"><span>Sign up & get 1000 MDI Coins</span></a>
+=======
+									<a href="<?= $this->Url->Build('/sign-up')?>" class="btn btn--medium btn--orange"><span>Sign up & get 500 points</span></a>
+>>>>>>> e5eecca2778846d331a10eee0f408224ebea3b57
 									<a href="
 										<?php 
 										if(@$role=='Admin' || @$role=='Staff'){
@@ -1550,7 +1558,7 @@
 									<div class="logo__title">ICO CHECKERS</div> -->
 									<?php echo $this->Html->Image('/img/new-logo.png',['style' => 'height: 50px;']); ?>
 								</a>
-								<div class="copyright">© 2018, ICO CHECKERS </div>
+								<div class="copyright">©️ 2019-20, ICO CHECKERS. All Rights Reserved. </div>
 							</div>
 							<div class="col-lg-4">
 								<div class="social-block">
