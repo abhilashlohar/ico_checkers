@@ -204,11 +204,9 @@
 								</div>
 								
 								<div class="promo__btns-wrap">
-<<<<<<< HEAD
+
 									<a href="<?= $this->Url->Build('/sign-up')?>" class="btn btn--medium btn--orange"><span>Sign up & get 1000 MDI Coins</span></a>
-=======
-									<a href="<?= $this->Url->Build('/sign-up')?>" class="btn btn--medium btn--orange"><span>Sign up & get 500 points</span></a>
->>>>>>> e5eecca2778846d331a10eee0f408224ebea3b57
+
 									<a href="
 										<?php 
 										if(@$role=='Admin' || @$role=='Staff'){
