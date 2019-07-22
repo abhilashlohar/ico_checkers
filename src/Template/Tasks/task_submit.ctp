@@ -14,7 +14,9 @@ $this->Html->css(['blog'], ['block' => true]);
 		<div class="row">
 			<div class="col-md-3">
 				<div class="form-group">
-					<?php echo $this->Html->image(str_replace('\\','/',$task_proofs->image),['class'=>'img-thumbnail', 'style' => 'max-width:100%;']); ?>
+					<?php 
+					if($task_proofs->image!=''){
+					echo $this->Html->image(str_replace('\\','/',$task_proofs->image),['class'=>'img-thumbnail', 'style' => 'max-width:100%;']); } ?>
 				</div>
 			</div>
 		</div>

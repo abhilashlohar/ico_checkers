@@ -150,21 +150,22 @@ class TasksController extends AppController
 				}
 			}  
 			
-			if(empty($errors))
-            {
+			/* if(empty($errors))
+            { */
 				$taskProof->user_id = $this->Auth->user('id');
 				$taskProof->created_date = $time->format('Y-m-d H:i:s');
+				
 				if ($this->Tasks->TaskProofs->save($taskProof)) {
 					$this->Flash->success(__('Your Task Proof  has been saved.'));
 					return $this->redirect(['action' => 'earnMoney']);
 				}else{ 
 					$this->Flash->error(__('The task proof could not be saved. Please, try again.'));
 				}
-			}
+			/* }
 			else
 			{   
 				$this->Flash->error(implode('<br />', $errors), ['escape' => false]);
-			}
+			} */
         }
 		$task_proofs = $this->Tasks->TaskProofs->find()
 		              ->where(['TaskProofs.task_id'=>$id,'TaskProofs.user_id'=>$this->Auth->user('id')])

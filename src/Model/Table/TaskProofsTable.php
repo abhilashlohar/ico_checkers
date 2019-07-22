@@ -66,18 +66,19 @@ class TaskProofsTable extends Table
             ->allowEmptyString('message', false);
 
         $validator
-          ->requirePresence('image', 'create')
-            ->notEmpty('image', __('Please select a image.'), function($context) {
+           //->requirePresence('image', 'create')
+		    ->allowEmpty('image');
+            /* ->notEmpty('image', __('Please select a image.'), function($context) {
                 return $context['newRecord'];
-            })
-            ->add('image', 'fileSize', [
+            }) */
+            /* ->add('image', 'fileSize', [
                 'rule' => ['fileSize', '<=', '2MB'],
                 'message' => __('Image must be less than 2MB.')
             ])
             ->add('images', 'extension', [
                 'rule' => ['extension'],
                 'message' => __('Please supply a valid image [allowed extensions are: Gif, Jpeg, Png, Jpg].')
-            ]);
+            ]) */;
 
         return $validator;
     }
