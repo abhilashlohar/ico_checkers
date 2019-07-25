@@ -28,7 +28,7 @@ class UsersController extends AppController
             return $this->redirect(['/Dashboard']);
         }
         
-        $this->Auth->allow(['forgotPassword', 'resetPassword', 'logout','image','registration','approveemail','saveemailuser','healthcheck','testEmail']);
+        $this->Auth->allow(['forgotPassword', 'resetPassword', 'logout','image','registration','approveemail','saveemailuser','healthcheck','testEmail','emailSent']);
     }
     /**
      * Index method
@@ -944,9 +944,9 @@ class UsersController extends AppController
 									},'SentEmails'])
 									->matching('SentEmails', function($q){
 										return $q->where(['SentEmails.status'=>'Sent']);
-									})->limit(10);
+									})->limit(10); 
 		if(!empty($email_users->toArray()))
-		{
+		{   
 			$emailArr=[];
 			foreach($email_users as $email_user)
 			{
@@ -964,14 +964,14 @@ class UsersController extends AppController
 							'msg'  => $email_user->sent_email->message
 						])
 						->send();
-					$email_user1 = $this->SentEmails->EmailUsers->get($email_user->id);
-					$email_user1->status = 'send';
-					$this->SentEmails->EmailUsers->save($email_user1);
+					$email_user1 = $this->Users->SentEmails->EmailUsers->get($email_user->id); 
+					$email_user1->status = 'Sent';
+					$this->Users->SentEmails->EmailUsers->save($email_user1);
 				}
 			}
 			
 		}
-
+	exit;
 	}
 	
 	public function testEmail()
