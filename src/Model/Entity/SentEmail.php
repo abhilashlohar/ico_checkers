@@ -31,6 +31,7 @@ class SentEmail extends Entity
         'create_date' => true,
         'status' => true,
         'sent_on' => true,
-        'email_users' => true
+        'email_users' => true,
+		'h_type' => true,
     ];
 }

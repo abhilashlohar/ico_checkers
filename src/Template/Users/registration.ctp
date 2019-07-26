@@ -18,7 +18,7 @@
     <?= $this->Form->control('password', ['label' => false, 'class' => 'form-control', 'placeholder'=>'Set Password']); ?>
     <?= $this->Form->control('confirm_password', ['label' => false, 'class' => 'form-control', 'placeholder'=>'Confirm Password','type'=>'password']); ?>
     
-    <?= $this->Form->button(__('Save'), ['class' => 'btn btn-lg btn-primary btn-block ic_button']); ?>
-	<?= $this->Html->link(__('Login'), ['action' => 'login'],['class' =>'ic_link']); ?>
+    <?= $this->Form->button(__('Sign up'), ['class' => 'btn btn-lg btn-primary btn-block ic_button']); ?>
+	<?= $this->Html->link(__('Sign in'), ['action' => 'login'],['class' =>'ic_link']); ?>
     <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
 <?= $this->Form->end() ?>

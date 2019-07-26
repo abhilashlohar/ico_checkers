@@ -192,7 +192,7 @@
 									<h3 style="color: #FFF;">Sign up bonus for all users</h3>
 									<div>
 										<span style="padding-right: 7px;"><?php echo $this->Html->Image('/img/right-symbol.png',['style' => 'height: 20px;']); ?></span>
-										<span> Instant 500 Points in your wallet</span>
+										<span> Instant 1000 MDI Coins in your wallet</span>
 									</div>
 									<div>
 										<span style="padding-right: 7px;"><?php echo $this->Html->Image('/img/right-symbol.png',['style' => 'height: 20px;']); ?></span>
@@ -205,7 +205,9 @@
 								</div>
 								
 								<div class="promo__btns-wrap">
-									<a href="<?= $this->Url->Build('/sign-up')?>" class="btn btn--medium btn--orange"><span>Sign up & get 500 points</span></a>
+
+									<a href="<?= $this->Url->Build('/sign-up')?>" class="btn btn--medium btn--orange"><span>Sign up & get 1000 MDI Coins</span></a>
+
 									<a href="
 										<?php 
 										if(@$role=='Admin' || @$role=='Staff'){
@@ -291,8 +293,8 @@
 										<li>
 											The earnings are real in the testing phase and will convert after platform live in preference payment method available on the platform, you can also get traffic on your own website/apps/any other tasks from here by creating task.
 										</li>
-										<li>Before invest, on our platform you need to earn points on our platform by daily task & creat task for other users and also make news on trending topic and submit ico checkers mail use subject news and also share on your platform if you have, minimum 500-1000 word according to news 100-500 points for your news submission .</li>
-										<li>Every task given by our platform or other users approve in maximum 24 hours and points reflect in user account in 24-hour automatically after user complete task</li>
+										<li>Before invest, on our platform you need to earn MDI Coins on our platform by daily task & creat task for other users and also make news on trending topic and submit ico checkers mail use subject news and also share on your platform if you have, minimum 500-1000 word according to news 100-500 MDI Coins for your news submission .</li>
+										<li>Every task given by our platform or other users approve in maximum 24 hours and MDI Coins reflect in user account in 24-hour automatically after user complete task</li>
 									</ul>
 								</div>
 							</div>
@@ -1423,9 +1425,9 @@
 											</p>
 										</li>
 										<li>
-											<a>WHAT IS USE OF 1000 POINTS,  FIVE DI SLOTS & ONE YEAR FREE AIRDROP NOTIFICATION SLOTS?</a>
+											<a>WHAT IS USE OF 1000 MDI Coins,  FIVE DI SLOTS & ONE YEAR FREE AIRDROP NOTIFICATION SLOTS?</a>
 											<p>
-												1000 points free use in get free referral from our website for your targeted platform task Use Points in create task for other users to join you on your platform like- youtube ,blogger etc.
+												1000 MDI Coins free use in get free referral from our website for your targeted platform task Use MDI Coins in create task for other users to join you on your platform like- youtube ,blogger etc.
 											</p>
 										</li>
 										<li>

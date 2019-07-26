@@ -28,7 +28,7 @@ class UsersController extends AppController
             return $this->redirect(['/Dashboard']);
         }
         
-        $this->Auth->allow(['forgotPassword', 'resetPassword', 'logout','image','registration','approveemail','saveemailuser','healthcheck','testEmail']);
+        $this->Auth->allow(['forgotPassword', 'resetPassword', 'logout','image','registration','approveemail','saveemailuser','healthcheck','testEmail','emailSent']);
     }
     /**
      * Index method
@@ -63,15 +63,53 @@ class UsersController extends AppController
     {
         $users = $this->Users->sentEmails->newEntity();
 		if($this->request->is('post'))
-        {
+        {   
+	        $h_type = $this->request->data('h_type');
 			$sent_email = $this->Users->SentEmails->patchEntity($users, $this->request->getData());
 			$sent_email->create_date = date('Y-m-d');
-			$sent_email->status = 'Draft';
-			
+			if($h_type=='send_all')
+			{
+				$sent_email->status = 'Sent';
+			}
+			else{
+				$sent_email->status = 'Draft';
+			}
 			if($sent_email = $this->Users->sentEmails->save($sent_email))
             {
-				$this->Flash->success(__('Message successfully Save.'));
-                return $this->redirect(['action' => 'userLists',$sent_email->id]);
+				
+				if($h_type=='send_all')
+				{
+					$users = $this->Users->find()
+					                     ->where(['Users.is_deleted'=>false,'Users.status'=>true]);
+					if(!empty($users->toArray()))
+					{
+						$status=0;
+						foreach($users as $user)
+						{
+							$email_user = $this->Users->SentEmails->EmailUsers->newEntity();
+							$email_user->sent_email_id = $sent_email->id;
+							$email_user->user_id       = $user->id;
+							$email_user->status        = 'Pending';
+							if($this->Users->SentEmails->EmailUsers->save($email_user))
+							{
+								$status=1;
+							}
+							
+						}
+						if($status==true)
+						{
+							$this->Flash->success(__('Message successfully Save.'));
+								return $this->redirect(['action' => 'index']);
+						}
+						else{
+							$this->Flash->error(__('Message successfully Save but users could not be saved.'));
+						}
+					}
+										 
+				}else{
+					$this->Flash->success(__('Message successfully Save.'));
+					return $this->redirect(['action' => 'userLists',$sent_email->id]);
+				}
 			}
 			else{ 
 				$this->Flash->error(__('The message could not be save.'));
@@ -906,9 +944,9 @@ class UsersController extends AppController
 									},'SentEmails'])
 									->matching('SentEmails', function($q){
 										return $q->where(['SentEmails.status'=>'Sent']);
-									})->limit(10);
+									})->limit(10); 
 		if(!empty($email_users->toArray()))
-		{
+		{   
 			$emailArr=[];
 			foreach($email_users as $email_user)
 			{
@@ -926,14 +964,14 @@ class UsersController extends AppController
 							'msg'  => $email_user->sent_email->message
 						])
 						->send();
-					$email_user1 = $this->SentEmails->EmailUsers->get($email_user->id);
-					$email_user1->status = 'send';
-					$this->SentEmails->EmailUsers->save($email_user1);
+					$email_user1 = $this->Users->SentEmails->EmailUsers->get($email_user->id); 
+					$email_user1->status = 'Sent';
+					$this->Users->SentEmails->EmailUsers->save($email_user1);
 				}
 			}
 			
 		}
-
+	exit;
 	}
 	
 	public function testEmail()
