@@ -46,6 +46,7 @@
 			</script>
 
 			<style>.preloader{width: 100%;height: 100%;position: fixed;background-color: #fff;z-index: 9999;}</style>
+			<script src="https://kit.fontawesome.com/7075c839b1.js"></script>
 		</head>
 
 		<body>
@@ -731,6 +732,34 @@
 					  color: #FFF;
 					}
 				</style>
+
+				<section class="section section--no-pad-top team" id="team">
+					<div class="container">
+						<div class="row">
+							<div class="col">
+								<div class="section-header section-header--tire section-header--medium-margin">
+									<h2 align="center">Reward MDI Coins</h2>
+								</div>
+							</div>
+						</div>
+						<div align="center">
+								<div style="font-size: 24px;">Signup 500 MDI Coins</div>
+								<p>After email confirmation</p>
+								<br>
+								<div style="font-size: 24px;">Refer & Earn 200 MDI Coins</div>
+								<p>Points after email confirmation</p>
+								<p>If user is already registered, then no benefit will be provided</p>
+								<br>
+								<div style="font-size: 24px;">After sign in Join us on all social media platforms and get more MDI Coins</div>
+								<br>
+								<div style="font-size: 24px;">News read 10 MDI Coins</div>
+								<p>After 3 minutes of page load</p>
+								<br>
+								<div style="font-size: 24px;">Task completion</div>
+						</div>
+					</div>
+					<img src="<?php echo $library; ?>img/team-bg.png" data-jarallax-element="40" alt="" class="team__bg">
+				</section>
 
 				<!-- <section class="partners-logo" id="partners-logo">
 					<div class="container">
@@ -1503,9 +1532,7 @@
 								
 								<?= $this->Form->create('',['url'=> ['controller'=>'Enquiries','action' => 'callback'],'class'=>'form contact-form inquiry','id'=>'inquiry','name'=>'inquiry']) ?>
 									<?= $this->Form->control('name',['label'=>false,'class'=>'form__input','placeholder'=>'Name','required'=>true])?>
-									<!--<span class="valid_error" data-valmsg-for="name"></span>-->
 									<?= $this->Form->control('email',['label'=>false,'class'=>'form__input','placeholder'=>'Email','type'=>'email','required'=>true])?>
-									<!--<span class="valid_error" data-valmsg-for="email"></span>-->
 								<?php
 								$reason = ['Users'=>'Users','Partnership'=>'Partnership','Investment'=>'Investment','Purchase Points'=>'Purchase Points','Proof of DI'=>'Proof of DI','Others'=>'Others'];
 								echo $this->Form->control('reason', ['type' => 'select','options' => $reason,'class'=>'custom_select','label'=>false,'empty'=>'Reason','required'=>true]);
@@ -1555,34 +1582,38 @@
 							<div class="col-lg-4">
 								<div class="social-block">
 									<div class="social-block__title">
-										Stay connected:
+										Stay connected: 
 									</div>
 
 									<ul class="social-list">
 										<li class="social-list__item">
-											
 											<a href="#" class="social-list__link">
-												<i class="fontello-icon icon-twitter">&#xf309;</i>
+												<i class="fab fa-facebook-f fontello-icon"></i>
 											</a>
 										</li>
 										<li class="social-list__item">
 											<a href="#" class="social-list__link">
-												<i class="fontello-icon icon-facebook">&#xf30c;</i>
+												<i class="fab fa-instagram fontello-icon"></i>
 											</a>
 										</li>
 										<li class="social-list__item">
 											<a href="#" class="social-list__link">
-												<i class="fontello-icon icon-telegram">&#xf2c6;</i>
+												<i class="fab fa-twitter fontello-icon"></i>
 											</a>
 										</li>
 										<li class="social-list__item">
 											<a href="#" class="social-list__link">
-												<i class="fontello-icon icon-bitcoin">&#xf15a;</i>
+												<i class="fab fa-youtube fontello-icon"></i>
 											</a>
 										</li>
 										<li class="social-list__item">
 											<a href="#" class="social-list__link">
-												<i class="fontello-icon icon-youtube-play">&#xf16a;</i>
+												<i class="fab fa-telegram-plane fontello-icon"></i>
+											</a>
+										</li>
+										<li class="social-list__item">
+											<a href="#" class="social-list__link">
+												<i class="fab fa-linkedin-in fontello-icon"></i>
 											</a>
 										</li>
 									</ul>
