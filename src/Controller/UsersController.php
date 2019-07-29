@@ -28,13 +28,8 @@ class UsersController extends AppController
             return $this->redirect(['/Dashboard']);
         }
         
-<<<<<<< HEAD
-        $this->Auth->allow(['forgotPassword', 'resetPassword', 'logout','image','registration','approveemail','saveemailuser','healthcheck','testEmail']);
-
-        $this->Security->setConfig('unlockedActions', ['registration']);
-=======
         $this->Auth->allow(['forgotPassword', 'resetPassword', 'logout','image','registration','approveemail','saveemailuser','healthcheck','testEmail','emailSent']);
->>>>>>> d3781c713fcdb8faf47946f7461285929b1efc91
+        $this->Security->setConfig('unlockedActions', ['registration']);
     }
     /**
      * Index method
