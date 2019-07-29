@@ -20,16 +20,12 @@
     <?= $this->Form->control('password', ['label' => false, 'class' => 'form-control', 'placeholder'=>'Set Password']); ?>
     <?= $this->Form->control('confirm_password', ['label' => false, 'class' => 'form-control', 'placeholder'=>'Confirm Password','type'=>'password']); ?>
     
-<<<<<<< HEAD
 
     	<!-- Google reCAPTCHA box -->
     	<div class="g-recaptcha" data-sitekey="6LdqIbAUAAAAAJwtzVOOpVelcHsuITQ8YK48hU51"></div>
 
     <?= $this->Form->button(__('Sign up'), ['class' => 'btn btn-lg btn-primary btn-block ic_button']); ?>
 	<?= $this->Html->link(__('Login'), ['action' => 'login'],['class' =>'ic_link']); ?>
-=======
-    <?= $this->Form->button(__('Sign up'), ['class' => 'btn btn-lg btn-primary btn-block ic_button']); ?>
-	<?= $this->Html->link(__('Sign in'), ['action' => 'login'],['class' =>'ic_link']); ?>
->>>>>>> d3781c713fcdb8faf47946f7461285929b1efc91
+
     <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
 <?= $this->Form->end() ?>
