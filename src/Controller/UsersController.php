@@ -29,6 +29,8 @@ class UsersController extends AppController
         }
         
         $this->Auth->allow(['forgotPassword', 'resetPassword', 'logout','image','registration','approveemail','saveemailuser','healthcheck','testEmail']);
+
+        $this->Security->setConfig('unlockedActions', ['registration']);
     }
     /**
      * Index method
@@ -86,18 +88,17 @@ class UsersController extends AppController
      * @return \Cake\Http\Response|void
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
-	public function registration()
-    { 
+		public function registration() { 
 		$this->set('page_title', __('Add New User'));
 		$this->viewBuilder()->setLayout('login');
 
-        $ref_code = $this->request->getQuery('ref');
+    $ref_code = $this->request->getQuery('ref');
 
-        $user = $this->Users->newEntity();
-        if($this->request->is('post'))
-        {   
+    $user = $this->Users->newEntity();
+    
+    if ($this->request->is('post')) {   
 			$time = new Time();
-            $user = $this->Users->patchEntity($user, $this->request->getData());
+      $user = $this->Users->patchEntity($user, $this->request->getData());
 			$user->is_deleted = 	0; 
 			$user->status = 	0; 
 			$user->role = 	'User'; 
@@ -106,55 +107,72 @@ class UsersController extends AppController
 			$user->referral_code = $this->_getReferralCode(6);
 			$ref= $this->request->getQuery('ref');
 			
-            if($this->Users->save($user))
-            {
-                // Refer code
-                if($ref_code){
-                    $RefByUser = $this->Users->find()->where(['referral_code'=>$ref_code])->first();
 
-                    $refer = $this->Users->Refers->newEntity();
-                    $refer->ref_by_user_id = $RefByUser->id;
-                    $refer->ref_to_user_id = $user->id;
-                    $refer->points = 10;
-                    $this->Users->Refers->save($refer);
-                }
-                $wallet = $this->Users->Wallets->newEntity();
-				$wallet->user_id = $user->id;
-				$wallet->point = 500;
-				$wallet->transaction_date = $time->format('Y-m-d H:i:s');
-				$this->Users->Wallets->save($wallet);
-				if(!empty($ref))
-				{
-					$user_detail   = $this->Users->find()
-					                      ->select('id')
-										  ->where(['Users.referral_code'=>$ref,'Users.is_deleted'=>false,'Users.status'=>true])
-										  ->first();
-					$wallet = $this->Users->Wallets->newEntity();
-					$wallet->user_id = $user_detail->id;
-					$wallet->point = 200;
-					$wallet->transaction_date = $time->format('Y-m-d H:i:s');
-					$this->Users->Wallets->save($wallet);
-				}
-				
-				$email = new Email('default');
-                $email->viewBuilder()->setTemplate('approve_email');
-				$email->setEmailFormat('html')
-					->setFrom('Info@icocheckers.com', 'ico')
-					->setReplyTo($user->email, 'ico')
-					->setTo($user->email, $user->name)
-					->setSubject('Approve your Email')
-					->setViewVars([
-						'str' => $str,
-						'name'=> $user->name,
-						'sitename' => 'ico'
-					])
-					->send();
-                $this->Flash->success(__('The user has been added successfully.'));
-                return $this->redirect(['action' => 'login']);
-            }
-            
-            $this->Flash->error(__('The user could not be added. Please see warning(s) below.'));
+			if ($this->request->getData()['g-recaptcha-response']) {
+				// Google reCAPTCHA API secret key 
+        $secretKey = '6LdqIbAUAAAAADeKq7FKuEfDxj6yA7_CJnVq-hpF'; 
+         
+        // Verify the reCAPTCHA response 
+        $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret='.$secretKey.'&response='.$this->request->getData()['g-recaptcha-response']); 
+         
+        // Decode json data 
+        $responseData = json_decode($verifyResponse); 
+
+        if ($responseData->success) {
+        	if ($this->Users->save($user)) {
+		        // Refer code
+			      if ($ref_code) {
+			          $RefByUser = $this->Users->find()->where(['referral_code'=>$ref_code])->first();
+
+			          $refer = $this->Users->Refers->newEntity();
+			          $refer->ref_by_user_id = $RefByUser->id;
+			          $refer->ref_to_user_id = $user->id;
+			          $refer->points = 10;
+			          $this->Users->Refers->save($refer);
+			      }
+			      $wallet = $this->Users->Wallets->newEntity();
+						$wallet->user_id = $user->id;
+						$wallet->point = 500;
+						$wallet->transaction_date = $time->format('Y-m-d H:i:s');
+						$this->Users->Wallets->save($wallet);
+						
+						if (!empty($ref)) {
+							$user_detail   = $this->Users->find()
+							                  ->select('id')
+												  			->where(['Users.referral_code'=>$ref,'Users.is_deleted'=>false,'Users.status'=>true])
+												  			->first();
+							$wallet = $this->Users->Wallets->newEntity();
+							$wallet->user_id = $user_detail->id;
+							$wallet->point = 200;
+							$wallet->transaction_date = $time->format('Y-m-d H:i:s');
+							$this->Users->Wallets->save($wallet);
+						}
+						
+						$email = new Email('default');
+		                $email->viewBuilder()->setTemplate('approve_email');
+						$email->setEmailFormat('html')
+							->setFrom('Info@icocheckers.com', 'ico')
+							->setReplyTo($user->email, 'ico')
+							->setTo($user->email, $user->name)
+							->setSubject('Approve your Email')
+							->setViewVars([
+								'str' => $str,
+								'name'=> $user->name,
+								'sitename' => 'ico'
+							])
+							->send();
+		                $this->Flash->success(__('The user has been added successfully.'));
+		                return $this->redirect(['action' => 'login']);
+		      }
+        } else {
+        	$this->Flash->error(__('Robot validation has failed.'));
         }
+        $this->Flash->error(__('Robot validation has failed.'));
+			}
+      
+            
+   		$this->Flash->error(__('The user could not be added. Please see warning(s) below.'));
+    }
 		// country code
 		$country[]= ['value'=>'Algeria (+213)','text' =>'Algeria (+213)'];
 		$country[]= ['value'=>'Andorra (+376)','text' =>'Andorra (+376)'];
@@ -940,9 +958,9 @@ class UsersController extends AppController
 	{
 		$email = new Email('default');
 					$email->setEmailFormat('html')
-						->setFrom('Info@icocheckers.com', 'ico')
-						->setReplyTo('abhilashlohar01@gmail.com', 'ico')
-						->setTo('abhilashlohar01@gmail.com', 'Abhilash')
+						->setFrom('info@icocheckers.com', 'ico')
+						->setReplyTo('info@icocheckers.com', 'ico')
+						->setTo('info@icocheckers.com', 'Abhilash')
 						->setSubject('Meassage');
 						$email->viewBuilder()->setTemplate('meaasage');
 						$email->setViewVars([

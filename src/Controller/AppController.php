@@ -85,6 +85,8 @@ class AppController extends Controller
         //$this->loadComponent('Scurity');
 		$imageRoot = static::IMAGE_ROOT;  
         $this->set(compact('imageRoot'));
+
+        
     }
 	
 	public function beforeRender(Event $event)
