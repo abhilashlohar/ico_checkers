@@ -417,7 +417,7 @@
 											Social Platform
 										</div>
 										<p class="cases__item-text">
-											Currently more than 2 billion users use social platform but only 5% users are really use Social websites and apps for his own professional work or actual identity so we build Professional user interface with real user identity on our social platform.
+											Currently more than 4 billion users use social platform but only 5% users are really use Social websites and apps for his own professional work or actual identity so we build Professional user interface with real user identity on our social platform.
 
 										</p>
 									</div>
@@ -532,7 +532,7 @@
 										<div class="road__item-metka"></div>
 										<div class="road__item-content">
 											<div class="road__item-title">
-												July 2019
+												August 2019
 											</div>
 											<ul class="roadmap">
 												<li> Sign up bonus 1st round</li>
@@ -540,7 +540,7 @@
 												<li> Working task to task testing</li>
 												<li> Community building up to 200 million worldwide  target in next  8 month</li>
 												<li> Team building</li>
-												<li> Ico choking &review platform testing </li>
+												<li> Ico cheking & review platform testing </li>
 												<li> Exchanges, wallets & blockchains partnership </li>
 												<li> Connect to Media, YouTube & blogger partner</li>
 												<li> Focus on solving all blockchain problems worldwide</li>
@@ -758,6 +758,8 @@
 								<p>After 3 minutes of page load</p>
 								<br>
 								<div style="font-size: 24px;">Task completion</div>
+								<br>
+								<div style="font-size: 24px;">Daily Check-in 50 MDI Coins</div>
 						</div>
 					</div>
 					<img src="<?php echo $library; ?>img/team-bg.png" data-jarallax-element="40" alt="" class="team__bg">
@@ -1404,12 +1406,6 @@
 											<a>HOW OUR SOCIAL PLATFORM DIFFERENT FROM OTHER?</a>
 											<p>
 												In the current market more than 4 billion users are use social network but 95 % profile is not Verified by social websites our platform provides verify users and really working users.
-											</p>
-										</li>
-										<li>
-											<a>WHAT IS SERVICE PLATFORME?</a>
-											<p>
-												Users use 100+ online service in daily basis with different websites Where face many Problems, but we provide you 100 + services in future with worlds most secure platform Which is unhack by anyone, in service we launch website review & testing platform, Freelancer service platform like up work etc. , and real Google visitors platform etc.
 											</p>
 										</li>
 										<li>

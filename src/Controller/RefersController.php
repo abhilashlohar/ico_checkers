@@ -23,6 +23,48 @@ class RefersController extends AppController
 		$referral_code = @$this->Auth->User()['referral_code'];
 		$this->set('referral_code', $referral_code);
 		$this->set('activeMenu', 'Refers.index');
+
+		$session_user_id = $this->Auth->user('id');
+
+		$Rf = $this->Refers->find();
+		$Rf
+			->select(['refer_sum' => $Rf->func()->sum('Refers.points')])
+			->where(['ref_by_user_id'=>$session_user_id]);
+		if($Rf->toArray()[0]){
+			$refer_sum = $Rf->toArray()[0]->refer_sum;
+		}else{
+			$refer_sum = 0;
+		}
+
+		$Wt = $this->Refers->Withdraws->find();
+		$Wt
+			->select(['withdraw_sum' => $Wt->func()->sum('Withdraws.points')])
+			->where(['user_id'=>$session_user_id, 'is_money_transfered'=>'yes']);
+		if($Wt->toArray()[0]){
+			$withdraw_sum = $Wt->toArray()[0]->withdraw_sum;
+		}else{
+			$withdraw_sum = 0;			
+		}
+
+		$Wlt = $this->Refers->Wallets->find();
+		$Wlt
+			->select(['wallet_sum' => $Wlt->func()->sum('Wallets.point')])
+			->where(['user_id'=>$session_user_id]);
+		if($Wlt->toArray()[0]){
+			$wallet_sum = $Wlt->toArray()[0]->wallet_sum;
+		}else{
+			$wallet_sum = 0;			
+		}
+
+		$Request = $this->Refers->Withdraws->find()->where(['user_id'=>$session_user_id, 'is_money_transfered'=>'no'])->first();
+		if($Request){
+			$request_points = $Request->points;
+		}else{
+			$request_points = 0;
+		}
+
+		$wallet_balance = $refer_sum + $wallet_sum - $withdraw_sum - $request_points;
+		$this->set(compact('wallet_balance'));
 	}
 
 
