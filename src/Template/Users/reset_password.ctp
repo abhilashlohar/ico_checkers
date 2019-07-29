@@ -13,6 +13,6 @@
 	<?= $this->Form->control('confirm_password', ['label' => ['text' => __('Confirm Password')], 'class' => 'form-control ', 'placeholder' => __('Confirm Password'), 'type' => 'password','label'=>false]) ?>
    
 	<?= $this->Form->button(__('Reset Password'), ['class' => 'btn btn-lg btn-primary btn-block']); ?>
-	<?= $this->Html->link(__('Login'), ['action' => 'login']); ?>
+	<?= $this->Html->link(__('Sign in'), ['action' => 'login']); ?>
     <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
 <?= $this->Form->end() ?>

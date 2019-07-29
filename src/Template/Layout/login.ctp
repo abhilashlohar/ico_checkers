@@ -7,6 +7,10 @@
         <?= $this->fetch('title') ?>
     </title>
 
+    <?php $library = $this->request->getAttribute("webroot")."ico/"; ?>
+    <link rel="icon" href="<?php echo $library; ?>img/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $library; ?>img/favicon/apple-touch-icon-180x180.png">
+
     <!-- Bootstrap core CSS -->
     <link href="<?php echo $this->request->getAttribute("webroot"); ?>assets/css/bootstrap.min.css" rel="stylesheet">
 

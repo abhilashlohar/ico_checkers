@@ -12,7 +12,7 @@
         </label>
     </div>-->
     <?= $this->Form->button(__('Sign in'), ['class' => 'btn btn-lg btn-primary btn-block ic_button']); ?>
-    <?= $this->Html->link(__('Registration'), ['action' => 'Registration'],['class' =>'ic_link']); ?> 
+    <?= $this->Html->link(__('Sign up'), ['action' => 'Registration'],['class' =>'ic_link']); ?> 
     <span class="ic_separator">|</span> 
 	<?= $this->Html->link(__('Forgot Password?'), ['action' => 'forgotPassword'],['class' =>'ic_link']); ?> 
 	

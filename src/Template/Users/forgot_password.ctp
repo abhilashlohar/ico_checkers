@@ -8,8 +8,8 @@
          
    
 	<?= $this->Form->button(__('Continue'), ['class' => 'btn btn-lg btn-primary btn-block ic_button']); ?>
-	<?= $this->Html->link(__('Login'), ['action' => 'login'],['class' =>'ic_link']); ?> 
+	<?= $this->Html->link(__('Sign in'), ['action' => 'login'],['class' =>'ic_link']); ?> 
 	<span class="ic_separator">|</span>
-	<?= $this->Html->link(__('Registration'), ['action' => 'Registration'],['class' =>'ic_link']); ?> 
+	<?= $this->Html->link(__('Sign up'), ['action' => 'Registration'],['class' =>'ic_link']); ?> 
     <p class="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
 <?= $this->Form->end() ?>
