@@ -192,7 +192,7 @@
 									<h3 style="color: #FFF;">Sign up bonus for all users</h3>
 									<div>
 										<span style="padding-right: 7px;"><?php echo $this->Html->Image('/img/right-symbol.png',['style' => 'height: 20px;']); ?></span>
-										<span> Instant 1000 MDI Coins in your wallet</span>
+										<span> Instant 500 MDI Coins in your wallet</span>
 									</div>
 									<div>
 										<span style="padding-right: 7px;"><?php echo $this->Html->Image('/img/right-symbol.png',['style' => 'height: 20px;']); ?></span>
@@ -206,7 +206,7 @@
 								
 								<div class="promo__btns-wrap">
 
-									<a href="<?= $this->Url->Build('/sign-up')?>" class="btn btn--medium btn--orange"><span>Sign up & get 1000 MDI Coins</span></a>
+									<a href="<?= $this->Url->Build('/sign-up')?>" class="btn btn--medium btn--orange"><span>Sign up & get 500 MDI Coins</span></a>
 
 									<a href="
 										<?php 
