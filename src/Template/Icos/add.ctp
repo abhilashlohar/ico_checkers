@@ -36,6 +36,6 @@
         </div>
     </div>
     <div class="col-md-6">
-      <?php echo $this->Html->Image('/cryptoland/img/graphic.png',['style'=>'width:100%']); ?>
+      <?php echo $this->Html->Image('/img/apply-for-ico-review-rating.jpg',['style'=>'width:100%']); ?>
     </div>
 </div>

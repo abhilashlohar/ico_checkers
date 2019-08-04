@@ -1,6 +1,6 @@
 <div class="row py-5">
   <div class="col-md-6">
-    <?php echo $this->Html->Image('/img/refer.jpg',['style'=>'width:100%']); ?>
+    <?php echo $this->Html->Image('/img/Refer-and-Earn.jpg',['style'=>'width:100%']); ?>
   </div>
   
   <div class="col-md-6">
