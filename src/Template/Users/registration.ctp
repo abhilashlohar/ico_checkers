@@ -21,8 +21,13 @@
     <?= $this->Form->control('confirm_password', ['label' => false, 'class' => 'form-control', 'placeholder'=>'Confirm Password','type'=>'password']); ?>
     
 
-    	<!-- Google reCAPTCHA box -->
-    	<div class="g-recaptcha" data-sitekey="6LdqIbAUAAAAAJwtzVOOpVelcHsuITQ8YK48hU51"></div>
+	<!-- Google reCAPTCHA box -->
+	<div class="g-recaptcha" data-sitekey="6LdqIbAUAAAAAJwtzVOOpVelcHsuITQ8YK48hU51"></div>
+
+    <div style="color: #FFF;">
+        <input type="checkbox" name="tnc" required="required">
+        <a href="https://icocheckers.com/t&c-converted.pdf" target="_blank">Terms & Conditions</a> and <a href="https://icocheckers.com/Privacy_Policy_converted.pdf" target="_blank">Privacy Policy</a>
+    </div>
 
     <?= $this->Form->button(__('Sign up'), ['class' => 'btn btn-lg btn-primary btn-block ic_button']); ?>
 	<?= $this->Html->link(__('Login'), ['action' => 'login'],['class' =>'ic_link']); ?>
