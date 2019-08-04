@@ -993,18 +993,18 @@ class UsersController extends AppController
 	
 	public function testEmail()
 	{
-		$email = new Email('default');
+		/*$email = new Email('default');
 					$email->setEmailFormat('html')
 						->setFrom('info@icocheckers.com', 'ico')
 						->setReplyTo('info@icocheckers.com', 'ico')
-						->setTo('info@icocheckers.com', 'Abhilash')
+						->setTo('abhilashlohar01@gmail.com', 'Abhilash')
 						->setSubject('Meassage');
 						$email->viewBuilder()->setTemplate('meaasage');
 						$email->setViewVars([
 							'name' => 'Jai Shree Ram',
 							'msg'  => 'Jai Shree Ram'
 						])
-						->send();
+						->send();*/
 		exit;
 	}
 }
