@@ -1585,22 +1585,22 @@
 
 									<ul class="social-list">
 										<li class="social-list__item">
-											<a href="#" class="social-list__link">
+											<a href="https://www.facebook.com/checkersico/" target="_blank" class="social-list__link">
 												<i class="fab fa-facebook-f fontello-icon"></i>
 											</a>
 										</li>
 										<li class="social-list__item">
-											<a href="#" class="social-list__link">
+											<a href="https://www.instagram.com/checkersico/" target="_blank" class="social-list__link">
 												<i class="fab fa-instagram fontello-icon"></i>
 											</a>
 										</li>
 										<li class="social-list__item">
-											<a href="#" class="social-list__link">
+											<a href="https://twitter.com/CheckersIco" target="_blank" class="social-list__link">
 												<i class="fab fa-twitter fontello-icon"></i>
 											</a>
 										</li>
 										<li class="social-list__item">
-											<a href="#" class="social-list__link">
+											<a href="https://www.youtube.com/channel/UCxVY_lNhTQpAAOsVH6eOMIw" target="_blank" class="social-list__link">
 												<i class="fab fa-youtube fontello-icon"></i>
 											</a>
 										</li>
@@ -1610,7 +1610,7 @@
 											</a>
 										</li>
 										<li class="social-list__item">
-											<a href="#" class="social-list__link">
+											<a href="https://www.linkedin.com/company/23731063/admin/" target="_blank" class="social-list__link">
 												<i class="fab fa-linkedin-in fontello-icon"></i>
 											</a>
 										</li>

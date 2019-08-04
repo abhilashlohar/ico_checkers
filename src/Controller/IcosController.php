@@ -55,7 +55,7 @@ class IcosController extends AppController
      */
     public function add()
     {
-        $this->viewBuilder()->setLayout('ico');
+        // $this->viewBuilder()->setLayout('ico');
         $ico = $this->Icos->newEntity();
         if ($this->request->is('post')) {
             $ico = $this->Icos->patchEntity($ico, $this->request->getData());
