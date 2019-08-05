@@ -24,7 +24,7 @@ class TasksController extends AppController
         parent::initialize();
         
         
-        //$this->Auth->allow(['earnMoney','taskSubmit']);
+        $this->Auth->allow(['checkTaskProve']);
     }
     public function index()
     {
@@ -258,13 +258,13 @@ class TasksController extends AppController
         $time = new Time();
 		$current_date =  $time->format('Y-m-d H:i:s');
 		$tasks = $this->Tasks->find()
-		                   ->contain(['TaskProofs','Users'])
-						   ->matching('Users', function ($q){
-							   return $q->where(['Users.role'=>'User']);
-						   })
-						   ->matching('TaskProofs', function ($qq){
-							   return $qq->where(['TaskProofs.is_approved'=>false]);
-						   }); 
+					   ->contain(['TaskProofs','Users'])
+					   ->matching('Users', function ($q){
+						   return $q->where(['Users.role'=>'User']);
+					   })
+					   ->matching('TaskProofs', function ($qq){
+						   return $qq->where(['TaskProofs.is_approved'=>false]);
+					   }); 
 		foreach($tasks as $task)
 		{
 			if(!empty($task->task_proofs))
