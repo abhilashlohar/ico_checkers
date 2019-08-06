@@ -1605,13 +1605,13 @@
 											</a>
 										</li>
 										<li class="social-list__item">
-											<a href="#" class="social-list__link">
-												<i class="fab fa-telegram-plane fontello-icon"></i>
+											<a href="https://www.linkedin.com/company/ico-checkers" target="_blank" class="social-list__link">
+												<i class="fab fa-linkedin-in fontello-icon"></i>
 											</a>
 										</li>
 										<li class="social-list__item">
-											<a href="https://www.linkedin.com/company/23731063/admin/" target="_blank" class="social-list__link">
-												<i class="fab fa-linkedin-in fontello-icon"></i>
+											<a href="https://t.me/IcocheckersMdicoin" target="_blank" class="social-list__link">
+												<i class="fab fa-telegram-plane fontello-icon"></i>
 											</a>
 										</li>
 									</ul>
