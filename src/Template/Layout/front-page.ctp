@@ -139,17 +139,18 @@
 								<a href="#map" class="mob-menu__link">Road Map</a>
 							</li>
 							<li class="mob-menu__item">
-								<a href="#stat" class="mob-menu__link">Statistic</a>
+								<a href="#docs" class="mob-menu__link">WhitePappers</a>
+							</li>
+							<li class="menu__item">
+								<a href="http://icocheckers.com/Apply-for-ICO-Review" class="mob-menu__link">Apply for ICO Review</a>
 							</li>
 							<!-- <li class="mob-menu__item">
 								<a href="#token" class="mob-menu__link">Token</a>
 							</li> -->
-							<li class="mob-menu__item">
-								<a href="#docs" class="mob-menu__link">WhitePappers</a>
-							</li>
-							<li class="mob-menu__item">
-								<a href="#team" class="mob-menu__link">Team</a>
-							</li>
+							
+							<li class="menu__item">
+							<a href="<?= $this->Url->build('/News-Updates') ?>" class="mob-menu__link">News</a>
+						</li>
 							<li class="mob-menu__item">
 								<a href="#faq" class="mob-menu__link">FAQ</a>
 							</li>
