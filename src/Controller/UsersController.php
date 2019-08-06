@@ -563,12 +563,8 @@ class UsersController extends AppController
 						}
 						else{
                         $user2 = $this->request
-<<<<<<< HEAD
-                            ->withData('password_token', $this->_getRandomString(6).'-'.$this->_getRandomString(6).'-ico-'.$this->_getRandomString(6).'-'.$this->_getRandomString(6))
-=======
                             ->withData('password_token', $this->_getRandomString(6).$this->_getRandomString(6).
                                 crypt($userInfo->id, 'ico').$this->_getRandomString(6).$this->_getRandomString(6))
->>>>>>> 67ac0cc4257fcfbbd4f80c0ffe957e219db947d6
                             ->withData('token_expiry', $time->format('Y-m-d H:i:s'))
                             ->withData('is_deleted', $userInfo->is_deleted);
                         }
