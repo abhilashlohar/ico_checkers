@@ -65,7 +65,11 @@ class AirdropsTable extends Table
             ->maxLength('country', 50)
             ->requirePresence('country', 'create')
             ->allowEmptyString('country', false);
-
+			
+		$validator
+            ->scalar('description')
+            ->allowEmptyString('description', false);
+			
         $validator
             ->email('email')
             ->requirePresence('email', 'create')
