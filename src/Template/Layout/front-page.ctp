@@ -1609,12 +1609,39 @@
 												<i class="fab fa-linkedin-in fontello-icon"></i>
 											</a>
 										</li>
-										<li class="social-list__item">
-											<a href="https://t.me/IcocheckersMdicoin" target="_blank" class="social-list__link">
-												<i class="fab fa-telegram-plane fontello-icon"></i>
-											</a>
-										</li>
 									</ul>
+									<br/>
+									<div align="">
+										<table>
+											<tr>
+												<td>
+													<a href="https://t.me/IcocheckersMdicoin" target="_blank" class="social-list__link">
+														<i class="fab fa-telegram-plane fontello-icon"></i>  
+													</a> 
+													<span>Channel</span>
+												</td>
+												<td width="10px;"></td>
+												<td>
+													<a href="https://t.me/joinchat/Ogvwp0Wyo8EzymxOkiiLdQ" target="_blank" class="social-list__link">
+														<i class="fab fa-telegram-plane fontello-icon"></i>  
+													</a> 
+													<span> Group</span>
+												</td>
+											</tr>
+										</table>
+											<!-- <ul class="social-list">
+												<li class="social-list__item">
+													
+												</li>
+												<li class="social-list__item">
+													<a href="https://t.me/joinchat/Ogvwp0Wyo8EzymxOkiiLdQ" target="_blank" class="social-list__link">
+														<i class="fab fa-telegram-plane fontello-icon"></i>   
+													</a>
+													<span>Group</span>
+												</li>
+											</ul> -->
+									</div>
+									
 								</div>
 							</div>
 							<div class="col-lg-4">
