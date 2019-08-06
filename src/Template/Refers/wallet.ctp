@@ -1,11 +1,13 @@
 
 <div class="row py-3">
-    <div class="col-md-12">
-        <p>You wallet balance: <?= $wallet_balance ?></p>
+    <div class="col-md-6">
+    		<div class="card text-white bg-info mb-3" align="center">
+				  <div class="card-header"><h6>You wallet balance: </h6><h5><?= $wallet_balance ?> MDI Coins</h5></div>
+				</div>
     </div>
 </div>
 
-<div class="row py-3">
+<div class="row">
     <div class="col-md-6">
     	<?php if(!$Request){ ?>
 	    	<?= $this->Form->create($Withdraw,['id'=>'form1']) ?>
@@ -32,12 +34,12 @@
 	            </div>
 				 <div class="col-md-12 mb-3">
 					<div class="form-group">
-	                  <?php echo $this->Form->control('points',['class'=>'form-control','required'=>'required','max'=>$wallet_balance,'step'=>0]); ?>
+	                  <?php echo $this->Form->control('points',['class'=>'form-control','required'=>'required','max'=>$wallet_balance,'step'=>0, 'label' =>'MDI Coins']); ?>
 					  
 	              </div>
 				 </div>
 	          </div>
-	        	<button type="submit" class="btn btn-primary">Send Request</button>
+	        	<button type="submit" class="btn btn-primary">Send Withdraw Request</button>
 	        </div> 
 	      </div>
 	      <?= $this->Form->end() ?>
@@ -47,7 +49,7 @@
 	        <div class="card-body">
 	          <div class="row">
 	            <div class="col-md-12 mb-3">
-	              <span>You have sent withdraw request of <b><?= $Request->points ?></b> points on <b><?= $Request->created_on->format("d-M-Y h:i A") ?></b>.</span>
+	              <span>You have sent withdraw request of <b><?= $Request->points ?></b> MDI Coins on <b><?= $Request->created_on->format("d-M-Y h:i A") ?></b>.</span>
 	              <br><br>
 	              <b>Message:</b>
 	              <?= $this->Text->autoParagraph($Request->comment); ?>

@@ -22,7 +22,7 @@
         Your Wallet Information
       </div>
       <div class="card-body">
-        <h5 class="card-title">You wallet balance: <?= $wallet_balance ?></h5>
+        <h5 class="card-title">You wallet balance: <?= $wallet_balance ?> MDI Coins</h5>
         <a href="<?= $this->Url->Build('/My-Wallet')?>" class="btn btn-primary">Go To Wallet</a>
       </div>
     </div>
