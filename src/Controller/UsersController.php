@@ -556,8 +556,7 @@ class UsersController extends AppController
                         $time->modify('+3 Days');
                        
                         $user2 = $this->request
-                            ->withData('password_token', $this->_getRandomString(6).'-'.$this->_getRandomString(6).'-'.
-                                crypt($userInfo->id, 'ico').'-'.$this->_getRandomString(6).'-'.$this->_getRandomString(6))
+                            ->withData('password_token', $this->_getRandomString(6).'-'.$this->_getRandomString(6).'-ico-'.$this->_getRandomString(6).'-'.$this->_getRandomString(6))
                             ->withData('token_expiry', $time->format('Y-m-d H:i:s'))
                             ->withData('is_deleted', $userInfo->is_deleted);
                          
@@ -971,8 +970,8 @@ class UsersController extends AppController
 				{
 					$email = new Email('default');
 					$email->setEmailFormat('html')
-						->setFrom('Info@icocheckers.com', 'ico')
-						->setReplyTo($email_user->user->email, 'ico')
+						->setFrom('info@icocheckers.com', 'icocheckers')
+						->setReplyTo('info@icocheckers.com', 'icocheckers')
 						->setTo($email_user->user->email, $email_user->user->name)
 						->setSubject('Meassage');
 						$email->viewBuilder()->setTemplate('meaasage');
