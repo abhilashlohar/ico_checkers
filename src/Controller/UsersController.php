@@ -543,7 +543,7 @@ class UsersController extends AppController
             if(!$user->getErrors())
             {  
                 $userInfo = $this->Users->find()
-                    ->select(['id', 'name', 'email', 'status', 'is_deleted','role'])
+                    ->select(['id', 'name', 'email', 'status', 'is_deleted'])
                     ->where(['Users.email' => $this->request->getData('email')])
                     ->andWhere(['Users.is_deleted' => false])
                     ->first();
@@ -554,20 +554,12 @@ class UsersController extends AppController
                     {
                         $time = new Time();
                         $time->modify('+3 Days');
-                        if($userInfo->role== 'Admin')
-						{
-							$user2 = $this->request
-                            ->withData('password_token', $this->_getRandomString(6).crypt($userInfo->id,'ico'))
-                            ->withData('token_expiry', $time->format('Y-m-d H:i:s'))
-                            ->withData('is_deleted', $userInfo->is_deleted);
-						}
-						else{
+                       
                         $user2 = $this->request
-                            ->withData('password_token', $this->_getRandomString(6).$this->_getRandomString(6).
-                                crypt($userInfo->id, 'ico').$this->_getRandomString(6).$this->_getRandomString(6))
+                            ->withData('password_token', $this->_getRandomString(6).'-'.$this->_getRandomString(6).'-ico-'.$this->_getRandomString(6).'-'.$this->_getRandomString(6))
                             ->withData('token_expiry', $time->format('Y-m-d H:i:s'))
                             ->withData('is_deleted', $userInfo->is_deleted);
-                        }
+                         
                         $user = $this->Users->patchEntity($userInfo, $user2->getData(), [
                             'accessibleFields' => ['password_token' => true, 'token_expiry' => true]
                         ]);
