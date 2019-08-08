@@ -193,7 +193,7 @@
 									<h3 style="color: #FFF;">Sign up bonus for all users</h3>
 									<div>
 										<span style="padding-right: 7px;"><?php echo $this->Html->Image('/img/right-symbol.png',['style' => 'height: 20px;']); ?></span>
-										<span> Instant 500 MDI Coins in your wallet</span>
+										<span> Instant 200 MDI Coins in your wallet</span>
 									</div>
 									<div>
 										<span style="padding-right: 7px;"><?php echo $this->Html->Image('/img/right-symbol.png',['style' => 'height: 20px;']); ?></span>
@@ -207,7 +207,7 @@
 								
 								<div class="promo__btns-wrap">
 
-									<a href="<?= $this->Url->Build('/sign-up')?>" class="btn btn--medium btn--orange"><span>Sign up & get 500 MDI Coins</span></a>
+									<a href="<?= $this->Url->Build('/sign-up')?>" class="btn btn--medium btn--orange"><span>Sign up & get 200 MDI Coins</span></a>
 
 									<a href="
 										<?php 
@@ -746,10 +746,10 @@
 							</div>
 						</div>
 						<div align="center">
-								<div style="font-size: 24px;">Signup 500 MDI Coins</div>
+								<div style="font-size: 24px;">Signup 200 MDI Coins</div>
 								<p>After email confirmation</p>
 								<br>
-								<div style="font-size: 24px;">Refer & Earn 200 MDI Coins</div>
+								<div style="font-size: 24px;">Refer & Earn 50 MDI Coins</div>
 								<p>Points after email confirmation</p>
 								<p>If user is already registered, then no benefit will be provided</p>
 								<br>
@@ -760,7 +760,7 @@
 								<br>
 								<div style="font-size: 24px;">Task completion</div>
 								<br>
-								<div style="font-size: 24px;">Daily Check-in 50 MDI Coins</div>
+								<div style="font-size: 24px;">Daily Check-in 20 MDI Coins</div>
 						</div>
 					</div>
 					<img src="<?php echo $library; ?>img/team-bg.png" data-jarallax-element="40" alt="" class="team__bg">

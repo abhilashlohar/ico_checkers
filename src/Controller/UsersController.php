@@ -169,18 +169,19 @@ class UsersController extends AppController
 			      }
 			      $wallet = $this->Users->Wallets->newEntity();
 						$wallet->user_id = $user->id;
-						$wallet->point = 500;
+						$wallet->point = 200;
 						$wallet->transaction_date = $time->format('Y-m-d H:i:s');
 						$this->Users->Wallets->save($wallet);
 						
-						if (!empty($ref)) {
+						if (!empty($ref)) 
+						{
 							$user_detail   = $this->Users->find()
 							                  ->select('id')
 												  			->where(['Users.referral_code'=>$ref,'Users.is_deleted'=>false,'Users.status'=>true])
 												  			->first();
 							$wallet = $this->Users->Wallets->newEntity();
 							$wallet->user_id = $user_detail->id;
-							$wallet->point = 200;
+							$wallet->point = 50;
 							$wallet->transaction_date = $time->format('Y-m-d H:i:s');
 							$this->Users->Wallets->save($wallet);
 						}
@@ -973,7 +974,7 @@ class UsersController extends AppController
 						->setFrom('info@icocheckers.com', 'icocheckers')
 						->setReplyTo('info@icocheckers.com', 'icocheckers')
 						->setTo($email_user->user->email, $email_user->user->name)
-						->setSubject('Meassage');
+						->setSubject('Icocheckers');
 						$email->viewBuilder()->setTemplate('meaasage');
 						$email->setViewVars([
 							'name' => $email_user->user->name,
