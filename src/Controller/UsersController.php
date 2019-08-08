@@ -970,8 +970,8 @@ class UsersController extends AppController
 				{
 					$email = new Email('default');
 					$email->setEmailFormat('html')
-						->setFrom('Info@icocheckers.com', 'ico')
-						->setReplyTo($email_user->user->email, 'ico')
+						->setFrom('info@icocheckers.com', 'icocheckers')
+						->setReplyTo('info@icocheckers.com', 'icocheckers')
 						->setTo($email_user->user->email, $email_user->user->name)
 						->setSubject('Meassage');
 						$email->viewBuilder()->setTemplate('meaasage');

