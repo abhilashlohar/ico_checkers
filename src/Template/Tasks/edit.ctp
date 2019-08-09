@@ -10,7 +10,7 @@
                 </div>
 				<div class="col-md-2">
                     <div class="form-group">
-                        <?php echo $this->Form->control('minimum_point',['class'=>'form-control', 'label' => 'Reward Point', 'min'=>0]); ?>
+                        <?php echo $this->Form->control('minimum_point',['class'=>'form-control', 'label' => 'Reward MDI Coins', 'min'=>0]); ?>
                     </div>
                 </div>
 				<div class="col-md-2">
