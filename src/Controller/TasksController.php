@@ -62,7 +62,7 @@ class TasksController extends AppController
         $task = $this->Tasks->newEntity();
         if ($this->request->is('post')) {
             $task = $this->Tasks->patchEntity($task, $this->request->getData());
-			$time = new Time();
+			$time = new Time('Asia/Kolkata');
 			$task->created_on = $time->format('Y-m-d H:i:s');
 			$task->user_id    = $this->Auth->user('id');
 			$task->is_deleted = 0; 
@@ -87,6 +87,7 @@ class TasksController extends AppController
 	
 	public function earnMoney()
     {
+		$time = new Time('Asia/Kolkata'); 
         $conditions = [
             'Tasks.is_deleted' => false,
 			'user_id !=' => $this->Auth->user('id')
