@@ -244,7 +244,7 @@ class NewsController extends AppController
 				$wallet = $this->News->Wallets->newEntity();
 				$wallet->user_id            = $id;
 				$wallet->news_id            = $news_id;
-				$wallet->point              = 1;
+				$wallet->point              = 10;
 				$wallet->transaction_date   = $timeCurrent->format('Y-m-d H:i:s');
 				$this->News->Wallets->save($wallet);
 			}
