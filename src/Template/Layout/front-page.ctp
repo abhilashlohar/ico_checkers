@@ -1530,12 +1530,23 @@
 								</div>
 								
 								<?= $this->Form->create('',['url'=> ['controller'=>'Enquiries','action' => 'callback'],'class'=>'form contact-form inquiry','id'=>'inquiry','name'=>'inquiry']) ?>
+
 									<?= $this->Form->control('name',['label'=>false,'class'=>'form__input','placeholder'=>'Name','required'=>true])?>
+
 									<?= $this->Form->control('email',['label'=>false,'class'=>'form__input','placeholder'=>'Email','type'=>'email','required'=>true])?>
-								<?php
-								$reason = ['Users'=>'Users','Partnership'=>'Partnership','Investment'=>'Investment','Purchase Points'=>'Purchase Points','Proof of DI'=>'Proof of DI','Others'=>'Others'];
-								echo $this->Form->control('reason', ['type' => 'select','options' => $reason,'class'=>'custom_select','label'=>false,'empty'=>'Reason','required'=>true]);
-								?>
+
+								
+									<select class="custom_select" required="required">
+										<option value="">Reason</option>
+										<option value="Users">Users</option>
+										<option value="Partnership">Partnership</option>
+										<option value="Investment">Investment</option>
+										<option value="Purchase Points">Purchase Points</option>
+										<option value="Proof of DI">Proof of DI</option>
+										<option value="Others">Others</option>
+									</select>
+
+
 									<style type="text/css">
 										.custom_select {
 											width: 100%;
@@ -1543,7 +1554,7 @@
 									    border: none;
 									    color: #b5b5b5;
 									    font-family: inherit;
-									    margin-bottom: 10px;
+									    margin-bottom: 15px;
 									    border-radius: 8px;
 									    height: 50px;
 									    padding: 10px 20px;
@@ -1553,12 +1564,13 @@
 											background-color: #FFF;
 										}
 									</style>
-									<!--<span class="valid_error" data-valmsg-for="reason"></span>-->
+
+									
+
 									<?= $this->Form->control('message',['label'=>false,'class'=>'form__textarea','placeholder'=>'Message', 'type'=>'textarea','required'=>true])?>
 
-									<!--<button class="form__btn btn btn--uppercase btn--orange"><span>Send message</span></button>-->
 									<div id='msg' onclick="this.classList.add('hidden')"></div>
-									<!--<div class="lds-spinner imgloader"  style="display:none;"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>-->
+
 									<?= $this->Form->button($this->Html->tag('span', 'Send message'), ['escape' => false, 'class' => 'form__btn btn btn--uppercase btn--orange']); ?>
 								<?= $this->Form->end() ?>
 							</div>
