@@ -87,11 +87,27 @@ class TasksController extends AppController
 	
 	public function earnMoney()
     {
-		$time = new Time('Asia/Kolkata'); 
+		$time = new Time('Asia/Kolkata');
+		$ids=[];
+		$task_infos = $this->Tasks->find()->where(['Tasks.is_deleted'=>false]);
+		if(!empty($task_infos->toArray()))
+		{
+			foreach($task_infos as $task_info)
+			{
+				$date = strtotime($task_info->created_on);
+				$date = strtotime("+".$task_info->end_days." day", $date);
+				if($date > strtotime(date('d-m-Y H:i:s'))){
+					$ids[] = $task_info->id;
+				}
+			}
+		}		
         $conditions = [
             'Tasks.is_deleted' => false,
+            'Tasks.id IN' => $ids,
 			'user_id !=' => $this->Auth->user('id')
         ];
+		
+		
 		$this->paginate = [
             //'fields' => ['id', 'title', 'description', 'created_on','short_description','end_days','user_id'],
             'conditions' => $conditions,
@@ -101,7 +117,13 @@ class TasksController extends AppController
             'order' => ['Tasks.id' => 'DESC'],
 						'limit' => 10,
 			    ];
-		$tasks = $this->paginate($this->Tasks); 
+		if(count($ids)>0)
+		{
+			$tasks = $this->paginate($this->Tasks); 
+		}
+		else{
+			$tasks = [];
+		}
 		$this->set(compact('tasks'));
 		$this->set('activeMenu', 'Tasks.earnMoney');
     }
