@@ -1521,13 +1521,14 @@
 				</section> -->
 
 
-				<section class="section contact">
+				<section class="section contact" id="inq">
 					<div class="container">
 						<div class="row">
 							<div class="col">
 								<div class="section-header section-header--center section-header--medium-margin">
 									<h4>Contact us</h4>
 									<h2>Get in Touch</h2>
+									<?= $this->Flash->render() ?>
 								</div>
 								
 								<?= $this->Form->create('',['url'=> ['controller'=>'Enquiries','action' => 'callback'],'class'=>'form contact-form inquiry','id'=>'inquiry','name'=>'inquiry']) ?>
@@ -1541,7 +1542,6 @@
 									$reason = [''=>'Reason','Users'=>'Users','Partnership'=>'Partnership','Investment'=>'Investment','Purchase Points'=>'Purchase Points','Proof of DI'=>'Proof of DI','Others'=>'Others'];
 									echo $this->Form->select('reason', $reason, ['class'=>'custom_select', 'required'=>'required']); 
 									?>
-
 
 									<style type="text/css">
 										.custom_select {
@@ -1561,7 +1561,6 @@
 										}
 									</style>
 
-									
 
 									<?= $this->Form->control('message',['label'=>false,'class'=>'form__textarea','placeholder'=>'Message', 'type'=>'textarea','required'=>true])?>
 
@@ -1662,7 +1661,7 @@
 										<button class="form__btn btn btn--uppercase btn--orange btn--small"><span>Send</span>
 										</button>
 									</div>
-									<div class="lds-spinner imgloader" id="loader" style="display:none;"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+									
 									<span class="valid_error" data-valmsg-for="subscribe_email"></span>
 									<div id='msg1' onclick="this.classList.add('hidden')"></div>
 								</form>
