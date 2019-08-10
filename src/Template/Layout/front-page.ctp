@@ -283,7 +283,7 @@
 							<div data-aos="fade-right" class="col-lg-5">
 								<div class="section-header section-header--animated section-header--tire section-header--small-margin">
 									<h4>About ICO TESTING </h4>
-									<h2>ICO TESTING <span>is the best for your ICO</span>
+									<h2>The testing phase of ICOCHECKERS <!-- <span>is the best for your ICO</span> -->
 										  </h2>
 								</div>
 								<div class="about__animated-content">
@@ -677,7 +677,7 @@
 											<ul class="roadmap"> 
 												<li> Social platform development </li>
 												<li> Proof of DI & proof doc merge </li>
-												<li> Proof of doc & L&L platform merge </li>
+												<li> Proof of doc and Business & Product listing platform merge </li>
 											</ul>
 										</div>
 									</div>
