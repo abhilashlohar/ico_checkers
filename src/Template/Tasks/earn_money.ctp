@@ -22,7 +22,7 @@ $this->Html->css(['blog'], ['block' => true]);
 					if(date('d-m-Y H:i:s',$date) > date('d-m-Y H:i:s')){ ?>
 						
 							<div class="card">
-						    <div class="card-body">
+						    <div class="card-body" style="border: solid 1px #00444547;">
 						    	<a class="text-dark task_title" href="<?= $this->Url->build(['controller'=>'Tasks','action'=>'taskSubmit',$task->id])?>" style="text-decoration: none;">
 						      	<h5 class="card-title" style="color: #4c9e70;"><?= $task->title ?></h5>
 						      </a>
