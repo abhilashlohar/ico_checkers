@@ -199,7 +199,7 @@ class UsersController extends AppController
 								'sitename' => 'ico'
 							])
 							->send();
-		                $this->Flash->success(__('The user has been added successfully.'));
+		                $this->Flash->success(__('Your registration has done successfully. Please check your email inbox and confirm email id.'));
 		                return $this->redirect(['action' => 'login']);
 		      }
         } else {
@@ -469,7 +469,7 @@ class UsersController extends AppController
                 }
                 else
                 {
-                    $this->Flash->error(__('Your account is suspended. Please contact site administrator.'));
+                    $this->Flash->error(__('It seems you have not confirmed your email id from your email inbox or maybe your account is suspended. Please contact the site administrator for more details.'));
                     return $this->redirect($this->Auth->loginAction);
                 }
             }

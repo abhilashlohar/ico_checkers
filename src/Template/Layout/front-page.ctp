@@ -1520,13 +1520,17 @@
 					</div>
 				</section> -->
 
-				<section class="section contact" id="inq">
+
+				<section class="section contact" id="inquiry-submitted-successfully">
 					<div class="container">
 						<div class="row">
 							<div class="col">
 								<div class="section-header section-header--center section-header--medium-margin">
 									<h4>Contact us</h4>
 									<h2>Get in Touch</h2>
+								</div>
+								
+								<div align="center">
 									<?= $this->Flash->render() ?>
 								</div>
 								
@@ -1537,16 +1541,11 @@
 									<?= $this->Form->control('email',['label'=>false,'class'=>'form__input','placeholder'=>'Email','type'=>'email','required'=>true])?>
 
 								
-									<select class="custom_select" required="required">
-										<option value="">Reason</option>
-										<option value="Users">Users</option>
-										<option value="Partnership">Partnership</option>
-										<option value="Investment">Investment</option>
-										<option value="Purchase Points">Purchase Points</option>
-										<option value="Proof of DI">Proof of DI</option>
-										<option value="Others">Others</option>
-									</select>
-
+									<?php
+									$reason = [''=>'Reason','Users'=>'Users','Partnership'=>'Partnership','Investment'=>'Investment','Purchase Points'=>'Purchase Points','Proof of DI'=>'Proof of DI','Others'=>'Others'];
+									echo $this->Form->select('reason', $reason, ['class'=>'custom_select', 'required'=>'required']); 
+									?>
+									
 
 									<style type="text/css">
 										.custom_select {
@@ -1564,9 +1563,13 @@
 										.custom_select:hover {
 											background-color: #FFF;
 										}
+
+										.custom_select_selected {
+											background-color: #e8f0fe;
+											color: #000 !important;
+										}
 									</style>
 
-									
 
 									<?= $this->Form->control('message',['label'=>false,'class'=>'form__textarea','placeholder'=>'Message', 'type'=>'textarea','required'=>true])?>
 
@@ -1690,5 +1693,18 @@
 	        });
 	        _client.start();
 	    </script>
+
+	    <script type="text/javascript">
+				$( document ).ready(function() {
+				    $(".custom_select").change(function(){
+				    	v = $(this).val();
+				    	if (v != "") {
+				    		$(this).addClass("custom_select_selected");
+				    	} else {
+				    		$(this).removeClass("custom_select_selected");
+				    	}
+				    })
+				});
+			</script>
 		</body>
 </html>
