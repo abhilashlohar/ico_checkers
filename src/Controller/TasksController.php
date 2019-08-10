@@ -256,7 +256,7 @@ class TasksController extends AppController
 	
 	public function checkTaskProve()
     {
-        $time = new Time();
+		$time = new Time();
 		$current_date =  $time->format('Y-m-d H:i:s');
 		$tasks = $this->Tasks->find()
 					   ->contain(['TaskProofs','Users'])
@@ -264,8 +264,8 @@ class TasksController extends AppController
 						   return $q->where(['Users.role'=>'User']);
 					   })
 					   ->matching('TaskProofs', function ($qq){
-						   return $qq->where(['TaskProofs.is_approved'=>false]);
-					   }); 
+						   return $qq->where(['TaskProofs.is_approved'=>false,'TaskProofs.created_date <='=>date('Y-m-d H:i:s', strtotime('-1 day'))]);
+					   }); //pr($tasks->toArray());exit;
 		foreach($tasks as $task)
 		{
 			if(!empty($task->task_proofs))
@@ -274,8 +274,8 @@ class TasksController extends AppController
 				{
 					$diff = abs(strtotime($current_date)-strtotime($task_proof->created_date));
 					
-					if(date('H',$diff)>23)
-					{
+					/* if(date('H',$diff)>23)
+					{ */
 						$task_p = $this->Tasks->TaskProofs->get($task_proof->id);
 						$task_p->is_approved = 1;
 						$this->Tasks->TaskProofs->save($task_p);
@@ -284,7 +284,7 @@ class TasksController extends AppController
 						$wallet->user_id          = $task_proof->user_id;
 						$wallet->point            = $task->minimum_point;
 						$wallet->transaction_date = $time->format('Y-m-d H:i:s');
-						$this->Users->Wallets->save($wallet);
+						$this->Tasks->Users->Wallets->save($wallet);
 						
 						//point reduce from task creator account
 						/* $task_cretor_point = $this->Tasks->Users->Wallets->find();
@@ -293,12 +293,13 @@ class TasksController extends AppController
 											->where(['Wallets.user_id'=>$task->user_id])->first(); */
 						$w_point=$task->minimum_point;
 						$task_cretor_wallet = $this->Tasks->Users->Wallets->find()
-						                                  ->select(['Wallets.user_id'=>$task->user_id]);
+						                                  ->where(['Wallets.user_id'=>$task->user_id]);
+					
 						if(!empty($task_cretor_wallet->toArray()))
 						{
 							foreach($task_cretor_wallet as $task_cretor_wallet1)
 							{
-								$wallet1 = $this->Tasks->Users->Wallets->get($task_cretor_wallet1->id);
+								$wallet1 = $this->Tasks->Users->Wallets->get($task_cretor_wallet1->id); 
 								if($wallet1->point > $w_point) 
 								{
 									$w_point = $wallet1->point-$w_point;
@@ -311,14 +312,22 @@ class TasksController extends AppController
 								else{
 									$w_point = 0;
 									$wallet1->point = 0;
+								} 
+								if($w_point==0)
+								{
+									$this->Tasks->Users->Wallets->save($wallet1);
+									break;
 								}
-								$this->Tasks->Users->Wallets->save($wallet1->point);
+								else{
+									$this->Tasks->Users->Wallets->save($wallet1);
+								}
 							}
 						}
-					}
+					//}
 				}
 			}
 		}
 		exit;
     }
 }
+
