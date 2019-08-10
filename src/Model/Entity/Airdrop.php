@@ -34,7 +34,7 @@ class Airdrop extends Entity
         'description' => true,
         'comment' => true,
         'project_quality' => true,
-        'strangeness' => true,
+        'strongness' => true,
         'different_ico' => true,
         'actual_use' => true,
         'team' => true,

@@ -1,9 +1,10 @@
 <?php
 $this->Html->css(['blog'], ['block' => true]);
 ?>
-<div class="my-3 task-body p-3" >
-	<h1 class="task_title mb-0"><?= $task->title ?></h1>
+<div class="my-3 task-body p-3" style="border: solid 1px #00444547;">
+	<h1 class="task_title mb-0" style="color: #4c9e70;"><?= $task->title ?></h1>
 	<div class="text-muted mb-2" style="font-size: 14px;"><?php echo date('d M, Y',strtotime($task->created_on))?> | created by : <?php echo !empty($task->user)?$task->user->name:'' ?></div>
+	<div class="mb-1 " style="color: #EC96A4;">Reward MDI Coin : <b><?php echo $task->minimum_point; ?></b></div>
 	<div>
 		<?= $this->Text->autoParagraph($task->description) ?>
 	</div>
