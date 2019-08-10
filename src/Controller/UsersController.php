@@ -65,7 +65,7 @@ class UsersController extends AppController
         $users = $this->Users->sentEmails->newEntity();
 		if($this->request->is('post'))
         {   
-	        $h_type = $this->request->data('h_type');
+	        $h_type = $this->request->getData('h_type');
 			$sent_email = $this->Users->SentEmails->patchEntity($users, $this->request->getData());
 			$sent_email->create_date = date('Y-m-d');
 			if($h_type=='send_all')
