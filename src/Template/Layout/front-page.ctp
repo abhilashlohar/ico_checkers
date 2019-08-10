@@ -1521,13 +1521,16 @@
 				</section> -->
 
 
-				<section class="section contact" id="inq">
+				<section class="section contact" id="inquiry-submitted-successfully">
 					<div class="container">
 						<div class="row">
 							<div class="col">
 								<div class="section-header section-header--center section-header--medium-margin">
 									<h4>Contact us</h4>
 									<h2>Get in Touch</h2>
+								</div>
+								
+								<div align="center">
 									<?= $this->Flash->render() ?>
 								</div>
 								
@@ -1562,7 +1565,7 @@
 										}
 
 										.custom_select_selected {
-											background-color: #FFF;
+											background-color: #e8f0fe;
 											color: #000 !important;
 										}
 									</style>

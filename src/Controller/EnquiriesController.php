@@ -76,7 +76,7 @@ class EnquiriesController extends AppController
 			$this->Flash->error(__('Enquiry form could not be submitted.'));
 		}
         echo $msg;
-		return $this->redirect('/#inq');
+		return $this->redirect('/#inquiry-submitted-successfully');
         $this->set(compact('msg'));
         $this->viewBuilder()->setLayout('ajax');
         
