@@ -44,9 +44,9 @@
 							<?php $options=['1'=>'1','2'=>'2','3'=>'3','4'=>'4','5'=>'5','6'=>'6','7'=>'7','8'=>'8','9'=>'9','10'=>'10']; 
 							echo $this->Form->control('project_quality', ['label' => false, 'class' => 'form-control form-filter input-sm', 'options' => $options, 'empty' => __('Project Quality')]); ?>
 						</td>
-						<th>Strangeness</th>
+						<th>strongness</th>
 						<td>
-							<?php  echo $this->Form->control('strangeness', ['label' => false, 'class' => 'form-control form-filter input-sm', 'options' => $options, 'empty' => __('Strangeness')]); ?>
+							<?php  echo $this->Form->control('strongness', ['label' => false, 'class' => 'form-control form-filter input-sm', 'options' => $options, 'empty' => __('strongness')]); ?>
 						</td>
 					</tr>
 					<tr>

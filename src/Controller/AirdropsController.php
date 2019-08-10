@@ -135,7 +135,7 @@ class AirdropsController extends AppController
             'Airdrops.is_deleted' => false
         ];
 		$this->paginate = [
-            'fields' => ['id', 'name', 'link', 'country', 'email', 'created_on', 'description','project_quality','strangeness','different_ico','actual_use','team'],
+            'fields' => ['id', 'name', 'link', 'country', 'email', 'created_on', 'description','project_quality','strongness','different_ico','actual_use','team'],
             'conditions' => $conditions,
             'order' => ['Airdrops.id' => 'DESC'],
 			'limit' => 10

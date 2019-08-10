@@ -21,7 +21,7 @@
                     <td><?= h($airdrop->email) ?></td>
                     <td><?= $this->Time->format($airdrop->created_on, 'dd MMM yyyy hh:mm a') ?></td>
                     <td>
-					    <?php echo $this->Html->link(__(' View'), ['controller' => 'airdrops', 'action' => 'view', $airdrop->id]); ?>
+					    <?php //echo $this->Html->link(__(' View'), ['controller' => 'airdrops', 'action' => 'view', $airdrop->id]); ?>
 						<?php echo $this->Html->link(__(' Edit'), ['controller' => 'airdrops', 'action' => 'edit', $airdrop->id]); ?>
 					</td>
                 </tr>
