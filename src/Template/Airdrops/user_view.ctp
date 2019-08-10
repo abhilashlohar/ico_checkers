@@ -37,7 +37,7 @@
 		</div>
 		
 		<br>
-		<table class="table">
+		<table class="table table-sm">
 			<tr>
 				<td colspan="2" style="text-align: center;"><h6>Our ratings on various parameters</h6></td>
 			</tr>
