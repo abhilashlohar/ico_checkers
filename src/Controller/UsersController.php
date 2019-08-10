@@ -509,7 +509,7 @@ class UsersController extends AppController
 				
 				 if($this->Users->save($userInfo))
 				 {
-					$this->Flash->success(__('Your email approval  successfully.Plz login.'));
+					$this->Flash->success(__('Congratulations! Your email has approved successfully. Please login.'));
 						return $this->redirect(['action' => 'login']);
 				 }
 				 else{
