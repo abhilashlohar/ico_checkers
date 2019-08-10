@@ -1520,6 +1520,7 @@
 					</div>
 				</section> -->
 
+
 				<section class="section contact">
 					<div class="container">
 						<div class="row">
@@ -1536,15 +1537,10 @@
 									<?= $this->Form->control('email',['label'=>false,'class'=>'form__input','placeholder'=>'Email','type'=>'email','required'=>true])?>
 
 								
-									<select class="custom_select" required="required">
-										<option value="">Reason</option>
-										<option value="Users">Users</option>
-										<option value="Partnership">Partnership</option>
-										<option value="Investment">Investment</option>
-										<option value="Purchase Points">Purchase Points</option>
-										<option value="Proof of DI">Proof of DI</option>
-										<option value="Others">Others</option>
-									</select>
+									<?php
+									$reason = [''=>'Reason','Users'=>'Users','Partnership'=>'Partnership','Investment'=>'Investment','Purchase Points'=>'Purchase Points','Proof of DI'=>'Proof of DI','Others'=>'Others'];
+									echo $this->Form->select('reason', $reason, ['class'=>'custom_select', 'required'=>'required']); 
+									?>
 
 
 									<style type="text/css">
