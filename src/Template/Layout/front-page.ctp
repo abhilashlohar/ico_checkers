@@ -1542,6 +1542,7 @@
 									$reason = [''=>'Reason','Users'=>'Users','Partnership'=>'Partnership','Investment'=>'Investment','Purchase Points'=>'Purchase Points','Proof of DI'=>'Proof of DI','Others'=>'Others'];
 									echo $this->Form->select('reason', $reason, ['class'=>'custom_select', 'required'=>'required']); 
 									?>
+									
 
 									<style type="text/css">
 										.custom_select {
@@ -1558,6 +1559,11 @@
 										}
 										.custom_select:hover {
 											background-color: #FFF;
+										}
+
+										.custom_select_selected {
+											background-color: #FFF;
+											color: #000 !important;
 										}
 									</style>
 
@@ -1684,5 +1690,18 @@
 	        });
 	        _client.start();
 	    </script>
+
+	    <script type="text/javascript">
+				$( document ).ready(function() {
+				    $(".custom_select").change(function(){
+				    	v = $(this).val();
+				    	if (v != "") {
+				    		$(this).addClass("custom_select_selected");
+				    	} else {
+				    		$(this).removeClass("custom_select_selected");
+				    	}
+				    })
+				});
+			</script>
 		</body>
 </html>
