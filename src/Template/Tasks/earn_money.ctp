@@ -52,7 +52,7 @@ $this->Html->css(['blog'], ['block' => true]);
 
 		</div>
 	</div>
-
+	<?php if(count($tasks)!=0){?>
 	<div class="col-md-12 d-flex justify-content-center">
 		<div class="paginator">
 			<ul class="pagination">
@@ -65,6 +65,7 @@ $this->Html->css(['blog'], ['block' => true]);
 			<p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
 		</div>
 	</div>
+	<?php } ?>
 
 </div>
 
