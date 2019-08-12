@@ -1,5 +1,5 @@
 <?php
-$this->Html->css(['blog'], ['block' => true]);
+$this->Html->css(['blog2'], ['block' => true]);
 ?>
 <div class="container py-3" style="font-family: 'Nunito', sans-serif;">
 	<div class="row mb-2">
