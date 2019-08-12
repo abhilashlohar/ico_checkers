@@ -54,10 +54,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: .875rem;
 }
 
-.card-img-right {
-  height: 100%;
-  border-radius: 0 3px 3px 0;
-}
+
 
 .flex-auto {
   -ms-flex: 0 0 auto;
@@ -130,3 +127,21 @@ h1, h2, h3, h4, h5, h6 {
 .blog-footer p:last-child {
   margin-bottom: 0;
 }
+
+
+
+@media only screen and (max-width: 600px) {
+  .card-img-right {
+    width: 100%;
+    height: auto;
+    border-radius: 0 3px 3px 0;
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  .card-img-right {
+    height: 100%;
+    width: auto;
+    border-radius: 0 3px 3px 0;
+  }
+} 

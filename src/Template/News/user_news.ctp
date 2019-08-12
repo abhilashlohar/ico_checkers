@@ -1,13 +1,7 @@
 <?php
 $this->Html->css(['blog'], ['block' => true]);
 ?>
-<div class="container" style="font-family: 'Nunito', sans-serif;">
-  <header class="blog-header py-3">
-    <div class="row flex-nowrap justify-content-between align-items-center">
-     
-    </div>
-  </header>
-
+<div class="container py-3" style="font-family: 'Nunito', sans-serif;">
 	<div class="row mb-2">
 		<?php if(!empty($news)){
 		foreach($news as $news1){ ?>
