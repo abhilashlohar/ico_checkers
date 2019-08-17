@@ -760,7 +760,7 @@
 								<br>
 								<div style="font-size: 24px;">Task completion</div>
 								<br>
-								<div style="font-size: 24px;">Daily Check-in 20 MDI Coins</div>
+								<div style="font-size: 24px;">Daily Check-in 10 MDI Coins</div>
 						</div>
 					</div>
 					<img src="<?php echo $library; ?>img/team-bg.png" data-jarallax-element="40" alt="" class="team__bg">
