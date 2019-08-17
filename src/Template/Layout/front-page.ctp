@@ -294,7 +294,7 @@
 										<li>
 											The earnings are real in the testing phase and will convert after platform live in preference payment method available on the platform, you can also get traffic on your own website/apps/any other tasks from here by creating task.
 										</li>
-										<li>Before invest, on our platform you need to earn MDI Coins on our platform by daily task & creat task for other users and also make news on trending topic and submit ico checkers mail use subject news and also share on your platform if you have, minimum 500-1000 word according to news 100-500 MDI Coins for your news submission .</li>
+										<li>Before invest, on our platform you need to earn MDI Coins on our platform by daily task & creat task for other users and also make news on trending topic and submit ico checkers mail use subject news and also share on your platform if you have, minimum 500-2000 word according to news 100-200 MDI Coins for your news submission .</li>
 										<li>Every task given by our platform or other users approve in maximum 24 hours and MDI Coins reflect in user account in 24-hour automatically after user complete task</li>
 									</ul>
 								</div>
@@ -430,7 +430,7 @@
 											Blockchain
 										</div>
 										<p class="cases__item-text">
-											IN future we launch own blockchain like my ether wallet (including DI platform), Which is world’s most secure block chain with world’s four most unhacks securities, which is not hack by anyone on our platform also on our partners exchanges.
+											Our blockchain like my ether wallet (including DI platform), Which is world’s most secure block chain with world’s four most unhacks securities, which is not hack by anyone on our platform also on our partners exchanges.
 
 										</p>
 									</div>
@@ -502,7 +502,7 @@
 										<div class="road__item-metka"></div>
 										<div class="road__item-content">
 											<div class="road__item-title">
-												Dec. 2017 
+												Dec 2017 
 											</div>
 											<ul class="roadmap">
 												<li>
@@ -568,7 +568,7 @@
 										<div class="road__item-metka"></div>
 										<div class="road__item-content">
 											<div class="road__item-title">
-												Oct.2019
+												Oct 2019
 											</div>
 											<ul class="roadmap">
 												<li> Digital identification (DI) platform testing for all centralized Exchanges, blockchains, wallets and users</li>
@@ -582,11 +582,11 @@
 										<div class="road__item-metka"></div>
 										<div class="road__item-content">
 											<div class="road__item-title">
-												Dec.2019
+												Dec 2019
 											</div>
 											<ul class="roadmap">
 												<li> Digital identification platform & securities main net live for all centralized Exchanges, blockchains, wallets and users</li>
-												<li> Earn money platform live (convert all work n real money)</li>
+												<li> Earn money platform live (convert all work in real money)</li>
 											</ul>
 										</div>
 									</div>
@@ -599,7 +599,7 @@
 											</div>
 											<ul class="roadmap">
 												<li> Free insurance live </li>
-												<li> Adverting automatic platform development </li>
+												<li> Adverting automated platform development </li>
 												<li> 1st round sign up close after 200 million Communities build </li>
 											</ul>
 										</div>
@@ -609,10 +609,10 @@
 										<div class="road__item-metka"></div>
 										<div class="road__item-content">
 											<div class="road__item-title">
-												Apr. 2020
+												Apr 2020
 											</div>
 											<ul class="roadmap">
-												<li> Adverting automatic platform testing </li>
+												<li> Adverting automated platform testing </li>
 												<li> One touch architecture solution development </li>
 												<li> Business & Product listing platform development </li>
 											</ul>
@@ -658,7 +658,7 @@
 										<div class="road__item-metka"></div>
 										<div class="road__item-content">
 											<div class="road__item-title">
-												Dec. 2020
+												Dec 2020
 											</div>
 											<ul class="roadmap"> 
 												<li> Blockchain development </li>
@@ -709,7 +709,7 @@
 										<div class="road__item-metka"></div>
 										<div class="road__item-content">
 											<div class="road__item-title">
-												Oct. 2021 
+												Oct 2021 
 											</div>
 											<ul class="roadmap">
 												<li> Working on innovative online idea</li>
@@ -1422,9 +1422,9 @@
 											</p>
 										</li>
 										<li>
-											<a>WHAT IS USE OF 1000 MDI Coins,  FIVE DI SLOTS & ONE YEAR FREE AIRDROP NOTIFICATION SLOTS?</a>
+											<a>WHAT IS USE OF 200 MDI Coins,  FIVE DI SLOTS & ONE YEAR FREE AIRDROP NOTIFICATION SLOTS?</a>
 											<p>
-												1000 MDI Coins free use in get free referral from our website for your targeted platform task Use MDI Coins in create task for other users to join you on your platform like- youtube ,blogger etc.
+												200 MDI Coins free use in get free referral from our website for your targeted platform task Use MDI Coins in create task for other users to join you on your platform like- youtube ,blogger etc.
 											</p>
 										</li>
 										<li>
