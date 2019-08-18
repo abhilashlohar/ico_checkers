@@ -288,7 +288,7 @@
 								</div>
 								<div class="about__animated-content">
 									<p>
-										We present to you the Ico checking advertising platform with block chain technology. Currently we are testing our advertisement platform , testing is available in airdrop period , we need maximum 200 million users after testing , after that sign up will close automatically.
+										We present to you the Ico checking advertising platform with blockchain technology. Currently we are testing our advertisement platform , testing is available in airdrop period , we need maximum 200 million users after testing , after that sign up will close automatically.
 									</p>
 									<ul>
 										<li>
@@ -430,7 +430,7 @@
 											Blockchain
 										</div>
 										<p class="cases__item-text">
-											Our blockchain like my ether wallet (including DI platform), Which is world’s most secure block chain with world’s four most unhacks securities, which is not hack by anyone on our platform also on our partners exchanges.
+											Our blockchain like my ether wallet (including DI platform), Which is world’s most secure blockchain with world’s four most unhacks securities, which is not hack by anyone on our platform also on our partners exchanges.
 
 										</p>
 									</div>
