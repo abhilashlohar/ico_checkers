@@ -29,6 +29,7 @@
 		  	</p>
 		  </td>
 		  <td>
+			<?php echo $this->Html->link(__(' Edit'), ['controller' => 'news', 'action' => 'edit', $news->id]); ?>
 			<?php if($news->is_approved=="no"){ 
 				if($user_role=="Admin"){
 					echo $this->Form->postLink(
@@ -39,7 +40,6 @@
 				}else if($user_role=="Staff"){
 					echo '<span>Pending for approval</span>';				
 				}
-			echo $this->Html->link(__(' Edit'), ['controller' => 'news', 'action' => 'edit', $news->id]);
 			}else{
 				echo '<span>Approved</span>';	
 			} ?>
