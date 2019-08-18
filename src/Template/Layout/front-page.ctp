@@ -430,7 +430,7 @@
 											Blockchain
 										</div>
 										<p class="cases__item-text">
-											Our blockchain like my ether wallet (including DI platform), Which is world’s most secure blockchain with world’s four most unhacks securities, which is not hack by anyone on our platform also on our partners exchanges.
+											Our blockchain like ethereum (including MDI platform), Which is world’s most secure blockchain with world’s four most unhacks securities, which is not hack by anyone on our platform also on our partners exchanges.
 
 										</p>
 									</div>
@@ -506,12 +506,11 @@
 											</div>
 											<ul class="roadmap">
 												<li>
-													Born 1st time Idea worlds 1st multi blockchain digital identification ( DI) platform with securities in blockchain
+													Born 1st time Idea worlds 1st multi blockchain digital identification (MDI) platform with securities in blockchain
 												</li>
 												<li> Planning</li>
 											</ul>
 										</div>
-										
 									</div>
 
 									<div class="road__item">
@@ -526,7 +525,6 @@
 												<li> Working on problems to accept blockchain worldwide</li>
 											</ul>
 										</div>
-										
 									</div>
 
 									<div class="road__item">
@@ -571,7 +569,7 @@
 												Oct 2019
 											</div>
 											<ul class="roadmap">
-												<li> Digital identification (DI) platform testing for all centralized Exchanges, blockchains, wallets and users</li>
+												<li> Digital identification (MDI) platform testing for all centralized Exchanges, blockchains, wallets and users</li>
 												<li> Blockchain development </li>
 												<li> Free insurance testing</li>
 											</ul>
@@ -585,7 +583,7 @@
 												Dec 2019
 											</div>
 											<ul class="roadmap">
-												<li> Digital identification platform & securities main net live for all centralized Exchanges, blockchains, wallets and users</li>
+												<li> Multi-digital identification platform & securities main net live for all centralized Exchanges, blockchains, wallets and users</li>
 												<li> Earn money platform live (convert all work in real money)</li>
 											</ul>
 										</div>
@@ -651,6 +649,7 @@
 											<ul class="roadmap"> 
 												<li> Business & Product listing platform testing </li>
 												<li> One touch architecture solution Live for architects & users </li>
+												<li> Online service platform testing and live </li>
 											</ul>
 										</div>
 									</div>
@@ -676,7 +675,7 @@
 											</div>
 											<ul class="roadmap"> 
 												<li> Social platform development </li>
-												<li> Proof of DI & proof doc merge </li>
+												<li> Proof of MDI & proof doc merge </li>
 												<li> Proof of doc and Business & Product listing platform merge </li>
 											</ul>
 										</div>
@@ -1364,7 +1363,7 @@
 										<li>
 											<a>WHAT IS DIGITAL IDANTIFICATION?</a>
 											<p>
-												Digital identification is provide real  user identy with secure your wallet and find the real user interface  , digital idianty is very nessesry for all crypto investor and all exchanges which is related to any blockchai n (btc, eth ,neo.wave or any blockchain digital identity secure users and exchanges from scams & hacks.
+												Digital identification is provide real  user identy with secure your wallet and find the real user interface  , digital idianty is very nessesry for all crypto investor and all exchanges which is related to any blockchain (btc, eth ,neo.wave or any blockchain digital identity secure users and exchanges from scams & hacks.
 											</p>
 										</li>
 										<li>
