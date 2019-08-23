@@ -1,18 +1,30 @@
-<div class="row py-3">
-    <div class="col-md-12">
-        <h2><?= h($news->title) ?></h2>
-        <?php if($news->published_on){ ?>
-            <p><?= h($news->published_on->format("d M Y h:i A")) ?> | <?= h($news->category) ?></p>
-        <?php }else{
-            echo "<p>(<i>Pending for approval</i>)</p>";
-        }
+<div class="card mt-3">
+  <div class="card-body">
+		<div class="mb-5"><h4>News Preview</h4></div>
+		<h2><?= h($news->title) ?></h2>
+		<div align="center">
+			<?php
+				if ($news->cover_image) {
+					echo $this->Html->image(str_replace('\\','/',@$news->cover_image),['class'=>'img-thumbnail','style'=>'max-height:400px;']);
+					echo '<br>';
+				};
+			?>
+		</div>
+		<?= $this->Text->autoParagraph(h($news->description)); ?>
 
-
-		 if($news->cover_image!=''){ 
-        echo $this->Html->image(str_replace('\\','/',@$news->cover_image),['class'=>'img-thumbnail','width'=>'100%']);
-        echo '<br><br>';
-        };
-		 ?>
-        <?= $this->Text->autoParagraph(h($news->description)); ?>
-    </div>
+		<table>
+			<tr>
+				<th>Status:</th>
+				<td><?= h($news->status) ?></td>
+			</tr>
+			<tr>
+				<th>Category:</th>
+				<td><?= h($news->category) ?></td>
+			</tr>
+			<tr>
+				<th>Tags:</th>
+				<td><?= h($news->tags) ?></td>
+			</tr>
+		</table>
+  </div>
 </div>
