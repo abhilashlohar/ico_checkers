@@ -45,6 +45,9 @@ class AppController extends Controller
 	{
 		parent::initialize();
 
+		echo "<div align='center'><br/><br/><br/><h2 style='line-height:40px;color:#545454;'>Site is under maintenance. it will be resume soon. <br> Thanks for your patience.</h2></div>";
+		exit();
+
 		$this->loadComponent('RequestHandler', [
 			'enableBeforeRedirect' => false,
 		]);
