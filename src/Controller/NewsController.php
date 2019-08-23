@@ -211,7 +211,7 @@ class NewsController extends AppController
         $this->request->allowMethod(['post']);
         $news = $this->News->get($id);
         $news->is_approved = "yes";
-        $news->published_on = date("Y-m-d h:i s");
+        $news->published_on = date("Y-m-d H:i:s");
         if ($this->News->save($news)) {
           $this->Flash->success(__('The news has been approved.'));
         } else {

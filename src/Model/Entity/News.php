@@ -35,6 +35,6 @@ class News extends Entity
         'created_on' => true,
         'category' => true,
         'tags' => true,
-        'published_on' => true
+        'published_on' => true,
     ];
 }
