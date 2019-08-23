@@ -25,78 +25,117 @@ use Cake\Validation\Validator;
 class WalletsTable extends Table
 {
 
-    /**
-     * Initialize method
-     *
-     * @param array $config The configuration for the Table.
-     * @return void
-     */
-    public function initialize(array $config)
-    {
-        parent::initialize($config);
+		/**
+		 * Initialize method
+		 *
+		 * @param array $config The configuration for the Table.
+		 * @return void
+		 */
+		public function initialize(array $config)
+		{
+				parent::initialize($config);
 
-        $this->setTable('wallets');
-        $this->setDisplayField('id');
-        $this->setPrimaryKey('id');
+				$this->setTable('wallets');
+				$this->setDisplayField('id');
+				$this->setPrimaryKey('id');
 
-        $this->belongsTo('Users', [
-            'foreignKey' => 'user_id',
-            'joinType' => 'INNER'
-        ]);
-        $this->belongsTo('News', [
-            'foreignKey' => 'news_id',
-            'joinType' => 'INNER'
-        ]);
-        $this->belongsTo('Tasks', [
-            'foreignKey' => 'task_id',
-            'joinType' => 'INNER'
-        ]);
-    }
+				$this->belongsTo('Users', [
+						'foreignKey' => 'user_id',
+						'joinType' => 'INNER'
+				]);
+				$this->belongsTo('News', [
+						'foreignKey' => 'news_id',
+						'joinType' => 'INNER'
+				]);
+				$this->belongsTo('Tasks', [
+						'foreignKey' => 'task_id',
+						'joinType' => 'INNER'
+				]);
+		}
 
-    /**
-     * Default validation rules.
-     *
-     * @param \Cake\Validation\Validator $validator Validator instance.
-     * @return \Cake\Validation\Validator
-     */
-    public function validationDefault(Validator $validator)
-    {
-        $validator
-            ->integer('id')
-            ->allowEmptyString('id', 'create');
+		/**
+		 * Default validation rules.
+		 *
+		 * @param \Cake\Validation\Validator $validator Validator instance.
+		 * @return \Cake\Validation\Validator
+		 */
+		public function validationDefault(Validator $validator)
+		{
+				$validator
+						->integer('id')
+						->allowEmptyString('id', 'create');
 
-        $validator
-            ->decimal('point')
-            ->requirePresence('point', 'create')
-            ->allowEmptyString('point', false);
+				$validator
+						->decimal('point')
+						->requirePresence('point', 'create')
+						->allowEmptyString('point', false);
 
-        $validator
-            ->scalar('reason')
-            ->maxLength('reason', 255)
-            ->requirePresence('reason', 'create')
-            ->allowEmptyString('reason', false);
+				$validator
+						->scalar('reason')
+						->maxLength('reason', 255)
+						->requirePresence('reason', 'create')
+						->allowEmptyString('reason', false);
 
-        $validator
-            ->dateTime('transaction_date')
-            ->requirePresence('transaction_date', 'create')
-            ->allowEmptyDateTime('transaction_date', false);
+				$validator
+						->dateTime('transaction_date')
+						->requirePresence('transaction_date', 'create')
+						->allowEmptyDateTime('transaction_date', false);
 
-        return $validator;
-    }
+				return $validator;
+		}
 
-    /**
-     * Returns a rules checker object that will be used for validating
-     * application integrity.
-     *
-     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
-     * @return \Cake\ORM\RulesChecker
-     */
-    public function buildRules(RulesChecker $rules)
-    {
-        $rules->add($rules->existsIn(['user_id'], 'Users'));
-        $rules->add($rules->existsIn(['news_id'], 'News'));
-        $rules->add($rules->existsIn(['task_id'], 'Tasks'));
+		/**
+		 * Returns a rules checker object that will be used for validating
+		 * application integrity.
+		 *
+		 * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+		 * @return \Cake\ORM\RulesChecker
+		 */
+		public function buildRules(RulesChecker $rules)
+		{
+				$rules->add($rules->existsIn(['user_id'], 'Users'));
 
-        return $rules;
-    }
+
+				// $rules->add($rules->existsIn(['news_id'], 'News'));
+				// $rules->add($rules->existsIn(['task_id'], 'Tasks'));
+
+				
+
+				$rules->add(
+					function ($entity, $options) use($rules) {
+						if ($entity->task_id) {
+								$rule = $rules->existsIn('task_id', 'Tasks');
+
+								return $rule($entity, $options);
+						}
+
+						return true;
+					},
+					'taskExists',
+					[
+							'errorField' => 'task_id',
+							'message' => 'task_id is not exists in tasks'
+					]
+				);
+
+
+				$rules->add(
+					function ($entity, $options) use($rules) {
+						if ($entity->news_id) {
+								$rule = $rules->existsIn('news_id', 'News');
+
+								return $rule($entity, $options);
+						}
+
+						return true;
+					},
+					'newsExists',
+					[
+							'errorField' => 'news_id',
+							'message' => 'news_id is not exists in news'
+					]
+				);
+
+				return $rules;
+		}
 }

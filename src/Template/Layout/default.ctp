@@ -57,6 +57,7 @@
           (in_array($menuActive, ["Refers.index"])) ? $rfActive = "active": "";
 		      (in_array($menuActive, ["Users.userProfile"])) ? $uActive = "active": "";
           (in_array($menuActive, ["Refers.WithdrawRequests"])) ? $WithdrawActive = "active": "";
+          (in_array($menuActive, ["News.add"])) ? $newsAdd = "active": "";
           ?>
 
 		      <?php if($user_role=='Admin' || $user_role=='Staff'){ ?>
@@ -110,6 +111,12 @@
             <li class="nav-item <?php echo @$tActive; ?>">
               <a href="<?= $this->Url->Build('/Earn-Money')?>" class="nav-link">Earn Money</a>
             </li>
+            <li class="nav-item <?php echo @$arActive; ?>">
+              <a href="<?= $this->url->build('/Airdrops-Feed');?>" class="nav-link">ICO Review</a>
+            </li>
+            <li class="nav-item <?php echo @$newsAdd; ?>">
+              <a href="<?= $this->url->build('/news/add');?>" class="nav-link">Create News</a>
+            </li>
             <li class="nav-item dropdown <?php echo @$mtActive; ?>">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Manage Tasks
@@ -119,9 +126,7 @@
                 <?= $this->Html->link(__('List'), ['controller' => 'tasks', 'action' => 'index'],['class'=>'dropdown-item']) ?>
               </div>
             </li>
-            <li class="nav-item <?php echo @$arActive; ?>">
-              <a href="<?= $this->url->build('/Airdrops-Feed');?>" class="nav-link">ICO Review</a>
-            </li>
+            
             <li class="nav-item <?php echo @$rfActive; ?>">
               <a href="<?= $this->url->build('/Refer-and-Earn');?>" class="nav-link">Refer and Earn</a>
             </li>
