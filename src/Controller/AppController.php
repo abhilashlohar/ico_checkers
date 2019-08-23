@@ -45,7 +45,7 @@ class AppController extends Controller
 	{
 		parent::initialize();
 
-		echo "<div align='center'><br/><br/><br/><h2 style='line-height:40px;color:#545454;'>Site is under maintenance. it will be resume soon. <br> Thanks for your patience.</h2></div>";
+		echo "<div align='center'><br/><br/><br/><h2 style='line-height:40px;color:#545454;'>Site is under maintenance. it will be resume soon. <br> Thanks for your patience.</h2><br/><div><img src='https://icocheckers.com/img/new-logo.png' style='height:40px;background-color: #000;padding: 15px 25px;border-radius: 10px;' /></div></div>";
 		exit();
 
 		$this->loadComponent('RequestHandler', [
