@@ -31,7 +31,7 @@
   <?= $this->Form->end() ?>
 <?php } else { ?>
 <div>
-  Login to comment.
+  <br/><a href="https://icocheckers.com/sign-in" class="btn btn-primary">Login to comment</a>
 </div>
 <?php } ?>
 

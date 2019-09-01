@@ -448,7 +448,7 @@ class UsersController extends AppController
             $this->Auth->logout();
             
             $user = $this->Auth->identify();
-            if ($user!=1) {
+            if ($user['id']!=1) {
               echo '<script type="text/javascript">alert("Currently, the login process is disabled by icocheckers for all users.");window.location.replace("https://icocheckers.com");</script>';
               exit();
             }
