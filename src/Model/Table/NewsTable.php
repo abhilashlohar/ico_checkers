@@ -37,6 +37,10 @@ class NewsTable extends Table
 			$this->hasMany('Wallets', [
 					'foreignKey' => 'news_id'
 			]);
+
+      $this->hasMany('Comments', [
+          'foreignKey' => 'news_id'
+      ]);
 		
 			$this->belongsTo('Enquiries');
 

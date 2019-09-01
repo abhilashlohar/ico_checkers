@@ -88,3 +88,9 @@ li.active > a {
 .error-message{
 	color:red;
 }
+
+
+.ic_box{
+    background-color: #FFF;
+    border: 1px solid #CCC;
+}

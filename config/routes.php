@@ -63,24 +63,36 @@ Router::scope('/', function (RouteBuilder $routes) {
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
     $routes->connect('/news', ['controller' => 'News', 'action' => 'index']);
-    $routes->connect('/News-Updates', ['controller' => 'News', 'action' => 'userNews']);
+    $routes->connect('/News-and-Articles', ['controller' => 'News', 'action' => 'userNews']);
     $routes->connect('/Earn-Money', ['controller' => 'Tasks', 'action' => 'earnMoney']);
     $routes->connect('/Airdrops-Feed', ['controller' => 'Airdrops', 'action' => 'airdropUserView']);
-	$routes->connect('/users/:action/*', ['controller' => 'Users'], ['routeClass' => 'DashedRoute']);
-	$routes->connect('/:controller/:action', [], ['routeClass' => 'DashedRoute']);
-	$routes->connect('/', ['controller' => 'News', 'action' => 'home']);
+  	$routes->connect('/users/:action/*', ['controller' => 'Users'], ['routeClass' => 'DashedRoute']);
+  	$routes->connect('/:controller/:action', [], ['routeClass' => 'DashedRoute']);
+  	$routes->connect('/', ['controller' => 'News', 'action' => 'home']);
     $routes->connect('/sign-in', ['controller' => 'users', 'action' => 'login']);
     $routes->connect('/sign-up', ['controller' => 'users', 'action' => 'registration']);
     $routes->connect('/Refer-and-Earn', ['controller' => 'refers', 'action' => 'index']);
     $routes->connect('/Dashboard', ['controller' => 'users', 'action' => 'dashboard']);
+    $routes->connect('/Menus', ['controller' => 'users', 'action' => 'menus']);
     $routes->connect('/Apply-for-ICO-Review', ['controller' => 'icos', 'action' => 'add']);
     $routes->connect('/ICO-Applications', ['controller' => 'icos', 'action' => 'index']);
-    $routes->connect('/user-view/*', ['controller' => 'News', 'action' => 'userView']);
     $routes->connect('/airdrop-view/*', ['controller' => 'Airdrops', 'action' => 'userView']);
     $routes->connect('/profile', ['controller' => 'Users', 'action' => 'userProfile']);
     $routes->connect('/Users/saveemailuser', ['controller' => 'Users', 'action' => 'saveemailuser']);
-	$routes->connect('/My-Wallet', ['controller' => 'Refers', 'action' => 'wallet']);
+	  $routes->connect('/My-Wallet', ['controller' => 'Refers', 'action' => 'wallet']);
     $routes->connect('/Withdraw-Requests', ['controller' => 'Refers', 'action' => 'withdrawRequests']);
+
+    // $routes->connect('/News-and-Articles/:new_id', ['controller' => 'News', 'action' => 'userView']);
+    $routes->connect(
+        '/News-and-Articles/:new_id/:title',
+        [
+            'controller' => 'News',
+            'action' => 'userView'
+        ],
+        [
+            'pass' => ['new_id','title']
+        ]
+    );
 
 
     /**

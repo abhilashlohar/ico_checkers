@@ -22,13 +22,13 @@ class UsersController extends AppController
 	public function initialize()
     {
         parent::initialize();
-        $passed = ['forgotPassword', 'resetPassword', 'login', 'logout', 'changeProfile', 'changePassword', 'registration','approveemail','dashboard','index','broadcastEmail','userProfile','changeStatus','brodcast','saveemailuser','healthcheck','view','emailSent','userLists','saveMsgStatus','testEmail'];
+        /*$passed = ['forgotPassword', 'resetPassword', 'login', 'logout', 'changeProfile', 'changePassword', 'registration','approveemail','dashboard','index','broadcastEmail','userProfile','changeStatus','brodcast','saveemailuser','healthcheck','view','emailSent','userLists','saveMsgStatus','testEmail','menus'];
         if(!in_array($this->request->getParam('action'), $passed) )
         {
             return $this->redirect(['/Dashboard']);
-        }
+        }*/
         
-        $this->Auth->allow(['forgotPassword', 'resetPassword', 'logout','image','registration','approveemail','saveemailuser','healthcheck','testEmail','emailSent']);
+        $this->Auth->allow(['forgotPassword', 'resetPassword', 'logout','image','registration','approveemail','saveemailuser','healthcheck','testEmail','emailSent','menus']);
         $this->Security->setConfig('unlockedActions', ['registration']);
     }
     /**
@@ -134,6 +134,10 @@ class UsersController extends AppController
     $user = $this->Users->newEntity();
     
     if ($this->request->is('post')) {   
+
+      echo '<script type="text/javascript">alert("Currently, the registration process is disabled by icocheckers for all users.");window.location.replace("https://icocheckers.com");</script>';
+      exit();
+
 			$time = new Time();
       $user = $this->Users->patchEntity($user, $this->request->getData());
 			$user->is_deleted = 	0; 
@@ -444,6 +448,10 @@ class UsersController extends AppController
             $this->Auth->logout();
             
             $user = $this->Auth->identify();
+            if ($user!=1) {
+              echo '<script type="text/javascript">alert("Currently, the login process is disabled by icocheckers for all users.");window.location.replace("https://icocheckers.com");</script>';
+              exit();
+            }
             if($user && $user['is_deleted'] === false)
             {
                 if($user['status'])
@@ -766,6 +774,10 @@ class UsersController extends AppController
         $this->set('activeMenu', ' Users.dashboard');
     }
 	
+
+    public function menus() {
+    }
+
 	public function broadcastEmail()
     {
         $user = $this->Users->newEntity();

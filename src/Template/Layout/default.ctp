@@ -19,6 +19,9 @@
   <!-- <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet"> -->
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
 	<?= $this->Html->css(['custom'],['type' => 'text/css','media' => 'all']) ?>
+
+  <?= $this->fetch('pageLevelCSS')?>
+
 </head>
 <body class="bg-light" data-gr-c-s-loaded="true" style="font-family: 'Nunito', sans-serif;">
 
@@ -45,19 +48,17 @@
           (in_array($menuActive, ["Icos.index"])) ? $IcosActive = "active": "";
           (in_array($menuActive, ["Airdrops.add", "Airdrops.index"])) ? $AirActive = "active": "";
           (in_array($menuActive, ["Users.index"])) ? $usActive = "active": "";
-          (in_array($menuActive, ["Users.brodcast"])) ? $us2Active = "active": "";
-          (in_array($menuActive, ["Enquiries.index"])) ? $inqActive = "active": "";
+          (in_array($menuActive, ["Users.menus"])) ? $mmActive = "active": "";
 		  
 
           /*For User role*/
           (in_array($menuActive, ["News.userNews","News.userView"])) ? $nActive = "active": "";
           (in_array($menuActive, ["Tasks.earnMoney"])) ? $tActive = "active": "";
-          (in_array($menuActive, ["Tasks.add", "Tasks.index"])) ? $mtActive = "active": "";
+          (in_array($menuActive, ["Tasks.add", "Tasks.index", "Tasks.edit", "News.add", "News.index", "News.view", "News.edit"])) ? $cActive = "active": "";
           (in_array($menuActive, ["Airdrops.airdropUserView", "Airdrops.userView"])) ? $arActive = "active": "";
           (in_array($menuActive, ["Refers.index"])) ? $rfActive = "active": "";
-		      (in_array($menuActive, ["Users.userProfile"])) ? $uActive = "active": "";
           (in_array($menuActive, ["Refers.WithdrawRequests"])) ? $WithdrawActive = "active": "";
-          (in_array($menuActive, ["News.add"])) ? $newsAdd = "active": "";
+          (in_array($menuActive, ["Users.userProfile", "Refers.wallet"])) ? $pfActive = "active": "";
           ?>
 
 		      <?php if($user_role=='Admin' || $user_role=='Staff'){ ?>
@@ -66,7 +67,7 @@
             </li>
             <li class="nav-item dropdown <?php echo @$NewsActive; ?>">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                News
+                News and Articles
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <?= $this->Html->link(__('Add'), ['controller' => 'news', 'action' => 'add'],['class'=>'dropdown-item']) ?>
@@ -82,13 +83,7 @@
                 <?= $this->Html->link(__('List'), ['controller' => 'Tasks', 'action' => 'index'],['class'=>'dropdown-item']) ?>
               </div>
             </li>
-            <li class="nav-item <?php echo @$WithdrawActive; ?>">
-              <a href="<?= $this->Url->Build('/Withdraw-Requests')?>" class="nav-link">Withdraw Requests</a>
-            </li>
-			      <li class="nav-item <?php echo @$usActive; ?>">
-              <a href="<?= $this->Url->Build(['controller' => 'Users', 'action' => 'index'])?>" class="nav-link">User</a>
-            </li>
-			      <li class="nav-item dropdown <?php echo @$AirActive; ?>">
+            <li class="nav-item dropdown <?php echo @$AirActive; ?>">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 ICO Review
               </a>
@@ -98,41 +93,35 @@
                 <a href="<?= $this->Url->Build('/ICO-Applications')?>" class="dropdown-item">ICO-Applications</a>
               </div>
             </li>
-			      <li class="nav-item <?php echo @$us2Active; ?>">
-              <a href="<?= $this->Url->Build(['controller' => 'Users', 'action' => 'brodcast'])?>" class="nav-link">Email Brodcast</a>
-            </li> 
-			     <li class="nav-item <?php echo @$inqActive; ?>">
-              <a href="<?= $this->url->build(['controller' => 'Enquiries', 'action' => 'index']);?>" class="nav-link">Inquiries</a>
+            <li class="nav-item <?php echo @$mmActive; ?>">
+              <a href="<?= $this->Url->Build('/Menus')?>" class="nav-link">More Menus</a>
             </li>
 			    <?php } else { ?> <!-- Else statement -->
   			    <li class="nav-item <?php echo @$nActive; ?>">
-              <a href="<?= $this->Url->Build('/News-Updates')?>" class="nav-link">News</a>
+              <a href="<?= $this->Url->Build('/News-and-Articles')?>" class="nav-link">News and Articles</a>
             </li>
             <li class="nav-item <?php echo @$tActive; ?>">
               <a href="<?= $this->Url->Build('/Earn-Money')?>" class="nav-link">Earn Money</a>
             </li>
             <li class="nav-item <?php echo @$arActive; ?>">
               <a href="<?= $this->url->build('/Airdrops-Feed');?>" class="nav-link">ICO Review</a>
-            </li>
-            <li class="nav-item <?php echo @$newsAdd; ?>">
-              <a href="<?= $this->url->build('/news/add');?>" class="nav-link">Create News</a>
-            </li>
-            <li class="nav-item dropdown <?php echo @$mtActive; ?>">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Manage Tasks
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <?= $this->Html->link(__('Add'), ['controller' => 'tasks', 'action' => 'add'],['class'=>'dropdown-item']) ?>
-                <?= $this->Html->link(__('List'), ['controller' => 'tasks', 'action' => 'index'],['class'=>'dropdown-item']) ?>
-              </div>
-            </li>
-            
+            </li>      
             <li class="nav-item <?php echo @$rfActive; ?>">
               <a href="<?= $this->url->build('/Refer-and-Earn');?>" class="nav-link">Refer and Earn</a>
             </li>
+
+            <li class="nav-item dropdown <?php echo @$cActive; ?>">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Create
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <?= $this->Html->link(__('Tasks'), ['controller' => 'tasks', 'action' => 'add'],['class'=>'dropdown-item']) ?>
+                <?= $this->Html->link(__('News and Articles'), ['controller' => 'news', 'action' => 'add'],['class'=>'dropdown-item']) ?>
+              </div>
+            </li>
 			 
             <?php if(@$session_user_name){ ?>
-              <li class="dropdown">
+              <li class="dropdown <?php echo @$pfActive; ?>">
                 <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false"> 
                   <?=  @$session_user_name ?><b class="caret"></b>
                 </a>
@@ -176,6 +165,22 @@
             throttle: 0.5, ads: 0
         });
         _client.start();
+    </script>
+    
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5d63ffb1a9a21c4c"></script>
+
+    <?= $this->fetch('pageLevelJS')?>
+    <?= $this->fetch('scriptBottom')?>
+    <script>
+         
+    var csrf = <?=json_encode($this->request->getParam('_csrfToken'))?>;
+    $.ajaxSetup({
+        headers: { 'X-CSRF-Token': csrf },
+        error: function(){
+        //toastr.error('ajex error');
+    }
+    });
     </script>
 </body>
 </html>

@@ -30,6 +30,7 @@ class News extends Entity
         'title' => true,
         'description' => true,
         'cover_image' => true,
+        'cover_description' => true,
         'status' => true,
         'created_by' => true,
         'created_on' => true,

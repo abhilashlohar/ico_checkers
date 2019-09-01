@@ -6,7 +6,7 @@
 				<table class="table table-striped table-hover table-sm border">
 			  	<thead class="thead-light">
 						<tr>
-						  <th>News title</th>
+						  <th>Title</th>
 						  <?php if ($user_role=="Admin") echo '<th>Submitted by</th>'; ?>
 						  <th>Status</th>
 						  <th>Action</th>

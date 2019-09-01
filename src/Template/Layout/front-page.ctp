@@ -87,7 +87,7 @@
 							<a href="http://icocheckers.com/Apply-for-ICO-Review" class="menu__link">Apply for ICO Review</a>
 						</li>
 						<li class="menu__item">
-							<a href="<?= $this->Url->build('/News-Updates') ?>" class="menu__link">News</a>
+							<a href="<?= $this->Url->build('/News-and-Articles') ?>" class="menu__link">News and Articles</a>
 						</li>
 						<li class="menu__item">
 							<a href="#faq" class="menu__link">FAQ</a>
@@ -149,7 +149,7 @@
 							</li> -->
 							
 							<li class="mob-menu__item">
-							<a href="<?= $this->Url->build('/News-Updates') ?>" class="mob-menu__link">News</a>
+							<a href="<?= $this->Url->build('/News-and-Articles') ?>" class="mob-menu__link">News and Articles</a>
 						</li>
 							<li class="mob-menu__item">
 								<a href="#faq" class="mob-menu__link">FAQ</a>
@@ -294,7 +294,7 @@
 										<li>
 											The earnings are real in the testing phase and will convert after platform live in preference payment method available on the platform, you can also get traffic on your own website/apps/any other tasks from here by creating task.
 										</li>
-										<li>Before invest, on our platform you need to earn MDI Coins on our platform by daily task & creat task for other users and also make news on trending topic and submit ico checkers mail use subject news and also share on your platform if you have, minimum 500-2000 word according to news 100-200 MDI Coins for your news submission .</li>
+										<li>Before invest, on our platform you need to earn MDI Coins on our platform by daily task & creat task for other users and also make News and Articles on trending topic and submit ico checkers mail use subject News and Articles and also share on your platform if you have, minimum 500-2000 word according to News and Articles 100-200 MDI Coins for your News and Articles submission .</li>
 										<li>Every task given by our platform or other users approve in maximum 24 hours and MDI Coins reflect in user account in 24-hour automatically after user complete task</li>
 									</ul>
 								</div>
@@ -392,10 +392,10 @@
 									<img src="<?php echo $library; ?>img/cases-icon-2.png" alt="" class="cases__item-icon">
 									<div class="cases__item-content">
 										<div class="cases__item-title">
-											Worldwide Trending News
+											Worldwide Trending News and Articles
 										</div>
 										<p class="cases__item-text">
-											In news section every user who posts news on our web. Will review by our team and give Him real money if news accepted and every user who read our news insured by our platform
+											In News and Articles section every user who posts News and Articles on our web. Will review by our team and give Him real money if News and Articles accepted and every user who read our News and Articles insured by our platform
 										</p>
 									</div>
 								</div>
@@ -535,7 +535,7 @@
 											</div>
 											<ul class="roadmap">
 												<li> Sign up bonus 1st round</li>
-												<li> Trending news live</li>
+												<li> Trending News and Articles live</li>
 												<li> Working task to task testing</li>
 												<li> Community building up to 200 million worldwide  target in next  8 month</li>
 												<li> Team building</li>
@@ -754,7 +754,7 @@
 								<br>
 								<div style="font-size: 24px;">After sign in Join us on all social media platforms and get more MDI Coins</div>
 								<br>
-								<div style="font-size: 24px;">News read 10 MDI Coins</div>
+								<div style="font-size: 24px;">News and Articles read 10 MDI Coins</div>
 								<p>After 3 minutes of page load</p>
 								<br>
 								<div style="font-size: 24px;">Task completion</div>
@@ -1381,7 +1381,7 @@
 										<li>
 											<a>WHAT IS FREE INSURANCE PLATFORM?</a>
 											<p>
-												Ico checkers provide free insurance facility to our qualify users who visit our platform on Daily  basis , every year 2 reffral minimum ,Read minimum 5 news  and complete monthly minimum visits, MINIMUM VISITS ARE 15 DAYS Out of 30 days AND 10-20 MINUTES SPEND IN EVERY VISIT ON OUR WEBSITE ALL CLAIMS.
+												Ico checkers provide free insurance facility to our qualify users who visit our platform on Daily  basis , every year 2 reffral minimum ,Read minimum 5 News and Articles  and complete monthly minimum visits, MINIMUM VISITS ARE 15 DAYS Out of 30 days AND 10-20 MINUTES SPEND IN EVERY VISIT ON OUR WEBSITE ALL CLAIMS.
 											</p>
 										</li>
 										<li>
@@ -1415,9 +1415,9 @@
 											</p>
 										</li>
 										<li>
-											<a>WHAT IS NEWS  SECTION AND HOW IT IS BETTER THAN OTHER WEBSITE?</a>
+											<a>WHAT IS News and Articles  SECTION AND HOW IT IS BETTER THAN OTHER WEBSITE?</a>
 											<p>
-												In news section every user who posts news on our web. Will review by our team and give Him real money if news accepted and every user who read our news insured by our platform.
+												In News and Articles section every user who posts News and Articles on our web. Will review by our team and give Him real money if News and Articles accepted and every user who read our News and Articles insured by our platform.
 											</p>
 										</li>
 										<li>
@@ -1429,7 +1429,7 @@
 										<li>
 											<a>WHAT IS ICO CHECKERS.COM?</a>
 											<p>
-												Ico Checkers is Ico checking solution & review platform ,DI NETWORK, advertisement, News, Free insurance, crypto hunter & referral and Online service platform based on smart contract our platform is best Upcoming secure ico, for you tubers, bloggers, crypto hunters, Ico reviewers, Crypto investors, crypto community, online service users and online social users.
+												Ico Checkers is Ico checking solution & review platform ,DI NETWORK, advertisement, News and Articles, Free insurance, crypto hunter & referral and Online service platform based on smart contract our platform is best Upcoming secure ico, for you tubers, bloggers, crypto hunters, Ico reviewers, Crypto investors, crypto community, online service users and online social users.
 											</p>
 										</li>
 									</ul>
@@ -1445,7 +1445,7 @@
 							<div class="col">
 								<div class="section-header section-header--center section-header--small-margin">
 									<h4>In the world</h4>
-									<h2>Latest News</h2>
+									<h2>Latest News and Articles</h2>
 								</div>
 							</div>
 						</div>
@@ -1541,7 +1541,7 @@
 
 								
 									<?php
-									$reason = [''=>'Reason','Users'=>'Users','Partnership'=>'Partnership','Investment'=>'Investment','Purchase Points'=>'Purchase Points','Proof of DI'=>'Proof of DI','Others'=>'Others'];
+									$reason = [''=>'Reason','Users'=>'Users','Partnership'=>'Partnership','Investment'=>'Investment','Purchase MDI Coins'=>'Purchase MDI Coins','Proof of DI'=>'Proof of DI','Others'=>'Others'];
 									echo $this->Form->select('reason', $reason, ['class'=>'custom_select', 'required'=>'required']); 
 									?>
 									

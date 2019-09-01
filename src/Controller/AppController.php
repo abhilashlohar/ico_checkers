@@ -45,8 +45,8 @@ class AppController extends Controller
 	{
 		parent::initialize();
 
-		echo "<div align='center'><br/><br/><br/><h2 style='line-height:40px;color:#545454;'>Site is under maintenance. it will be resume soon. <br> Thanks for your patience.</h2><br/><div><img src='https://icocheckers.com/img/new-logo.png' style='height:40px;background-color: #000;padding: 15px 25px;border-radius: 10px;' /></div></div>";
-		exit();
+		// echo "<div align='center'><br/><br/><br/><h2 style='line-height:40px;color:#545454;'>Site is under maintenance. it will be resume soon. <br> Thanks for your patience.</h2><br/><div><img src='https://icocheckers.com/img/new-logo.png' style='height:40px;background-color: #000;padding: 15px 25px;border-radius: 10px;' /></div></div>";
+		// exit();
 
 		$this->loadComponent('RequestHandler', [
 			'enableBeforeRedirect' => false,
@@ -114,6 +114,7 @@ class AppController extends Controller
 				'Icos.add',
 				'Icos.index',
 				'Users.dashboard',
+        'Users.menus',
 				'Users',
 				'Airdrops.index',
 				'News.home', 
@@ -125,7 +126,9 @@ class AppController extends Controller
 				'Users.brodcast',
 				'Users.view',
 				'Users.userLists',
-				'Enquiries.index'
+				'Enquiries.index',
+        'News.saveNewsImage',
+        'Comments.index',
 			];
 
 			if(!in_array($this->request->getParam('controller').'.'.$this->request->getParam('action'), $admin_controllers))

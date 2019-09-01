@@ -47,6 +47,10 @@ class EnquiriesController extends AppController
 		$this->set(compact('inquiries','name','type','email','reason'));
 	}
     public function callback(){
+
+      echo '<script type="text/javascript">alert("Currently, the get-in-touch process is disabled by icocheckers for all users.");window.location.replace("https://icocheckers.com");</script>';
+      exit();
+
 		//Contact Inquiry
         $this->autoRender = false;
         $enquiry = $this->Enquiries->newEntity();

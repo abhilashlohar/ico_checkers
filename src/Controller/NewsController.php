@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Controller\AppController;
 use Cake\Filesystem\File;
 use Cake\I18n\Time;
+
 /**
  * News Controller
  *
@@ -53,7 +54,7 @@ class NewsController extends AppController
     ];
 
 		$this->paginate = [
-      'fields' => ['id', 'title', 'cover_image', 'description', 'created_on'],
+      'fields' => ['id', 'title', 'cover_image', 'description', 'cover_description', 'created_on'],
       'conditions' => $conditions,
       'order' => ['News.id' => 'DESC'],
 			'limit' => 10
@@ -84,9 +85,19 @@ class NewsController extends AppController
     $news = $this->News->get($id, [
         'contain' => []
     ]);
-		
+
+    $comments = $this->News->Comments->find()
+                ->where(['Comments.news_id'=>$id,'Comments.status'=>'Approved'])
+                ->order(['Comments.id'=>'DESC'])
+                ->contain(['Users']);
+
+    $comment = $this->News->Comments->newEntity();
+
     $this->set('news', $news);
+    $this->set('comment', $comment);
+    $this->set('news_id', $id);
 		$this->set('activeMenu', 'News.view','user_id');
+    $this->set(compact('comments'));
   }
 
   /**
@@ -275,4 +286,34 @@ class NewsController extends AppController
 			
 		}
 	}
+
+  public function saveNewsImage() {
+    $this->request->allowMethod(['post']);
+    echo "hello"; exit();
+    // $this->Security->validatePost = false;
+    // if ($this->request->is('post')) {
+    //   pr($this->request->getData());
+    // }
+    //   exit();
+    // if ($this->request->is('post')) {
+    // }
+  }
+
+  public function saveComment() {
+    $user_id = $this->Auth->user('id');
+
+    $this->request->allowMethod(['post']);
+    if ($this->request->is('post')) {
+      $comment = $this->News->Comments->newEntity();
+      $comment->user_id = $user_id;
+      $comment = $this->News->Comments->patchEntity($comment, $this->request->getData());
+      
+      if ($this->News->Comments->save($comment)) {
+        $this->Flash->success(__('Your comment has been sent for approval.'));
+        return $this->redirect('/News-and-Articles');
+      } else {
+        $this->Flash->error(__('Your comment could not be saved. Please, try again.'));
+      }
+    }
+  }
 }

@@ -57,8 +57,10 @@ class TasksController extends AppController
      *
      * @return \Cake\Http\Response|null Redirects on successful add, renders view otherwise.
      */
-    public function add()
-    {
+    public function add() {
+      $user_id = $this->Auth->user('id');
+      $user_role  = $this->Auth->user('role');
+
         $task = $this->Tasks->newEntity();
         if ($this->request->is('post')) {
             $task = $this->Tasks->patchEntity($task, $this->request->getData());
@@ -81,7 +83,7 @@ class TasksController extends AppController
 			$day_option[] = ['value'=>$i,'text'=>$day];
 		}
 		
-        $this->set(compact('task','day_option'));
+        $this->set(compact('task','day_option', 'user_role'));
 		$this->set('activeMenu', 'Tasks.add');
     }
 	
