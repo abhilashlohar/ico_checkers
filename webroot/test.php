@@ -2,7 +2,7 @@
 $img = explode(".", $_FILES["image"]["name"]);
 $img_name = gen_uuid().'.'.$img[1];
 if (move_uploaded_file($_FILES['image']['tmp_name'], __DIR__.'/news-uploads/'.  $img_name)) {
-    echo "http://localhost/ico_checkers/webroot/news-uploads/".$img_name;
+    echo "https://icocheckers.com/webroot/news-uploads/".$img_name;
 } else {
    echo false;
 }

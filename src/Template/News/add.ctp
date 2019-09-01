@@ -52,12 +52,10 @@
 	</div>
 </div>
 
-<?php echo $this->Html->css('http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css', ['block' => 'pageLevelJS']); ?>
-<?php echo $this->Html->script('http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js', ['block' => 'pageLevelJS']); ?>
+<?php echo $this->Html->css('https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css', ['block' => 'pageLevelJS']); ?>
+<?php echo $this->Html->script('https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js', ['block' => 'pageLevelJS']); ?>
 
 <?php
-$token = $this->request->getParam('_csrfToken');
-setcookie("csrfToken", $token, time() + (86400 * 30), "/");
 $JAVASCRIPT = '
 $(document).ready(function() {
   $("#summernote").summernote({
@@ -81,20 +79,19 @@ $(document).ready(function() {
           return;
         }   
 
+        
         data = new FormData();
         data.append("image", files[0]);
         $.ajax({
             data: data,
             enctype: "multipart/form-data",
-            headers: {
-                "X-CSRF-TOKEN":"'.$token.'",
-            },
             type: "POST",
             url: "https://icocheckers.com/test.php",
             cache: false,
             contentType: false,
             processData: false,
             success: function(imagesURL) {
+              console.log(imagesURL);
               var imgNode = $("<img>").attr("src",imagesURL);
               $("#summernote").summernote("insertNode", imgNode[0]);
             }
