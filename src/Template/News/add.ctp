@@ -90,7 +90,7 @@ $(document).ready(function() {
                 "X-CSRF-TOKEN":"'.$token.'",
             },
             type: "POST",
-            url: "http://localhost/ico_checkers/test.php",
+            url: "https://icocheckers.com/test.php",
             cache: false,
             contentType: false,
             processData: false,
