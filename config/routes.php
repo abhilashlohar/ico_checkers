@@ -79,8 +79,8 @@ Router::scope('/', function (RouteBuilder $routes) {
     $routes->connect('/airdrop-view/*', ['controller' => 'Airdrops', 'action' => 'userView']);
     $routes->connect('/profile', ['controller' => 'Users', 'action' => 'userProfile']);
     $routes->connect('/Users/saveemailuser', ['controller' => 'Users', 'action' => 'saveemailuser']);
-	  $routes->connect('/My-Wallet', ['controller' => 'Refers', 'action' => 'wallet']);
-    $routes->connect('/Withdraw-Requests', ['controller' => 'Refers', 'action' => 'withdrawRequests']);
+	  $routes->connect('/My-Wallet', ['controller' => 'MdiCoins', 'action' => 'add']);
+    $routes->connect('/Withdraw-Requests', ['controller' => 'MdiCoins', 'action' => 'index']);
 
     // $routes->connect('/News-and-Articles/:new_id', ['controller' => 'News', 'action' => 'userView']);
     $routes->connect(

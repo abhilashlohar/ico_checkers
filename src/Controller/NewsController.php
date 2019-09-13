@@ -263,29 +263,6 @@ class NewsController extends AppController
 		$this->set(compact('role','inquiry'));
     }
 
-	public function savePoint()
-	{
-		$id = $this->request->getQuery('user_id');
-		$news_id = $this->request->getQuery('news_id');
-		if(!empty($id) && !empty($news_id))
-		{
-			$checkPoints = $this->News->Wallets->find()
-			                                   ->where(['Wallets.user_id'=>$id,'Wallets.news_id'=>$news_id])->first();
-											   
-			if(empty($checkPoints))
-			{
-				
-				$timeCurrent = new Time();
-				$wallet = $this->News->Wallets->newEntity();
-				$wallet->user_id            = $id;
-				$wallet->news_id            = $news_id;
-				$wallet->point              = 10;
-				$wallet->transaction_date   = $timeCurrent->format('Y-m-d H:i:s');
-				$this->News->Wallets->save($wallet);
-			}
-			
-		}
-	}
 
   public function saveNewsImage() {
     $this->request->allowMethod(['post']);

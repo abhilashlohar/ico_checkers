@@ -34,7 +34,7 @@ class NewsCell extends Cell
     public function display()
     {
         $this->loadModel('News');
-        $news = $this->News->find()->where(['is_deleted'=>false, 'is_approved'=>'yes'])->limit(4);
+        $news = $this->News->find()->where(['is_deleted'=>false, 'status'=>'Approved'])->limit(4);
         $this->set('news', $news);
     }
 }

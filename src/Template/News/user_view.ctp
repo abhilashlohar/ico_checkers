@@ -48,35 +48,5 @@
 </div>
 
 
-            
-<?php echo $this->fetch('postLink'); ?>
-<?=
-$this->Html->scriptBlock(" 
-var id = ".@$user_id."; 
-var news_id = ".@$news->id."; 
-setInterval(function() { 
-	$.ajax({
-        method: 'GET',
-        url: '".$this->Url->build(['controller' => 'News','action' => 'savePoint'])."',
-        dataType: 'html',
-        data:{
-				user_id:id,
-				news_id:news_id,
-			},
-        cache: false,
-        beforeSend: function() { 
-            //$('#ajax-indicator').fadeIn();
-			
-        }
-    }).done(function(data) { 
-       
-       // $('.requestform_error').html(data);
-        
-    }).always(function() {
-       
-    });
-	return false;
-}, 1000 * 60 * 3);
-	 
-", ['block' => true]); ?>
+
 

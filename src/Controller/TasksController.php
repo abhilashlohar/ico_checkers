@@ -209,29 +209,33 @@ class TasksController extends AppController
 		$this->set('activeMenu', 'Tasks.proofApproval');
 	}
 	
-	public function approve($id = null)
-    {
-        $this->request->allowMethod(['post']);
-        $proof = $this->Tasks->TaskProofs->get($id,[
-		'contain'=>['Tasks']
-		]);
-        $proof->is_approved = 1;
-        if ($this->Tasks->TaskProofs->save($proof)) {
-			$this->loadModel('Wallets');
-			$timeCurrent = new Time();
-			$wallet = $this->Wallets->newEntity();
-			$wallet->user_id          = $proof->user_id;
-			$wallet->point            = $proof->task->minimum_point;
-			$wallet->transaction_date = $timeCurrent->format('Y-m-d H:i:s');
-			$wallet->task_id          = $proof->task_id;
-			$this->Wallets->save($wallet);
-          $this->Flash->success(__('The proof has been approved.'));
-        } else {
-          $this->Flash->error(__('The proof could not be approved. Please, try again.'));
-        }
+	public function approve($id = null) {
+      $this->request->allowMethod(['post']);
 
-        return $this->redirect($this->referer());
-		
+      $proof = $this->Tasks->TaskProofs->get($id,[
+        'contain'=>['Tasks']
+      ]);
+
+      $proof->is_approved = 1;
+
+      if ($this->Tasks->TaskProofs->save($proof)) {
+        // Wallet - Task
+        $meta_description = json_encode(['reason'=>'On completion of a task.']);
+        $this->manageWallet(
+          $proof->user_id, 
+          $proof->task->minimum_point, 
+          'Task', 
+          $proof->task_id, 
+          null, 
+          $meta_description
+        );
+
+        $this->Flash->success(__('The proof has been approved.'));
+      } else {
+        $this->Flash->error(__('The proof could not be approved. Please, try again.'));
+      }
+
+      return $this->redirect($this->referer());
     }
     public function edit($id = null)
     {

@@ -45,8 +45,8 @@ class AppController extends Controller
 	{
 		parent::initialize();
 
-		echo "<div align='center'><br/><br/><br/><h2 style='line-height:40px;color:#545454;'>Site is under maintenance. it will be resume soon. <br> Thanks for your patience.</h2><br/><div><img src='https://icocheckers.com/img/new-logo.png' style='height:40px;background-color: #000;padding: 15px 25px;border-radius: 10px;' /></div></div>";
-		exit();
+		// echo "<div align='center'><br/><br/><br/><h2 style='line-height:40px;color:#545454;'>Site is under maintenance. it will be resume soon. <br> Thanks for your patience.</h2><br/><div><img src='https://icocheckers.com/img/new-logo.png' style='height:40px;background-color: #000;padding: 15px 25px;border-radius: 10px;' /></div></div>";
+		// exit();
 
 		$this->loadComponent('RequestHandler', [
 			'enableBeforeRedirect' => false,
@@ -89,7 +89,14 @@ class AppController extends Controller
 		$imageRoot = static::IMAGE_ROOT;  
 		$this->set(compact('imageRoot'));
 
-		
+
+    # START: Core variables
+		$MDICoins = [
+      'sign_up' => 50,
+      'refer' => 20,
+    ];
+    $this->set(compact('MDICoins'));
+    # END: Core variables
 	}
 	
 	public function beforeRender(Event $event)
@@ -129,6 +136,10 @@ class AppController extends Controller
 				'Enquiries.index',
         'News.saveNewsImage',
         'Comments.index',
+        'MdiCoins.index',
+        'MdiCoins.addCoins',
+        'News.userView',
+        'News.userNews',
 			];
 
 			if(!in_array($this->request->getParam('controller').'.'.$this->request->getParam('action'), $admin_controllers))
@@ -162,6 +173,7 @@ class AppController extends Controller
 				'News.add',
 				'News.index',
 				'News.edit',
+        'MdiCoins.add',
 			];
 			
 			if(!in_array($this->request->getParam('controller').'.'.$this->request->getParam('action'), $user_actions))
@@ -232,27 +244,54 @@ class AppController extends Controller
 
 
 	# To save in wallet
-	public function updateWallet($user_id, $point, $reason='', $date, $news_id='', $task_id='') {
-		$this->loadModel('Wallets');
-
-		$wallet = $this->Wallets->newEntity();
-		$wallet->user_id 						= $user_id;
-		$wallet->point 							= $point;
-		$wallet->reason 						= $reason;
-		$wallet->transaction_date 	= $date;
-		$wallet->news_id 						= $news_id;
-		$wallet->task_id 						= $task_id;
-		if ($this->Wallets->save($wallet)) {
+	public function manageWallet($user_id, $coins, $module, $task_id=NULL, $referred_user=NULL, $meta_description) {
+		$this->loadModel('MdiCoins');
+		$MdiCoin = $this->MdiCoins->newEntity();
+		$MdiCoin->user_id 					= $user_id;
+		$MdiCoin->coins 						= $coins;
+		$MdiCoin->module 						= $module;
+		$MdiCoin->task_id 	        = $task_id;
+    $MdiCoin->referred_user     = $referred_user;
+		$MdiCoin->meta_description 	= $meta_description;
+    $MdiCoin->date_created      = date('Y-m-d H:i:s');
+    $MdiCoin->date_modified     = date('Y-m-d H:i:s');
+		if ($this->MdiCoins->save($MdiCoin)) {
 			return true;
 		} else {
-			pr($wallet);
 			return false;
 		}
 	}
 
-	public function deleteFromWallet($user_id, $reason='', $news_id) {
-		$this->loadModel('Wallets');
-		$this->Wallets->deleteAll(['user_id' => $user_id, 'reason' => $reason, 'news_id' => $news_id]);
-		return true;
-	}
+  public function walletBalance($user_id) {
+    #------Modules-------
+    # Refer-and-Earn
+    # Sign-up
+    # Task
+    # Manually-added
+
+    # Manually-removed
+    # Approved-Withdraw-Request
+    # Pending-Withdraw-Request
+
+
+    # Cancelled-Withdraw-Request
+    # Rejected-Withdraw-Request
+    #-------------------------
+
+    $this->loadModel('MdiCoins');
+    $coinRows = $this->MdiCoins->find()->where(['user_id'=>$user_id]);
+
+    $walletBalance = 0;
+    foreach ($coinRows as $coinRow) {
+      if (in_array($coinRow->module, ['Refer-and-Earn','Sign-up','Task','Manually-added'])) {
+        $walletBalance += $coinRow->coins;
+      }
+
+      if (in_array($coinRow->module, ['Manually-removed','Approved-Withdraw-Request','Pending-Withdraw-Request'])) {
+        $walletBalance -= $coinRow->coins;
+      }
+    }
+
+    return $walletBalance;
+  }
 }

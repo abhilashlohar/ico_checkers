@@ -1,15 +1,12 @@
-<div class="container">
-  <h2><?= $user->name ?></h2>
-           
+<div class="container mt-5">
+  <h2 class="float-left">
+  <?= $this->Html->Image(($user->photo!='')?str_replace('\\','/',$user->photo):'//placehold.it/100',['class'=>'avatar img-circle','alt'=>$user->name,'width'=>'70','height'=>'70']);?>
+  <?= $user->name ?>
+  </h2>
+
+  <?= $this->Html->link('Add/Remove Coins', ['controller' => 'MdiCoins', 'action' => 'addCoins', $user->id],['class'=>'btn btn-primary float-right']) ?>
+
   <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Photo</th>
-        <td>
-		 <?= $this->Html->Image(($user->photo!='')?str_replace('\\','/',$user->photo):'//placehold.it/100',['class'=>'avatar img-circle','alt'=>$user->name,'width'=>'125','height'=>'125']);?>
-		</td>
-      </tr>
-    </thead>
     <tbody>
 	  <tr>
         <th>Date of Birth</th>

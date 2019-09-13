@@ -17,8 +17,8 @@
                 <td><?= $comment->has('news') ? $this->Html->link($comment->news->title, ['controller' => 'News', 'action' => 'view', $comment->news->id]) : '' ?></td>
                 <td><?= $comment->has('user') ? $this->Html->link($comment->user->name, ['controller' => 'Users', 'action' => 'view', $comment->user->id]) : '' ?></td>
                 <td class="actions">
-                    <?= $this->Form->postLink(__('Approve'), ['action' => 'approve', $comment->id], ['confirm' => __('Are you sure you want to approve the comment?'),'class'=>'btn btn-primary btn-sm']) ?>
-                    <?= $this->Form->postLink(__('Reject'), ['action' => 'reject', $comment->id], ['confirm' => __('Are you sure you want to reject the comment?'),'class'=>'btn btn-primary btn-sm']) ?>
+                    <?= $this->Form->postLink(__('Approve'), ['action' => 'approve', $comment->id], ['confirm' => __('Are you sure you want to approve the comment?'),'class'=>'btn btn-success btn-sm']) ?>
+                    <?= $this->Form->postLink(__('Reject'), ['action' => 'reject', $comment->id], ['confirm' => __('Are you sure you want to reject the comment?'),'class'=>'btn btn-danger btn-sm']) ?>
                 </td>
               </tr>
               <tr>
