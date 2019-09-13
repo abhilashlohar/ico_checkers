@@ -1,4 +1,4 @@
-<?php if(count($news)>0){ ?>
+<?php if($news){ ?>
 <div class="row">
 	<div class="col">
 
