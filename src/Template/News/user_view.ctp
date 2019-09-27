@@ -10,7 +10,7 @@
 <div class="addthis_inline_share_toolbox"></div>
 
 <?php if ($user_id) { ?>
-  <?= $this->Form->create($comment,['action'=>'saveComment']) ?>
+  <?= $this->Form->create($comment,['url'=>'saveComment']) ?>
   <div class="row my-3" style="background-color: #efefef; border-radius: 5px; padding: 5px 10px;">
     <?php echo $this->Form->control('news_id',['value'=>$news_id,'type'=>'hidden']); ?>
     <div class="col-md-9  mb-2">
